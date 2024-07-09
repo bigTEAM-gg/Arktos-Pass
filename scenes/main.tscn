@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bec1m0lpon6nt"]
+
+[ext_resource type="PackedScene" uid="uid://wbg5d8kgacec" path="res://scenes/forest.tscn" id="1_6kt45"]
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_58dsf"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_58dsf")
+
+[node name="Forest" parent="." instance=ExtResource("1_6kt45")]
+
+[connection signal="hunt_animal" from="Forest" to="." method="_on_forest_hunt_animal"]

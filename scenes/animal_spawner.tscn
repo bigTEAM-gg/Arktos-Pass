@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cou54xmd8gks6"]
+
+[ext_resource type="Script" path="res://scripts/AnimalSpawner.gd" id="1_ch2fb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l57ri"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5miou"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="AnimalSpawner" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0460532, 0.270218, -4.99008)
+script = ExtResource("1_ch2fb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_l57ri")
+
+[node name="DebugSphere" type="CSGSphere3D" parent="."]
+radius = 0.1
+material = SubResource("StandardMaterial3D_5miou")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

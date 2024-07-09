@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4j5igy0g4xwt"]
+
+[ext_resource type="Script" path="res://scripts/AnimalHunted.gd" id="1_wqy5f"]
+[ext_resource type="Texture2D" uid="uid://c64s01mo5iri1" path="res://assets/textures/squirrel.png" id="2_rhdfk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1x20"]
+size = Vector2(187, 196)
+
+[node name="AnimalHunted" type="Area2D"]
+script = ExtResource("1_wqy5f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8.5, 0)
+shape = SubResource("RectangleShape2D_k1x20")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_rhdfk")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

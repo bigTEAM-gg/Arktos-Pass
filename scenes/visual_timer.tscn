@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://864ythblaujf"]
+
+[ext_resource type="Script" path="res://scripts/VisualTimer.gd" id="1_de4ge"]
+[ext_resource type="Texture2D" uid="uid://cwqkwvlopqaf2" path="res://assets/textures/white.png" id="3_qg3ke"]
+
+[node name="VisualTimer" type="Node3D"]
+script = ExtResource("1_de4ge")
+
+[node name="ExpirationTimer" type="Timer" parent="."]
+
+[node name="TimerDisplay" type="Node3D" parent="."]
+
+[node name="Current" type="Sprite3D" parent="TimerDisplay"]
+transform = Transform3D(65.815, 0, 0, 0, 4.64, 0, 0, 0, 1, 0, 0, 0)
+sorting_offset = 1.0
+modulate = Color(1, 0, 0, 1)
+billboard = 2
+texture = ExtResource("3_qg3ke")
+
+[node name="Total" type="Sprite3D" parent="TimerDisplay"]
+transform = Transform3D(65.815, 0, 0, 0, 4.64, 0, 0, 0, 1, 0, 0, 0)
+billboard = 2
+texture = ExtResource("3_qg3ke")
+
+[connection signal="timeout" from="ExpirationTimer" to="." method="_on_expiration_timer_timeout"]

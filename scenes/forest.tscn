@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://wbg5d8kgacec"]
+
+[ext_resource type="Texture2D" uid="uid://dxxald5ada4tu" path="res://assets/textures/checker-map_tho.png" id="1_28hlc"]
+[ext_resource type="Script" path="res://scripts/Forest.gd" id="1_i1d7t"]
+[ext_resource type="PackedScene" uid="uid://b7qmc6himhisa" path="res://scenes/player.tscn" id="2_6kfx6"]
+[ext_resource type="PackedScene" uid="uid://cou54xmd8gks6" path="res://scenes/animal_spawner.tscn" id="3_2thmc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ps8o"]
+albedo_color = Color(0.156863, 0.168627, 0.156863, 1)
+albedo_texture = ExtResource("1_28hlc")
+metallic_specular = 0.0
+uv1_scale = Vector3(-1, 1, 1)
+
+[node name="Forest" type="Node3D"]
+script = ExtResource("1_i1d7t")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+light_energy = 10.0
+shadow_enabled = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+material_override = SubResource("StandardMaterial3D_3ps8o")
+use_collision = true
+size = Vector3(50, 0.1, 50)
+
+[node name="Player" parent="." instance=ExtResource("2_6kfx6")]
+
+[node name="AnimalSpawner" parent="." instance=ExtResource("3_2thmc")]

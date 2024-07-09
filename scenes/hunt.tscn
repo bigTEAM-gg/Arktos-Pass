@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dg50nk7pn8p7"]
+
+[ext_resource type="Script" path="res://scripts/Hunt.gd" id="1_dcnpr"]
+[ext_resource type="Texture2D" uid="uid://c0ag4o7dfew36" path="res://assets/textures/forest.png" id="1_fyxfx"]
+[ext_resource type="Script" path="res://scripts/Crosshair.gd" id="3_fbhu4"]
+
+[node name="Hunt" type="Node2D"]
+script = ExtResource("1_dcnpr")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_fyxfx")
+centered = false
+
+[node name="Crosshair" type="Node2D" parent="."]
+z_index = 1
+script = ExtResource("3_fbhu4")
+
+[node name="HorizontalLine" type="Line2D" parent="Crosshair"]
+points = PackedVector2Array(0, 100, 1000, 100)
+width = 5.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="VerticalLine" type="Line2D" parent="Crosshair"]
+points = PackedVector2Array(100, 0, 100, 1000)
+width = 5.0
+default_color = Color(1, 0, 0, 1)

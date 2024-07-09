@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://mn4pvgoejndg"]
+
+[ext_resource type="Texture2D" uid="uid://ll5xdchy37y" path="res://assets/textures/chevron.png" id="1_2dnal"]
+[ext_resource type="Script" path="res://scripts/AnimalMarker.gd" id="1_fkfo2"]
+[ext_resource type="PackedScene" uid="uid://864ythblaujf" path="res://scenes/visual_timer.tscn" id="3_mgnv8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cq8rb"]
+transparency = 1
+albedo_texture = ExtResource("1_2dnal")
+texture_filter = 1
+disable_receive_shadows = true
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1b010"]
+radius = 0.327852
+
+[node name="AnimalMarker" type="Node3D"]
+script = ExtResource("1_fkfo2")
+
+[node name="Marker" type="Sprite3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 4, 0)
+material_override = SubResource("StandardMaterial3D_cq8rb")
+texture = ExtResource("1_2dnal")
+
+[node name="ClickArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClickArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.05507, 0)
+shape = SubResource("SphereShape3D_1b010")
+
+[node name="VisualTimer" parent="." instance=ExtResource("3_mgnv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.57268, 0)
+scale_x = 66.0
+scale_y = 5.0
+
+[connection signal="input_event" from="ClickArea" to="." method="_on_click_area_input_event"]
+[connection signal="timer_done" from="VisualTimer" to="." method="_on_visual_timer_timer_done"]

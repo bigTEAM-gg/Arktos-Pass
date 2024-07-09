@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg50nk7pn8p7"]
+
+[ext_resource type="Script" path="res://scenes/hunt.gd" id="1_dcnpr"]
+[ext_resource type="Texture2D" uid="uid://c0ag4o7dfew36" path="res://assets/textures/forest.png" id="1_fyxfx"]
+
+[node name="Hunt" type="Node2D"]
+script = ExtResource("1_dcnpr")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_fyxfx")
