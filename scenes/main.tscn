@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bec1m0lpon6nt"]
+[gd_scene load_steps=4 format=3 uid="uid://bec1m0lpon6nt"]
 
 [ext_resource type="PackedScene" uid="uid://wbg5d8kgacec" path="res://scenes/forest.tscn" id="1_6kt45"]
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_58dsf"]
+[ext_resource type="PackedScene" uid="uid://dtfqbg2in6vo6" path="res://scenes/models-scenes/tree_block.tscn" id="3_q3o01"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_58dsf")
 
 [node name="Forest" parent="." instance=ExtResource("1_6kt45")]
+
+[node name="tree_block" parent="." instance=ExtResource("3_q3o01")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.28767, 0.0499992, -3.98016)
 
 [connection signal="hunt_animal" from="Forest" to="." method="_on_forest_hunt_animal"]
