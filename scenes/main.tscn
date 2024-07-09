@@ -1,23 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bec1m0lpon6nt"]
+[gd_scene load_steps=3 format=3 uid="uid://bec1m0lpon6nt"]
 
 [ext_resource type="PackedScene" uid="uid://wbg5d8kgacec" path="res://scenes/forest.tscn" id="1_6kt45"]
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_58dsf"]
-[ext_resource type="PackedScene" uid="uid://dtfqbg2in6vo6" path="res://scenes/models-scenes/tree_block.tscn" id="3_q3o01"]
-[ext_resource type="PackedScene" uid="uid://bry0febas86xs" path="res://scenes/models-scenes/bush_block.tscn" id="4_tc4fq"]
-[ext_resource type="PackedScene" uid="uid://cqf6x7wc6858t" path="res://scenes/models-scenes/rock_block.tscn" id="5_a8pp7"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_58dsf")
 
 [node name="Forest" parent="." instance=ExtResource("1_6kt45")]
-
-[node name="tree_block" parent="." instance=ExtResource("3_q3o01")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.899481, 0.0500002, 4.51676)
-
-[node name="bush" parent="." instance=ExtResource("4_tc4fq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.87705, 0.0500002, 2.70593)
-
-[node name="rock" parent="." instance=ExtResource("5_a8pp7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.31103, 0.0500007, -0.358726)
 
 [connection signal="hunt_animal" from="Forest" to="." method="_on_forest_hunt_animal"]

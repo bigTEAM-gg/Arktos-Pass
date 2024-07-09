@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://wbg5d8kgacec"]
+[gd_scene load_steps=10 format=3 uid="uid://wbg5d8kgacec"]
 
 [ext_resource type="Texture2D" uid="uid://dxxald5ada4tu" path="res://assets/textures/checker-map_tho.png" id="1_28hlc"]
 [ext_resource type="Script" path="res://scripts/Forest.gd" id="1_i1d7t"]
 [ext_resource type="PackedScene" uid="uid://b7qmc6himhisa" path="res://scenes/player.tscn" id="2_6kfx6"]
 [ext_resource type="PackedScene" uid="uid://cou54xmd8gks6" path="res://scenes/animal_spawner.tscn" id="3_2thmc"]
+[ext_resource type="PackedScene" uid="uid://bry0febas86xs" path="res://scenes/models-scenes/bush_block.tscn" id="5_boe3q"]
+[ext_resource type="PackedScene" uid="uid://cvt7xsdtis6bo" path="res://scenes/models-scenes/cabin_block.tscn" id="6_32w0d"]
+[ext_resource type="PackedScene" uid="uid://cqf6x7wc6858t" path="res://scenes/models-scenes/rock_block.tscn" id="7_0cplw"]
+[ext_resource type="PackedScene" uid="uid://dtfqbg2in6vo6" path="res://scenes/models-scenes/tree_block.tscn" id="8_suxb3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ps8o"]
 albedo_color = Color(0.156863, 0.168627, 0.156863, 1)
@@ -27,3 +31,15 @@ size = Vector3(50, 0.1, 50)
 [node name="Player" parent="." instance=ExtResource("2_6kfx6")]
 
 [node name="AnimalSpawner" parent="." instance=ExtResource("3_2thmc")]
+
+[node name="bush" parent="." instance=ExtResource("5_boe3q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1543, 0.0499973, 2.79726)
+
+[node name="cabin" parent="." instance=ExtResource("6_32w0d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.602, 0.0499973, -8.22846)
+
+[node name="rock" parent="." instance=ExtResource("7_0cplw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.40075, 0.0499973, 5.31571)
+
+[node name="tree_block" parent="." instance=ExtResource("8_suxb3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42985, 0.0499973, 9.53039)

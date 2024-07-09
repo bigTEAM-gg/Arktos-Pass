@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://btcxs868w02qo"
-path="res://.godot/imported/deckblock.dae-6df07e149ef4508c00eba3967c020491.scn"
+uid="uid://ce0x2lvd6faau"
+path="res://.godot/imported/roof.dae-a9c0b4bd688ad1b96a7e6af8c20fef96.scn"
 
 [deps]
 
-source_file="res://scenes/models-scenes/static-mesh/cabin/deckblock.dae"
-dest_files=["res://.godot/imported/deckblock.dae-6df07e149ef4508c00eba3967c020491.scn"]
+source_file="res://scenes/models-scenes/static-mesh/cabin/cabin-static-mesh/roof.dae"
+dest_files=["res://.godot/imported/roof.dae-a9c0b4bd688ad1b96a7e6af8c20fef96.scn"]
 
 [params]
 

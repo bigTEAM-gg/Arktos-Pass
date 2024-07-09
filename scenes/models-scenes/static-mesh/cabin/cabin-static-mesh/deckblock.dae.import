@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://btbaf025qym86"
-path="res://.godot/imported/steppingrocks.dae-1880ceb40613011c108b6509debf3251.scn"
+uid="uid://btcxs868w02qo"
+path="res://.godot/imported/deckblock.dae-6b9f9ed7db5135cce95106b43459d4bd.scn"
 
 [deps]
 
-source_file="res://scenes/models-scenes/static-mesh/cabin/steppingrocks.dae"
-dest_files=["res://.godot/imported/steppingrocks.dae-1880ceb40613011c108b6509debf3251.scn"]
+source_file="res://scenes/models-scenes/static-mesh/cabin/cabin-static-mesh/deckblock.dae"
+dest_files=["res://.godot/imported/deckblock.dae-6b9f9ed7db5135cce95106b43459d4bd.scn"]
 
 [params]
 

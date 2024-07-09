@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ti2pwsii3dpj"
-path="res://.godot/imported/chimney.dae-ba9c1506f193ad88196629cb4e35f254.scn"
+uid="uid://bsodsggkxllbs"
+path="res://.godot/imported/frontwall.dae-e73247e82b01b29d36512ff8118d2bd2.scn"
 
 [deps]
 
-source_file="res://scenes/models-scenes/static-mesh/cabin/chimney.dae"
-dest_files=["res://.godot/imported/chimney.dae-ba9c1506f193ad88196629cb4e35f254.scn"]
+source_file="res://scenes/models-scenes/static-mesh/cabin/cabin-static-mesh/frontwall.dae"
+dest_files=["res://.godot/imported/frontwall.dae-e73247e82b01b29d36512ff8118d2bd2.scn"]
 
 [params]
 

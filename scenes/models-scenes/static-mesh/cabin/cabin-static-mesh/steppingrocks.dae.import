@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dsmkpi7iok4hj"
-path="res://.godot/imported/leftwall.dae-0775d045a4295f7d329e710496426cb4.scn"
+uid="uid://btbaf025qym86"
+path="res://.godot/imported/steppingrocks.dae-80331730d617521b13c0de244f5df9e6.scn"
 
 [deps]
 
-source_file="res://scenes/models-scenes/static-mesh/cabin/leftwall.dae"
-dest_files=["res://.godot/imported/leftwall.dae-0775d045a4295f7d329e710496426cb4.scn"]
+source_file="res://scenes/models-scenes/static-mesh/cabin/cabin-static-mesh/steppingrocks.dae"
+dest_files=["res://.godot/imported/steppingrocks.dae-80331730d617521b13c0de244f5df9e6.scn"]
 
 [params]
 

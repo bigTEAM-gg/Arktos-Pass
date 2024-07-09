@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ce0x2lvd6faau"
-path="res://.godot/imported/roof.dae-07b14d0b963621e02725221d9b9259d1.scn"
+uid="uid://xgncgrud3nng"
+path="res://.godot/imported/backwall.dae-2795bd81c2021ed6f68ed6d73f30e725.scn"
 
 [deps]
 
-source_file="res://scenes/models-scenes/static-mesh/cabin/roof.dae"
-dest_files=["res://.godot/imported/roof.dae-07b14d0b963621e02725221d9b9259d1.scn"]
+source_file="res://scenes/models-scenes/static-mesh/cabin/cabin-static-mesh/backwall.dae"
+dest_files=["res://.godot/imported/backwall.dae-2795bd81c2021ed6f68ed6d73f30e725.scn"]
 
 [params]
 

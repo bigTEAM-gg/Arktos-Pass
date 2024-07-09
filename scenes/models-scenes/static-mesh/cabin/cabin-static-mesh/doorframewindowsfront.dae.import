@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ir54omdgg2of"
-path="res://.godot/imported/rightwall.dae-5ba513b2e1e0597e81dba2a1d2e9bdb1.scn"
+uid="uid://d3cmfnaumk6a2"
+path="res://.godot/imported/doorframewindowsfront.dae-34b92c8fe6b391660761f630f10e0d77.scn"
 
 [deps]
 
-source_file="res://scenes/models-scenes/static-mesh/cabin/rightwall.dae"
-dest_files=["res://.godot/imported/rightwall.dae-5ba513b2e1e0597e81dba2a1d2e9bdb1.scn"]
+source_file="res://scenes/models-scenes/static-mesh/cabin/cabin-static-mesh/doorframewindowsfront.dae"
+dest_files=["res://.godot/imported/doorframewindowsfront.dae-34b92c8fe6b391660761f630f10e0d77.scn"]
 
 [params]
 

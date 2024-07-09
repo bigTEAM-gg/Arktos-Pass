@@ -1,0 +1,37 @@
+[gd_scene load_steps=12 format=3 uid="uid://cvt7xsdtis6bo"]
+
+[ext_resource type="PackedScene" uid="uid://d1fg816xw084" path="res://scenes/models-scenes/static-mesh/cabin/backwall.tscn" id="1_qnrj1"]
+[ext_resource type="PackedScene" uid="uid://8gr8rl5sny5t" path="res://scenes/models-scenes/static-mesh/cabin/chimney.tscn" id="2_toge2"]
+[ext_resource type="PackedScene" uid="uid://hkcft23h1gdx" path="res://scenes/models-scenes/static-mesh/cabin/deckblock.tscn" id="3_elxe4"]
+[ext_resource type="PackedScene" uid="uid://b2g28nfljg1tc" path="res://scenes/models-scenes/static-mesh/cabin/doorframewindows.tscn" id="4_rjne6"]
+[ext_resource type="PackedScene" uid="uid://bortty56ftev7" path="res://scenes/models-scenes/static-mesh/cabin/frontwall.tscn" id="5_bfhvd"]
+[ext_resource type="PackedScene" uid="uid://iw7yubo21bqm" path="res://scenes/models-scenes/static-mesh/cabin/leftwall.tscn" id="6_jn44n"]
+[ext_resource type="PackedScene" uid="uid://dv7d18upkht18" path="res://scenes/models-scenes/static-mesh/cabin/leftwindows.tscn" id="7_rl0qj"]
+[ext_resource type="PackedScene" uid="uid://cwkp5qdlgmxrx" path="res://scenes/models-scenes/static-mesh/cabin/rightwall.tscn" id="8_astud"]
+[ext_resource type="PackedScene" uid="uid://d3nqn3067jd6l" path="res://scenes/models-scenes/static-mesh/cabin/rightwindow.tscn" id="9_2m6ja"]
+[ext_resource type="PackedScene" uid="uid://bbb3wy56cqodn" path="res://scenes/models-scenes/static-mesh/cabin/roof.tscn" id="10_i30or"]
+[ext_resource type="PackedScene" uid="uid://cs6yf7aaubqnw" path="res://scenes/models-scenes/static-mesh/cabin/steppingrocks.tscn" id="11_btd5c"]
+
+[node name="cabin" type="Node3D"]
+
+[node name="backwall" parent="." instance=ExtResource("1_qnrj1")]
+
+[node name="chimney" parent="." instance=ExtResource("2_toge2")]
+
+[node name="deckblock" parent="." instance=ExtResource("3_elxe4")]
+
+[node name="doorframewindows" parent="." instance=ExtResource("4_rjne6")]
+
+[node name="frontwall" parent="." instance=ExtResource("5_bfhvd")]
+
+[node name="leftwall" parent="." instance=ExtResource("6_jn44n")]
+
+[node name="leftwindows" parent="." instance=ExtResource("7_rl0qj")]
+
+[node name="rightwall" parent="." instance=ExtResource("8_astud")]
+
+[node name="rightwindow" parent="." instance=ExtResource("9_2m6ja")]
+
+[node name="roof" parent="." instance=ExtResource("10_i30or")]
+
+[node name="steppingrocks" parent="." instance=ExtResource("11_btd5c")]
