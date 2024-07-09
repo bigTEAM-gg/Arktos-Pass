@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author/>
+      <authoring_tool>FBX COLLADA exporter</authoring_tool>
+      <comments/>
+    </contributor>
+    <created>2024-07-09T21:03:40Z</created>
+    <keywords/>
+    <modified>2024-07-09T21:03:40Z</modified>
+    <revision/>
+    <subject/>
+    <title/>
+    <unit meter="0.010000" name="centimeter"/>
+    <up_axis>Y_UP</up_axis>
+  </asset>
+  <library_materials>
+    <material id="Default_Material" name="Default_Material">
+      <instance_effect url="#Default_Material-fx"/>
+    </material>
+  </library_materials>
+  <library_effects>
+    <effect id="Default_Material-fx" name="Default_Material">
+      <profile_COMMON>
+        <technique sid="standard">
+          <lambert>
+            <emission>
+              <color sid="emission">0.000000  0.000000 0.000000 1.000000</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0.500000  0.500000 0.500000 1.000000</color>
+            </ambient>
+            <diffuse>
+              <color sid="diffuse">0.500000  0.500000 0.500000 1.000000</color>
+            </diffuse>
+            <transparent opaque="RGB_ZERO">
+              <color sid="transparent">0.000000  0.000000 0.000000 1.000000</color>
+            </transparent>
+            <transparency>
+              <float sid="transparency">0.000000</float>
+            </transparency>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_geometries>
+    <geometry id="rightwall-lib" name="rightwallMesh">
+      <mesh>
+        <source id="rightwall-POSITION">
+          <float_array id="rightwall-POSITION-array" count="96">
+369.342285 342.433990 -492.128540
+369.342285 34.870953 -492.128540
+369.342285 34.870953 143.757843
+369.342285 342.433990 143.757843
+369.342285 34.870953 -302.284149
+369.342285 342.433990 -302.284149
+369.342285 34.870953 -408.164154
+369.342285 342.433990 -408.164154
+369.342285 249.350693 -492.128510
+369.342285 249.350693 -408.164154
+369.342285 249.350693 -302.284149
+369.342285 249.350693 143.757843
+369.342285 118.789032 143.757843
+369.342285 118.789032 -302.284149
+369.342285 118.789032 -408.164154
+369.342285 118.789032 -492.128540
+354.342285 342.433990 -477.128540
+354.342285 34.870953 -477.128540
+354.342285 34.870953 128.757843
+354.342285 342.433990 128.757843
+354.342285 34.870953 -302.284149
+354.342285 342.433990 -302.284149
+354.342285 34.870953 -408.164154
+354.342285 342.433990 -408.164154
+354.342285 249.350693 -477.128479
+354.342285 249.350693 -408.164154
+354.342285 249.350693 -302.284149
+354.342285 249.350693 128.757843
+354.342285 118.789032 128.757843
+354.342285 118.789032 -302.284149
+354.342285 118.789032 -408.164154
+354.342285 118.789032 -477.128540
+</float_array>
+          <technique_common>
+            <accessor source="#rightwall-POSITION-array" count="32" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="rightwall-Normal0">
+          <float_array id="rightwall-Normal0-array" count="96">
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 -0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+</float_array>
+          <technique_common>
+            <accessor source="#rightwall-Normal0-array" count="32" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="rightwall-UV0">
+          <float_array id="rightwall-UV0-array" count="64">
+0.609375 0.250000
+0.609375 0.226354
+0.609375 0.217044
+0.609375 0.250000
+0.609375 0.196172
+0.609375 0.070625
+0.609375 0.000000
+0.609375 0.174979
+0.609375 0.250000
+0.609375 0.250000
+0.609375 0.241299
+0.609375 0.250000
+0.609375 0.230193
+0.609375 0.250000
+0.609375 0.250000
+0.609375 0.183997
+0.609375 0.250000
+0.609375 0.226354
+0.609375 0.217044
+0.609375 0.250000
+0.609375 0.196172
+0.609375 0.070625
+0.609375 0.000000
+0.609375 0.174979
+0.609375 0.250000
+0.609375 0.250000
+0.609375 0.241299
+0.609375 0.250000
+0.609375 0.230193
+0.609375 0.250000
+0.609375 0.250000
+0.609375 0.183997
+</float_array>
+          <technique_common>
+            <accessor source="#rightwall-UV0-array" count="32" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="rightwall-VERTEX">
+          <input semantic="POSITION" source="#rightwall-POSITION"/>
+          <input semantic="NORMAL" source="#rightwall-Normal0"/>
+        </vertices>
+        <triangles count="32" material="Default_Material">
+          <input semantic="VERTEX" offset="0" source="#rightwall-VERTEX"/>
+          <input semantic="TEXCOORD" offset="1" set="0" source="#rightwall-UV0"/>
+          <p> 7 2 9 1 8 0 7 2 8 0 0 3 11 5 10 4 3 6 3 6 10 4 5 7 10 4 7 2 5 7 7 2 10 4 9 1 14 10 6 9 1 8 14 10 1 8 15 11 4 13 6 9 13 12 13 12 6 9 14 10 2 14 4 13 12 15 12 15 4 13 13 12 10 4 11 5 12 15 12 15 13 12 10 4 14 10 8 0 9 1 8 0 14 10 15 11 23 18 24 16 25 17 24 16 23 18 16 19 19 22 26 20 27 21 26 20 19 22 21 23 26 20 21 23 23 18 26 20 23 18 25 17 30 26 17 24 22 25 17 24 30 26 31 27 20 29 29 28 22 25 29 28 30 26 22 25 28 31 20 29 18 30 20 29 28 31 29 28 27 21 26 20 28 31 28 31 26 20 29 28 30 26 24 16 31 27 24 16 30 26 25 17</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="rightwall" name="rightwall">
+      <node name="rightwall" id="rightwall" layer="walls" sid="rightwall">
+        <matrix sid="matrix">1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+        <instance_geometry url="#rightwall-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Default_Material" target="#Default_Material"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+        <extra>
+          <technique profile="FCOLLADA">
+            <visibility>1.000000</visibility>
+          </technique>
+        </extra>
+      </node>
+      <extra>
+        <technique profile="MAX3D">
+          <frame_rate>24.000000</frame_rate>
+        </technique>
+        <technique profile="FCOLLADA">
+          <start_time>0.000000</start_time>
+          <end_time>1.250000</end_time>
+        </technique>
+      </extra>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#rightwall"/>
+  </scene>
+</COLLADA>

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author/>
+      <authoring_tool>FBX COLLADA exporter</authoring_tool>
+      <comments/>
+    </contributor>
+    <created>2024-07-09T21:04:07Z</created>
+    <keywords/>
+    <modified>2024-07-09T21:04:07Z</modified>
+    <revision/>
+    <subject/>
+    <title/>
+    <unit meter="0.010000" name="centimeter"/>
+    <up_axis>Y_UP</up_axis>
+  </asset>
+  <library_materials>
+    <material id="Default_Material" name="Default_Material">
+      <instance_effect url="#Default_Material-fx"/>
+    </material>
+  </library_materials>
+  <library_effects>
+    <effect id="Default_Material-fx" name="Default_Material">
+      <profile_COMMON>
+        <technique sid="standard">
+          <lambert>
+            <emission>
+              <color sid="emission">0.000000  0.000000 0.000000 1.000000</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0.500000  0.500000 0.500000 1.000000</color>
+            </ambient>
+            <diffuse>
+              <color sid="diffuse">0.500000  0.500000 0.500000 1.000000</color>
+            </diffuse>
+            <transparent opaque="RGB_ZERO">
+              <color sid="transparent">0.000000  0.000000 0.000000 1.000000</color>
+            </transparent>
+            <transparency>
+              <float sid="transparency">0.000000</float>
+            </transparency>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_geometries>
+    <geometry id="backwall-lib" name="backwallMesh">
+      <mesh>
+        <source id="backwall-POSITION">
+          <float_array id="backwall-POSITION-array" count="120">
+-354.342285 342.433990 -477.128540
+-354.342285 34.870953 -477.128540
+354.342285 342.433990 -477.128540
+354.342285 34.870953 -477.128540
+-369.342285 342.433990 -492.128540
+-369.342285 34.870953 -492.128540
+369.342255 342.433990 -492.128540
+369.342255 34.870953 -492.128540
+-323.174500 348.063232 -477.128510
+0.000000 502.515991 -477.128510
+26.674747 476.459900 -477.128510
+129.269791 412.012817 -477.128510
+323.174500 348.063232 -477.128510
+-129.269791 412.012817 -477.128510
+-26.674747 476.459900 -477.128510
+354.342285 342.433990 -477.128510
+323.174500 342.433899 -477.128510
+139.490784 342.433899 -477.128510
+43.697639 342.433990 -477.128510
+0.000000 342.433807 -477.128510
+-43.697639 342.433990 -477.128510
+-139.490784 342.433899 -477.128510
+-323.174500 342.433899 -477.128510
+-354.342285 342.433990 -477.128510
+-323.174500 348.063232 -492.128510
+0.000000 502.515991 -492.128510
+26.674747 476.459900 -492.128510
+129.269791 412.012817 -492.128510
+323.174500 348.063232 -492.128510
+-129.269791 412.012817 -492.128510
+-26.674747 476.459900 -492.128510
+369.342255 342.433990 -492.128510
+323.174500 342.433899 -492.128510
+139.490784 342.433899 -492.128510
+43.697639 342.433990 -492.128510
+0.000000 342.433807 -492.128510
+-43.697639 342.433990 -492.128510
+-139.490784 342.433899 -492.128510
+-323.174500 342.433899 -492.128510
+-369.342285 342.433990 -492.128510
+</float_array>
+          <technique_common>
+            <accessor source="#backwall-POSITION-array" count="40" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="backwall-Normal0">
+          <float_array id="backwall-Normal0-array" count="120">
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+-0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+-0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+-0.000000 0.000000 1.000000
+-0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+-0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000002 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+-0.000000 0.000000 1.000000
+-0.000002 0.000000 1.000000
+</float_array>
+          <technique_common>
+            <accessor source="#backwall-Normal0-array" count="40" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="backwall-UV0">
+          <float_array id="backwall-UV0-array" count="20">
+0.375000 0.000000
+0.379213 0.000000
+0.625000 0.250000
+0.562500 0.250000
+0.458724 0.203877
+0.375000 0.000000
+0.379213 0.000000
+0.625000 0.250000
+0.562500 0.250000
+0.458724 0.203877
+</float_array>
+          <technique_common>
+            <accessor source="#backwall-UV0-array" count="10" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="backwall-VERTEX">
+          <input semantic="POSITION" source="#backwall-POSITION"/>
+          <input semantic="NORMAL" source="#backwall-Normal0"/>
+        </vertices>
+        <triangles count="32" material="Default_Material">
+          <input semantic="VERTEX" offset="0" source="#backwall-VERTEX"/>
+          <input semantic="TEXCOORD" offset="1" set="0" source="#backwall-UV0"/>
+          <p> 0 -1 3 -1 2 -1 3 -1 0 -1 1 -1 4 -1 7 -1 5 -1 7 -1 4 -1 6 -1 12 0 16 1 15 2 17 4 12 0 11 3 12 0 17 4 16 1 18 -1 11 -1 10 -1 11 -1 18 -1 17 -1 19 -1 10 -1 9 -1 10 -1 19 -1 18 -1 19 -1 9 -1 14 -1 14 -1 20 -1 19 -1 14 -1 13 -1 20 -1 13 -1 21 -1 20 -1 8 -1 21 -1 13 -1 21 -1 8 -1 22 -1 23 -1 22 -1 8 -1 28 5 32 6 31 7 33 9 28 5 27 8 28 5 33 9 32 6 34 -1 27 -1 26 -1 27 -1 34 -1 33 -1 35 -1 26 -1 25 -1 26 -1 35 -1 34 -1 35 -1 25 -1 30 -1 30 -1 36 -1 35 -1 30 -1 29 -1 36 -1 29 -1 37 -1 36 -1 24 -1 37 -1 29 -1 37 -1 24 -1 38 -1 39 -1 38 -1 24 -1</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="backwall" name="backwall">
+      <node name="backwall" id="backwall" layer="walls" sid="backwall">
+        <matrix sid="matrix">1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+        <instance_geometry url="#backwall-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Default_Material" target="#Default_Material"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+        <extra>
+          <technique profile="FCOLLADA">
+            <visibility>1.000000</visibility>
+          </technique>
+        </extra>
+      </node>
+      <extra>
+        <technique profile="MAX3D">
+          <frame_rate>24.000000</frame_rate>
+        </technique>
+        <technique profile="FCOLLADA">
+          <start_time>0.000000</start_time>
+          <end_time>1.250000</end_time>
+        </technique>
+      </extra>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#backwall"/>
+  </scene>
+</COLLADA>
