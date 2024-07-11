@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://drfsdfhjtrmon"]
+
+[ext_resource type="Texture2D" uid="uid://dhx6xlfuhx7pr" path="res://tree_trunk.png" id="1_2o54r"]
+[ext_resource type="Texture2D" uid="uid://dwjp83wbs6n8y" path="res://tree_top.png" id="2_14gc0"]
+
+[node name="Tree" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.79128)
+
+[node name="TreeTrunk" type="Sprite3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.30301, 0)
+billboard = 2
+texture = ExtResource("1_2o54r")
+
+[node name="TreeTop" type="Sprite3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.57417, 0)
+billboard = 2
+texture = ExtResource("2_14gc0")

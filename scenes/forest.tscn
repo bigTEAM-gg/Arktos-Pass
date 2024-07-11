@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://wbg5d8kgacec"]
+[gd_scene load_steps=12 format=3 uid="uid://wbg5d8kgacec"]
 
 [ext_resource type="Texture2D" uid="uid://dxxald5ada4tu" path="res://assets/textures/checker-map_tho.png" id="1_28hlc"]
 [ext_resource type="Script" path="res://scripts/Forest.gd" id="1_i1d7t"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cvt7xsdtis6bo" path="res://scenes/models-scenes/cabin_block.tscn" id="6_32w0d"]
 [ext_resource type="PackedScene" uid="uid://cqf6x7wc6858t" path="res://scenes/models-scenes/rock_block.tscn" id="7_0cplw"]
 [ext_resource type="PackedScene" uid="uid://dtfqbg2in6vo6" path="res://scenes/models-scenes/tree_block.tscn" id="8_suxb3"]
+[ext_resource type="PackedScene" uid="uid://drfsdfhjtrmon" path="res://tree2D.tscn" id="9_ey0y8"]
+[ext_resource type="PackedScene" uid="uid://d36dbfrl5bbkm" path="res://bush.tscn" id="10_dvgkf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ps8o"]
 albedo_color = Color(0.156863, 0.168627, 0.156863, 1)
@@ -43,3 +45,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.40075, 0.0499973, 5.31571)
 
 [node name="tree_block" parent="." instance=ExtResource("8_suxb3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42985, 0.0499973, 9.53039)
+
+[node name="Tree" parent="." instance=ExtResource("9_ey0y8")]
+
+[node name="Tree2" parent="." instance=ExtResource("9_ey0y8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.00424, 0, -5.75496)
+
+[node name="Tree3" parent="." instance=ExtResource("9_ey0y8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.31223, 0, -2.66981)
+
+[node name="Tree4" parent="." instance=ExtResource("9_ey0y8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8694, 0, -4.4109)
+
+[node name="Bush" parent="." instance=ExtResource("10_dvgkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.372556, 0, -3.22934)
+
+[node name="Bush2" parent="." instance=ExtResource("10_dvgkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55848, 0, -2.3637)
+
+[node name="Bush3" parent="." instance=ExtResource("10_dvgkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42145, 0, -3.52973)
+
+[node name="Bush4" parent="." instance=ExtResource("10_dvgkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.81341, 0, -4.48524)
+
+[node name="Bush5" parent="." instance=ExtResource("10_dvgkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.93815, 0, -3.83746)
+
+[node name="Tree5" parent="." instance=ExtResource("9_ey0y8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.74065, 0, -2.92182)
