@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt7iaprndki67"]
+
+[ext_resource type="Texture2D" uid="uid://b0c1d286pqw40" path="res://scenes/foreststuff/firtree2.png" id="1_2dpve"]
+
+[node name="Tree2" type="Node3D"]
+
+[node name="Sprite2D" type="Sprite3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 2.34403, 0)
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("1_2dpve")
