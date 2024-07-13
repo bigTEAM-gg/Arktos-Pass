@@ -5,13 +5,15 @@ class_name Player
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const MOUSE_SENS = 0.002
-
+	
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var yaw: float
 
 @onready var camera: Camera3D = $CameraPivot/Camera3D
 @onready var pivot: Node3D = $CameraPivot
+
+var damage_taken = 0
 
 func _input(event):	
 	if event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE):
@@ -55,3 +57,7 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	
+func take_damage():
+	damage_taken += 1
+	print("Player takes damage. Total damage: ", damage_taken)

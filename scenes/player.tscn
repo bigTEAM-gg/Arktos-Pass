@@ -24,3 +24,4 @@ shape = SubResource("CapsuleShape3D_3ej0r")
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.5, 0.157604)
 projection = 1
+current = true
