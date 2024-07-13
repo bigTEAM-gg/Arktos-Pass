@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://wbg5d8kgacec"]
+[gd_scene load_steps=11 format=3 uid="uid://wbg5d8kgacec"]
 
 [ext_resource type="Texture2D" uid="uid://dxxald5ada4tu" path="res://assets/textures/checker-map_tho.png" id="1_28hlc"]
 [ext_resource type="Script" path="res://scripts/Forest.gd" id="1_i1d7t"]
@@ -15,13 +15,14 @@ albedo_texture = ExtResource("1_28hlc")
 metallic_specular = 0.0
 uv1_scale = Vector3(-1, 1, 1)
 
+[sub_resource type="Environment" id="Environment_oesxg"]
+
 [node name="Forest" type="Node3D"]
 script = ExtResource("1_i1d7t")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
-light_energy = 10.0
-shadow_enabled = true
+light_energy = 6.615
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 material_override = SubResource("StandardMaterial3D_3ps8o")
@@ -43,3 +44,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.40075, 0.0499973, 5.31571)
 
 [node name="tree_block" parent="." instance=ExtResource("8_suxb3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42985, 0.0499973, 9.53039)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_oesxg")
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
