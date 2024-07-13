@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwjp83wbs6n8y"
-path.s3tc="res://.godot/imported/tree_top.png-41fa6b7d3f6d110a14661320f472d2b1.s3tc.ctex"
+uid="uid://b0c1d286pqw40"
+path.s3tc="res://.godot/imported/firtree2.png-f3ad4c9e56a8c209f47f2c1ad59e8edf.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://tree_top.png"
-dest_files=["res://.godot/imported/tree_top.png-41fa6b7d3f6d110a14661320f472d2b1.s3tc.ctex"]
+source_file="res://scenes/foreststuff/firtree2.png"
+dest_files=["res://.godot/imported/firtree2.png-f3ad4c9e56a8c209f47f2c1ad59e8edf.s3tc.ctex"]
 
 [params]
 

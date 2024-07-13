@@ -19,20 +19,19 @@ func _input(event):
 
 @onready var camera_3d = $CameraPivot/Camera3D
 var is_sniper_mode = false
-const cam_over = Vector3(0, 5.3, 4.5)
+const cam_over = Vector3(0, 15, 25)
 const cam_over_angle = deg_to_rad(-30)
 const cam_over_size = 12.5
 
-const cam_fps = Vector3(0.5, 1.5, 0.5)
+const cam_fps = Vector3(0.5, 1.5, 0.15)
 const cam_fps_angle = deg_to_rad(0.0)
-const cam_fps_size = 2.0
+const cam_fps_size = 3.0
 
 func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("dialogic_default_action"):
 		is_sniper_mode = not is_sniper_mode
 	
-	print(rad_to_deg(camera_3d.rotation_degrees.x))
 	if not is_sniper_mode:
 		camera_3d.position = camera_3d.position.lerp(cam_over, 0.1)
 		camera_3d.rotation.x = lerp_angle(camera_3d.rotation.x, cam_over_angle, 0.1)
