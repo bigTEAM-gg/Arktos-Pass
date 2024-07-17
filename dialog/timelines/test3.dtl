@@ -1,0 +1,5 @@
+join brother_radio center [animation="Bounce In"]
+brother_radio: hahahaha
+brother_radio: hello i am scary brother
+leave brother_radio [animation="Slide Out Left" length="1.0" wait="true"]
+the brother indeed was scary

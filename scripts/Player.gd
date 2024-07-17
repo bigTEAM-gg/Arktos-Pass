@@ -20,14 +20,11 @@ var yaw: float
 @onready var shooting_delay = $ShootingDelay
 @onready var gunempty_sfx = $GunemptySFX
 
-
 var health = 5
 var ammo = 5
 
-
 func _ready():
 	Global.player = self
-
 
 func _input(event):	
 	if event is InputEventMouseMotion and (Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE) or is_sniper_mode):
@@ -35,7 +32,7 @@ func _input(event):
 
 @onready var camera_3d = $CameraPivot/Camera3D
 
-
+var is_in_dialog = false
 var is_sniper_mode = false
 const cam_over = Vector3(0, 10, 15)
 const cam_over_angle = deg_to_rad(-30)
@@ -46,6 +43,11 @@ const cam_fps_angle = deg_to_rad(-10.0)
 const cam_fps_size = 3.0
 
 func _physics_process(delta: float) -> void:
+	if !is_in_dialog:
+		process_player_controls()
+	process_sniper_mode()
+		
+func process_player_controls():
 	var look_vector = Input.get_vector("player_look_left", "player_look_right", "player_look_up", "player_look_down")
 	if is_sniper_mode:
 		yaw += look_vector.x * JOY_SENS * -1
@@ -58,31 +60,19 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("player_aim"):
 		is_sniper_mode = false
 	
-	if not is_sniper_mode:
-		camera_3d.position = camera_3d.position.lerp(cam_over, 0.1)
-		camera_3d.rotation.x = lerp_angle(camera_3d.rotation.x, cam_over_angle, 0.1)
-		camera_3d.size = lerp(camera_3d.size, cam_over_size, 0.1)
-	else:
-		camera_3d.position = camera_3d.position.lerp(cam_fps, 0.1)
-		camera_3d.rotation.x = lerp_angle(camera_3d.rotation.x, cam_fps_angle, 0.1)
-		camera_3d.size = lerp(camera_3d.size, cam_fps_size, 0.1)
-		
-		if Input.is_action_just_pressed("player_shoot") and shooting_delay.is_stopped():
-			if ammo > 1:
-				
-				var bodies = shoot_hitbox.get_overlapping_bodies()
-				for body in bodies:
-					if body.is_in_group("critters"):
-						body.shot()
-				
-				gunshot_sfx.play()
-				ammo -= 1
-				shooting_delay.start()
-				await get_tree().create_timer(0.4).timeout
-				gunbolt_sfx.play()
-			else:
-				gunempty_sfx.play()
-				
+	if Input.is_action_just_pressed("player_shoot") and shooting_delay.is_stopped():
+		if ammo > 1:
+			var bodies = shoot_hitbox.get_overlapping_bodies()
+			for body in bodies:
+				if body.is_in_group("critters"):
+					body.shot()
+			gunshot_sfx.play()
+			ammo -= 1
+			shooting_delay.start()
+			await get_tree().create_timer(0.4).timeout
+			gunbolt_sfx.play()
+		else:
+			gunempty_sfx.play()
 	
 	rotation.y = yaw
 	
@@ -96,6 +86,16 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+func process_sniper_mode():
+	if not is_sniper_mode:
+		camera_3d.position = camera_3d.position.lerp(cam_over, 0.1)
+		camera_3d.rotation.x = lerp_angle(camera_3d.rotation.x, cam_over_angle, 0.1)
+		camera_3d.size = lerp(camera_3d.size, cam_over_size, 0.1)
+	else:
+		camera_3d.position = camera_3d.position.lerp(cam_fps, 0.1)
+		camera_3d.rotation.x = lerp_angle(camera_3d.rotation.x, cam_fps_angle, 0.1)
+		camera_3d.size = lerp(camera_3d.size, cam_fps_size, 0.1)	
 	
 func take_damage(amount):
 	health += amount * -1

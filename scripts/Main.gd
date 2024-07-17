@@ -12,6 +12,10 @@ var hunt: Hunt = null
 
 @onready var HuntScene = preload("res://scenes/hunt.tscn")
 
+func _ready() -> void:
+	var style: DialogicStyle = load("res://dialog/styles/default_dialog.tres")
+	style.prepare()
+
 func _on_forest_hunt_animal() -> void:
 	printerr('DISABLED FOR NOW SORRY!')
 	return
