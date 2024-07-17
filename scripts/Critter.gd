@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 	
 func _chase_player(delta: float) -> void:
 	if _move_to_target(delta, player_node.global_position, TARGET_THRESHOLD):
-		player_node.take_damage()
+		# player_node.take_damage()
 		self.queue_free()
 	
 func _run_away_from_player(delta: float) -> void:
