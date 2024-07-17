@@ -12,7 +12,6 @@ albedo_color = Color(1, 1, 1, 0.184314)
 [node name="DialogTrigger" type="Node3D"]
 process_mode = 3
 script = ExtResource("1_jwdry")
-dialogic_timeline = "test1"
 
 [node name="Area3D" type="Area3D" parent="."]
 
