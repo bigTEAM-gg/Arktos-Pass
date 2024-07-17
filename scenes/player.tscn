@@ -1,12 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7qmc6himhisa"]
+[gd_scene load_steps=12 format=3 uid="uid://b7qmc6himhisa"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_dl7pv"]
 [ext_resource type="Texture2D" uid="uid://bg3vw6gr8fj21" path="res://player_placeholder.png" id="2_3s2vu"]
+[ext_resource type="AudioStream" uid="uid://bkv170jpqy24q" path="res://assets/gun_fire.ogg" id="3_ryut6"]
+[ext_resource type="AudioStream" uid="uid://cjjhjxy6272q6" path="res://assets/gun_bolt.wav" id="4_tk243"]
+[ext_resource type="AudioStream" uid="uid://c63rbmhv2pjop" path="res://assets/gun_empty.wav" id="5_ifngk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3ej0r"]
 height = 1.8
 
-[node name="Player" type="CharacterBody3D"]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_arhf3"]
+random_pitch = 1.05
+random_volume_offset_db = 0.5
+streams_count = 1
+stream_0/stream = ExtResource("3_ryut6")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_m1grh"]
+random_pitch = 1.05
+random_volume_offset_db = 0.5
+streams_count = 1
+stream_0/stream = ExtResource("4_tk243")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_vrqmo"]
+random_pitch = 1.05
+random_volume_offset_db = 0.5
+streams_count = 1
+stream_0/stream = ExtResource("5_ifngk")
+stream_0/weight = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6ruig"]
+height = 8.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dt536"]
+transparency = 1
+albedo_color = Color(1, 1, 0, 0.196078)
+
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_dl7pv")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
@@ -22,6 +53,31 @@ shape = SubResource("CapsuleShape3D_3ej0r")
 [node name="CameraPivot" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.5, 0.157604)
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 10, 10)
 projection = 1
 current = true
+size = 12.5
+
+[node name="GunshotSFX" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_arhf3")
+
+[node name="GunboltSFX" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_m1grh")
+
+[node name="GunemptySFX" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_vrqmo")
+
+[node name="ShootHitbox" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999391, 0.0348995, 0, -0.0348995, 0.999391, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShootHitbox"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.5, -4)
+shape = SubResource("CylinderShape3D_6ruig")
+
+[node name="Debugger" type="CSGCylinder3D" parent="ShootHitbox"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.5, -4)
+height = 8.0
+material = SubResource("StandardMaterial3D_dt536")
+
+[node name="ShootingDelay" type="Timer" parent="."]
+one_shot = true
