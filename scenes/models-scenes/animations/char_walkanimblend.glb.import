@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c6p1ofwqrwf0c"
-path="res://.godot/imported/char_walkanimblend.dae-982c82c30f842c847910259416c638bf.scn"
+uid="uid://b5ox0bbrob2q2"
+path="res://.godot/imported/char_walkanimblend.glb-30384607fd2851324f0db9ef3f543091.scn"
 
 [deps]
 
-source_file="res://scenes/models-scenes/animations/char_walkanimblend.dae"
-dest_files=["res://.godot/imported/char_walkanimblend.dae-982c82c30f842c847910259416c638bf.scn"]
+source_file="res://scenes/models-scenes/animations/char_walkanimblend.glb"
+dest_files=["res://.godot/imported/char_walkanimblend.glb-30384607fd2851324f0db9ef3f543091.scn"]
 
 [params]
 
