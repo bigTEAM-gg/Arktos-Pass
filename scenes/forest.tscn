@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://wbg5d8kgacec"]
+[gd_scene load_steps=12 format=3 uid="uid://wbg5d8kgacec"]
 
 [ext_resource type="Script" path="res://scripts/Forest.gd" id="1_i1d7t"]
 [ext_resource type="PackedScene" uid="uid://b7qmc6himhisa" path="res://scenes/player.tscn" id="2_6kfx6"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cvnbi1gnk7okv" path="res://scenes/dialog_trigger.tscn" id="8_3ruwj"]
 [ext_resource type="PackedScene" uid="uid://drfsdfhjtrmon" path="res://scenes/foreststuff/FirTree.tscn" id="8_rfh1m"]
 [ext_resource type="PackedScene" uid="uid://d36dbfrl5bbkm" path="res://scenes/foreststuff/Bush.tscn" id="9_idxoe"]
+[ext_resource type="Script" path="res://scripts/DialogSfxHandler.gd" id="9_s15g3"]
+[ext_resource type="AudioStream" uid="uid://soaytpuq00rp" path="res://assets/radio_beep.wav" id="10_ofmcd"]
 
 [sub_resource type="Environment" id="Environment_o8ukx"]
 fog_enabled = true
@@ -697,3 +699,9 @@ dialogic_timeline = "test3"
 [node name="DialogTrigger2" parent="." instance=ExtResource("8_3ruwj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.4117, 0, 2.13276)
 dialogic_timeline = "test2"
+
+[node name="DialogSfxHandler" type="Node" parent="."]
+script = ExtResource("9_s15g3")
+
+[node name="RadioBeep" type="AudioStreamPlayer" parent="DialogSfxHandler"]
+stream = ExtResource("10_ofmcd")
