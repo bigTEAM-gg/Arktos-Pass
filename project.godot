@@ -23,12 +23,17 @@ Global="*res://scripts/Global.gd"
 
 [dialogic]
 
-directories/dch_directory={}
+directories/dch_directory={
+"brother_radio": "res://dialog/characters/brother_radio.dch"
+}
 directories/dtl_directory={
+"test1": "res://dialog/timelines/test1.dtl",
+"test2": "res://dialog/timelines/test2.dtl",
+"test3": "res://dialog/timelines/test3.dtl",
 "timeline": "res://timeline.dtl"
 }
-layout/style_list=[]
-layout/default_style="Default"
+layout/style_list=["res://dialog/styles/default_dialog.tres"]
+layout/default_style="res://dialog/styles/default_dialog.tres"
 variables={}
 glossary/default_case_sensitive=true
 extensions_folder="res://addons/dialogic_additions"
@@ -50,6 +55,7 @@ choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
+portraits/default_portrait=""
 
 [dotnet]
 
