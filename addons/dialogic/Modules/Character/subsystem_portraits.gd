@@ -270,6 +270,7 @@ func _change_portrait_z_index(character_node: Node, z_index:int, update_zindex:=
 		character_node.get_parent().set_meta('z_index', z_index)
 
 		var sorted_children := character_node.get_parent().get_parent().get_children()
+		
 		sorted_children.sort_custom(z_sort_portrait_containers)
 		var idx := 0
 		for con in sorted_children:

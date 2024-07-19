@@ -24,7 +24,8 @@ Global="*res://scripts/Global.gd"
 [dialogic]
 
 directories/dch_directory={
-"brother_radio": "res://dialog/characters/brother_radio.dch"
+"brother_radio": "res://dialog/characters/brother_radio.dch",
+"huntress": "res://dialog/characters/huntress.dch"
 }
 directories/dtl_directory={
 "test1": "res://dialog/timelines/test1.dtl",
@@ -56,6 +57,13 @@ save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
 portraits/default_portrait=""
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [dotnet]
 

@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://i4601hu0ekoe"
+path="res://.godot/imported/DK Face Your Fears.ttf-9da0fa3857aa295344423efd9489da26.fontdata"
+
+[deps]
+
+source_file="res://dialog/fonts/DK Face Your Fears.ttf"
+dest_files=["res://.godot/imported/DK Face Your Fears.ttf-9da0fa3857aa295344423efd9489da26.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}
