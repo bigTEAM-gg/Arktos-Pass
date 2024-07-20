@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ri4nsbdoj3w5"]
+
+[ext_resource type="Shader" path="res://materials/StealthCloakEffect/stealth_cloak_effect.gdshader" id="1_64v00"]
+
+[resource]
+shader = ExtResource("1_64v00")
+shader_parameter/dissolveNoiseScale = 1.0
+shader_parameter/dissolveAmount = 0.7
+shader_parameter/edgeThickness = 0.01
+shader_parameter/edgeColor = null
+shader_parameter/invisibilityTint = null
+shader_parameter/tintStrength = null
+shader_parameter/distortionTiling = Vector2(1, 1)
+shader_parameter/distortionSpeed = Vector2(1, 1)
+shader_parameter/distortionStrength = null

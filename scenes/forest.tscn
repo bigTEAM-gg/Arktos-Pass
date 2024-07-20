@@ -19,12 +19,12 @@ fog_density = 0.05
 script = ExtResource("1_i1d7t")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, -0.0989827, 0.638578, 0.763165, -0.490105, 0.636174, -0.595886, 0, 6.43107, 0)
+transform = Transform3D(-0.866025, -0.433013, 0.25, -0.0989827, 0.638578, 0.763165, -0.490105, 0.636174, -0.595886, 0.00567031, 6.44829, 0.000793099)
 light_energy = 10.0
 shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.8222, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.8532, 0.0379009, -0.00610411)
 material_override = ExtResource("2_bq2ho")
 use_collision = true
 size = Vector3(111.644, 0.1, 50)
@@ -691,13 +691,18 @@ environment = SubResource("Environment_o8ukx")
 
 [node name="Monster" parent="." instance=ExtResource("7_ey4rb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.09108, -7.90217)
+visible = false
 
 [node name="DialogTrigger" parent="." instance=ExtResource("8_3ruwj")]
+process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01744, 0, 2.3741)
+visible = false
 dialogic_timeline = "test3"
 
 [node name="DialogTrigger2" parent="." instance=ExtResource("8_3ruwj")]
+process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.4117, 0, 2.13276)
+visible = false
 dialogic_timeline = "test2"
 
 [node name="DialogSfxHandler" type="Node" parent="."]

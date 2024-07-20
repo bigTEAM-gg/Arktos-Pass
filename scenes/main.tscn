@@ -7,5 +7,3 @@
 script = ExtResource("1_58dsf")
 
 [node name="Forest" parent="." instance=ExtResource("1_6kt45")]
-
-[connection signal="hunt_animal" from="Forest" to="." method="_on_forest_hunt_animal"]
