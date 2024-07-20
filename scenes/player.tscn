@@ -1,10 +1,72 @@
-[gd_scene load_steps=12 format=3 uid="uid://b7qmc6himhisa"]
+[gd_scene load_steps=20 format=3 uid="uid://b7qmc6himhisa"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_dl7pv"]
 [ext_resource type="Texture2D" uid="uid://bg3vw6gr8fj21" path="res://player_placeholder.png" id="2_3s2vu"]
 [ext_resource type="AudioStream" uid="uid://bkv170jpqy24q" path="res://assets/gun_fire.ogg" id="3_ryut6"]
+[ext_resource type="Texture2D" uid="uid://bck7l8lav4l04" path="res://assets/textures/Hit_Effect-Sheet.png" id="3_xl53f"]
 [ext_resource type="AudioStream" uid="uid://cjjhjxy6272q6" path="res://assets/gun_bolt.wav" id="4_tk243"]
 [ext_resource type="AudioStream" uid="uid://c63rbmhv2pjop" path="res://assets/gun_empty.wav" id="5_ifngk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t06dm"]
+atlas = ExtResource("3_xl53f")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2dlg"]
+atlas = ExtResource("3_xl53f")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtjcr"]
+atlas = ExtResource("3_xl53f")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awwqc"]
+atlas = ExtResource("3_xl53f")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obrre"]
+atlas = ExtResource("3_xl53f")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trqjj"]
+atlas = ExtResource("3_xl53f")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bkq80"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t06dm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2dlg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtjcr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awwqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obrre")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trqjj")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3ej0r"]
 height = 1.8
@@ -46,6 +108,11 @@ billboard = 2
 alpha_cut = 1
 texture = ExtResource("2_3s2vu")
 
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.971039, 0)
+pixel_size = 0.09
+sprite_frames = SubResource("SpriteFrames_bkq80")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_3ej0r")
@@ -76,6 +143,7 @@ shape = SubResource("CylinderShape3D_6ruig")
 
 [node name="Debugger" type="CSGCylinder3D" parent="ShootHitbox"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.5, -10)
+visible = false
 height = 20.0
 material = SubResource("StandardMaterial3D_dt536")
 

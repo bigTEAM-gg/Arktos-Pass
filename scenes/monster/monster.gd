@@ -1,7 +1,10 @@
 extends CharacterBody3D
 
 
-const SPEED = 8.0
+class_name Monster
+
+
+const SPEED = 18.0
 const IS_HIT_ESCAPE = Vector3(10, 0, 10)
 const DEBUG = false
 
@@ -29,6 +32,7 @@ var delay_decision_accum := 0.0
 func _ready():
 	hurtbox.body_entered.connect(_on_body_entered)
 	monster_state = MonsterState.STALKING
+	Global.monster = self
 
 
 func _physics_process(delta):

@@ -7,9 +7,9 @@ class_name Player
 @export var JOY_SENS = 0.04
 @export var MOUSE_SENS = 0.002
 	
-var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
-
+	
 var yaw: float
+
 
 @onready var camera: Camera3D = $CameraPivot/Camera3D
 @onready var pivot: Node3D = $CameraPivot
@@ -19,12 +19,18 @@ var yaw: float
 @onready var shoot_hitbox = $ShootHitbox
 @onready var shooting_delay = $ShootingDelay
 @onready var gunempty_sfx = $GunemptySFX
+@onready var hit_animation: AnimatedSprite3D = $AnimatedSprite3D
 
 var health = 5
 var ammo = 5
 
+
+signal sniper_mode_changed(current: bool)
+
+
 func _ready():
 	Global.player = self
+	sniper_mode_changed.connect(Global.handle_player_sniper_mode_changed)
 
 func _input(event):	
 	if event is InputEventMouseMotion and (Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE) or is_sniper_mode):
@@ -34,6 +40,7 @@ func _input(event):
 
 var is_in_dialog = false
 var is_sniper_mode = false
+var is_sniper_mode_ready = false
 const cam_over = Vector3(0, 10, 15)
 const cam_over_angle = deg_to_rad(-30)
 const cam_over_size = 12.5
@@ -92,11 +99,22 @@ func process_sniper_mode():
 		camera_3d.position = camera_3d.position.lerp(cam_over, 0.1)
 		camera_3d.rotation.x = lerp_angle(camera_3d.rotation.x, cam_over_angle, 0.1)
 		camera_3d.size = lerp(camera_3d.size, cam_over_size, 0.1)
+		if (camera_3d.position - cam_fps).length() > 1.0:
+			if is_sniper_mode_ready:
+				sniper_mode_changed.emit(false)
+				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			is_sniper_mode_ready = false
 	else:
 		camera_3d.position = camera_3d.position.lerp(cam_fps, 0.1)
 		camera_3d.rotation.x = lerp_angle(camera_3d.rotation.x, cam_fps_angle, 0.1)
-		camera_3d.size = lerp(camera_3d.size, cam_fps_size, 0.1)	
+		camera_3d.size = lerp(camera_3d.size, cam_fps_size, 0.1)
+		if (camera_3d.position - cam_fps).length() < 1.0:
+			if !is_sniper_mode_ready:
+				sniper_mode_changed.emit(true)
+				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			is_sniper_mode_ready = true
 	
 func take_damage(amount):
 	health += amount * -1
 	print("Player takes damage. Total damage: ", health)
+	hit_animation.play()

@@ -4,8 +4,9 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_w0v3e"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1oqq"]
-albedo_color = Color(1, 0, 0, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fdff1"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.101961)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2ehcx"]
 radius = 1.06107
@@ -26,7 +27,8 @@ shape = SubResource("CylinderShape3D_w0v3e")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-material = SubResource("StandardMaterial3D_i1oqq")
+transparency = 1.0
+material = SubResource("StandardMaterial3D_fdff1")
 
 [node name="Hurtbox" type="Area3D" parent="."]
 
@@ -40,5 +42,6 @@ shape = SubResource("SphereShape3D_2ehcx")
 shape = SubResource("SphereShape3D_e5b82")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="TargetSearchArea"]
+visible = false
 radius = 15.0
 material = SubResource("StandardMaterial3D_13q33")
