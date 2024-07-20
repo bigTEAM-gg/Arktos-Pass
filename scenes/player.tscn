@@ -31,7 +31,7 @@ stream_0/stream = ExtResource("5_ifngk")
 stream_0/weight = 1.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6ruig"]
-height = 8.0
+height = 20.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dt536"]
 transparency = 1
@@ -71,12 +71,12 @@ stream = SubResource("AudioStreamRandomizer_vrqmo")
 transform = Transform3D(1, 0, 0, 0, 0.999391, 0.0348995, 0, -0.0348995, 0.999391, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ShootHitbox"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.5, -4)
+transform = Transform3D(1, 0, 0, 0, -4.47035e-08, -1, 0, 1, -4.47035e-08, 0, 1.64, -10)
 shape = SubResource("CylinderShape3D_6ruig")
 
 [node name="Debugger" type="CSGCylinder3D" parent="ShootHitbox"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.5, -4)
-height = 8.0
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.5, -10)
+height = 20.0
 material = SubResource("StandardMaterial3D_dt536")
 
 [node name="ShootingDelay" type="Timer" parent="."]

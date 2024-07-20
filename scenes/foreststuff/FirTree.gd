@@ -1,5 +1,6 @@
 extends Area3D
 
+class_name FirTree
 
 var shake = 0
 

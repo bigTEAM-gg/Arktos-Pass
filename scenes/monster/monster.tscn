@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://y43sowoxgvba"]
+[gd_scene load_steps=7 format=3 uid="uid://y43sowoxgvba"]
 
 [ext_resource type="Script" path="res://scenes/monster/monster.gd" id="1_ygfpi"]
 
@@ -8,7 +8,14 @@
 albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2ehcx"]
-radius = 2.0
+radius = 1.06107
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_e5b82"]
+radius = 15.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13q33"]
+transparency = 1
+albedo_color = Color(1, 1, 0, 0.137255)
 
 [node name="Monster" type="CharacterBody3D" groups=["critters"]]
 script = ExtResource("1_ygfpi")
@@ -26,3 +33,12 @@ material = SubResource("StandardMaterial3D_i1oqq")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("SphereShape3D_2ehcx")
+
+[node name="TargetSearchArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TargetSearchArea"]
+shape = SubResource("SphereShape3D_e5b82")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="TargetSearchArea"]
+radius = 15.0
+material = SubResource("StandardMaterial3D_13q33")
