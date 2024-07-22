@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cinhxvsjs7nlc"]
+[gd_scene load_steps=9 format=3 uid="uid://cinhxvsjs7nlc"]
 
 [ext_resource type="Material" uid="uid://dtvnutqkcg0ig" path="res://assets/SnowyNoise1k/Snow.tres" id="1_ej6no"]
 [ext_resource type="PackedScene" uid="uid://cvt7xsdtis6bo" path="res://scenes/models-scenes/cabin_block.tscn" id="2_hrx2w"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bynfws7xny3na" path="res://scenes/models-scenes/static-mesh/signpost.dae" id="5_gf1la"]
 [ext_resource type="PackedScene" uid="uid://caq87jdqc3dq4" path="res://scenes/models-scenes/static-mesh/walkietalkie.dae" id="7_46fgk"]
 [ext_resource type="PackedScene" uid="uid://t8h7n1ckwnbm" path="res://scenes/bush_cluster_1.tscn" id="8_npd05"]
+[ext_resource type="PackedScene" uid="uid://b7qmc6himhisa" path="res://scenes/player.tscn" id="8_ya0kd"]
 [ext_resource type="PackedScene" uid="uid://dmfvd8tl5s31q" path="res://scenes/path.tscn" id="12_t41bk"]
 
 [node name="Greybox" type="Node3D"]
@@ -68,3 +69,6 @@ transform = Transform3D(-0.999999, 0, 0.00150091, 0, 1, 0, -0.00150091, 0, -0.99
 
 [node name="bush_cluster_10" parent="bush_clusters" instance=ExtResource("8_npd05")]
 transform = Transform3D(0.612907, 0, -0.790155, 0, 1, 0, 0.790155, 0, 0.612907, 10.6411, 0, 195.239)
+
+[node name="Player" parent="." instance=ExtResource("8_ya0kd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.1606, 0, 212.365)
