@@ -18,9 +18,9 @@ const SAFE_ZONE_RADIUS = 3.0
 @onready var safe_zone_scene := preload("res://scenes/safe_zone.tscn")
 
 
-@export var player_slow_attack_delay := 1.0
+@export var player_slow_attack_delay := 2.0
 @export var player_slow_attack_speed_thresh := 2.0
-@export var delay_decision_time := 0.5
+@export var delay_decision_time := 0.7
 
 
 enum MonsterState { IDLE, STALKING }
@@ -33,6 +33,7 @@ var player_is_around := false
 var trees_around: Array[FirTree] = []
 var delay_decision_accum := 0.0
 var player_is_in_safe_zone := false
+var is_lunging := false
 
 
 func _ready():
@@ -104,12 +105,15 @@ func _delay_decision(delta: float):
 
 func _find_attack_target(player):
 	var target = null
-	if player_is_slow:
+	if player_is_in_safe_zone:
+		pass
+	elif player_is_slow:
 		if player_is_slow_accum > player_slow_attack_delay:
 			player_is_slow_accum = 0.0
 			if player_is_around && !player_is_in_safe_zone:
 				if DEBUG: print("Monster's target is player")
 				target = player.global_position
+				is_lunging = true
 	elif trees_around.size() > 0:
 		target = trees_around[0].global_position
 	return target
@@ -143,16 +147,18 @@ func _debug_closest_tree():
 		trees_around[0].shake = 100
 
 
-func shot():
+func shot(from_where: Vector3):
 	# This might have a little stale data, but should be ok, trees_around is reset and updated in one go in physics_process
+	_set_safe_zone(from_where)
 	target = _find_retreat_target()
 
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):
-		target = null
-		body.take_damage(1)
-		_set_safe_zone(body.global_position)
+		if is_lunging:
+			body.take_damage(1)
+			_set_safe_zone(body.global_position)
+			is_lunging = false
 		target = _find_retreat_target()
 
 
