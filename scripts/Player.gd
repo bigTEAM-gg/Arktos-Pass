@@ -9,6 +9,7 @@ class_name Player
 	
 	
 var yaw: float
+var updown: float
 
 
 @onready var camera: Camera3D = $CameraPivot/Camera3D
@@ -35,6 +36,7 @@ func _ready():
 func _input(event):	
 	if event is InputEventMouseMotion and (Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE) or is_sniper_mode):
 		yaw -= event.relative.x * MOUSE_SENS
+		updown -= event.relative.y * MOUSE_SENS
 
 @onready var camera_3d = $CameraPivot/Camera3D
 
@@ -58,6 +60,7 @@ func process_player_controls():
 	var look_vector = Input.get_vector("player_look_left", "player_look_right", "player_look_up", "player_look_down")
 	if is_sniper_mode:
 		yaw += look_vector.x * JOY_SENS * -1
+		updown += look_vector.y * JOY_SENS * -1
 	else:
 		# This feels kinda wrong ... but idk. Maybe I'm overthinking it
 		yaw += look_vector.x * JOY_SENS * -1
@@ -81,6 +84,7 @@ func process_player_controls():
 		else:
 			gunempty_sfx.play()
 	
+	rotation.x = updown
 	rotation.y = yaw
 	
 	var input_dir := Input.get_vector("player_left", "player_right", "player_forward", "player_back").rotated(-rotation.y)
