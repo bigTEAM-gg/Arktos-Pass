@@ -25,7 +25,9 @@ const SAFE_ZONE_RADIUS = 3.0
 
 enum MonsterState { IDLE, STALKING }
 var monster_state: MonsterState
+
 var target = null
+
 var previous_player_pos = null
 var player_is_slow
 var player_is_slow_accum := 0.0
@@ -62,16 +64,29 @@ func _physics_process(delta):
 func _look_around(player):
 	player_is_around = false
 	trees_around = []
+	
+	var player_pos = player.global_position
+	
+	var closest_tree_dist = 1000000.0
+	var farthest_tree_dist = 0.0
+	var closest_tree: FirTree = null
+	var farthest_tree: FirTree = null
 	var overlapping := target_search_area.get_overlapping_areas()
 	for a in overlapping:
 		if a is FirTree:
-			trees_around.append(a as FirTree)
-	var overlapping_bodies := target_search_area.get_overlapping_bodies()
-	for a in overlapping_bodies:
-		if a.is_in_group("player"):
-			player_is_around = true
-	var player_pos = player.global_position
+			var tree_dist = (player_pos - a.global_position).length()
+			if tree_dist < closest_tree_dist:
+				closest_tree_dist = tree_dist
+				closest_tree = a
+			if tree_dist > farthest_tree_dist:
+				farthest_tree_dist = tree_dist
+				farthest_tree = a
+			
 	trees_around.sort_custom(func(a, b): return (a.global_position - player_pos).length() < (b.global_position - player_pos).length())
+			
+	var dist_to_player = (player_pos - global_position).length()
+	player_is_around = dist_to_player < target_search_area.get_child(0).shape.radius
+	
 	#if DEBUG: _debug_closest_tree()
 	#if DEBUG: print("Monster loooked around, found ", trees_around.size(), " trees. Player: ", player_is_around, ".")
 
@@ -143,7 +158,6 @@ func _debug_closest_tree():
 	if trees_around.size() > 0:
 		for tree in trees_around:
 			tree.shake = 0
-		
 		trees_around[0].shake = 100
 
 
@@ -154,11 +168,10 @@ func shot(from_where: Vector3):
 
 
 func _on_body_entered(body):
-	if body.is_in_group("player"):
-		if is_lunging:
-			body.take_damage(1)
-			_set_safe_zone(body.global_position)
-			is_lunging = false
+	if body.is_in_group("player") && is_lunging:
+		body.take_damage(1)
+		_set_safe_zone(body.global_position)
+		is_lunging = false
 		target = _find_retreat_target()
 
 
