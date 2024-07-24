@@ -1,18 +1,24 @@
-[gd_scene load_steps=12 format=3 uid="uid://wbg5d8kgacec"]
+[gd_scene load_steps=15 format=3 uid="uid://wbg5d8kgacec"]
 
 [ext_resource type="Script" path="res://scripts/Forest.gd" id="1_i1d7t"]
+[ext_resource type="Shader" path="res://assets/textures/foggyunshaded.gdshader" id="2_0cuxj"]
 [ext_resource type="PackedScene" uid="uid://b7qmc6himhisa" path="res://scenes/player.tscn" id="2_6kfx6"]
-[ext_resource type="Material" uid="uid://dtvnutqkcg0ig" path="res://assets/SnowyNoise1k/Snow.tres" id="2_bq2ho"]
+[ext_resource type="Texture2D" uid="uid://dxxald5ada4tu" path="res://assets/textures/checker-map_tho.png" id="3_fjsqb"]
 [ext_resource type="PackedScene" uid="uid://cvt7xsdtis6bo" path="res://scenes/models-scenes/cabin_block.tscn" id="6_32w0d"]
 [ext_resource type="PackedScene" uid="uid://y43sowoxgvba" path="res://scenes/monster/monster.tscn" id="7_ey4rb"]
-[ext_resource type="PackedScene" uid="uid://cvnbi1gnk7okv" path="res://scenes/dialog_trigger.tscn" id="8_3ruwj"]
+[ext_resource type="PackedScene" path="res://scenes/dialog_trigger.tscn" id="8_3ruwj"]
 [ext_resource type="PackedScene" uid="uid://drfsdfhjtrmon" path="res://scenes/foreststuff/FirTree.tscn" id="8_rfh1m"]
 [ext_resource type="PackedScene" uid="uid://d36dbfrl5bbkm" path="res://scenes/foreststuff/Bush.tscn" id="9_idxoe"]
 [ext_resource type="Script" path="res://scripts/DialogSfxHandler.gd" id="9_s15g3"]
 [ext_resource type="AudioStream" uid="uid://soaytpuq00rp" path="res://assets/radio_beep.wav" id="10_ofmcd"]
+[ext_resource type="PackedScene" uid="uid://dtfqbg2in6vo6" path="res://scenes/models-scenes/tree_block.tscn" id="11_dog8b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_py0bj"]
+render_priority = 0
+shader = ExtResource("2_0cuxj")
+shader_parameter/texture_albedo = ExtResource("3_fjsqb")
 
 [sub_resource type="Environment" id="Environment_o8ukx"]
-fog_enabled = true
 fog_density = 0.05
 
 [node name="Forest" type="Node3D"]
@@ -25,7 +31,7 @@ shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.8532, 0.0379009, -0.00610411)
-material_override = ExtResource("2_bq2ho")
+material_override = SubResource("ShaderMaterial_py0bj")
 use_collision = true
 size = Vector3(111.644, 0.1, 50)
 
@@ -37,6 +43,7 @@ transform = Transform3D(-0.0963322, 0, 0.995349, 0, 1, 0, -0.995349, 0, -0.09633
 
 [node name="SomeFoliage" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42985, 0.0499973, 9.53039)
+visible = false
 
 [node name="Tree" parent="SomeFoliage" instance=ExtResource("8_rfh1m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.42985, -0.0499973, -13.3217)
@@ -710,3 +717,5 @@ script = ExtResource("9_s15g3")
 
 [node name="RadioBeep" type="AudioStreamPlayer" parent="DialogSfxHandler"]
 stream = ExtResource("10_ofmcd")
+
+[node name="tree_block" parent="." instance=ExtResource("11_dog8b")]

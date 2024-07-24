@@ -156,3 +156,19 @@ renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/decals/filter=0
 textures/light_projectors/filter=0
+environment/defaults/default_clear_color=Color(0.95, 0.98, 1, 1)
+
+[shader_globals]
+
+player_position={
+"type": "vec3",
+"value": Vector3(0, 0, 0)
+}
+fog_color={
+"type": "vec4",
+"value": Vector4(0.95, 0.98, 1, 1)
+}
+fog_density={
+"type": "float",
+"value": 0.15
+}
