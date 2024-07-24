@@ -101,6 +101,7 @@ albedo_color = Color(1, 1, 0, 0.196078)
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_dl7pv")
+JOY_SENS = 0.01
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.971039, 0)
