@@ -1,7 +1,7 @@
 join brother_radio leftmost [animation="Fade In" length="0.7"]
-brother_radio: hahahaha
-brother_radio: hello i am scary brother
+brother_radio: meet... watertower... run
 leave --All-- [animation="Fade Out" length="0.1"]
 join huntress leftmost [animation="Fade In" length="0.7"]
-huntress: the brother indeed was scary
+huntress: Sam?! Stay where you are. I'll find you!
+huntress: He's in trouble, I've got to help him!
 leave --All-- [animation="Fade Out" length="0.1"]
