@@ -1,3 +1,6 @@
+# TODO:
+# - what if player manages to run away while monster is lunging -- no exit from that ai state until player is hit
+
 extends CharacterBody3D
 
 
@@ -7,10 +10,12 @@ class_name Monster
 const SPEED = 18.0
 const IS_HIT_ESCAPE = Vector3(10, 0, 10)
 const DEBUG = false
+const SAFE_ZONE_RADIUS = 3.0
 
 
 @onready var hurtbox = $Hurtbox
 @onready var target_search_area: Area3D = $TargetSearchArea
+@onready var safe_zone_scene := preload("res://scenes/safe_zone.tscn")
 
 
 @export var player_slow_attack_delay := 1.0
@@ -27,6 +32,7 @@ var player_is_slow_accum := 0.0
 var player_is_around := false
 var trees_around: Array[FirTree] = []
 var delay_decision_accum := 0.0
+var player_is_in_safe_zone := false
 
 
 func _ready():
@@ -80,7 +86,7 @@ func _track_player(delta: float, player):
 			if player_is_slow:
 				player_is_slow_accum += delta
 			else:
-				player_is_slow_accum += 0.0
+				player_is_slow_accum = 0.0
 		else:
 			player_is_slow = false
 			player_is_slow_accum = 0.0
@@ -98,10 +104,10 @@ func _delay_decision(delta: float):
 
 func _find_attack_target(player):
 	var target = null
-	if player_is_around && player_is_slow:
+	if player_is_slow:
 		if player_is_slow_accum > player_slow_attack_delay:
 			player_is_slow_accum = 0.0
-			if player_is_around:
+			if player_is_around && !player_is_in_safe_zone:
 				if DEBUG: print("Monster's target is player")
 				target = player.global_position
 	elif trees_around.size() > 0:
@@ -146,4 +152,14 @@ func _on_body_entered(body):
 	if body.is_in_group("player"):
 		target = null
 		body.take_damage(1)
+		_set_safe_zone(body.global_position)
 		target = _find_retreat_target()
+
+
+func _set_safe_zone(position: Vector3):
+	player_is_in_safe_zone = true
+	var safe_zone_node = safe_zone_scene.instantiate()
+	safe_zone_node.position = position
+	Global.level.add_child(safe_zone_node)
+	safe_zone_node.set_radius(SAFE_ZONE_RADIUS)
+	safe_zone_node.player_left.connect(func(): player_is_in_safe_zone = false)

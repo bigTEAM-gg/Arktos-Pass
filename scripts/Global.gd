@@ -1,5 +1,6 @@
 extends Node
 
+var level: Forest = null
 var player: Player = null
 var monster: Monster = null
 
