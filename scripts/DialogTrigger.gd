@@ -2,7 +2,7 @@ extends Node3D
 
 class_name DialogTrigger
 
-@export var dialogic_timeline = "test1"
+@export var dialogic_timeline = "test3"
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):

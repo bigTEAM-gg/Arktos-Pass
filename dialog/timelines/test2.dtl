@@ -1,7 +1,7 @@
+join brother_radio leftmost [animation="Fade In" length="0.7"]
+brother_radio: hahahaha
+brother_radio: hello i am scary brother
+leave --All-- [animation="Fade Out" length="0.1"]
 join huntress leftmost [animation="Fade In" length="0.7"]
-huntress: test2\
-sdfdsljjl\
-\
-sdfd
-huntress: aaaaaaaaaaaaaaaaaaaaaa
+huntress: the brother indeed was scary
 leave --All-- [animation="Fade Out" length="0.1"]

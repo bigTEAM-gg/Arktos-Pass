@@ -691,18 +691,12 @@ environment = SubResource("Environment_o8ukx")
 
 [node name="Monster" parent="." instance=ExtResource("7_ey4rb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.09108, -7.90217)
-visible = false
 
 [node name="DialogTrigger" parent="." instance=ExtResource("8_3ruwj")]
-process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01744, 0, 2.3741)
-visible = false
-dialogic_timeline = "test3"
 
 [node name="DialogTrigger2" parent="." instance=ExtResource("8_3ruwj")]
-process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.4117, 0, 2.13276)
-visible = false
 dialogic_timeline = "test2"
 
 [node name="DialogSfxHandler" type="Node" parent="."]

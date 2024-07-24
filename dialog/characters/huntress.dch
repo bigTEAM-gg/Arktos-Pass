@@ -6,7 +6,7 @@
 "custom_info": {
 "sound_mood_default": "",
 "sound_moods": {},
-"style": ""
+"style": "default_dialog"
 },
 "default_portrait": "huntress_portrait",
 "description": "",
@@ -19,9 +19,10 @@
 "export_overrides": {
 "image": "\"res://assets/textures/thehuntressportrait3.png\""
 },
+"ignore_char_scale": false,
 "mirror": false,
-"offset": Vector2(0, 0),
-"scale": 1,
+"offset": Vector2(50, 150),
+"scale": 0.8,
 "scene": ""
 }
 },

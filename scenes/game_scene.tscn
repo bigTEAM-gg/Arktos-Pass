@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://b7lmp3ynu4ubs"]
+[gd_scene load_steps=15 format=3 uid="uid://b7lmp3ynu4ubs"]
 
+[ext_resource type="Script" path="res://scripts/game_scene.gd" id="1_03cmh"]
 [ext_resource type="Material" uid="uid://dtvnutqkcg0ig" path="res://assets/SnowyNoise1k/Snow.tres" id="1_lfgo5"]
 [ext_resource type="PackedScene" uid="uid://cvt7xsdtis6bo" path="res://scenes/models-scenes/cabin_block.tscn" id="2_rkg7s"]
 [ext_resource type="PackedScene" uid="uid://4478f05ggc05" path="res://scenes/models-scenes/static-mesh/watertower.dae" id="3_t7f0h"]
@@ -12,8 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://cqf6x7wc6858t" path="res://scenes/models-scenes/rock_block.tscn" id="10_e7xes"]
 [ext_resource type="PackedScene" uid="uid://t8h7n1ckwnbm" path="res://scenes/bush_cluster_1.tscn" id="11_5h5pj"]
 [ext_resource type="PackedScene" uid="uid://b7qmc6himhisa" path="res://scenes/player.tscn" id="12_clta6"]
+[ext_resource type="Script" path="res://scripts/DialogTrigger.gd" id="13_ybmln"]
 
 [node name="GameScene" type="Node3D"]
+script = ExtResource("1_03cmh")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, -0.0989827, 0.638578, 0.763165, -0.490105, 0.636174, -0.595886, 0, 6.43107, 0)
@@ -33,9 +36,6 @@ transform = Transform3D(0.928674, 0, -0.370898, 0, 1, 0, 0.370898, 0, 0.928674, 
 
 [node name="signpost" parent="." instance=ExtResource("4_yyxpq")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 9.82868, 0, 138.388)
-
-[node name="signpost2" parent="." instance=ExtResource("4_yyxpq")]
-transform = Transform3D(0.333752, 0, 1.4624, 0, 1.5, 0, -1.4624, 0, 0.333752, 15.3355, 0, 224.516)
 
 [node name="walkietalkie" parent="." instance=ExtResource("5_ex4ju")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4555, -0.00893903, 138.993)
@@ -1940,4 +1940,10 @@ transform = Transform3D(-0.498397, 0, 0.866949, 0, 1, 0, -0.866949, 0, -0.498397
 transform = Transform3D(0.434823, 0, -0.900516, 0, 1, 0, 0.900516, 0, 0.434823, 17.1118, 0, -572.735)
 
 [node name="Player" parent="." instance=ExtResource("12_clta6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.007, 0, -325.042)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.9125, 0.0561638, 214.932)
+axis_lock_linear_y = true
+
+[node name="DialogTrigger" type="Node3D" parent="."]
+process_mode = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.9909, 0.0141897, 210.002)
+script = ExtResource("13_ybmln")
