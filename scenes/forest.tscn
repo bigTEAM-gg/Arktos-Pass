@@ -691,9 +691,6 @@ environment = SubResource("Environment_o8ukx")
 
 [node name="Monster" parent="." instance=ExtResource("7_ey4rb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.09108, -7.90217)
-player_slow_attack_delay = 2.0
-player_slow_attack_speed_thresh = 2.0
-delay_decision_time = 0.7
 
 [node name="DialogTrigger" parent="." instance=ExtResource("8_3ruwj")]
 process_mode = 4

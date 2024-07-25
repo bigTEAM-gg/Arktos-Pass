@@ -7,20 +7,21 @@ extends CharacterBody3D
 class_name Monster
 
 
-const SPEED = 18.0
+const SPEED = 15.0
+const LUNGE_SPEED = 25.0
+const CREEP_SPEED = 0.5
 const IS_HIT_ESCAPE = Vector3(10, 0, 10)
-const DEBUG = false
+const DEBUG = true
 const SAFE_ZONE_RADIUS = 3.0
-
+const DIST_CLOSE = 0.2
 
 @onready var hurtbox = $Hurtbox
 @onready var target_search_area: Area3D = $TargetSearchArea
 @onready var safe_zone_scene := preload("res://scenes/safe_zone.tscn")
 
 
-@export var player_slow_attack_delay := 2.0
-@export var player_slow_attack_speed_thresh := 2.0
-@export var delay_decision_time := 0.7
+@export var attack_delay := 2.0
+@export var movement_delay := 0.7
 
 
 enum MonsterState { IDLE, STALKING }
@@ -32,10 +33,13 @@ var previous_player_pos = null
 var player_is_slow
 var player_is_slow_accum := 0.0
 var player_is_around := false
-var trees_around: Array[FirTree] = []
 var delay_decision_accum := 0.0
 var player_is_in_safe_zone := false
 var is_lunging := false
+var closest_tree_while_creeping: FirTree = null
+
+var closest_tree: FirTree = null
+var farthest_tree: FirTree = null
 
 
 func _ready():
@@ -45,32 +49,48 @@ func _ready():
 
 
 func _physics_process(delta):
-	var player = Global.player
-	if not is_instance_valid(player):
+	if not is_instance_valid(Global.player):
 		return
+		
 	match monster_state:
 		MonsterState.IDLE:
 			pass
 		MonsterState.STALKING:
-			_look_around(player)
 			if target == null:
-				_track_player(delta, player)
-				if _delay_decision(delta):
-					target = _find_attack_target(player)
-			elif _move_to_target(target):
+				target = _find_attack_target(delta)
+			elif _move_to_target(target, _get_speed()):
 				target = null
 
 
-func _look_around(player):
-	player_is_around = false
-	trees_around = []
-	
-	var player_pos = player.global_position
-	
+func _find_attack_target(delta):
+	var target = null
+	_check_trees()
+	if _am_at_target(closest_tree):
+		if player_is_in_safe_zone:
+			pass
+		else:
+			if _delay_decision(delta, attack_delay):
+				if DEBUG: print("Monster's target is player")
+				target = Global.player.global_position
+				is_lunging = true
+	else:
+		if _delay_decision(delta, movement_delay):
+			target = closest_tree.global_position
+	return target
+
+
+func _get_speed():
+	if is_lunging:
+		return LUNGE_SPEED
+	return SPEED
+
+func _check_trees():
+	var player_pos = Global.player.global_position
 	var closest_tree_dist = 1000000.0
 	var farthest_tree_dist = 0.0
-	var closest_tree: FirTree = null
-	var farthest_tree: FirTree = null
+	closest_tree = null
+	farthest_tree = null
+	
 	var overlapping := target_search_area.get_overlapping_areas()
 	for a in overlapping:
 		if a is FirTree:
@@ -81,72 +101,35 @@ func _look_around(player):
 			if tree_dist > farthest_tree_dist:
 				farthest_tree_dist = tree_dist
 				farthest_tree = a
-			
-	trees_around.sort_custom(func(a, b): return (a.global_position - player_pos).length() < (b.global_position - player_pos).length())
-			
-	var dist_to_player = (player_pos - global_position).length()
-	player_is_around = dist_to_player < target_search_area.get_child(0).shape.radius
-	
-	#if DEBUG: _debug_closest_tree()
-	#if DEBUG: print("Monster loooked around, found ", trees_around.size(), " trees. Player: ", player_is_around, ".")
 
 
-func _track_player(delta: float, player):
-	if previous_player_pos != null:
-		var frame_vel = null
-		var moved_dist = (player.global_position - previous_player_pos).length()
-		if !is_zero_approx(delta):
-			frame_vel = moved_dist / delta
-		if player_is_around:
-			player_is_slow = (frame_vel != null && frame_vel < player_slow_attack_speed_thresh)
-			if player_is_slow:
-				player_is_slow_accum += delta
-			else:
-				player_is_slow_accum = 0.0
-		else:
-			player_is_slow = false
-			player_is_slow_accum = 0.0
-		if DEBUG: print("Monster tracks player. frame_vel = ", frame_vel, ", around = ", player_is_around, ", accum = ",  player_is_slow_accum, ".")
-	previous_player_pos = player.global_position
+func _am_at_target(closest_tree: FirTree):
+	if closest_tree != null:
+		var dist = (self.global_position - closest_tree.global_position).length()
+		return dist < DIST_CLOSE
+	else:
+		return false
 
 
-func _delay_decision(delta: float):
+func _delay_decision(delta: float, delay_time: float):
 	delay_decision_accum += delta
-	if delay_decision_accum > delay_decision_time:
+	if delay_decision_accum > delay_time:
 		delay_decision_accum = 0.0
 		return true
 	return false
 	
 
-func _find_attack_target(player):
-	var target = null
-	if player_is_in_safe_zone:
-		pass
-	elif player_is_slow:
-		if player_is_slow_accum > player_slow_attack_delay:
-			player_is_slow_accum = 0.0
-			if player_is_around && !player_is_in_safe_zone:
-				if DEBUG: print("Monster's target is player")
-				target = player.global_position
-				is_lunging = true
-	elif trees_around.size() > 0:
-		target = trees_around[0].global_position
-	return target
-
-
 func _find_retreat_target():
-	var target = null
-	if trees_around.size() > 0:
-		target = trees_around[trees_around.size() - 1].global_position
-	return target
+	_check_trees()
+	return farthest_tree.global_position
 
 
-func _move_to_target(target: Vector3):
+func _move_to_target(target: Vector3, speed: float):
 	var displacement = target - global_position
 	var dist = displacement.length()
-	if dist > 0.2:
+	if dist > DIST_CLOSE:
 		var new_velocity = displacement.normalized()
-		new_velocity = new_velocity * SPEED
+		new_velocity = new_velocity * speed
 		velocity = new_velocity
 		move_and_slide()
 		return false
@@ -154,15 +137,7 @@ func _move_to_target(target: Vector3):
 		return true
 
 
-func _debug_closest_tree():
-	if trees_around.size() > 0:
-		for tree in trees_around:
-			tree.shake = 0
-		trees_around[0].shake = 100
-
-
 func shot(from_where: Vector3):
-	# This might have a little stale data, but should be ok, trees_around is reset and updated in one go in physics_process
 	_set_safe_zone(from_where)
 	target = _find_retreat_target()
 
