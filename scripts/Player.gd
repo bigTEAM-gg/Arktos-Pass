@@ -33,6 +33,9 @@ func _ready():
 	Global.player = self
 	sniper_mode_changed.connect(Global.handle_player_sniper_mode_changed)
 
+func _process(_delta):
+	RenderingServer.global_shader_parameter_set("player_position", global_position)
+
 func _input(event):	
 	if event is InputEventMouseMotion and (Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE) or is_sniper_mode):
 		yaw -= event.relative.x * MOUSE_SENS

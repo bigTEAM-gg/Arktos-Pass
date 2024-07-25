@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b7qmc6himhisa"]
+[gd_scene load_steps=22 format=3 uid="uid://b7qmc6himhisa"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_dl7pv"]
 [ext_resource type="Texture2D" uid="uid://bg3vw6gr8fj21" path="res://player_placeholder.png" id="2_3s2vu"]
@@ -71,6 +71,12 @@ animations = [{
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3ej0r"]
 height = 1.8
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j43e1"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_35k3r"]
+material = SubResource("ShaderMaterial_j43e1")
+size = Vector2(23, 23)
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_arhf3"]
 random_pitch = 1.05
 random_volume_offset_db = 0.5
@@ -125,6 +131,11 @@ transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 10, 10)
 projection = 1
 current = true
 size = 12.5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CameraPivot/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)
+visible = false
+mesh = SubResource("QuadMesh_35k3r")
 
 [node name="GunshotSFX" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_arhf3")
