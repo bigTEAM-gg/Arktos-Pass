@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b7lmp3ynu4ubs"]
+[gd_scene load_steps=18 format=3 uid="uid://b7lmp3ynu4ubs"]
 
 [ext_resource type="Script" path="res://scripts/game_scene.gd" id="1_03cmh"]
 [ext_resource type="Material" uid="uid://dtvnutqkcg0ig" path="res://assets/SnowyNoise1k/Snow.tres" id="1_lfgo5"]
@@ -14,6 +14,19 @@
 [ext_resource type="PackedScene" uid="uid://t8h7n1ckwnbm" path="res://scenes/bush_cluster_1.tscn" id="11_5h5pj"]
 [ext_resource type="PackedScene" uid="uid://b7qmc6himhisa" path="res://scenes/player.tscn" id="12_clta6"]
 [ext_resource type="PackedScene" uid="uid://cvnbi1gnk7okv" path="res://scenes/dialog_trigger.tscn" id="14_utow1"]
+[ext_resource type="Script" path="res://scripts/DialogTrigger14.gd" id="16_gyctw"]
+[ext_resource type="Script" path="res://scripts/DialogTriggerBack.gd" id="17_6kjpn"]
+
+[sub_resource type="GDScript" id="GDScript_6mqxh"]
+script/source = "extends Node3D
+
+
+func _ready():
+	Global.pickup.connect(destroy)
+	
+func destroy():
+	queue_free()
+"
 
 [node name="GameScene" type="Node3D"]
 script = ExtResource("1_03cmh")
@@ -29,7 +42,7 @@ material_override = ExtResource("1_lfgo5")
 size = Vector3(400, 0.1, 1000)
 
 [node name="cabin" parent="." instance=ExtResource("2_rkg7s")]
-transform = Transform3D(-0.868463, 0, 0.493356, 0, 0.998814, 0, -0.493356, 0, -0.868463, 48.7159, -0.373137, 216.811)
+transform = Transform3D(-0.687184, 0, -0.724849, 0, 0.998814, 0, 0.724849, 0, -0.687184, 49.9623, -0.373137, 217.908)
 
 [node name="watertower" parent="." instance=ExtResource("3_t7f0h")]
 transform = Transform3D(0.928674, 0, -0.370898, 0, 1, 0, 0.370898, 0, 0.928674, 31.3711, 0, -575.042)
@@ -39,6 +52,7 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 9.82868, 0, 138.388)
 
 [node name="walkietalkie" parent="." instance=ExtResource("5_ex4ju")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4555, -0.00893903, 138.993)
+script = SubResource("GDScript_6mqxh")
 
 [node name="Path" type="Node3D" parent="."]
 
@@ -1940,14 +1954,115 @@ transform = Transform3D(-0.498397, 0, 0.866949, 0, 1, 0, -0.866949, 0, -0.498397
 transform = Transform3D(0.434823, 0, -0.900516, 0, 1, 0, 0.900516, 0, 0.434823, 17.1118, 0, -572.735)
 
 [node name="Player" parent="." instance=ExtResource("12_clta6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.9125, 0.0561638, 214.932)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.32411, 1.14441e-05, 144.808)
 axis_lock_linear_y = true
 
-[node name="DialogTrigger" parent="." instance=ExtResource("14_utow1")]
-process_mode = 0
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 2.08165e-12, 210)
+[node name="DialogTriggers" type="Node3D" parent="."]
 
-[node name="DialogTrigger2" parent="." instance=ExtResource("14_utow1")]
+[node name="DialogTrigger0_phonecall" parent="DialogTriggers" instance=ExtResource("14_utow1")]
 process_mode = 0
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.08165e-12, 200)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, 2.08165e-12, 214.051)
+dialogic_timeline = "phonecall0"
+
+[node name="DialogTrigger1_alone" parent="DialogTriggers" instance=ExtResource("14_utow1")]
+process_mode = 0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.9985, 2.08165e-12, 210.063)
+
+[node name="DialogTrigger3_pickupwt" parent="DialogTriggers" instance=ExtResource("14_utow1")]
+process_mode = 0
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 16.8409, 2.08165e-12, 133.247)
+dialogic_timeline = "wt_pickup"
+
+[node name="DialogTrigger3_pickupwt2" parent="DialogTriggers" instance=ExtResource("14_utow1")]
+process_mode = 0
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 10.3978, 2.08165e-12, 138.995)
+dialogic_timeline = "wt_pickup2"
+isWT = true
+
+[node name="DialogTrigger2_sam1" parent="DialogTriggers" instance=ExtResource("14_utow1")]
+process_mode = 0
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 23.668, 2.08165e-12, 125.45)
 dialogic_timeline = "test2"
+isWT = true
+
+[node name="DialogTrigger4" parent="DialogTriggers" instance=ExtResource("14_utow1")]
+process_mode = 0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 2.08165e-12, 80)
+dialogic_timeline = "text4"
+
+[node name="DialogTrigger5" parent="DialogTriggers" instance=ExtResource("14_utow1")]
+process_mode = 0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 2.08165e-12, -90)
+dialogic_timeline = "text5"
+isWT = true
+
+[node name="DialogTrigger6" parent="DialogTriggers" instance=ExtResource("14_utow1")]
+process_mode = 0
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 70, 2.08165e-12, -110)
+dialogic_timeline = "text6"
+isWT = true
+isRoar = true
+
+[node name="DialogTrigger7" parent="DialogTriggers" instance=ExtResource("14_utow1")]
+process_mode = 0
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 55.7208, -0.358978, -160.422)
+dialogic_timeline = "text7"
+
+[node name="DialogTrigger8" parent="DialogTriggers" instance=ExtResource("14_utow1")]
+process_mode = 0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, -0.718, -320.844)
+dialogic_timeline = "text8"
+isWT = true
+
+[node name="DialogTrigger9" parent="DialogTriggers" instance=ExtResource("14_utow1")]
+process_mode = 0
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -130, 2.08165e-12, -340)
+dialogic_timeline = "text9"
+isWT = true
+
+[node name="DialogTrigger10" parent="DialogTriggers" instance=ExtResource("14_utow1")]
+process_mode = 0
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 30, -7.18, -440)
+dialogic_timeline = "text10"
+isWT = true
+
+[node name="DialogTrigger11" parent="DialogTriggers" instance=ExtResource("14_utow1")]
+process_mode = 0
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 35, 2.08165e-12, -470)
+dialogic_timeline = "text11"
+isWT = true
+
+[node name="DialogTrigger12" parent="DialogTriggers" instance=ExtResource("14_utow1")]
+process_mode = 0
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 20, 2.08165e-12, -540)
+dialogic_timeline = "text12"
+isWT = true
+
+[node name="DialogTrigger13" parent="DialogTriggers" instance=ExtResource("14_utow1")]
+process_mode = 0
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 25, 2.08165e-12, -560)
+dialogic_timeline = "text13"
+isWT = true
+
+[node name="DialogTrigger14" parent="DialogTriggers" instance=ExtResource("14_utow1")]
+process_mode = 0
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 35, 2.08165e-12, -580)
+script = ExtResource("16_gyctw")
+dialogic_timeline = "text14"
+
+[node name="DialogTrigger15" parent="DialogTriggers" instance=ExtResource("14_utow1")]
+process_mode = 0
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -105.27, 2.08165e-12, -380.648)
+script = ExtResource("17_6kjpn")
+
+[node name="DialogTrigger16" parent="DialogTriggers" instance=ExtResource("14_utow1")]
+process_mode = 0
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 65.9007, 2.08165e-12, -138.476)
+script = ExtResource("17_6kjpn")
+dialogic_timeline = "text16"
+
+[node name="DialogTrigger17" parent="DialogTriggers" instance=ExtResource("14_utow1")]
+process_mode = 0
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 36.9612, 3.8147e-06, 112.728)
+script = ExtResource("17_6kjpn")
+dialogic_timeline = "text17"
