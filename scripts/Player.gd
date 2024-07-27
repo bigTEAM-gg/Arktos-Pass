@@ -78,7 +78,7 @@ func process_player_controls():
 			var bodies = shoot_hitbox.get_overlapping_bodies()
 			for body in bodies:
 				if body.is_in_group("critters"):
-					body.shot()
+					body.shot(global_position)
 			gunshot_sfx.play()
 			ammo -= 1
 			shooting_delay.start()
