@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbj02oevjlhk4"]
+
+[ext_resource type="PackedScene" uid="uid://duncwvbetu8bt" path="res://scenes/models-scenes/static-mesh/pileofsnow.dae" id="1_576j0"]
+[ext_resource type="Material" uid="uid://dtvnutqkcg0ig" path="res://assets/SnowyNoise1k/Snow.tres" id="2_6uaq0"]
+
+[node name="pileofsnow" instance=ExtResource("1_576j0")]
+
+[node name="pileofsnow" parent="." index="0"]
+material_override = ExtResource("2_6uaq0")
