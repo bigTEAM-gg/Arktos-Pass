@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2h8atgtfq1tl"]
+
+[ext_resource type="PackedScene" uid="uid://d15phg7m24aie" path="res://scenes/models-scenes/talisman/deer_talisman.tscn" id="1_1v3sf"]
+[ext_resource type="PackedScene" uid="uid://cguig2vermxwa" path="res://scenes/models-scenes/talisman/deer_talisman_thin.tscn" id="2_a6n7p"]
+[ext_resource type="PackedScene" uid="uid://biktaa0iw8yur" path="res://scenes/models-scenes/talisman/deer_talisman_dead.tscn" id="3_850ve"]
+
+[node name="Talismans" type="Node3D"]
+
+[node name="DeerTalisman2" parent="." instance=ExtResource("1_1v3sf")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 89.7566, 0.779986, -111.253)
+
+[node name="DeerTalisman3" parent="." instance=ExtResource("2_a6n7p")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -145.349, 0.723712, -350.972)
+
+[node name="DeerTalisman" parent="." instance=ExtResource("3_850ve")]
+transform = Transform3D(-3.78552e-08, 0.866025, -0.5, -1, -4.37114e-08, 0, -2.18557e-08, 0.5, 0.866025, 36.5006, 0.685295, -458.714)
