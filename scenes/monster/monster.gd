@@ -11,6 +11,7 @@ const DEBUG = false
 
 @onready var hurtbox = $Hurtbox
 @onready var target_search_area: Area3D = $TargetSearchArea
+@onready var monster_sprite = $MonsterSprite
 
 
 @export var player_slow_attack_delay := 1.0
@@ -48,9 +49,29 @@ func _physics_process(delta):
 				_track_player(delta, player)
 				if _delay_decision(delta):
 					target = _find_attack_target(player)
+				else:
+					# Hack to keep velocity very low for animation speed
+					# but also maintain the sign enough to look the right direction
+					velocity = velocity.sign() / 5
 			elif _move_to_target(target):
 				target = null
+	_resolve_sprite()
 
+# https://kidscancode.org/godot_recipes/3.x/2d/8_direction/
+const anim_dirs = ['e', 'se', 's', 'sw', 'w', 'nw', 'n', 'ne']
+
+func _resolve_sprite():
+	var direction = Vector2(velocity.x, velocity.z).angle() + get_viewport().get_camera_3d().global_rotation.y
+	var d = snapped(direction, PI/4) / (PI/4)
+	d = wrapi(int(d), 0, 8)
+	
+	var current_animation = "walk"
+	
+	monster_sprite.speed_scale = velocity.length() / 7
+	
+	var next_animation = current_animation + '_' + anim_dirs[d]
+	if monster_sprite.animation != next_animation:
+		monster_sprite.play(next_animation)
 
 func _look_around(player):
 	player_is_around = false

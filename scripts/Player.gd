@@ -21,6 +21,7 @@ var updown: float
 @onready var shooting_delay = $ShootingDelay
 @onready var gunempty_sfx = $GunemptySFX
 @onready var hit_animation: AnimatedSprite3D = $AnimatedSprite3D
+@onready var player_sprite = $PlayerSprite
 
 var health = 5
 var ammo = 5
@@ -35,6 +36,7 @@ func _ready():
 
 func _process(_delta):
 	RenderingServer.global_shader_parameter_set("player_position", global_position)
+
 
 func _input(event):	
 	if event is InputEventMouseMotion and (Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE) or is_sniper_mode):
@@ -58,7 +60,31 @@ func _physics_process(delta: float) -> void:
 	if !is_in_dialog:
 		process_player_controls()
 	process_sniper_mode()
-		
+	_resolve_sprite()
+
+
+# https://kidscancode.org/godot_recipes/3.x/2d/8_direction/
+const anim_dirs = ['e', 'se', 's', 'sw', 'w', 'nw', 'n', 'ne']
+
+func _resolve_sprite():
+	var direction = Vector2(velocity.x, velocity.z).angle() + get_viewport().get_camera_3d().global_rotation.y
+	var d = snapped(direction, PI/4) / (PI/4)
+	d = wrapi(int(d), 0, 8)
+	
+	var current_animation = "walk"
+	
+	player_sprite.speed_scale = velocity.length() / 3
+	
+	var next_animation = current_animation + '_' + anim_dirs[d]
+	
+	if is_sniper_mode:
+		next_animation = "walk_n"
+		player_sprite.speed_scale = 0
+	
+	if player_sprite.animation != next_animation:
+		player_sprite.play(next_animation)
+
+
 func process_player_controls():
 	var look_vector = Input.get_vector("player_look_left", "player_look_right", "player_look_up", "player_look_down")
 	if is_sniper_mode:
