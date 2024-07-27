@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bbu3b3h8ig8sc"
-path="res://.godot/imported/DeerTalisman.dae-9e80391390b0e9dfdbe6f4082e145d07.scn"
+path="res://.godot/imported/DeerTalisman.dae-be4e16fb7d1052a7e80bc9c4c7517717.scn"
 
 [deps]
 
-source_file="res://scenes/DeerTalisman.dae"
-dest_files=["res://.godot/imported/DeerTalisman.dae-9e80391390b0e9dfdbe6f4082e145d07.scn"]
+source_file="res://scenes/models-scenes/talisman/DeerTalisman.dae"
+dest_files=["res://.godot/imported/DeerTalisman.dae-be4e16fb7d1052a7e80bc9c4c7517717.scn"]
 
 [params]
 
