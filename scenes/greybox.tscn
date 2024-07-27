@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cinhxvsjs7nlc"]
+[gd_scene load_steps=10 format=3 uid="uid://cinhxvsjs7nlc"]
 
 [ext_resource type="Material" uid="uid://dtvnutqkcg0ig" path="res://assets/SnowyNoise1k/Snow.tres" id="1_ej6no"]
 [ext_resource type="PackedScene" uid="uid://cvt7xsdtis6bo" path="res://scenes/models-scenes/cabin_block.tscn" id="2_hrx2w"]
@@ -9,16 +9,20 @@
 [ext_resource type="PackedScene" uid="uid://b7qmc6himhisa" path="res://scenes/player.tscn" id="8_ya0kd"]
 [ext_resource type="PackedScene" uid="uid://dmfvd8tl5s31q" path="res://scenes/path.tscn" id="12_t41bk"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_m6a7d"]
+size = Vector3(0.134766, 0.0646973, 0.0722656)
+
 [node name="Greybox" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, -0.0989827, 0.638578, 0.763165, -0.490105, 0.636174, -0.595886, 0, 6.43107, 0)
-light_energy = 10.0
+transform = Transform3D(-0.866025, -0.433013, 0.25, -0.0989827, 0.638578, 0.763165, -0.490105, 0.636174, -0.595885, 0, 6.43107, 0)
+light_energy = 0.0
 shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.470215, 0)
 material_override = ExtResource("1_ej6no")
+gi_mode = 2
 size = Vector3(200, 0.1, 500)
 
 [node name="cabin" parent="." instance=ExtResource("2_hrx2w")]
@@ -72,3 +76,10 @@ transform = Transform3D(0.612907, 0, -0.790155, 0, 1, 0, 0.790155, 0, 0.612907, 
 
 [node name="Player" parent="." instance=ExtResource("8_ya0kd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.1606, 0, 212.365)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(500, 0, 0, 0, 500, 0, 0, 0, 500, -61.7157, 3.87759, 122.42)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.999971, 0, 0, 0, 0.999971, 0, 0, 0, 0.999971, 0.0136425, 0.0123306, -0.0474598)
+shape = SubResource("BoxShape3D_m6a7d")

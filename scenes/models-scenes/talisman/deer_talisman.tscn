@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://d15phg7m24aie"]
+
+[ext_resource type="PackedScene" uid="uid://bbu3b3h8ig8sc" path="res://scenes/models-scenes/talisman/DeerTalisman.dae" id="1_rrabv"]
+[ext_resource type="Texture2D" uid="uid://blgjj2t21f8ud" path="res://scenes/models-scenes/talisman/TalismanAlbedo.png" id="2_ljiyi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b8vqp"]
+albedo_texture = ExtResource("2_ljiyi")
+
+[sub_resource type="Environment" id="Environment_rniah"]
+glow_intensity = 0.08
+glow_strength = 0.15
+glow_bloom = 0.52
+
+[node name="DeerTalisman2" instance=ExtResource("1_rrabv")]
+
+[node name="Talisman" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_b8vqp")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="2"]
+environment = SubResource("Environment_rniah")
