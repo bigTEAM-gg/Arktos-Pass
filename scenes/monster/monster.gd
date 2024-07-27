@@ -28,6 +28,7 @@ const DIST_CLOSE = 0.2
 @export var retreat_period_a := 2.0
 @export var retreat_period_b := 1.0
 @export var aggressiveness = 0.0
+@export var full_aggressiveness_after_time := 15.0
 @export var must_follow_distance = 10.0
 
 enum MonsterState { IDLE, STALKING }
@@ -45,7 +46,8 @@ var follow_target = null
 var creep_timer := 0.0
 var retreat_timer := 0.0
 var wait_timer := 0.0
-
+var aggressiveness_cap := 0.0
+var aggressiveness_cap_timer := 0.0
 
 
 func _ready():
@@ -61,6 +63,7 @@ func _physics_process(delta):
 		MonsterState.IDLE:
 			pass
 		MonsterState.STALKING:
+			_calculate_aggressiveness_level(delta)
 			_process_monster_stalking(delta)
 
 
@@ -117,6 +120,26 @@ func _process_monster_stalking(delta):
 				if retreat_timer < 0.0:
 					retreat_timer = 0.0
 					_set_stalking_state(StalkingState.FOLLOW_FIND_TARGET)
+
+
+var avg_calc_period = 5.0
+var avg_player_displacement := Vector3.ZERO
+var frame_t_accum := 0.0
+var frame_d_accum := Vector3.ZERO
+var prev_player_pos = null
+func _calculate_aggressiveness_level(delta):
+	if prev_player_pos != null:
+		frame_d_accum += Global.player.global_position - prev_player_pos
+		frame_t_accum += delta
+		if frame_t_accum > avg_calc_period:
+			avg_player_displacement = frame_d_accum / frame_t_accum
+			frame_d_accum = Vector3.ZERO
+			frame_t_accum = 0.0
+			aggressiveness = clamp(lerp(1.0, 0.0, avg_player_displacement.length() / 5.0), 0.0, min(aggressiveness_cap, 1.0))
+		aggressiveness_cap = lerp(0.0, 1.0, aggressiveness_cap_timer / full_aggressiveness_after_time)
+		aggressiveness_cap_timer += delta
+	prev_player_pos = Global.player.global_position
+	
 
 
 func _check_trees():
