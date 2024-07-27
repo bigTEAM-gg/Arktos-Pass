@@ -1,0 +1,17 @@
+join huntress leftmost [animation="Fade In" length="0.7"]
+huntress: Hello? Can anybody read me?
+leave --All-- [animation="Fade Out" length="0.1"]
+join brother_radio leftmost [animation="Fade In" length="0.7"]
+brother_radio: Leah? Is that you?
+leave --All-- [animation="Fade Out" length="0.1"]
+join huntress leftmost [animation="Fade In" length="0.7"]
+huntress: Sam! You are alive!
+huntress: Where are you?
+leave --All-- [animation="Fade Out" length="0.1"]
+join brother_radio leftmost [animation="Fade In" length="0.7"]
+brother_radio: I'm at the watertower.
+brother_radio: that thing... got me.
+leave --All-- [animation="Fade Out" length="0.1"]
+join huntress leftmost [animation="Fade In" length="0.7"]
+huntress: Hold on! I'm coming to get you!
+leave --All-- [animation="Fade Out" length="0.1"]

@@ -1,0 +1,11 @@
+join huntress leftmost [animation="Fade In" length="0.7"]
+huntress: That was the last one. I'm almost there!
+leave --All-- [animation="Fade Out" length="0.1"]
+join brother_radio leftmost [animation="Fade In" length="0.7"]
+brother_radio: ... static noise ... ...
+leave --All-- [animation="Fade Out" length="0.1"]
+join huntress leftmost [animation="Fade In" length="0.7"]
+huntress: Sam? It's almost over. Just...
+huntress: Please hold on.
+huntress: I can't lose you again.
+leave --All-- [animation="Fade Out" length="0.1"]

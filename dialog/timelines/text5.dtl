@@ -1,0 +1,18 @@
+join huntress leftmost [animation="Fade In" length="0.7"]
+huntress: Sam? There is something following me...
+leave --All-- [animation="Fade Out" length="0.1"]
+join brother_radio leftmost [animation="Fade In" length="0.7"]
+brother_radio: It's the Woodwalker.
+brother_radio: Do you remember the stories dad told us?
+leave --All-- [animation="Fade Out" length="0.1"]
+join huntress leftmost [animation="Fade In" length="0.7"]
+huntress: That's a myth.
+leave --All-- [animation="Fade Out" length="0.1"]
+join brother_radio leftmost [animation="Fade In" length="0.7"]
+brother_radio: Please just trust me on this.
+brother_radio: I'm running out of time.
+brother_radio: Dad found out the truth and he died trying to put an end to this thing.
+leave --All-- [animation="Fade Out" length="0.1"]
+join huntress leftmost [animation="Fade In" length="0.7"]
+huntress: Okay, hang in there.
+leave --All-- [animation="Fade Out" length="0.1"]
