@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b7lmp3ynu4ubs"]
+[gd_scene load_steps=20 format=3 uid="uid://b7lmp3ynu4ubs"]
 
 [ext_resource type="Script" path="res://scripts/game_scene.gd" id="1_03cmh"]
 [ext_resource type="Material" uid="uid://dtvnutqkcg0ig" path="res://assets/SnowyNoise1k/Snow.tres" id="1_lfgo5"]
@@ -8,14 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://caq87jdqc3dq4" path="res://scenes/models-scenes/static-mesh/walkietalkie.dae" id="5_ex4ju"]
 [ext_resource type="PackedScene" uid="uid://v8vhjw8p10tk" path="res://scenes/tree_cluster_1.tscn" id="6_esxvv"]
 [ext_resource type="PackedScene" uid="uid://c8jro3t78ginl" path="res://scenes/tree_cluster_2.tscn" id="7_l077j"]
-[ext_resource type="PackedScene" uid="uid://duncwvbetu8bt" path="res://scenes/models-scenes/static-mesh/pileofsnow.dae" id="8_bbg65"]
 [ext_resource type="PackedScene" uid="uid://bry0febas86xs" path="res://scenes/models-scenes/bush_block.tscn" id="9_ihu87"]
+[ext_resource type="PackedScene" uid="uid://bben6xums5pbn" path="res://scenes/piles_of_snow_path.tscn" id="9_q8h2x"]
 [ext_resource type="PackedScene" uid="uid://cqf6x7wc6858t" path="res://scenes/models-scenes/rock_block.tscn" id="10_e7xes"]
 [ext_resource type="PackedScene" uid="uid://t8h7n1ckwnbm" path="res://scenes/bush_cluster_1.tscn" id="11_5h5pj"]
 [ext_resource type="PackedScene" uid="uid://b7qmc6himhisa" path="res://scenes/player.tscn" id="12_clta6"]
-[ext_resource type="PackedScene" uid="uid://cvnbi1gnk7okv" path="res://scenes/dialog_trigger.tscn" id="14_utow1"]
+[ext_resource type="PackedScene" uid="uid://c2h8atgtfq1tl" path="res://scenes/talismans.tscn" id="13_7ipr7"]
+[ext_resource type="PackedScene" path="res://scenes/dialog_trigger.tscn" id="14_utow1"]
 [ext_resource type="Script" path="res://scripts/DialogTrigger14.gd" id="16_gyctw"]
 [ext_resource type="Script" path="res://scripts/DialogTriggerBack.gd" id="17_6kjpn"]
+[ext_resource type="PackedScene" uid="uid://y43sowoxgvba" path="res://scenes/monster/monster.tscn" id="17_aqrxp"]
 
 [sub_resource type="GDScript" id="GDScript_6mqxh"]
 script/source = "extends Node3D
@@ -116,7 +118,7 @@ transform = Transform3D(-0.0993893, 0, -0.995049, 0, 1, 0, 0.995049, 0, -0.09938
 transform = Transform3D(0.912948, 0, -0.408076, 0, 1, 0, 0.408076, 0, 0.912948, 37.3105, 0.0239983, -70.8802)
 
 [node name="tree_cluster_21" parent="Path/tree_clusters" instance=ExtResource("6_esxvv")]
-transform = Transform3D(0.52296, 0, -0.852357, 0, 1, 0, 0.852357, 0, 0.52296, 70.1841, -0.118437, -85.9933)
+transform = Transform3D(0.52296, 0, -0.852357, 0, 1, 0, 0.852357, 0, 0.52296, 70.8516, -0.118437, -83.1487)
 
 [node name="tree_cluster_22" parent="Path/tree_clusters" instance=ExtResource("6_esxvv")]
 transform = Transform3D(0.982839, 0, -0.184466, 0, 1, 0, 0.184466, 0, 0.982839, 105.105, -0.118437, -115.919)
@@ -553,1072 +555,7 @@ transform = Transform3D(-0.765034, 0, 0.64399, 0, 1, 0, -0.64399, 0, -0.765034, 
 [node name="tree_cluster_1" parent="Path/tree_clusters" instance=ExtResource("6_esxvv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 184)
 
-[node name="piles_of_snow" type="Node3D" parent="Path"]
-
-[node name="pileofsnow" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.978893, 0, 1.38988, 0, 1.7, 0, -1.38988, 0, 0.978893, 35.3752, 0, 215.836)
-
-[node name="pileofsnow2" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.575819, 0, 0.817577, 0, 1, 0, -0.817577, 0, 0.575819, 40.088, 0, 209.23)
-
-[node name="pileofsnow3" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.510578, 0, 1.62151, 0, 1.7, 0, -1.62151, 0, 0.510578, 28.1664, 0, 213.318)
-
-[node name="pileofsnow4" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.30034, 0, 0.953832, 0, 1, 0, -0.953832, 0, 0.30034, 30.6428, 0, 205.725)
-
-[node name="pileofsnow177" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.30034, 0, 0.953832, 0, 1, 0, -0.953832, 0, 0.30034, 35.5558, 0, 207.375)
-
-[node name="pileofsnow178" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.30034, 0, 0.953832, 0, 1, 0, -0.953832, 0, 0.30034, 25.1432, 0, 203.965)
-
-[node name="pileofsnow5" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.0631244, 0, 1.69883, 0, 1.7, 0, -1.69883, 0, 0.0631244, 20.2472, 0, 211.517)
-
-[node name="pileofsnow6" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.037132, 0, 0.99931, 0, 1, 0, -0.99931, 0, 0.037132, 20.5103, 0, 203.571)
-
-[node name="pileofsnow7" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.872486, 0, 1.45903, 0, 1.7, 0, -1.45903, 0, 0.872486, 8.81128, 0, 208.728)
-
-[node name="pileofsnow8" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.513227, 0, 0.858253, 0, 1, 0, -0.858253, 0, 0.513227, 12.9098, 0, 201.875)
-
-[node name="pileofsnow9" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.30513, 0, 1.08933, 0, 1.7, 0, -1.08933, 0, 1.30513, -0.433543, 0, 203.065)
-
-[node name="pileofsnow10" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.767725, 0, 0.64078, 0, 1, 0, -0.64078, 0, 0.767725, 5.82764, 0, 197.904)
-
-[node name="pileofsnow11" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.64452, -3.16065e-08, 0.430758, 2.8787e-08, 1.7, 1.48352e-08, -0.430758, -7.0568e-09, 1.64452, -6.60115, 1.18378e-09, 194.066)
-
-[node name="pileofsnow12" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.967365, -1.85921e-08, 0.253387, 1.69335e-08, 1, 8.72656e-09, -0.253387, -4.15105e-09, 0.967365, 1.14467, 1.37123e-07, 192.122)
-
-[node name="pileofsnow13" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.64452, -3.16065e-08, 0.430758, 2.8787e-08, 1.7, 1.48352e-08, -0.430758, -7.0568e-09, 1.64452, -8.55856, -6.68035e-08, 186.455)
-
-[node name="pileofsnow14" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.967365, -1.85921e-08, 0.253387, 1.69335e-08, 1, 8.72656e-09, -0.253387, -4.15105e-09, 0.967365, -0.875537, 6.7548e-08, 184.409)
-
-[node name="pileofsnow15" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.64452, -3.16065e-08, 0.430758, 2.8787e-08, 1.7, 1.48352e-08, -0.430758, -7.0568e-09, 1.64452, -10.6175, -1.37139e-07, 178.733)
-
-[node name="pileofsnow16" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.967365, -1.85921e-08, 0.253387, 1.69335e-08, 1, 8.72656e-09, -0.253387, -4.15105e-09, 0.967365, -2.89242, -1.9127e-09, 176.709)
-
-[node name="pileofsnow17" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.68005, 0, -0.259695, 0, 1.7, 0, 0.259695, 0, 1.68005, -10.9298, 0, 168.418)
-
-[node name="pileofsnow18" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.988263, 0, -0.152762, 0, 1, 0, 0.152762, 0, 0.988263, -2.91845, 0, 169.707)
-
-[node name="pileofsnow19" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.5409, 0, -0.718075, 0, 1.7, 0, 0.718075, 0, 1.5409, -8.0103, 0, 158.745)
-
-[node name="pileofsnow20" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.906411, 0, -0.422397, 0, 1, 0, 0.422397, 0, 0.906411, 0.502655, 0, 162.323)
-
-[node name="pileofsnow21" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.35773, 0, -1.02301, 0, 1.7, 0, 1.02301, 0, 1.35773, -2.68061, 0, 150.772)
-
-[node name="pileofsnow22" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.798667, 0, -0.601773, 0, 1, 0, 0.601773, 0, 0.798667, 6.6622, 0, 156.311)
-
-[node name="pileofsnow23" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.35773, 0, -1.02301, 0, 1.7, 0, 1.02301, 0, 1.35773, 2.10073, 0, 144.368)
-
-[node name="pileofsnow24" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.798667, 0, -0.601773, 0, 1, 0, 0.601773, 0, 0.798667, 12.0723, 0, 151.406)
-
-[node name="pileofsnow25" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.35773, 0, -1.02301, 0, 1.7, 0, 1.02301, 0, 1.35773, 5.18655, 0, 138.67)
-
-[node name="pileofsnow26" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.798667, 0, -0.601773, 0, 1, 0, 0.601773, 0, 0.798667, 17.6894, 0, 145.295)
-
-[node name="pileofsnow27" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.35773, 0, -1.02301, 0, 1.7, 0, 1.02301, 0, 1.35773, 5.41629, 0, 131.633)
-
-[node name="pileofsnow28" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.798667, 0, -0.601773, 0, 1, 0, 0.601773, 0, 0.798667, 23.7033, 0, 139.854)
-
-[node name="pileofsnow29" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.37379, 0, -1.00135, 0, 1.7, 0, 1.00135, 0, 1.37379, 17.5312, 0, 119.252)
-
-[node name="pileofsnow179" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.35773, 0, -1.02301, 0, 1.7, 0, 1.02301, 0, 1.35773, 2.83025, 0, 124.782)
-
-[node name="pileofsnow180" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.37379, 0, -1.00135, 0, 1.7, 0, 1.00135, 0, 1.37379, 9.63755, 0, 119.094)
-
-[node name="pileofsnow30" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.808113, 0, -0.589027, 0, 1, 0, 0.589027, 0, 0.808113, 29.8937, 0, 133.372)
-
-[node name="pileofsnow31" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.20089, 0, -1.20328, 0, 1.7, 0, 1.20328, 0, 1.20089, 25.3458, 0, 116.638)
-
-[node name="pileofsnow32" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.706403, 0, -0.70781, 0, 1, 0, 0.70781, 0, 0.706403, 34.921, 0, 127.018)
-
-[node name="pileofsnow33" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.20089, 0, -1.20328, 0, 1.7, 0, 1.20328, 0, 1.20089, 31.6988, 0, 113.746)
-
-[node name="pileofsnow34" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.706403, 0, -0.70781, 0, 1, 0, 0.70781, 0, 0.706403, 39.403, 0, 119.568)
-
-[node name="pileofsnow35" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.20089, 0, -1.20328, 0, 1.7, 0, 1.20328, 0, 1.20089, 37.5065, 0, 108.131)
-
-[node name="pileofsnow36" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.706403, 0, -0.70781, 0, 1, 0, 0.70781, 0, 0.706403, 43.0898, 0, 113.842)
-
-[node name="pileofsnow37" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.20089, 0, -1.20328, 0, 1.7, 0, 1.20328, 0, 1.20089, 43.0939, 0, 102.605)
-
-[node name="pileofsnow38" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.706403, 0, -0.70781, 0, 1, 0, 0.70781, 0, 0.706403, 48.733, 0, 108.21)
-
-[node name="pileofsnow39" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.20089, 0, -1.20328, 0, 1.7, 0, 1.20328, 0, 1.20089, 48.7258, 0, 96.9344)
-
-[node name="pileofsnow40" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.706403, 0, -0.70781, 0, 1, 0, 0.70781, 0, 0.706403, 54.367, 0, 102.587)
-
-[node name="pileofsnow41" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.59068, 0, -0.599768, 0, 1.7, 0, 0.599768, 0, 1.59068, 53.669, 0, 91.4551)
-
-[node name="pileofsnow42" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.935697, 0, -0.352805, 0, 1, 0, 0.352805, 0, 0.935697, 61.244, 0, 94.3643)
-
-[node name="pileofsnow43" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.68575, 0, -0.219659, 0, 1.7, 0, 0.219659, 0, 1.68575, 58.7023, 0, 84.2212)
-
-[node name="pileofsnow44" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.991617, 0, -0.129211, 0, 1, 0, 0.129211, 0, 0.991617, 66.6106, 0, 85.3341)
-
-[node name="pileofsnow45" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.67982, 0, 0.26119, 0, 1.7, 0, -0.26119, 0, 1.67982, 60.3984, 0, 76.2359)
-
-[node name="pileofsnow46" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.988127, 0, 0.153641, 0, 1, 0, -0.153641, 0, 0.988127, 68.2497, 0, 74.9826)
-
-[node name="pileofsnow47" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.51977, 0, 0.761774, 0, 1.7, 0, -0.761774, 0, 1.51977, 59.1082, 0, 68.0623)
-
-[node name="pileofsnow48" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.893982, 0, 0.448102, 0, 1, 0, -0.448102, 0, 0.893982, 66.2474, 0, 64.4838)
-
-[node name="pileofsnow49" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.30627, 0, 1.08796, 0, 1.7, 0, -1.08796, 0, 1.30627, 54.5382, 0, 60.7219)
-
-[node name="pileofsnow50" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.768395, 0, 0.639976, 0, 1, 0, -0.639976, 0, 0.768395, 60.8049, 0, 55.5672)
-
-[node name="pileofsnow51" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.30627, 0, 1.08796, 0, 1.7, 0, -1.08796, 0, 1.30627, 49.4679, 0, 54.4335)
-
-[node name="pileofsnow52" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.768395, 0, 0.639976, 0, 1, 0, -0.639976, 0, 0.768395, 55.6564, 0, 49.3856)
-
-[node name="pileofsnow53" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.33695, 0, 1.05003, 0, 1.7, 0, -1.05003, 0, 1.33695, 43.6776, 0, 48.1447)
-
-[node name="pileofsnow54" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.786439, 0, 0.617667, 0, 1, 0, -0.617667, 0, 0.786439, 49.9105, 0, 43.2085)
-
-[node name="pileofsnow55" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.07454, 0, 1.31733, 0, 1.7, 0, -1.31733, 0, 1.07454, 38.3025, 0, 42.8691)
-
-[node name="pileofsnow56" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.632083, 0, 0.7749, 0, 1, 0, -0.7749, 0, 0.632083, 43.3502, 0, 36.6809)
-
-[node name="pileofsnow57" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.682305, 0, 1.55707, 0, 1.7, 0, -1.55707, 0, 0.682305, 31.0851, 0, 38.8871)
-
-[node name="pileofsnow58" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.401356, 0, 0.915922, 0, 1, 0, -0.915922, 0, 0.401356, 34.3872, 0, 31.4751)
-
-[node name="pileofsnow59" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.682305, 0, 1.55707, 0, 1.7, 0, -1.55707, 0, 0.682305, 23.7388, 0, 35.5278)
-
-[node name="pileofsnow60" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.401356, 0, 0.915922, 0, 1, 0, -0.915922, 0, 0.401356, 27.0188, 0, 28.2462)
-
-[node name="pileofsnow61" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.682305, 0, 1.55707, 0, 1.7, 0, -1.55707, 0, 0.682305, 16.5548, 0, 32.3414)
-
-[node name="pileofsnow62" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.401356, 0, 0.915922, 0, 1, 0, -0.915922, 0, 0.401356, 19.7163, 0, 25.0463)
-
-[node name="pileofsnow63" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.682305, 0, 1.55707, 0, 1.7, 0, -1.55707, 0, 0.682305, 9.2207, 0, 29.166)
-
-[node name="pileofsnow64" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.401356, 0, 0.915922, 0, 1, 0, -0.915922, 0, 0.401356, 12.4259, 0, 21.8516)
-
-[node name="pileofsnow65" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.53797, 0, 0.724334, 0, 1.7, 0, -0.724334, 0, 1.53797, -1.54529, -7.62939e-06, 22.2134)
-
-[node name="pileofsnow66" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.904686, 0, 0.426079, 0, 1, 0, -0.426079, 0, 0.904686, 5.81664, -7.62939e-06, 18.801)
-
-[node name="pileofsnow67" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.67291, 0, 0.302299, 0, 1.7, 0, -0.302299, 0, 1.67291, -7.31149, -7.62939e-06, 12.2868)
-
-[node name="pileofsnow68" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.984062, 0, 0.177823, 0, 1, 0, -0.177823, 0, 0.984062, 2.43225, -7.62939e-06, 9.97435)
-
-[node name="pileofsnow69" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.69805, 0, 0.0815036, 0, 1.7, 0, -0.0815036, 0, 1.69805, -9.79099, -7.62939e-06, 3.14624)
-
-[node name="pileofsnow70" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.99885, 0, 0.0479433, 0, 1, 0, -0.0479433, 0, 0.99885, 0.893472, -7.62939e-06, 1.94721)
-
-[node name="pileofsnow71" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.69938, 0, -0.0458058, 0, 1.7, 0, 0.0458058, 0, 1.69938, -9.0958, -7.62939e-06, -6.04866)
-
-[node name="pileofsnow72" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.999637, 0, -0.0269446, 0, 1, 0, 0.0269446, 0, 0.999637, 0.757774, -7.62939e-06, -6.39469)
-
-[node name="pileofsnow73" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.69938, 0, -0.0458058, 0, 1.7, 0, 0.0458058, 0, 1.69938, -9.00517, -7.62939e-06, -14.1761)
-
-[node name="pileofsnow74" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.999637, 0, -0.0269446, 0, 1, 0, 0.0269446, 0, 0.999637, -0.895257, -7.62939e-06, -13.9079)
-
-[node name="pileofsnow75" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.69938, 0, -0.0458058, 0, 1.7, 0, 0.0458058, 0, 1.69938, -8.65919, -7.62939e-06, -22.2466)
-
-[node name="pileofsnow76" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.999637, 0, -0.0269446, 0, 1, 0, 0.0269446, 0, 0.999637, -0.678492, -7.62939e-06, -21.9497)
-
-[node name="pileofsnow77" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.69938, 0, -0.0458058, 0, 1.7, 0, 0.0458058, 0, 1.69938, -8.41235, -7.62939e-06, -30.1017)
-
-[node name="pileofsnow78" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.999637, 0, -0.0269446, 0, 1, 0, 0.0269446, 0, 0.999637, -0.46367, -7.62939e-06, -29.9196)
-
-[node name="pileofsnow79" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.68537, 0, -0.222542, 0, 1.7, 0, 0.222542, 0, 1.68537, -7.50655, 0, -38.4345)
-
-[node name="pileofsnow80" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.991395, 0, -0.130907, 0, 1, 0, 0.130907, 0, 0.991395, 0.471369, 0, -37.4499)
-
-[node name="pileofsnow81" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.65205, 0, -0.400895, 0, 1.7, 0, 0.400895, 0, 1.65205, -6.17881, 0, -46.799)
-
-[node name="pileofsnow82" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.971797, 0, -0.235821, 0, 1, 0, 0.235821, 0, 0.971797, 1.69476, 0, -44.8369)
-
-[node name="pileofsnow165" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.41547, 0, 1.64845, 0, 1.7, 0, -1.64845, 0, -0.41547, 0.714789, -7.62939e-06, -214.624)
-
-[node name="pileofsnow167" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.244394, 0, 0.969676, 0, 1, 0, -0.969676, 0, -0.244394, -1.40264, -7.62939e-06, -223.036)
-
-[node name="pileofsnow181" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-1.5391, 0, -0.721917, 0, 1.7, 0, 0.721917, 0, -1.5391, -61.1079, -7.62939e-06, -354.838)
-
-[node name="pileofsnow182" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.996835, 0, -0.0795029, 0, 1, 0, 0.0795029, 0, -0.996835, -68.2582, -7.62939e-06, -346.631)
-
-[node name="pileofsnow183" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-1.30752, 0, -1.08645, 0, 1.7, 0, 1.08645, 0, -1.30752, -45.4676, -7.62939e-06, -357.811)
-
-[node name="pileofsnow184" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.769132, 0, -0.63909, 0, 1, 0, 0.63909, 0, -0.769132, -61.0855, -7.62939e-06, -342.978)
-
-[node name="pileofsnow185" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.51185, 0, 1.62111, 0, 1.7, 0, -1.62111, 0, -0.51185, -7.26831, -7.62939e-06, -213.761)
-
-[node name="pileofsnow186" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.301089, 0, 0.953596, 0, 1, 0, -0.953596, 0, -0.301089, -9.59477, -7.62939e-06, -221.401)
-
-[node name="pileofsnow187" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.120746, 0, 1.6957, 0, 1.7, 0, -1.6957, 0, 0.120746, -18.5656, -7.62939e-06, -213.504)
-
-[node name="pileofsnow188" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.0710274, 0, 0.997474, 0, 1, 0, -0.997474, 0, 0.0710274, -18.033, -7.62939e-06, -221.436)
-
-[node name="pileofsnow189" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.720333, 0, 1.53984, 0, 1.7, 0, -1.53984, 0, 0.720333, -28.0396, 0, -215.971)
-
-[node name="pileofsnow190" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.423725, 0, 0.905791, 0, 1, 0, -0.905791, 0, 0.423725, -24.6954, 0, -223.281)
-
-[node name="pileofsnow191" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.27287, 0, 1.12685, 0, 1.7, 0, -1.12685, 0, 1.27287, -36.1412, 0, -221.982)
-
-[node name="pileofsnow192" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.748748, 0, 0.662855, 0, 1, 0, -0.662855, 0, 0.748748, -30.0325, 0, -227.323)
-
-[node name="pileofsnow83" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.47009, 0, -0.853723, 0, 1.7, 0, 0.853723, 0, 1.47009, -0.847662, 0, -54.9384)
-
-[node name="pileofsnow84" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.864757, 0, -0.50219, 0, 1, 0, 0.50219, 0, 0.864757, 6.01744, 0, -50.858)
-
-[node name="pileofsnow85" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.28991, 0, -1.10731, 0, 1.7, 0, 1.10731, 0, 1.28991, 5.63464, 0, -61.4417)
-
-[node name="pileofsnow86" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.758771, 0, -0.651357, 0, 1, 0, 0.651357, 0, 0.758771, 11.6889, 0, -56.2879)
-
-[node name="pileofsnow87" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.29076, 0, -1.10632, 0, 1.7, 0, 1.10632, 0, 1.29076, 12.7819, 0, -67.5751)
-
-[node name="pileofsnow88" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.759271, 0, -0.650774, 0, 1, 0, 0.650774, 0, 0.759271, 18.8453, 0, -62.3781)
-
-[node name="pileofsnow89" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.15119, 0, -1.2509, 0, 1.7, 0, 1.2509, 0, 1.15119, 20.7329, 0, -74.5122)
-
-[node name="pileofsnow90" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.677171, 0, -0.735825, 0, 1, 0, 0.735825, 0, 0.677171, 26.1915, 0, -68.5083)
-
-[node name="pileofsnow91" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.42501, 0, -0.927006, 0, 1.7, 0, 0.927006, 0, 1.42501, 27.3671, 0, -79.7183)
-
-[node name="pileofsnow92" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.838243, 0, -0.545298, 0, 1, 0, 0.545298, 0, 0.838243, 34.0164, 0, -75.2949)
-
-[node name="pileofsnow93" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.32279, 0, -1.06781, 0, 1.7, 0, 1.06781, 0, 1.32279, 34.2785, 0, -86.1113)
-
-[node name="pileofsnow94" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.778112, 0, -0.628126, 0, 1, 0, 0.628126, 0, 0.778112, 40.4852, 0, -81.1422)
-
-[node name="pileofsnow95" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.789259, 0, -1.50568, 0, 1.7, 0, 1.50568, 0, 0.789259, 44.0369, 0, -93.6017)
-
-[node name="pileofsnow96" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.46427, 0, -0.885694, 0, 1, 0, 0.885694, 0, 0.46427, 47.7445, 0, -86.5287)
-
-[node name="pileofsnow97" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.382764, 0, -1.65635, 0, 1.7, 0, 1.65635, 0, 0.382764, 52.7243, 0, -96.8358)
-
-[node name="pileofsnow98" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.225155, 0, -0.974323, 0, 1, 0, 0.974323, 0, 0.225155, 54.5456, 0, -89.0966)
-
-[node name="pileofsnow99" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.38522, 0, -1.65578, 0, 1.7, 0, 1.65578, 0, 0.38522, 62.3326, 0, -98.7433)
-
-[node name="pileofsnow100" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.2266, 0, -0.973988, 0, 1, 0, 0.973988, 0, 0.2266, 64.1421, 0, -90.9653)
-
-[node name="pileofsnow101" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.35553, 0, -1.02593, 0, 1.7, 0, 1.02593, 0, 1.35553, 69.9335, 0, -101.904)
-
-[node name="pileofsnow102" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.797373, 0, -0.603486, 0, 1, 0, 0.603486, 0, 0.797373, 76.2523, 0, -97.0201)
-
-[node name="pileofsnow103" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.65186, 0, -0.401674, 0, 1.7, 0, 0.401674, 0, 1.65186, 73.7633, 0, -109.242)
-
-[node name="pileofsnow104" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.971685, 0, -0.236279, 0, 1, 0, 0.236279, 0, 0.971685, 81.4964, 0, -107.395)
-
-[node name="pileofsnow105" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.69736, 0, 0.0946594, 0, 1.7, 0, -0.0946594, 0, 1.69736, 74.1807, 0, -117.259)
-
-[node name="pileofsnow106" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.998449, 0, 0.055682, 0, 1, 0, -0.055682, 0, 0.998449, 82.1542, 0, -117.704)
-
-[node name="pileofsnow107" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.30604, 0, 1.08823, 0, 1.7, 0, -1.08823, 0, 1.30604, 70.7052, 0, -123.755)
-
-[node name="pileofsnow108" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.768261, 0, 0.640136, 0, 1, 0, -0.640136, 0, 0.768261, 76.7928, 0, -128.869)
-
-[node name="pileofsnow109" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.46921, 0, 0.855236, 0, 1.7, 0, -0.855236, 0, 1.46921, 65.6257, 0, -130.776)
-
-[node name="pileofsnow110" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.86424, 0, 0.50308, 0, 1, 0, -0.50308, 0, 0.86424, 72.5273, 0, -134.794)
-
-[node name="pileofsnow111" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.46921, 0, 0.855236, 0, 1.7, 0, -0.855236, 0, 1.46921, 61.3303, 0, -138.038)
-
-[node name="pileofsnow112" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.86424, 0, 0.50308, 0, 1, 0, -0.50308, 0, 0.86424, 68.2732, 0, -141.985)
-
-[node name="pileofsnow113" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.3996, 0, 0.964944, 0, 1.7, 0, -0.964944, 0, 1.3996, 55.8159, 0, -144.304)
-
-[node name="pileofsnow114" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.823295, 0, 0.567614, 0, 1, 0, -0.567614, 0, 0.823295, 62.3435, 0, -148.843)
-
-[node name="pileofsnow282" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.49638, 0, -1.62592, 0, 1.7, 0, 1.62592, 0, 0.49638, 38.7363, 0, -481.011)
-
-[node name="pileofsnow344" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.49638, 0, -1.62592, 0, 1.7, 0, 1.62592, 0, 0.49638, 48.1874, 0, -480.705)
-
-[node name="pileofsnow283" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.291988, 0, -0.956422, 0, 1, 0, 0.956422, 0, 0.291988, 41.0883, 0, -473.417)
-
-[node name="pileofsnow284" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.701926, 0, -1.54832, 0, 1.7, 0, 1.54832, 0, 0.701926, 29.7188, 0, -476.08)
-
-[node name="pileofsnow285" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.412897, 0, -0.910778, 0, 1, 0, 0.910778, 0, 0.412897, 33.016, 0, -468.807)
-
-[node name="pileofsnow286" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.42619, 0, -0.925193, 0, 1.7, 0, 0.925193, 0, 1.42619, 20.0967, 0, -467.216)
-
-[node name="pileofsnow287" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.838936, 0, -0.544229, 0, 1, 0, 0.544229, 0, 0.838936, 29.0178, 0, -461.603)
-
-[node name="pileofsnow288" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.65962, 0, -0.368296, 0, 1.7, 0, 0.368296, 0, 1.65962, 13.7995, 0, -457.034)
-
-[node name="pileofsnow289" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.97625, 0, -0.216645, 0, 1, 0, 0.216645, 0, 0.97625, 26.8719, 0, -454.071)
-
-[node name="pileofsnow290" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.60677, 0, 0.555232, 0, 1.7, 0, -0.555232, 0, 1.60677, 18.6706, 0, -444.566)
-
-[node name="pileofsnow291" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.945161, 0, 0.326608, 0, 1, 0, -0.326608, 0, 0.945161, 31.8413, 0, -446.58)
-
-[node name="pileofsnow292" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.84073, 0, 1.47755, 0, 1.7, 0, -1.47755, 0, 0.84073, 36.5234, 0, -410.447)
-
-[node name="pileofsnow293" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.494549, 0, 0.869149, 0, 1, 0, -0.869149, 0, 0.494549, 43.6839, 0, -417.455)
-
-[node name="pileofsnow294" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.38562, 0, 0.984923, 0, 1.7, 0, -0.984923, 0, 1.38562, 27.5777, 0, -427.665)
-
-[node name="pileofsnow295" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.632543, 0, 0.774525, 0, 1, 0, -0.774525, 0, 0.632543, 37.6094, 0, -423.137)
-
-[node name="pileofsnow296" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.07533, 0, 1.31669, 0, 1.7, 0, -1.31669, 0, 1.07533, 29.6449, 0, -419.353)
-
-[node name="pileofsnow297" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.674264, 0, 0.73849, 0, 1, 0, -0.73849, 0, 0.674264, 38.2564, 0, -431.493)
-
-[node name="pileofsnow298" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.04702, 0, 1.33931, 0, 1.7, 0, -1.33931, 0, 1.04702, 23.1365, 0, -435.158)
-
-[node name="pileofsnow299" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.615895, 0, 0.787828, 0, 1, 0, -0.787828, 0, 0.615895, 35.7893, 0, -439.402)
-
-[node name="pileofsnow115" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.6097, 0, 0.546699, 0, 1.7, 0, -0.546699, 0, 1.6097, 51.1727, 0, -152.845)
-
-[node name="pileofsnow116" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.94688, 0, 0.321588, 0, 1, 0, -0.321588, 0, 0.94688, 58.7342, 0, -155.413)
-
-[node name="pileofsnow117" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.67395, 0, 0.296458, 0, 1.7, 0, -0.296458, 0, 1.67395, 49.2603, 0, -161.07)
-
-[node name="pileofsnow118" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.984677, 0, 0.174387, 0, 1, 0, -0.174387, 0, 0.984677, 57.674, 0, -162.525)
-
-[node name="pileofsnow119" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.67395, 0, 0.296458, 0, 1.7, 0, -0.296458, 0, 1.67395, 47.5367, 0, -166.777)
-
-[node name="pileofsnow120" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.984677, 0, 0.174387, 0, 1, 0, -0.174387, 0, 0.984677, 57.3475, 0, -170.504)
-
-[node name="pileofsnow121" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.62238, 0, 0.507832, 0, 1.7, 0, -0.507832, 0, 1.62238, 46.0462, 0, -174.596)
-
-[node name="pileofsnow122" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.95434, 0, 0.298724, 0, 1, 0, -0.298724, 0, 0.95434, 56.338, 0, -181.958)
-
-[node name="pileofsnow123" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.69506, 0, -0.129593, 0, 1.7, 0, 0.129593, 0, 1.69506, 45.582, 0, -183.117)
-
-[node name="pileofsnow125" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.61651, 0, 0.526203, 0, 1.7, 0, -0.526203, 0, 1.61651, -42.3749, 0, -229.351)
-
-[node name="pileofsnow193" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.950889, 0, 0.309531, 0, 1, 0, -0.309531, 0, 0.950889, -34.8248, 0, -231.842)
-
-[node name="pileofsnow194" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.68162, 0, 0.249308, 0, 1.7, 0, -0.249308, 0, 1.68162, -44.488, 0, -237.755)
-
-[node name="pileofsnow195" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.989188, 0, 0.146652, 0, 1, 0, -0.146652, 0, 0.989188, -36.5884, 0, -238.927)
-
-[node name="pileofsnow196" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.68162, 0, 0.249308, 0, 1.7, 0, -0.249308, 0, 1.68162, -45.7836, 0, -246.092)
-
-[node name="pileofsnow197" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.989188, 0, 0.146652, 0, 1, 0, -0.146652, 0, 0.989188, -37.872, 0, -247.183)
-
-[node name="pileofsnow198" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.65767, 0, 0.37701, 0, 1.7, 0, -0.37701, 0, 1.65767, -48.5806, 0, -253.957)
-
-[node name="pileofsnow199" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.975099, 0, 0.22177, 0, 1, 0, -0.22177, 0, 0.975099, -40.8351, 0, -255.751)
-
-[node name="pileofsnow200" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.69766, 0, -0.0893293, 0, 1.7, 0, 0.0893293, 0, 1.69766, -49.7248, 0, -263.611)
-
-[node name="pileofsnow201" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.998619, 0, -0.0525454, 0, 1, 0, 0.0525454, 0, 0.998619, -41.7502, 0, -263.191)
-
-[node name="pileofsnow212" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.15053, 0, 1.2515, 0, 1.7, 0, -1.2515, 0, 1.15053, -113.15, -7.62939e-06, -313.855)
-
-[node name="pileofsnow213" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.676786, 0, 0.73618, 0, 1, 0, -0.73618, 0, 0.676786, -107.745, -7.62939e-06, -319.734)
-
-[node name="pileofsnow214" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.858489, 0, 1.46731, 0, 1.7, 0, -1.46731, 0, 0.858489, -120.548, -7.62939e-06, -316.941)
-
-[node name="pileofsnow215" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.469441, 0, 0.882964, 0, 1, 0, -0.882964, 0, 0.469441, -118.066, -7.62939e-06, -325.002)
-
-[node name="pileofsnow216" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.00048, 0, 1.37442, 0, 1.7, 0, -1.37442, 0, 1.00048, -128.999, -7.62939e-06, -320.193)
-
-[node name="pileofsnow217" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.588519, 0, 0.808483, 0, 1, 0, -0.808483, 0, 0.588519, -124.233, -7.62939e-06, -326.602)
-
-[node name="pileofsnow218" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.43612, 0, 0.909701, 0, 1.7, 0, -0.909701, 0, 1.43612, -135.105, -7.62939e-06, -330.598)
-
-[node name="pileofsnow239" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.43612, 0, 0.909701, 0, 1.7, 0, -0.909701, 0, 1.43612, -136.45, -7.62939e-06, -338.394)
-
-[node name="pileofsnow219" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.891837, 0, 0.452357, 0, 1, 0, -0.452357, 0, 0.891837, -126.053, -7.62939e-06, -331.921)
-
-[node name="pileofsnow220" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.69817, 0, 0.0787167, 0, 1.7, 0, -0.0787167, 0, 1.69817, -135.643, 0, -348.913)
-
-[node name="pileofsnow221" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.994707, 0, 0.102758, 0, 1, 0, -0.102758, 0, 0.994707, -127.9, 0, -338.583)
-
-[node name="pileofsnow222" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.58964, 0, -0.602516, 0, 1.7, 0, 0.602516, 0, 1.58964, -134.091, 0, -358.881)
-
-[node name="pileofsnow223" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.935086, 0, -0.354422, 0, 1, 0, 0.354422, 0, 0.935086, -126.521, 0, -355.958)
-
-[node name="pileofsnow240" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.935086, 0, -0.354422, 0, 1, 0, 0.354422, 0, 0.935086, -127.429, 0, -347.196)
-
-[node name="pileofsnow224" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.30366, 0, -1.09107, 0, 1.7, 0, 1.09107, 0, 1.30366, -129.237, 0, -367.941)
-
-[node name="pileofsnow225" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.766862, 0, -0.641811, 0, 1, 0, 0.641811, 0, 0.766862, -123.119, 0, -362.863)
-
-[node name="pileofsnow226" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.1035, 0, -1.29317, 0, 1.7, 0, 1.29317, 0, 1.1035, -123.234, 0, -374.191)
-
-[node name="pileofsnow227" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.649116, 0, -0.76069, 0, 1, 0, 0.76069, 0, 0.649116, -118.05, 0, -368.116)
-
-[node name="pileofsnow228" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.1035, 0, -1.29317, 0, 1.7, 0, 1.29317, 0, 1.1035, -116.854, 0, -379.712)
-
-[node name="pileofsnow229" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.649116, 0, -0.76069, 0, 1, 0, 0.76069, 0, 0.649116, -111.732, 0, -373.584)
-
-[node name="pileofsnow230" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.775193, 0, -1.51297, 0, 1.7, 0, 1.51297, 0, 0.775193, -108.538, 0, -383.189)
-
-[node name="pileofsnow231" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.455996, 0, -0.889982, 0, 1, 0, 0.889982, 0, 0.455996, -104.885, 0, -376.128)
-
-[node name="pileofsnow232" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.333223, 0, -1.66703, 0, 1.7, 0, 1.66703, 0, 0.333223, -99.467, 0, -386.685)
-
-[node name="pileofsnow233" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.196014, 0, -0.980601, 0, 1, 0, 0.980601, 0, 0.196014, -97.9018, 0, -378.854)
-
-[node name="pileofsnow202" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.66451, 0, -0.345552, 0, 1.7, 0, 0.345552, 0, 1.66451, -48.4502, 0, -271.958)
-
-[node name="pileofsnow203" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.979123, 0, -0.203266, 0, 1, 0, 0.203266, 0, 0.979123, -40.097, 0, -270.189)
-
-[node name="pileofsnow204" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.66451, 0, -0.345552, 0, 1.7, 0, 0.345552, 0, 1.66451, -47.9342, 0, -277.897)
-
-[node name="pileofsnow205" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.979123, 0, -0.203266, 0, 1, 0, 0.203266, 0, 0.979123, -37.4408, 0, -277.72)
-
-[node name="pileofsnow206" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.69501, 0, -0.130127, 0, 1.7, 0, 0.130127, 0, 1.69501, -46.4183, 0, -285.712)
-
-[node name="pileofsnow207" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.997066, 0, -0.076545, 0, 1, 0, 0.076545, 0, 0.997066, -34.13, 0, -288.731)
-
-[node name="pileofsnow208" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.52609, 0, -0.749043, 0, 1.7, 0, 0.749043, 0, 1.52609, -43.6889, 0, -293.797)
-
-[node name="pileofsnow175" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.69506, 0, -0.129593, 0, 1.7, 0, 0.129593, 0, 1.69506, 45.1773, 0, -190.653)
-
-[node name="pileofsnow124" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.99709, 0, -0.0762317, 0, 1, 0, 0.0762317, 0, 0.99709, 56.1077, 0, -191.213)
-
-[node name="pileofsnow176" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.69218, 0, 0.16288, 0, 1.7, 0, -0.16288, 0, 1.69218, 44.6506, 0, -197.802)
-
-[node name="pileofsnow126" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.9954, 0, 0.0958112, 0, 1, 0, -0.0958112, 0, 0.9954, 54.0944, 0, -198.575)
-
-[node name="pileofsnow127" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.66045, 0, 0.364557, 0, 1.7, 0, -0.364557, 0, 1.66045, 44.3849, 0, -206.001)
-
-[node name="pileofsnow128" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.976735, 0, 0.214445, 0, 1, 0, -0.214445, 0, 0.976735, 52.1849, 0, -207.713)
-
-[node name="pileofsnow129" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.34727, 0, 1.03675, 0, 1.7, 0, -1.03675, 0, 1.34727, 40.2583, 0, -211.764)
-
-[node name="pileofsnow130" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.792514, 0, 0.609855, 0, 1, 0, -0.609855, 0, 0.792514, 46.6372, 0, -216.57)
-
-[node name="pileofsnow131" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.90576, 0, 1.43861, 0, 1.7, 0, -1.43861, 0, 0.90576, 34.3175, 7.62939e-06, -216.773)
-
-[node name="pileofsnow132" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.532803, 0, 0.84624, 0, 1, 0, -0.84624, 0, 0.532803, 38.5266, 7.62939e-06, -223.518)
-
-[node name="pileofsnow133" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.732778, 0, 1.53396, 0, 1.7, 0, -1.53396, 0, 0.732778, 25.2591, 1.52588e-05, -219.147)
-
-[node name="pileofsnow134" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.431046, 0, 0.90233, 0, 1, 0, -0.90233, 0, 0.431046, 28.7013, 1.52588e-05, -226.352)
-
-[node name="pileofsnow135" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.343111, 0, 1.66501, 0, 1.7, 0, -1.66501, 0, -0.343111, 17.1688, 7.62939e-06, -218.783)
-
-[node name="pileofsnow136" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.20183, 0, 0.979421, 0, 1, 0, -0.979421, 0, -0.20183, 15.5329, 7.62939e-06, -226.564)
-
-[node name="pileofsnow137" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.343111, 0, 1.66501, 0, 1.7, 0, -1.66501, 0, -0.343111, 9.34945, 7.62939e-06, -217.136)
-
-[node name="pileofsnow138" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.20183, 0, 0.979421, 0, 1, 0, -0.979421, 0, -0.20183, 7.73785, 7.62939e-06, -224.957)
-
-[node name="pileofsnow139" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.512417, 0, 0.858737, 0, 1, 0, -0.858737, 0, 0.512417, 31.5142, 7.62939e-06, -349.405)
-
-[node name="pileofsnow140" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.55406, 0, 0.68912, 0, 1.7, 0, -0.68912, 0, 1.55406, 34.6591, 7.62939e-06, -357.573)
-
-[node name="pileofsnow352" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.562531, 0, 0.826777, 0, 1, 0, -0.826777, 0, 0.562531, 36.7976, 7.62939e-06, -344.705)
-
-[node name="pileofsnow353" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.9563, 0, 1.40552, 0, 1.7, 0, -1.40552, 0, 0.9563, 41.2436, 7.62939e-06, -351.296)
-
-[node name="pileofsnow141" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.229829, 0, 0.973232, 0, 1, 0, -0.973232, 0, 0.229829, 24.6789, 7.62939e-06, -351.823)
-
-[node name="pileofsnow142" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.39071, 0, 1.65449, 0, 1.7, 0, -1.65449, 0, 0.39071, 26.5139, 7.62939e-06, -359.595)
-
-[node name="pileofsnow143" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.570399, 0, 0.821368, 0, 1, 0, -0.821368, 0, -0.570399, 17.3399, 7.62939e-06, -351.572)
-
-[node name="pileofsnow144" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.969675, 0, 1.39632, 0, 1.7, 0, -1.39632, 0, -0.969675, 12.7784, 7.62939e-06, -358.083)
-
-[node name="pileofsnow351" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.969675, 0, 1.39632, 0, 1.7, 0, -1.39632, 0, -0.969675, 19.8513, 7.62939e-06, -360.726)
-
-[node name="pileofsnow145" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.745232, 0, 0.666806, 0, 1, 0, -0.666806, 0, -0.745232, 13.364, 7.62939e-06, -344.795)
-
-[node name="pileofsnow146" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-1.33508, 0, 1.05242, 0, 1.7, 0, -1.05242, 0, -1.33508, 7.9071, 7.62939e-06, -349.297)
-
-[node name="pileofsnow147" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.548249, 0, 0.836315, 0, 1, 0, -0.836315, 0, -0.548249, 5.43629, 7.62939e-06, -338.78)
-
-[node name="pileofsnow148" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.932021, 0, 1.42173, 0, 1.7, 0, -1.42173, 0, -0.932021, 1.12661, 7.62939e-06, -345.503)
-
-[node name="pileofsnow149" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.0532249, 0, 0.998583, 0, 1, 0, -0.998583, 0, -0.0532249, -5.22889, 7.62939e-06, -335.774)
-
-[node name="pileofsnow150" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.0904812, 0, 1.69759, 0, 1.7, 0, -1.69759, 0, -0.0904812, -5.68371, 7.62939e-06, -343.712)
-
-[node name="pileofsnow249" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.848113, 0, 0.529816, 0, 1, 0, -0.529816, 0, -0.848113, 86.0282, 7.62939e-06, -365.995)
-
-[node name="pileofsnow250" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-1.44179, 0, 0.900684, 0, 1.7, 0, -0.900684, 0, -1.44179, 79.2682, 7.62939e-06, -370.18)
-
-[node name="pileofsnow251" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.803213, 0, 0.595693, 0, 1, 0, -0.595693, 0, -0.803213, 82.1998, 7.62939e-06, -357.629)
-
-[node name="pileofsnow252" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-1.36546, 0, 1.01268, 0, 1.7, 0, -1.01268, 0, -1.36546, 75.9409, 7.62939e-06, -362.394)
-
-[node name="pileofsnow253" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.70623, 0, 0.707982, 0, 1, 0, -0.707982, 0, -0.70623, 74.2201, 7.62939e-06, -352.033)
-
-[node name="pileofsnow254" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-1.20059, 0, 1.20357, 0, 1.7, 0, -1.20357, 0, -1.20059, 68.4272, 7.62939e-06, -357.63)
-
-[node name="pileofsnow255" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.655492, 0, 0.755202, 0, 1, 0, -0.755202, 0, -0.655492, 66.4257, 7.62939e-06, -347.732)
-
-[node name="pileofsnow256" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-1.19218, 0, 1.2119, 0, 1.7, 0, -1.2119, 0, -1.19218, 61.578, 7.62939e-06, -352.884)
-
-[node name="pileofsnow257" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.52354, 0, 0.852001, 0, 1, 0, -0.852001, 0, -0.52354, 59.6034, 7.62939e-06, -340.263)
-
-[node name="pileofsnow258" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-1.50173, 0, 0.796739, 0, 1.7, 0, -0.796739, 0, -1.50173, 54.7107, 7.62939e-06, -348.627)
-
-[node name="pileofsnow259" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.663234, 0, 0.748412, 0, 1, 0, -0.748412, 0, -0.663234, 51.7816, 7.62939e-06, -337.308)
-
-[node name="pileofsnow354" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.663234, 0, 0.748412, 0, 1, 0, -0.748412, 0, -0.663234, 43.7131, 7.62939e-06, -338.577)
-
-[node name="pileofsnow260" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.721811, 0, 1.53915, 0, 1.7, 0, -1.53915, 0, -0.721811, 47.4178, 7.62939e-06, -347.287)
-
-[node name="pileofsnow261" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.586556, 0, -0.809909, 0, 1, 0, 0.809909, 0, -0.586556, 55.8168, 7.62939e-06, -408.813)
-
-[node name="pileofsnow262" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.997142, 0, -1.37684, 0, 1.7, 0, 1.37684, 0, -0.997142, 51.1793, 7.62939e-06, -402.355)
-
-[node name="pileofsnow263" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.649209, 0, -0.76061, 0, 1, 0, 0.76061, 0, -0.649209, 63.2128, 7.62939e-06, -403.661)
-
-[node name="pileofsnow264" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-1.10366, 0, -1.29304, 0, 1.7, 0, 1.29304, 0, -1.10366, 58.0288, 7.62939e-06, -397.587)
-
-[node name="pileofsnow265" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.476069, 0, -0.879408, 0, 1, 0, 0.879408, 0, -0.476069, 70.1412, 7.62939e-06, -399.69)
-
-[node name="pileofsnow266" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.809317, 0, -1.49499, 0, 1.7, 0, 1.49499, 0, -0.809317, 66.3849, 7.62939e-06, -392.683)
-
-[node name="pileofsnow267" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.385021, 0, -0.922908, 0, 1, 0, 0.922908, 0, -0.385021, 75.8895, 7.62939e-06, -394.468)
-
-[node name="pileofsnow268" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.555486, 0, -1.60669, 0, 1.7, 0, 1.60669, 0, -0.555486, 73.4295, 7.62939e-06, -387.835)
-
-[node name="pileofsnow269" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.702501, 0, -0.711682, 0, 1, 0, 0.711682, 0, -0.702501, 83.5703, 7.62939e-06, -388.8)
-
-[node name="pileofsnow273" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.586556, 0, -0.809909, 0, 1, 0, 0.809909, 0, -0.586556, 48.363, 7.62939e-06, -412.962)
-
-[node name="pileofsnow274" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.997142, 0, -1.37684, 0, 1.7, 0, 1.37684, 0, -0.997142, 43.395, 7.62939e-06, -407.304)
-
-[node name="pileofsnow275" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.255074, 0, 0.966922, 0, 1, 0, -0.966922, 0, 0.255074, 74.319, 7.62939e-06, -468.396)
-
-[node name="pileofsnow343" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.255074, 0, 0.966922, 0, 1, 0, -0.966922, 0, 0.255074, 84.0404, 7.62939e-06, -467.338)
-
-[node name="pileofsnow276" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.433627, 0, 1.64377, 0, 1.7, 0, -1.64377, 0, 0.433627, 76.3557, 7.62939e-06, -476.117)
-
-[node name="pileofsnow277" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.0475416, 0, 0.998869, 0, 1, 0, -0.998869, 0, 0.0475416, 66.3537, 7.62939e-06, -468.97)
-
-[node name="pileofsnow278" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.0808225, 0, 1.69807, 0, 1.7, 0, -1.69807, 0, 0.0808225, 66.6992, 7.62939e-06, -476.912)
-
-[node name="pileofsnow279" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.0533641, 0, 0.998575, 0, 1, 0, -0.998575, 0, -0.0533641, 58.9094, 7.62939e-06, -471.181)
-
-[node name="pileofsnow280" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.196337, 0, 1.68863, 0, 1.7, 0, -1.68863, 0, -0.196337, 58.2491, 7.62939e-06, -478.225)
-
-[node name="pileofsnow281" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.324314, 0, 0.945949, 0, 1, 0, -0.945949, 0, 0.324314, 49.5304, 7.62939e-06, -472.957)
-
-[node name="pileofsnow330" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.66449, 0, -0.345668, 0, 1.7, 0, 0.345668, 0, 1.66449, 9.60633, 0, -533.929)
-
-[node name="pileofsnow331" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.979109, 0, -0.203334, 0, 1, 0, 0.203334, 0, 0.979109, 19.5032, 0, -531.839)
-
-[node name="pileofsnow345" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.60352, 0, -0.564562, 0, 1.7, 0, 0.564562, 0, 1.60352, 11.7281, 0, -543.964)
-
-[node name="pileofsnow346" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.943246, 0, -0.332096, 0, 1, 0, 0.332096, 0, 0.943246, 22.9009, 0, -540.186)
-
-[node name="pileofsnow347" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.60352, 0, -0.564562, 0, 1.7, 0, 0.564562, 0, 1.60352, 14.8063, 0, -552.362)
-
-[node name="pileofsnow348" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.943246, 0, -0.332096, 0, 1, 0, 0.332096, 0, 0.943246, 26.0853, 0, -548.159)
-
-[node name="pileofsnow349" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.60352, 0, -0.564562, 0, 1.7, 0, 0.564562, 0, 1.60352, 17.8048, 0, -560.482)
-
-[node name="pileofsnow350" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.943246, 0, -0.332096, 0, 1, 0, 0.332096, 0, 0.943246, 29.6677, 0, -557.129)
-
-[node name="pileofsnow332" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.5342, 0, -0.732272, 0, 1.7, 0, 0.732272, 0, 1.5342, 5.16164, 0, -515.447)
-
-[node name="pileofsnow333" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.995768, 0, -0.0919018, 0, 1, 0, 0.0919018, 0, 0.995768, 15.6056, 0, -513.393)
-
-[node name="pileofsnow334" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.40085, 0, 0.963129, 0, 1.7, 0, -0.963129, 0, 1.40085, 7.0495, 0, -522.336)
-
-[node name="pileofsnow335" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-1.36346, 0, -1.46321, 0, 2, 0, 1.46321, 0, -1.36346, 10.9851, 0, -503.888)
-
-[node name="pileofsnow336" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.53863, 0, 1.61241, 0, 1.7, 0, -1.61241, 0, 0.53863, 20.9696, 0, -503.058)
-
-[node name="pileofsnow337" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.316842, 0, 0.948478, 0, 1, 0, -0.948478, 0, 0.316842, 23.4579, 0, -510.61)
-
-[node name="pileofsnow338" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.0770578, 0, 1.69825, 0, 1.7, 0, -1.69825, 0, 0.0770578, 31.0932, 0, -501.375)
-
-[node name="pileofsnow339" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.0453284, 0, 0.998973, 0, 1, 0, -0.998973, 0, 0.0453284, 31.4548, 0, -509.353)
-
-[node name="pileofsnow340" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.548188, 0, 1.60918, 0, 1.7, 0, -1.60918, 0, -0.548188, 41.8064, 0, -505.1)
-
-[node name="pileofsnow341" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.322464, 0, 0.946581, 0, 1, 0, -0.946581, 0, -0.322464, 39.2124, 0, -512.615)
-
-[node name="pileofsnow342" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.248943, 0, -0.968518, 0, 1, 0, 0.968518, 0, 0.248943, 17.9426, 7.62939e-06, -521.688)
-
-[node name="pileofsnow270" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-1.19425, 0, -1.20986, 0, 1.7, 0, 1.20986, 0, -1.19425, 77.9021, 7.62939e-06, -383.175)
-
-[node name="pileofsnow271" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.989866, 0, -0.142007, 0, 1, 0, 0.142007, 0, -0.989866, 88.0021, 7.62939e-06, -378.238)
-
-[node name="pileofsnow272" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-1.68277, 0, -0.241411, 0, 1.7, 0, 0.241411, 0, -1.68277, 80.1362, 7.62939e-06, -377.078)
-
-[node name="pileofsnow300" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.962455, 0, -0.271441, 0, 1, 0, 0.271441, 0, -0.962455, 120.64, 7.62939e-06, -515.263)
-
-[node name="pileofsnow301" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-1.69851, 0, -0.0711898, 0, 1.7, 0, 0.0711898, 0, -1.69851, 110.476, 7.62939e-06, -512.265)
-
-[node name="pileofsnow302" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.98102, 0, -0.193909, 0, 1, 0, 0.193909, 0, -0.98102, 124.356, 7.62939e-06, -506.924)
-
-[node name="pileofsnow303" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-1.69878, 0, 0.0643406, 0, 1.7, 0, -0.0643406, 0, -1.69878, 112.128, 7.62939e-06, -503.96)
-
-[node name="pileofsnow304" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.998913, 0, -0.046619, 0, 1, 0, 0.046619, 0, -0.998913, 123.033, 7.62939e-06, -497.135)
-
-[node name="pileofsnow305" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-1.67056, 0, 0.314992, 0, 1.7, 0, -0.314992, 0, -1.67056, 108.742, 7.62939e-06, -495.88)
-
-[node name="pileofsnow306" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.994235, 0, 0.107219, 0, 1, 0, -0.107219, 0, -0.994235, 118.045, 7.62939e-06, -488.593)
-
-[node name="pileofsnow355" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.994235, 0, 0.107219, 0, 1, 0, -0.107219, 0, -0.994235, 112.696, 7.62939e-06, -482.61)
-
-[node name="pileofsnow307" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-1.6347, 0, 0.466644, 0, 1.7, 0, -0.466644, 0, -1.6347, 102.977, 7.62939e-06, -489.373)
-
-[node name="pileofsnow308" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.875532, 0, 0.48316, 0, 1, 0, -0.48316, 0, -0.875532, 103.415, 7.62939e-06, -479.149)
-
-[node name="pileofsnow309" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-1.4884, 0, 0.821372, 0, 1.7, 0, -0.821372, 0, -1.4884, 96.4628, 7.62939e-06, -483.079)
-
-[node name="pileofsnow310" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.650814, 0, 0.759237, 0, 1, 0, -0.759237, 0, -0.650814, 93.3476, 7.62939e-06, -471.81)
-
-[node name="pileofsnow311" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-1.10638, 0, 1.29071, 0, 1.7, 0, -1.29071, 0, -1.10638, 88.149, 7.62939e-06, -477.826)
-
-[node name="pileofsnow312" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.106073, 0, -0.994359, 0, 1, 0, 0.994359, 0, -0.106073, 78.3146, 7.62939e-06, -530.824)
-
-[node name="pileofsnow313" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.180325, 0, -1.69041, 0, 1.7, 0, 1.69041, 0, -0.180325, 77.4678, 7.62939e-06, -522.883)
-
-[node name="pileofsnow314" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.103904, 0, -0.994587, 0, 1, 0, 0.994587, 0, 0.103904, 86.2752, 7.62939e-06, -531.46)
-
-[node name="pileofsnow315" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.176635, 0, -1.6908, 0, 1.7, 0, 1.6908, 0, 0.176635, 87.1335, 7.62939e-06, -523.556)
-
-[node name="pileofsnow316" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.203607, 0, -0.979053, 0, 1, 0, 0.979053, 0, 0.203607, 93.9681, 7.62939e-06, -530.398)
-
-[node name="pileofsnow317" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.449187, 0, -1.63959, 0, 1.7, 0, 1.63959, 0, 0.449187, 95.685, 7.62939e-06, -523.535)
-
-[node name="pileofsnow318" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.177686, 0, -0.984087, 0, 1, 0, 0.984087, 0, -0.177686, 103.508, 7.62939e-06, -530.06)
-
-[node name="pileofsnow319" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.302068, 0, -1.67295, 0, 1.7, 0, 1.67295, 0, -0.302068, 102.008, 7.62939e-06, -522.216)
-
-[node name="pileofsnow322" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.412103, 0, -0.911138, 0, 1, 0, 0.911138, 0, 0.412103, 46.515, 7.62939e-06, -516.689)
-
-[node name="pileofsnow323" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.700575, 0, -1.54893, 0, 1.7, 0, 1.54893, 0, 0.700575, 49.806, 7.62939e-06, -509.413)
-
-[node name="pileofsnow324" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.593279, 0, -0.804997, 0, 1, 0, 0.804997, 0, 0.593279, 53.0569, 7.62939e-06, -521.269)
-
-[node name="pileofsnow325" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.00857, 0, -1.36849, 0, 1.7, 0, 1.36849, 0, 1.00857, 57.7998, 7.62939e-06, -514.889)
-
-[node name="pileofsnow326" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.671384, 0, -0.74111, 0, 1, 0, 0.74111, 0, 0.671384, 60.2282, 7.62939e-06, -524.25)
-
-[node name="pileofsnow327" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.21765, 0, -1.18631, 0, 1.7, 0, 1.18631, 0, 1.21765, 65.1842, 7.62939e-06, -519.201)
-
-[node name="pileofsnow328" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.345151, 0, -0.938547, 0, 1, 0, 0.938547, 0, 0.345151, 68.6255, 7.62939e-06, -528.789)
-
-[node name="pileofsnow329" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.586753, 0, -1.59553, 0, 1.7, 0, 1.59553, 0, 0.586753, 71.3049, 7.62939e-06, -521.266)
-
-[node name="pileofsnow320" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.736605, 0, -0.676323, 0, 1, 0, 0.676323, 0, -0.736605, 113.131, 7.62939e-06, -523.847)
-
-[node name="pileofsnow321" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-1.25223, 0, -1.14975, 0, 1.7, 0, 1.14975, 0, -1.25223, 107.296, 7.62939e-06, -518.447)
-
-[node name="pileofsnow151" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.329378, 0, 0.944198, 0, 1, 0, -0.944198, 0, 0.329378, -15.6052, 7.62939e-06, -330.467)
-
-[node name="pileofsnow152" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.559942, 0, 1.60514, 0, 1.7, 0, -1.60514, 0, 0.559942, -13.5857, 7.62939e-06, -344.384)
-
-[node name="pileofsnow153" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.784001, 0, -1.50843, 0, 1.7, 0, 1.50843, 0, -0.784001, -85.7996, 7.62939e-06, -384.807)
-
-[node name="pileofsnow154" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.10904, 0, 1.28842, 0, 1.7, 0, -1.28842, 0, 1.10904, -20.692, 7.62939e-06, -348.647)
-
-[node name="pileofsnow155" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-1.26398, 0, -1.13682, 0, 1.7, 0, 1.13682, 0, -1.26398, -77.9816, 7.62939e-06, -378.693)
-
-[node name="pileofsnow156" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.45538, 0, 0.878566, 0, 1.7, 0, -0.878566, 0, 1.45538, -71.6202, 7.62939e-06, -369.409)
-
-[node name="pileofsnow169" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.41015, 0, 0.949474, 0, 1.7, 0, -0.949474, 0, 1.41015, -97.4442, 7.62939e-06, -311.982)
-
-[node name="pileofsnow170" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.53755, 0, 0.725223, 0, 1.7, 0, -0.725223, 0, 1.53755, -88.8088, 7.62939e-06, -316.146)
-
-[node name="pileofsnow171" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(1.65994, 0, 0.366877, 0, 1.7, 0, -0.366877, 0, 1.65994, -105.385, 7.62939e-06, -309.728)
-
-[node name="pileofsnow172" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.997845, 0, 0.0656123, 0, 1, 0, -0.0656123, 0, 0.997845, -90.7466, 7.62939e-06, -324.203)
-
-[node name="pileofsnow236" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.976436, 0, 0.215809, 0, 1, 0, -0.215809, 0, 0.976436, -99.5663, 7.62939e-06, -319.547)
-
-[node name="pileofsnow173" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.0180672, 0, -1.6999, 0, 1.7, 0, 1.6999, 0, -0.0180672, -93.371, 7.62939e-06, -386.809)
-
-[node name="pileofsnow174" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.0106286, 0, -0.999944, 0, 1, 0, 0.999944, 0, -0.0106286, -93.4561, 7.62939e-06, -378.824)
-
-[node name="pileofsnow234" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.0053933, 0, -0.999986, 0, 1, 0, 0.999986, 0, -0.0053933, -88.2673, 0, -375.802)
-
-[node name="pileofsnow235" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.541576, 0, -0.840652, 0, 1, 0, 0.840652, 0, -0.541576, -82.7549, 7.62939e-06, -369.547)
-
-[node name="pileofsnow241" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.269794, 0, -0.962918, 0, 1, 0, 0.962918, 0, -0.269794, -78.7611, 0, -360.213)
-
-[node name="pileofsnow242" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.394752, 0, -1.65354, 0, 1.7, 0, 1.65354, 0, -0.394752, -52.4787, 7.62939e-06, -352.209)
-
-[node name="pileofsnow243" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.394752, 0, -1.65354, 0, 1.7, 0, 1.65354, 0, -0.394752, -37.2492, 7.62939e-06, -360.174)
-
-[node name="pileofsnow244" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.698954, 0, 1.54967, 0, 1.7, 0, -1.54967, 0, 0.698954, -29.3075, 7.62939e-06, -356.473)
-
-[node name="pileofsnow245" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.280081, 0, -1.67677, 0, 1.7, 0, 1.67677, 0, -0.280081, -66.0716, 7.62939e-06, -363.58)
-
-[node name="pileofsnow246" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.164755, 0, -0.986335, 0, 1, 0, 0.986335, 0, -0.164755, -72.8735, 7.62939e-06, -353.986)
-
-[node name="pileofsnow247" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.237296, 0, -0.971437, 0, 1, 0, 0.971437, 0, 0.237296, -52.6885, 0, -342.873)
-
-[node name="pileofsnow248" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.0316552, 0, -0.999499, 0, 1, 0, 0.999499, 0, 0.0316552, -43.0937, 7.62939e-06, -345.913)
-
-[node name="pileofsnow237" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.0474031, 0, -0.998876, 0, 1, 0, 0.998876, 0, -0.0474031, -31.559, 0, -345.206)
-
-[node name="pileofsnow238" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.252576, 0, -0.967577, 0, 1, 0, 0.967577, 0, -0.252576, -25.5559, 7.62939e-06, -335.494)
-
-[node name="pileofsnow157" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.29959, 0, -0.954067, 0, 1, 0, 0.954067, 0, 0.29959, -80.9193, 7.62939e-06, -323.761)
-
-[node name="pileofsnow158" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(0.509302, 0, -1.62191, 0, 1.7, 0, 1.62191, 0, 0.509302, -78.5269, 7.62939e-06, -316.142)
-
-[node name="pileofsnow159" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.0205235, 0, -0.999789, 0, 1, 0, 0.999789, 0, -0.0205235, -69.6782, 7.62939e-06, -326.136)
-
-[node name="pileofsnow160" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.0348888, 0, -1.69964, 0, 1.7, 0, 1.69964, 0, -0.0348888, -69.9239, 7.62939e-06, -318.154)
-
-[node name="pileofsnow161" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.176071, 0, -0.984378, 0, 1, 0, 0.984378, 0, -0.176071, -58.7219, 7.62939e-06, -325.404)
-
-[node name="pileofsnow162" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.299321, 0, -1.67344, 0, 1.7, 0, 1.67344, 0, -0.299321, -60.0906, 7.62939e-06, -317.572)
-
-[node name="pileofsnow163" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.536165, 0, -0.844113, 0, 1, 0, 0.844113, 0, -0.536165, -48.2691, 7.62939e-06, -321.855)
-
-[node name="pileofsnow209" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.642186, 0, -0.766549, 0, 1, 0, 0.766549, 0, -0.642186, -40.2052, 7.62939e-06, -316.798)
-
-[node name="pileofsnow210" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.884882, 0, -0.465816, 0, 1, 0, 0.465816, 0, -0.884882, -32.9005, 7.62939e-06, -308.522)
-
-[node name="pileofsnow211" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.884882, 0, -0.465816, 0, 1, 0, 0.465816, 0, -0.884882, -30.7207, 7.62939e-06, -298.001)
-
-[node name="pileofsnow164" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-0.911483, 0, -1.435, 0, 1.7, 0, 1.435, 0, -0.911483, -52.5506, 7.62939e-06, -315.114)
-
-[node name="pileofsnow166" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-1.37381, 0, -1.00132, 0, 1.7, 0, 1.00132, 0, -1.37381, -46.6045, 7.62939e-06, -309.342)
-
-[node name="pileofsnow168" parent="Path/piles_of_snow" instance=ExtResource("8_bbg65")]
-transform = Transform3D(-1.37381, 0, -1.00132, 0, 1.7, 0, 1.00132, 0, -1.37381, -41.9169, 7.62939e-06, -302.909)
+[node name="piles_of_snow" parent="Path" instance=ExtResource("9_q8h2x")]
 
 [node name="bushes" type="Node3D" parent="Path"]
 
@@ -1643,6 +580,209 @@ transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 9.15057, 0, 116.838)
 [node name="bush7" parent="Path/bushes" instance=ExtResource("9_ihu87")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87546, 0, 115.892)
 
+[node name="bush8" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.932426, 0, 140.084)
+
+[node name="bush9" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2971, 0, 150.688)
+
+[node name="bush10" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3378, 0, 137.945)
+
+[node name="bush11" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7742, 0, 145.146)
+
+[node name="bush12" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.0294, 0, 124.243)
+
+[node name="bush13" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.5605, 0, 130.745)
+
+[node name="bush14" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3408, 0, 115.558)
+
+[node name="bush15" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.30798, 0, 139.604)
+
+[node name="bush16" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5886, 0, 111.893)
+
+[node name="bush17" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.1608, 0, -465.049)
+
+[node name="bush46" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.1598, 0, -458.244)
+
+[node name="bush47" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.7929, 0, -459.304)
+
+[node name="bush48" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.4831, 0, -485.636)
+
+[node name="bush49" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.2427, 0, -481.327)
+
+[node name="bush50" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5162, 0, -486.696)
+
+[node name="bush51" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9245, 0, -472.88)
+
+[node name="bush52" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.6261, 0, -465.938)
+
+[node name="bush53" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.1888, 0, -466.314)
+
+[node name="bush18" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -113.76, 0, -354.856)
+
+[node name="bush20" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106.569, 0, -365.586)
+
+[node name="bush21" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.4992, 0, -362.447)
+
+[node name="bush22" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -95.245, 0, -369.443)
+
+[node name="bush23" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.3088, -1.90735e-06, -362.072)
+
+[node name="bush24" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.1317, -1.90735e-06, -353.018)
+
+[node name="bush25" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.446, -1.90735e-06, -371.977)
+
+[node name="bush26" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -145.584, -3.8147e-06, -359.549)
+
+[node name="bush27" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144.308, -5.72205e-06, -362.205)
+
+[node name="bush28" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -145.946, -5.72205e-06, -351.976)
+
+[node name="bush29" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -145.437, -5.72205e-06, -350.087)
+
+[node name="bush30" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -143.566, -5.72205e-06, -353.119)
+
+[node name="bush31" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144.595, -5.72205e-06, -335.855)
+
+[node name="bush32" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -143.277, -5.72205e-06, -338.49)
+
+[node name="bush33" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.344, -5.72205e-06, -347.17)
+
+[node name="bush34" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.205, -5.72205e-06, -340.804)
+
+[node name="bush35" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -111.822, -5.72205e-06, -357.915)
+
+[node name="bush36" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97.2168, -5.72205e-06, -359.725)
+
+[node name="bush19" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.906, 0, -345.591)
+
+[node name="bush37" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -113.56, 0, -338.719)
+
+[node name="bush38" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.862, 0, -330.735)
+
+[node name="bush39" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106.929, 0, -331.709)
+
+[node name="bush40" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.029, 0, -328.962)
+
+[node name="bush41" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.9011, 0, -331.646)
+
+[node name="bush42" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.3393, 0, -335.181)
+
+[node name="bush43" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.571, 0, -112.071)
+
+[node name="bush44" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.9178, 0, -125.907)
+
+[node name="bush45" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.2005, 0, -121.639)
+
+[node name="bush54" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.4425, 0, -104.064)
+
+[node name="bush55" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.6891, 0, -122.211)
+
+[node name="bush56" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.7516, 0, -115.48)
+
+[node name="bush57" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.7704, 0, -113.346)
+
+[node name="bush58" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.8372, 0, -81.2736)
+
+[node name="bush59" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.1783, 0, -110.334)
+
+[node name="bush60" parent="Path/bushes" instance=ExtResource("9_ihu87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.5321, 0, -109.021)
+
+[node name="bush_clusters" type="Node3D" parent="Path/bushes"]
+
+[node name="bush_cluster_1" parent="Path/bushes/bush_clusters" instance=ExtResource("11_5h5pj")]
+transform = Transform3D(0.896006, 0, -0.444041, 0, 1, 0, 0.444041, 0, 0.896006, 3.52537, -9.53674e-07, 211.687)
+
+[node name="bush_cluster_2" parent="Path/bushes/bush_clusters" instance=ExtResource("11_5h5pj")]
+transform = Transform3D(-0.381619, 0, -0.92432, 0, 1, 0, 0.92432, 0, -0.381619, 12.716, 0, 218.23)
+
+[node name="bush_cluster_3" parent="Path/bushes/bush_clusters" instance=ExtResource("11_5h5pj")]
+transform = Transform3D(-0.939896, 0, 0.341463, 0, 1, 0, -0.341463, 0, -0.939896, 21.239, 0, 219.492)
+
+[node name="bush_cluster_4" parent="Path/bushes/bush_clusters" instance=ExtResource("11_5h5pj")]
+transform = Transform3D(0.999572, 0, -0.029265, 0, 1, 0, 0.029265, 0, 0.999572, 31.3159, 0, 220.611)
+
+[node name="bush_cluster_5" parent="Path/bushes/bush_clusters" instance=ExtResource("11_5h5pj")]
+transform = Transform3D(-0.590732, 0, 0.806868, 0, 1, 0, -0.806868, 0, -0.590732, 39.7022, 0, 223.221)
+
+[node name="bush_cluster_6" parent="Path/bushes/bush_clusters" instance=ExtResource("11_5h5pj")]
+transform = Transform3D(-0.996981, 0, 0.0776412, 0, 1, 0, -0.0776412, 0, -0.996981, 45.7499, 0, 207.582)
+
+[node name="bush_cluster_7" parent="Path/bushes/bush_clusters" instance=ExtResource("11_5h5pj")]
+transform = Transform3D(-0.140228, 0, 0.990119, 0, 1, 0, -0.990119, 0, -0.140228, 38.4422, -9.53674e-07, 201.187)
+
+[node name="bush_cluster_8" parent="Path/bushes/bush_clusters" instance=ExtResource("11_5h5pj")]
+transform = Transform3D(0.949014, 0, -0.315235, 0, 1, 0, 0.315235, 0, 0.949014, 32.9248, 1.90735e-06, 199.073)
+
+[node name="bush_cluster_9" parent="Path/bushes/bush_clusters" instance=ExtResource("11_5h5pj")]
+transform = Transform3D(-0.999999, 0, 0.00150091, 0, 1, 0, -0.00150091, 0, -0.999999, 19.4726, 0, 199.911)
+
+[node name="bush_cluster_10" parent="Path/bushes/bush_clusters" instance=ExtResource("11_5h5pj")]
+transform = Transform3D(0.612907, 0, -0.790155, 0, 1, 0, 0.790155, 0, 0.612907, 10.9137, -9.53674e-07, 193.644)
+
+[node name="bush_cluster_11" parent="Path/bushes/bush_clusters" instance=ExtResource("11_5h5pj")]
+transform = Transform3D(0.770791, 0, 0.637088, 0, 1, 0, -0.637088, 0, 0.770791, 41.0268, 0, -592.314)
+
+[node name="bush_cluster_12" parent="Path/bushes/bush_clusters" instance=ExtResource("11_5h5pj")]
+transform = Transform3D(-0.986222, 0, -0.165426, 0, 1, 0, 0.165426, 0, -0.986222, 19.42, 0, -588.391)
+
+[node name="bush_cluster_13" parent="Path/bushes/bush_clusters" instance=ExtResource("11_5h5pj")]
+transform = Transform3D(-0.498397, 0, 0.866949, 0, 1, 0, -0.866949, 0, -0.498397, 43.3759, 0, -575.444)
+
+[node name="bush_cluster_14" parent="Path/bushes/bush_clusters" instance=ExtResource("11_5h5pj")]
+transform = Transform3D(0.434823, 0, -0.900516, 0, 1, 0, 0.900516, 0, 0.434823, 17.1118, 0, -572.735)
+
 [node name="rocks" type="Node3D" parent="Path"]
 
 [node name="rock" parent="Path/rocks" instance=ExtResource("10_e7xes")]
@@ -1660,301 +800,146 @@ transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 4.93609, 0, 123.541)
 [node name="rock4" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 11.6075, 0, 118.154)
 
-[node name="rock" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock6" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2961, 0, 146.922)
 
-[node name="rock2" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock7" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.1851, 0, 136.53)
 
-[node name="rock3" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock8" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1432, 0, 123.346)
 
-[node name="rock4" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock9" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.874937, 0, 134.605)
 
-[node name="rock5" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock10" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.74966, 0, 147.404)
 
-[node name="rock6" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock11" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.6378, 0, 128.555)
 
-[node name="bush" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.932426, 0, 140.084)
-
-[node name="bush2" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2971, 0, 150.688)
-
-[node name="bush3" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3378, 0, 137.945)
-
-[node name="bush4" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7742, 0, 145.146)
-
-[node name="bush5" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.0294, 0, 124.243)
-
-[node name="bush6" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.5605, 0, 130.745)
-
-[node name="bush7" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3408, 0, 115.558)
-
-[node name="bush8" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.30798, 0, 139.604)
-
-[node name="bush9" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5886, 0, 111.893)
-
-[node name="rock7" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock12" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 9.63037, 0, 138.192)
 
-[node name="rock8" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock13" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 10.0326, 0, 138.179)
 
-[node name="rock9" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock14" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 9.62296, 0, 138.608)
 
-[node name="rock10" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock15" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 9.54962, 0, 138.385)
 
-[node name="rock11" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock16" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(-0.1, 0, 4.014e-05, 0, 0.1, 0, -4.014e-05, 0, -0.1, 10.106, 0, 138.373)
 
-[node name="rock12" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock17" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(-0.1, 0, 4.014e-05, 0, 0.1, 0, -4.014e-05, 0, -0.1, 9.83753, 0, 138.111)
 
-[node name="rock13" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock18" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(-0.1, 0, 4.014e-05, 0, 0.1, 0, -4.014e-05, 0, -0.1, 9.83562, 0, 138.688)
 
-[node name="rock14" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock19" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(-0.1, 0, 4.014e-05, 0, 0.1, 0, -4.014e-05, 0, -0.1, 10.044, 0, 138.597)
 
-[node name="rock15" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock20" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(-0.1, 0, 4.014e-05, 0, 0.1, 0, -4.014e-05, 0, -0.1, 9.60928, 4.76837e-07, 140.834)
 
-[node name="rock16" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock21" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(-0.1, 0, 4.014e-05, 0, 0.1, 0, -4.014e-05, 0, -0.1, 9.73094, 0, 143.618)
 
-[node name="rock17" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock22" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(-0.1, 0, 4.014e-05, 0, 0.1, 0, -4.014e-05, 0, -0.1, 7.379, 0, 145.463)
 
-[node name="rock18" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock23" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(-0.1, 0, 4.014e-05, 0, 0.1, 0, -4.014e-05, 0, -0.1, 7.0728, 0, 148.582)
 
-[node name="rock19" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock24" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(-0.1, 0, 4.014e-05, 0, 0.1, 0, -4.014e-05, 0, -0.1, 2.5886, 0, 151.254)
 
-[node name="bush10" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.1608, 0, -465.049)
-
-[node name="bush46" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.1598, 0, -458.244)
-
-[node name="bush47" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.7929, 0, -459.304)
-
-[node name="bush48" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.4831, 0, -485.636)
-
-[node name="bush49" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.2427, 0, -481.327)
-
-[node name="bush50" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5162, 0, -486.696)
-
-[node name="bush51" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9245, 0, -472.88)
-
-[node name="bush52" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.6261, 0, -465.938)
-
-[node name="bush53" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.1888, 0, -466.314)
-
-[node name="bush11" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -113.76, 0, -354.856)
-
-[node name="bush20" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106.569, 0, -365.586)
-
-[node name="bush21" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.4992, 0, -362.447)
-
-[node name="bush22" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -95.245, 0, -369.443)
-
-[node name="bush23" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.3088, -1.90735e-06, -362.072)
-
-[node name="bush24" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.1317, -1.90735e-06, -353.018)
-
-[node name="bush25" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.446, -1.90735e-06, -371.977)
-
-[node name="bush26" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -145.584, -3.8147e-06, -359.549)
-
-[node name="bush27" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144.308, -5.72205e-06, -362.205)
-
-[node name="bush28" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -145.946, -5.72205e-06, -351.976)
-
-[node name="bush29" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -145.437, -5.72205e-06, -350.087)
-
-[node name="bush30" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -143.566, -5.72205e-06, -353.119)
-
-[node name="bush31" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144.595, -5.72205e-06, -335.855)
-
-[node name="bush32" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -143.277, -5.72205e-06, -338.49)
-
-[node name="bush33" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.344, -5.72205e-06, -347.17)
-
-[node name="bush34" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.205, -5.72205e-06, -340.804)
-
-[node name="bush35" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -111.822, -5.72205e-06, -357.915)
-
-[node name="bush36" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97.2168, -5.72205e-06, -359.725)
-
-[node name="bush13" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.906, 0, -345.591)
-
-[node name="bush14" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -113.56, 0, -338.719)
-
-[node name="bush15" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.862, 0, -330.735)
-
-[node name="bush16" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106.929, 0, -331.709)
-
-[node name="bush17" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.029, 0, -328.962)
-
-[node name="bush18" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.9011, 0, -331.646)
-
-[node name="bush19" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.3393, 0, -335.181)
-
-[node name="bush12" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.571, 0, -112.071)
-
-[node name="bush37" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.9178, 0, -125.907)
-
-[node name="bush38" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.2005, 0, -121.639)
-
-[node name="bush39" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.4425, 0, -104.064)
-
-[node name="bush40" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.6891, 0, -122.211)
-
-[node name="bush41" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.7516, 0, -115.48)
-
-[node name="bush42" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.7704, 0, -113.346)
-
-[node name="bush43" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.8372, 0, -81.2736)
-
-[node name="bush44" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.1783, 0, -110.334)
-
-[node name="bush45" parent="Path" instance=ExtResource("9_ihu87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.5321, 0, -109.021)
-
-[node name="rock20" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock25" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 83.9755, 4.76837e-07, -111.208)
 
-[node name="rock21" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock26" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -143.597, 3.29018e-05, -348.419)
 
-[node name="rock22" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock27" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -129.505, 3.29018e-05, -339.791)
 
-[node name="rock26" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock41" parent="Path/rocks" instance=ExtResource("10_e7xes")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -131.525, 3.29018e-05, -341.764)
+
+[node name="rock42" parent="Path/rocks" instance=ExtResource("10_e7xes")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -132.32, 3.33786e-05, -344.037)
+
+[node name="rock43" parent="Path/rocks" instance=ExtResource("10_e7xes")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -132.725, 3.33786e-05, -346.999)
+
+[node name="rock44" parent="Path/rocks" instance=ExtResource("10_e7xes")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -133.827, 3.33786e-05, -350.412)
+
+[node name="rock45" parent="Path/rocks" instance=ExtResource("10_e7xes")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -138.827, 3.33786e-05, -349.412)
+
+[node name="rock28" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 23.2689, 3.29018e-05, -442.042)
 
-[node name="rock27" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock29" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 26.3125, 3.29018e-05, -462.799)
 
-[node name="rock29" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock30" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 25.7885, 3.29018e-05, -461.973)
 
-[node name="rock30" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock31" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 26.8829, 3.29018e-05, -462.089)
 
-[node name="rock28" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock46" parent="Path/rocks" instance=ExtResource("10_e7xes")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 24.2664, 3.29018e-05, -460.079)
+
+[node name="rock47" parent="Path/rocks" instance=ExtResource("10_e7xes")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 23.6641, 3.29018e-05, -457.787)
+
+[node name="rock48" parent="Path/rocks" instance=ExtResource("10_e7xes")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 22.1342, 3.29018e-05, -455.91)
+
+[node name="rock49" parent="Path/rocks" instance=ExtResource("10_e7xes")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 23.1079, 3.29018e-05, -454.109)
+
+[node name="rock50" parent="Path/rocks" instance=ExtResource("10_e7xes")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 23.063, 3.29018e-05, -452.048)
+
+[node name="rock51" parent="Path/rocks" instance=ExtResource("10_e7xes")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 31.063, 3.29018e-05, -461.048)
+
+[node name="rock32" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 38.0762, 3.29018e-05, -478.461)
 
-[node name="rock23" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock33" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -127.151, 3.29018e-05, -354.107)
 
-[node name="rock24" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock34" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 75.1089, 4.76837e-07, -100.451)
 
-[node name="rock25" parent="Path" instance=ExtResource("10_e7xes")]
+[node name="rock35" parent="Path/rocks" instance=ExtResource("10_e7xes")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 79.9323, 0, -107.257)
 
-[node name="bush_clusters" type="Node3D" parent="."]
+[node name="rock36" parent="Path/rocks" instance=ExtResource("10_e7xes")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 78.2929, 4.76837e-07, -106.006)
 
-[node name="bush_cluster_1" parent="bush_clusters" instance=ExtResource("11_5h5pj")]
-transform = Transform3D(0.896006, 0, -0.444041, 0, 1, 0, 0.444041, 0, 0.896006, 4.03536, 0, 208.853)
+[node name="rock37" parent="Path/rocks" instance=ExtResource("10_e7xes")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 77.5755, 4.76837e-07, -104.496)
 
-[node name="bush_cluster_2" parent="bush_clusters" instance=ExtResource("11_5h5pj")]
-transform = Transform3D(-0.381619, 0, -0.92432, 0, 1, 0, 0.92432, 0, -0.381619, 12.5543, 0, 213.626)
+[node name="rock38" parent="Path/rocks" instance=ExtResource("10_e7xes")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 79.3266, 0, -106.344)
 
-[node name="bush_cluster_3" parent="bush_clusters" instance=ExtResource("11_5h5pj")]
-transform = Transform3D(-0.939896, 0, 0.341463, 0, 1, 0, -0.341463, 0, -0.939896, 21.239, 0, 216.178)
+[node name="rock39" parent="Path/rocks" instance=ExtResource("10_e7xes")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 83.2025, 4.76837e-07, -109.02)
 
-[node name="bush_cluster_4" parent="bush_clusters" instance=ExtResource("11_5h5pj")]
-transform = Transform3D(0.999572, 0, -0.029265, 0, 1, 0, 0.029265, 0, 0.999572, 31.3159, 0, 218.665)
-
-[node name="bush_cluster_5" parent="bush_clusters" instance=ExtResource("11_5h5pj")]
-transform = Transform3D(-0.590732, 0, 0.806868, 0, 1, 0, -0.806868, 0, -0.590732, 39.7022, 0, 221.681)
-
-[node name="bush_cluster_6" parent="bush_clusters" instance=ExtResource("11_5h5pj")]
-transform = Transform3D(-0.996981, 0, 0.0776412, 0, 1, 0, -0.0776412, 0, -0.996981, 45.1919, 0, 207.867)
-
-[node name="bush_cluster_7" parent="bush_clusters" instance=ExtResource("11_5h5pj")]
-transform = Transform3D(0.355808, 0, 0.934559, 0, 1, 0, -0.934559, 0, 0.355808, 37.3724, 0, 202.338)
-
-[node name="bush_cluster_8" parent="bush_clusters" instance=ExtResource("11_5h5pj")]
-transform = Transform3D(0.949014, 0, -0.315235, 0, 1, 0, 0.315235, 0, 0.949014, 29.25, 0, 200.227)
-
-[node name="bush_cluster_9" parent="bush_clusters" instance=ExtResource("11_5h5pj")]
-transform = Transform3D(-0.999999, 0, 0.00150091, 0, 1, 0, -0.00150091, 0, -0.999999, 19.4726, 0, 199.911)
-
-[node name="bush_cluster_10" parent="bush_clusters" instance=ExtResource("11_5h5pj")]
-transform = Transform3D(0.612907, 0, -0.790155, 0, 1, 0, 0.790155, 0, 0.612907, 10.6411, 0, 195.239)
-
-[node name="bush_cluster_11" parent="bush_clusters" instance=ExtResource("11_5h5pj")]
-transform = Transform3D(0.770791, 0, 0.637088, 0, 1, 0, -0.637088, 0, 0.770791, 39.0567, 0, -589.662)
-
-[node name="bush_cluster_12" parent="bush_clusters" instance=ExtResource("11_5h5pj")]
-transform = Transform3D(-0.986222, 0, -0.165426, 0, 1, 0, 0.165426, 0, -0.986222, 19.42, 0, -588.391)
-
-[node name="bush_cluster_13" parent="bush_clusters" instance=ExtResource("11_5h5pj")]
-transform = Transform3D(-0.498397, 0, 0.866949, 0, 1, 0, -0.866949, 0, -0.498397, 42.335, 0, -574.408)
-
-[node name="bush_cluster_14" parent="bush_clusters" instance=ExtResource("11_5h5pj")]
-transform = Transform3D(0.434823, 0, -0.900516, 0, 1, 0, 0.900516, 0, 0.434823, 17.1118, 0, -572.735)
+[node name="rock40" parent="Path/rocks" instance=ExtResource("10_e7xes")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 83.2025, 1.13403, -109.385)
 
 [node name="Player" parent="." instance=ExtResource("12_clta6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.32411, 1.14441e-05, 144.808)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.4, 1.14441e-05, 212.828)
 axis_lock_linear_y = true
 
 [node name="DialogTriggers" type="Node3D" parent="."]
@@ -1977,13 +962,11 @@ dialogic_timeline = "wt_pickup"
 process_mode = 0
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 10.3978, 2.08165e-12, 138.995)
 dialogic_timeline = "wt_pickup2"
-isWT = true
 
 [node name="DialogTrigger2_sam1" parent="DialogTriggers" instance=ExtResource("14_utow1")]
 process_mode = 0
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 23.668, 2.08165e-12, 125.45)
 dialogic_timeline = "test2"
-isWT = true
 
 [node name="DialogTrigger4" parent="DialogTriggers" instance=ExtResource("14_utow1")]
 process_mode = 0
@@ -1994,14 +977,11 @@ dialogic_timeline = "text4"
 process_mode = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 2.08165e-12, -90)
 dialogic_timeline = "text5"
-isWT = true
 
 [node name="DialogTrigger6" parent="DialogTriggers" instance=ExtResource("14_utow1")]
 process_mode = 0
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 70, 2.08165e-12, -110)
 dialogic_timeline = "text6"
-isWT = true
-isRoar = true
 
 [node name="DialogTrigger7" parent="DialogTriggers" instance=ExtResource("14_utow1")]
 process_mode = 0
@@ -2012,37 +992,31 @@ dialogic_timeline = "text7"
 process_mode = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, -0.718, -320.844)
 dialogic_timeline = "text8"
-isWT = true
 
 [node name="DialogTrigger9" parent="DialogTriggers" instance=ExtResource("14_utow1")]
 process_mode = 0
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -130, 2.08165e-12, -340)
 dialogic_timeline = "text9"
-isWT = true
 
 [node name="DialogTrigger10" parent="DialogTriggers" instance=ExtResource("14_utow1")]
 process_mode = 0
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 30, -7.18, -440)
 dialogic_timeline = "text10"
-isWT = true
 
 [node name="DialogTrigger11" parent="DialogTriggers" instance=ExtResource("14_utow1")]
 process_mode = 0
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 35, 2.08165e-12, -470)
 dialogic_timeline = "text11"
-isWT = true
 
 [node name="DialogTrigger12" parent="DialogTriggers" instance=ExtResource("14_utow1")]
 process_mode = 0
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 20, 2.08165e-12, -540)
 dialogic_timeline = "text12"
-isWT = true
 
 [node name="DialogTrigger13" parent="DialogTriggers" instance=ExtResource("14_utow1")]
 process_mode = 0
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 25, 2.08165e-12, -560)
 dialogic_timeline = "text13"
-isWT = true
 
 [node name="DialogTrigger14" parent="DialogTriggers" instance=ExtResource("14_utow1")]
 process_mode = 0
@@ -2066,3 +1040,8 @@ process_mode = 0
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 36.9612, 3.8147e-06, 112.728)
 script = ExtResource("17_6kjpn")
 dialogic_timeline = "text17"
+
+[node name="Monster" parent="." instance=ExtResource("17_aqrxp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.9877, 0, -5.93528)
+
+[node name="Talismans" parent="." instance=ExtResource("13_7ipr7")]
