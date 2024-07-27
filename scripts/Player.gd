@@ -21,6 +21,7 @@ var updown: float
 @onready var shooting_delay = $ShootingDelay
 @onready var gunempty_sfx = $GunemptySFX
 @onready var hit_animation: AnimatedSprite3D = $AnimatedSprite3D
+@onready var wt = $WT
 
 var health = 5
 var ammo = 5
@@ -32,6 +33,7 @@ signal sniper_mode_changed(current: bool)
 func _ready():
 	Global.player = self
 	sniper_mode_changed.connect(Global.handle_player_sniper_mode_changed)
+	Global.beepradio.connect(wtbeep)
 
 func _process(_delta):
 	RenderingServer.global_shader_parameter_set("player_position", global_position)
@@ -125,3 +127,6 @@ func take_damage(amount):
 	health += amount * -1
 	print("Player takes damage. Total damage: ", health)
 	hit_animation.play()
+	
+func wtbeep():
+	wt.play()

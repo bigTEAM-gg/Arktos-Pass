@@ -1,0 +1,8 @@
+join brother_radio leftmost [animation="Fade In" length="0.7"]
+brother_radio: please... hurry
+brother_radio: ...it's the only way to kill him.
+leave --All-- [animation="Fade Out" length="0.1"]
+join huntress leftmost [animation="Fade In" length="0.7"]
+huntress: Hold on tight Sam!
+leave --All-- [animation="Fade Out" length="0.1"]
+

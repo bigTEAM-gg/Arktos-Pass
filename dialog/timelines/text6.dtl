@@ -1,4 +1,5 @@
 join huntress leftmost [animation="Fade In" length="0.7"]
-huntress:  Lost service. I'm on my own now.
-huntress:  I have to find Sam...
+huntress: It sounded angry.
+huntress: I hope Sam's right about this.
 leave --All-- [animation="Fade Out" length="0.1"]
+
