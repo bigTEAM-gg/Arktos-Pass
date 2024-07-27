@@ -1,0 +1,22 @@
+join Johara_phone leftmost [animation="Fade In" length="0.7"]
+Johara_phone: Hello? Leah? Where the hell are you??
+leave --All-- [animation="Fade Out" length="0.1"]
+join huntress leftmost [animation="Fade In" length="0.7"]
+huntress: I'm in the woods.
+leave --All-- [animation="Fade Out" length="0.1"]
+join Johara_phone leftmost [animation="Fade In" length="0.7"]
+Johara_phone: Honey, it's been a year. If he's still out there, he's frozen solid.
+leave --All-- [animation="Fade Out" length="0.1"]
+join huntress leftmost [animation="Fade In" length="0.7"]
+huntress: I'm bringing him home, Jo. I'm sorry...
+huntress: I have to do this.
+leave --All-- [animation="Fade Out" length="0.1"]
+join Johara_phone leftmost [animation="Fade In" length="0.7"]
+Johara_phone: I know. Just... be careful, okay?
+Johara_phone: Come home before it gets too dark.
+leave --All-- [animation="Fade Out" length="0.1"]
+join huntress leftmost [animation="Fade In" length="0.7"]
+huntress: Okay. Love you.
+huntress: Jo?
+huntress: Shit. Looks like the service is gone.
+leave --All-- [animation="Fade Out" length="0.1"]

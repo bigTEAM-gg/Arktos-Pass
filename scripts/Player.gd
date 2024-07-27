@@ -22,6 +22,7 @@ var updown: float
 @onready var gunempty_sfx = $GunemptySFX
 @onready var hit_animation: AnimatedSprite3D = $AnimatedSprite3D
 @onready var player_sprite = $PlayerSprite
+@onready var wt = $WT
 
 var health = 5
 var ammo = 5
@@ -33,6 +34,7 @@ signal sniper_mode_changed(current: bool)
 func _ready():
 	Global.player = self
 	sniper_mode_changed.connect(Global.handle_player_sniper_mode_changed)
+	Global.beepradio.connect(wtbeep)
 
 func _process(_delta):
 	RenderingServer.global_shader_parameter_set("player_position", global_position)
@@ -104,7 +106,7 @@ func process_player_controls():
 			var bodies = shoot_hitbox.get_overlapping_bodies()
 			for body in bodies:
 				if body.is_in_group("critters"):
-					body.shot()
+					body.shot(global_position)
 			gunshot_sfx.play()
 			ammo -= 1
 			shooting_delay.start()
@@ -151,3 +153,6 @@ func take_damage(amount):
 	health += amount * -1
 	print("Player takes damage. Total damage: ", health)
 	hit_animation.play()
+	
+func wtbeep():
+	wt.play()
