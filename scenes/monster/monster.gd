@@ -7,35 +7,39 @@ extends CharacterBody3D
 class_name Monster
 
 
-const SPEED = 15.0
-const LUNGE_SPEED = 25.0
-const CREEP_SPEED = 0.5
-const IS_HIT_ESCAPE = Vector3(10, 0, 10)
 const DEBUG = true
 const SAFE_ZONE_RADIUS = 3.0
 const DIST_CLOSE = 0.2
+
 
 @onready var hurtbox = $Hurtbox
 @onready var target_search_area: Area3D = $TargetSearchArea
 @onready var safe_zone_scene := preload("res://scenes/safe_zone.tscn")
 
 
-@export var attack_delay := 2.0
-@export var movement_delay := 0.7
+@export var movement_speed := 15.0
+@export var lunge_speed := 25.0
+@export var creep_speed := 0.5
+@export var wait_period := 0.7
+@export var creeping_period := 1.0
+@export var retreat_period := 2.0
 
 
 enum MonsterState { IDLE, STALKING }
 var monster_state: MonsterState
-
-enum StalkingState { FOLLOW, CREEP, LUNGE, RETREAT }
+enum StalkingState { WAIT, FOLLOW_FIND_TARGET, FOLLOW_GO_TO_TARGET, CREEP, LUNGE, RETREAT }
 var stalking_state: StalkingState
 
+
+var started_creeping_at_tree: FirTree = null
+var player_is_in_safe_zone := false
 var closest_tree: FirTree = null
 var farthest_tree: FirTree = null
-var started_creeping_at_tree: FirTree = null
-var creeping_timer := 0.0
 var retreat_target = null
+var follow_target = null
+var creep_timer := 0.0
 var retreat_timer := 0.0
+var wait_timer := 0.0
 
 
 func _ready():
@@ -53,48 +57,60 @@ func _physics_process(delta):
 			pass
 		MonsterState.STALKING:
 			_process_monster_stalking(delta)
-			
-			
+
+
 func _process_monster_stalking(delta):
 	match stalking_state:
-		StalkingState.FOLLOW:
-			_check_trees()
-			if closest_tree != null:
-				_move_to_target(closest_tree.global_position, SPEED)
-				if _am_at_target(closest_tree.global_position):
-					print("FOLLOW -> CREEP")
-					stalking_state = StalkingState.CREEP
+		StalkingState.WAIT:
+			wait_timer -= delta
+			if wait_timer < 0.0:
+				wait_timer = 0.0
+				_check_trees()
+				if closest_tree != null && _am_at_target(closest_tree.global_position):
+					_set_stalking_state(StalkingState.CREEP)
 					started_creeping_at_tree = closest_tree
+					creep_timer = creeping_period
+				else:
+					_set_stalking_state(StalkingState.FOLLOW_FIND_TARGET)
+		StalkingState.FOLLOW_FIND_TARGET:
+			_check_trees()
+			if closest_tree == null:
+				_set_stalking_state(StalkingState.WAIT)
+				return
+			_set_stalking_state(StalkingState.FOLLOW_GO_TO_TARGET)
+			follow_target = closest_tree.global_position
+		StalkingState.FOLLOW_GO_TO_TARGET:
+			if follow_target == null:
+				_set_stalking_state(StalkingState.FOLLOW_FIND_TARGET)
+				return
+			if _move_to_target(follow_target, movement_speed):
+				_set_stalking_state(StalkingState.WAIT)
+				wait_timer = wait_period
 		StalkingState.CREEP:
 			_check_trees()
-			print(closest_tree, started_creeping_at_tree)
 			if closest_tree != started_creeping_at_tree:
-				print("CREEP -> FOLLOW")
-				stalking_state = StalkingState.FOLLOW
-				started_creeping_at_tree = null
-				creeping_timer = 0.0
-			creeping_timer -= delta
-			if creeping_timer < 0.0:
-				creeping_timer = 0.0
-				print("CREEP -> LUNGE")
-				stalking_state = StalkingState.LUNGE
-				started_creeping_at_tree = null
+				_set_stalking_state(StalkingState.FOLLOW_FIND_TARGET)
+			else:
+				_move_to_target(Global.player.global_position, creep_speed)
+				creep_timer -= delta
+				if creep_timer < 0.0:
+					creep_timer = 0.0
+					_set_stalking_state(StalkingState.LUNGE)
 		StalkingState.LUNGE:
-			if _move_to_target(Global.player.global_position, LUNGE_SPEED):
-				print("LUNGE -> RETREAT")
-				stalking_state = StalkingState.RETREAT
+			if _move_to_target(Global.player.global_position, lunge_speed):
+				_set_stalking_state(StalkingState.RETREAT)
 		StalkingState.RETREAT:
 			if retreat_target != null:
-				if _move_to_target(retreat_target, SPEED):
+				if _move_to_target(retreat_target, movement_speed):
 					retreat_target = null
-					retreat_timer = 2.0
+					retreat_timer = retreat_period
+			elif player_is_in_safe_zone:
+				pass
 			else:
 				retreat_timer -= delta
 				if retreat_timer < 0.0:
 					retreat_timer = 0.0
-					print("RETREAT -> FOLLOW")
-					stalking_state = StalkingState.FOLLOW
-			
+					_set_stalking_state(StalkingState.FOLLOW_FIND_TARGET)
 
 
 func _check_trees():
@@ -113,6 +129,17 @@ func _check_trees():
 			if tree_dist > farthest_tree_dist:
 				farthest_tree_dist = tree_dist
 				farthest_tree = a
+
+
+func _set_stalking_state(new_state: StalkingState):
+	if DEBUG: print(StalkingState.keys()[stalking_state], " -> ", StalkingState.keys()[new_state])
+	stalking_state = new_state
+	wait_timer = 0.0
+	retreat_timer = 0.0
+	creep_timer = 0.0
+	started_creeping_at_tree = null
+	retreat_target = null
+	follow_target = null
 
 
 func _move_to_target(target: Vector3, speed: float):
@@ -138,23 +165,25 @@ func _am_at_target(target):
 
 func shot(from_where: Vector3):
 	_set_safe_zone(from_where)
-	#target = _find_retreat_target()
+	_check_trees()
+	if farthest_tree != null:
+		_set_stalking_state(StalkingState.RETREAT)
+		retreat_target = farthest_tree.global_position
 
 
 func _on_body_entered(body):
-	if body.is_in_group("player"):
+	if body.is_in_group("player") && stalking_state == StalkingState.LUNGE:
 		body.take_damage(1)
 		_set_safe_zone(body.global_position)
 		_check_trees()
+		_set_stalking_state(StalkingState.RETREAT)
 		retreat_target = farthest_tree.global_position
-		stalking_state = StalkingState.RETREAT
 
 
 func _set_safe_zone(position: Vector3):
-	pass
-	#player_is_in_safe_zone = trues
-	#var safe_zone_node = safe_zone_scene.instantiate()
-	#safe_zone_node.position = position
-	#Global.level.add_child(safe_zone_node)
-	#safe_zone_node.set_radius(SAFE_ZONE_RADIUS)
-	#safe_zone_node.player_left.connect(func(): player_is_in_safe_zone = false)
+	player_is_in_safe_zone = true
+	var safe_zone_node = safe_zone_scene.instantiate()
+	safe_zone_node.position = position
+	Global.level.add_child(safe_zone_node)
+	safe_zone_node.set_radius(SAFE_ZONE_RADIUS)
+	safe_zone_node.player_left.connect(func(): player_is_in_safe_zone = false)
