@@ -86,7 +86,7 @@ project/assembly_name="ArktosProto"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/visibility_shortcut/plugin.cfg")
 
 [input]
 
@@ -176,7 +176,7 @@ renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/decals/filter=0
 textures/light_projectors/filter=0
-environment/defaults/default_clear_color=Color(0.95, 0.98, 1, 1)
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
 
 [shader_globals]
 
@@ -186,9 +186,9 @@ player_position={
 }
 fog_color={
 "type": "vec4",
-"value": Vector4(0.95, 0.98, 1, 1)
+"value": Vector4(0, 0, 0, 1)
 }
 fog_density={
 "type": "float",
-"value": 0.15
+"value": 0.7
 }
