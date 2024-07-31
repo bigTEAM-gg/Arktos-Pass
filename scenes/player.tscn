@@ -1,4 +1,4 @@
-[gd_scene load_steps=342 format=3 uid="uid://b7qmc6himhisa"]
+[gd_scene load_steps=343 format=3 uid="uid://b7qmc6himhisa"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_dl7pv"]
 [ext_resource type="Texture2D" uid="uid://bg3vw6gr8fj21" path="res://player_placeholder.png" id="2_3s2vu"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bj504kf7lra11" path="res://assets/player/player_walk_se.png" id="7_65qcj"]
 [ext_resource type="Texture2D" uid="uid://c8cslg56slra8" path="res://assets/player/player_walk_sw.png" id="8_2pcav"]
 [ext_resource type="Texture2D" uid="uid://c6so2jva6geh0" path="res://assets/player/player_walk_w.png" id="9_0bdvi"]
+[ext_resource type="Texture2D" uid="uid://db0udbfko4p3i" path="res://assets/UI/scope.png" id="16_2jmw5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lfqd7"]
 atlas = ExtResource("2_6fy7w")
@@ -2398,6 +2399,9 @@ material = SubResource("StandardMaterial3D_dt536")
 [node name="ShootingDelay" type="Timer" parent="."]
 one_shot = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Scope" type="CanvasLayer" parent="."]
+offset = Vector2(850, 600)
+transform = Transform2D(1, 0, 0, 1, 850, 600)
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="Scope"]
+texture = ExtResource("16_2jmw5")

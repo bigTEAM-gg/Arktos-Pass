@@ -10,6 +10,7 @@ class_name Player
 	
 var yaw: float
 var updown: float
+@onready var scope = $Scope
 
 
 @onready var camera: Camera3D = $CameraPivot/Camera3D
@@ -136,7 +137,9 @@ func process_player_controls():
 	move_and_slide()
 
 func process_sniper_mode():
+	
 	if not is_sniper_mode:
+		scope.visible = false
 		camera_3d.position = camera_3d.position.lerp(cam_over, 0.1)
 		camera_3d.rotation.x = lerp_angle(camera_3d.rotation.x, cam_over_angle, 0.1)
 		camera_3d.size = lerp(camera_3d.size, cam_over_size, 0.1)
@@ -146,6 +149,7 @@ func process_sniper_mode():
 				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			is_sniper_mode_ready = false
 	else:
+		scope.visible = true
 		camera_3d.position = camera_3d.position.lerp(cam_fps, 0.1)
 		camera_3d.rotation.x = lerp_angle(camera_3d.rotation.x, cam_fps_angle, 0.1)
 		camera_3d.size = lerp(camera_3d.size, cam_fps_size, 0.1)
