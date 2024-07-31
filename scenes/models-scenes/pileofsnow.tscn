@@ -52,7 +52,7 @@ data = PackedVector3Array(0.6304, 0, -0.4394, 0.8108, 0, -0.2313, 0.7645, 0.0404
 [node name="pileofsnow" instance=ExtResource("1_576j0")]
 
 [node name="pileofsnow" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1.60754, 0, 0, 0, 4.70257, 0, 0, -4.37741)
+transform = Transform3D(1, 0, 0, 0, 1.06698, 0, 0, 0, 4.70257, 0, 0.0160508, -4.37741)
 material_override = ExtResource("2_gi6g5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="pileofsnow" index="0"]
@@ -61,7 +61,7 @@ material_override = ExtResource("2_gi6g5")
 shape = SubResource("ConcavePolygonShape3D_pjvic")
 
 [node name="pileofsnow4" type="MeshInstance3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1.60754, 0, 0, 0, 4.70257, 0, 0, -2.0182)
+transform = Transform3D(1, 0, 0, 0, 1.06698, 0, 0, 0, 4.70257, 0, 0.0160508, -2.0182)
 material_override = ExtResource("2_gi6g5")
 mesh = SubResource("ArrayMesh_65v87")
 skeleton = NodePath("")
@@ -72,7 +72,7 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_pjvic")
 
 [node name="pileofsnow2" type="MeshInstance3D" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 2.40201, 0, 0, 0, 2.71178, 0, 0, -1.61297)
+transform = Transform3D(1, 0, 0, 0, 1.59429, 0, 0, 0, 2.71178, 0, 0.0160508, -1.61297)
 material_override = ExtResource("2_gi6g5")
 mesh = SubResource("ArrayMesh_65v87")
 skeleton = NodePath("")
@@ -83,7 +83,7 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_b03do")
 
 [node name="pileofsnow6" type="MeshInstance3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 3.14123, 0, 0, 0, 3.69969, 0, 0, 0.655767)
+transform = Transform3D(1, 0, 0, 0, 2.08494, 0, 0, 0, 3.69969, 0, 0.0160508, 0.655767)
 material_override = ExtResource("2_gi6g5")
 mesh = SubResource("ArrayMesh_65v87")
 skeleton = NodePath("")
@@ -94,7 +94,7 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_b03do")
 
 [node name="pileofsnow5" type="MeshInstance3D" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, 2.40201, 0, 0, 0, 2.71178, 0, 0.286394, -3.64172)
+transform = Transform3D(1, 0, 0, 0, 1.59429, 0, 0, 0, 2.71178, 0, 0.20614, -3.64172)
 material_override = ExtResource("2_gi6g5")
 mesh = SubResource("ArrayMesh_65v87")
 skeleton = NodePath("")
@@ -105,7 +105,7 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_b03do")
 
 [node name="pileofsnow3" type="MeshInstance3D" parent="." index="5"]
-transform = Transform3D(1, 0, 0, 0, 2.40201, 0, 0, 0, 2.71178, 0, 0, -5.10822)
+transform = Transform3D(1, 0, 0, 0, 1.59429, 0, 0, 0, 2.71178, 0, 0.0160508, -5.10822)
 material_override = ExtResource("2_gi6g5")
 mesh = SubResource("ArrayMesh_65v87")
 skeleton = NodePath("")
