@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://t8h7n1ckwnbm" path="res://scenes/bush_cluster_1.tscn" id="11_5h5pj"]
 [ext_resource type="PackedScene" uid="uid://b7qmc6himhisa" path="res://scenes/player.tscn" id="12_clta6"]
 [ext_resource type="PackedScene" uid="uid://c2h8atgtfq1tl" path="res://scenes/talismans.tscn" id="13_7ipr7"]
-[ext_resource type="PackedScene" path="res://scenes/dialog_trigger.tscn" id="14_utow1"]
+[ext_resource type="PackedScene" uid="uid://cvnbi1gnk7okv" path="res://scenes/dialog_trigger.tscn" id="14_utow1"]
 [ext_resource type="Script" path="res://scripts/DialogTrigger14.gd" id="16_gyctw"]
 [ext_resource type="Script" path="res://scripts/DialogTriggerBack.gd" id="17_6kjpn"]
 [ext_resource type="PackedScene" uid="uid://y43sowoxgvba" path="res://scenes/monster/monster.tscn" id="17_aqrxp"]
@@ -768,7 +768,7 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 83.2025, 4.76837e-07, -
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 83.2025, 1.13403, -109.385)
 
 [node name="Player" parent="." instance=ExtResource("12_clta6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.555, 1.14441e-05, 212.941)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.71342, 1.14441e-05, 23.3622)
 axis_lock_linear_y = true
 
 [node name="DialogTriggers" type="Node3D" parent="."]

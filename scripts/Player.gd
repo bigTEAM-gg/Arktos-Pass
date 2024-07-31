@@ -25,7 +25,9 @@ var updown: float
 @onready var wt = $WT
 
 var health = 5
-var ammo = 5
+var ammo
+@export var ammo_magazine_capacity = 2
+@export var ammo_total = 10
 
 
 signal sniper_mode_changed(current: bool)
@@ -33,11 +35,15 @@ signal sniper_mode_changed(current: bool)
 
 func _ready():
 	Global.player = self
+	ammo = ammo_magazine_capacity
 	sniper_mode_changed.connect(Global.handle_player_sniper_mode_changed)
 	Global.beepradio.connect(wtbeep)
+	Global.reloadammo.connect(reload)
 
 func _process(_delta):
 	RenderingServer.global_shader_parameter_set("player_position", global_position)
+	if Input.is_action_just_pressed("reload"):
+		Global.reloadammo.emit()
 
 
 func _input(event):	
@@ -88,7 +94,7 @@ func _resolve_sprite():
 
 
 func process_player_controls():
-	var look_vector = Input.get_vector("player_look_left", "player_look_right", "player_look_up", "player_look_down")
+	var look_vector = Vector2.ZERO#Input.get_vector("player_look_left", "player_look_right", "player_look_up", "player_look_down")
 	if is_sniper_mode:
 		yaw += look_vector.x * JOY_SENS * -1
 		updown += look_vector.y * JOY_SENS * -1
@@ -102,7 +108,7 @@ func process_player_controls():
 		is_sniper_mode = false
 	
 	if Input.is_action_just_pressed("player_shoot") and shooting_delay.is_stopped():
-		if ammo > 1:
+		if ammo >= 1:
 			var bodies = shoot_hitbox.get_overlapping_bodies()
 			for body in bodies:
 				if body.is_in_group("critters"):
@@ -156,3 +162,33 @@ func take_damage(amount):
 	
 func wtbeep():
 	wt.play()
+	
+	
+func reload():
+	
+	if (ammo == ammo_magazine_capacity):
+		print ("full ammo")
+		
+		
+	if (ammo < ammo_magazine_capacity) and (ammo_total >= ammo_magazine_capacity):
+		ammo_total = ammo_total - (ammo_magazine_capacity - ammo)
+		ammo = ammo_magazine_capacity
+		#reloadsfx.play()
+		
+	if (ammo < ammo_magazine_capacity) and (ammo_total < ammo_magazine_capacity) and (ammo_total > 0):
+		ammo = ammo + ammo_total
+		ammo_total = 0
+		#reloadsfx.play()
+		
+	if (ammo < ammo_magazine_capacity) and (ammo_total <= 0):
+		print ("not enough ammo")
+		
+	
+	print("ammo reload complete")
+	print("total new ammo ", ammo)
+	print("total ammo left:  ", ammo_total)
+
+
+
+
+

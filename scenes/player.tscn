@@ -2397,3 +2397,7 @@ material = SubResource("StandardMaterial3D_dt536")
 
 [node name="ShootingDelay" type="Timer" parent="."]
 one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
