@@ -42,6 +42,8 @@ SPEED = 5.0
 JUMP_VELOCITY = 4.5
 JOY_SENS = 0.04
 MOUSE_SENS = 0.002
+ammo_magazine_capacity = 2
+ammo_total = 10
 
 [node name="cabin" parent="." instance=ExtResource("6_32w0d")]
 transform = Transform3D(-0.0963322, 0, 0.995349, 0, 1, 0, -0.995349, 0, -0.0963322, -16.7693, 0.0499973, 3.45076)

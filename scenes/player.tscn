@@ -1,4 +1,4 @@
-[gd_scene load_steps=343 format=3 uid="uid://b7qmc6himhisa"]
+[gd_scene load_steps=345 format=3 uid="uid://b7qmc6himhisa"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_dl7pv"]
 [ext_resource type="Texture2D" uid="uid://bg3vw6gr8fj21" path="res://player_placeholder.png" id="2_3s2vu"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://c8cslg56slra8" path="res://assets/player/player_walk_sw.png" id="8_2pcav"]
 [ext_resource type="Texture2D" uid="uid://c6so2jva6geh0" path="res://assets/player/player_walk_w.png" id="9_0bdvi"]
 [ext_resource type="Texture2D" uid="uid://db0udbfko4p3i" path="res://assets/UI/scope.png" id="16_2jmw5"]
+[ext_resource type="AudioStream" uid="uid://eoqkv8mw4jjs" path="res://assets/audio/1888.wav" id="17_8tiwk"]
+[ext_resource type="Texture2D" uid="uid://dm46xkwajlf00" path="res://assets/UI/bullet1.png" id="18_x4jrk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lfqd7"]
 atlas = ExtResource("2_6fy7w")
@@ -2380,6 +2382,9 @@ stream = SubResource("AudioStreamRandomizer_m1grh")
 [node name="WT" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_1xcwr")
 
+[node name="Reload" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_8tiwk")
+
 [node name="GunemptySFX" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_vrqmo")
 
@@ -2403,5 +2408,47 @@ one_shot = true
 offset = Vector2(850, 600)
 transform = Transform2D(1, 0, 0, 1, 850, 600)
 
-[node name="Sprite2D" type="Sprite2D" parent="Scope"]
+[node name="TextureRect" type="TextureRect" parent="Scope"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -850.0
+offset_top = -600.0
+offset_right = -850.0
+offset_bottom = -600.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 texture = ExtResource("16_2jmw5")
+metadata/_edit_use_anchors_ = true
+
+[node name="AmmoCount" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="AmmoCount"]
+
+[node name="Bullet1" type="TextureRect" parent="AmmoCount"]
+offset_left = 1536.0
+offset_top = 861.0
+offset_right = 2048.0
+offset_bottom = 1373.0
+scale = Vector2(0.352628, 0.352628)
+texture = ExtResource("18_x4jrk")
+metadata/_edit_use_anchors_ = true
+
+[node name="Bullet2" type="TextureRect" parent="AmmoCount"]
+offset_left = 1445.0
+offset_top = 860.0
+offset_right = 1957.0
+offset_bottom = 1372.0
+scale = Vector2(0.352628, 0.352628)
+texture = ExtResource("18_x4jrk")
+metadata/_edit_use_anchors_ = true
+
+[node name="TotalAmmo" type="Label" parent="AmmoCount"]
+offset_left = 1679.0
+offset_top = 891.0
+offset_right = 1719.0
+offset_bottom = 914.0
+scale = Vector2(7.34702, 7.34702)
+text = "10"

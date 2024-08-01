@@ -10,7 +10,13 @@ class_name Player
 	
 var yaw: float
 var updown: float
+
+#scope sprite
 @onready var scope = $Scope
+#bullet sprites
+@onready var bullet_1 = $AmmoCount/Bullet1
+@onready var bullet_2 = $AmmoCount/Bullet2
+@onready var total_ammo = $AmmoCount/TotalAmmo
 
 
 @onready var camera: Camera3D = $CameraPivot/Camera3D
@@ -24,6 +30,8 @@ var updown: float
 @onready var hit_animation: AnimatedSprite3D = $AnimatedSprite3D
 @onready var player_sprite = $PlayerSprite
 @onready var wt = $WT
+@onready var reloadsfx = $Reload
+
 
 var health = 5
 var ammo
@@ -40,12 +48,13 @@ func _ready():
 	sniper_mode_changed.connect(Global.handle_player_sniper_mode_changed)
 	Global.beepradio.connect(wtbeep)
 	Global.reloadammo.connect(reload)
+	total_ammo.text = "%s" % ammo_total
 
 func _process(_delta):
 	RenderingServer.global_shader_parameter_set("player_position", global_position)
 	if Input.is_action_just_pressed("reload"):
 		Global.reloadammo.emit()
-
+		
 
 func _input(event):	
 	if event is InputEventMouseMotion and (Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE) or is_sniper_mode):
@@ -70,6 +79,17 @@ func _physics_process(delta: float) -> void:
 		process_player_controls()
 	process_sniper_mode()
 	_resolve_sprite()
+	if (ammo == 2):
+		bullet_1.visible = true
+		bullet_2.visible = true
+	
+	if (ammo == 1):
+		bullet_1.visible = true
+		bullet_2.visible = false
+		
+	if (ammo == 0):
+		bullet_1.visible = false
+		bullet_2.visible = false
 
 
 # https://kidscancode.org/godot_recipes/3.x/2d/8_direction/
@@ -99,9 +119,9 @@ func process_player_controls():
 	if is_sniper_mode:
 		yaw += look_vector.x * JOY_SENS * -1
 		updown += look_vector.y * JOY_SENS * -1
-	else:
+	#else:
 		# This feels kinda wrong ... but idk. Maybe I'm overthinking it
-		yaw += look_vector.x * JOY_SENS * -1
+		#yaw += look_vector.x * JOY_SENS * -1
 	
 	if Input.is_action_just_pressed("player_aim"):
 		is_sniper_mode = true
@@ -118,9 +138,12 @@ func process_player_controls():
 			ammo -= 1
 			shooting_delay.start()
 			await get_tree().create_timer(0.4).timeout
-			gunbolt_sfx.play()
+			gunbolt_sfx.play()	
+			
 		else:
 			gunempty_sfx.play()
+			
+		
 	
 	rotation.x = updown
 	rotation.y = yaw
@@ -170,24 +193,25 @@ func wtbeep():
 	
 func reload():
 	
+	
 	if (ammo == ammo_magazine_capacity):
 		print ("full ammo")
-		
 		
 	if (ammo < ammo_magazine_capacity) and (ammo_total >= ammo_magazine_capacity):
 		ammo_total = ammo_total - (ammo_magazine_capacity - ammo)
 		ammo = ammo_magazine_capacity
-		#reloadsfx.play()
+		await get_tree().create_timer(0.2).timeout
+		reloadsfx.play()
 		
 	if (ammo < ammo_magazine_capacity) and (ammo_total < ammo_magazine_capacity) and (ammo_total > 0):
 		ammo = ammo + ammo_total
 		ammo_total = 0
-		#reloadsfx.play()
+		await get_tree().create_timer(0.2).timeout
+		reloadsfx.play()
 		
 	if (ammo < ammo_magazine_capacity) and (ammo_total <= 0):
 		print ("not enough ammo")
-		
-	
+	total_ammo.text = "%s" % ammo_total
 	print("ammo reload complete")
 	print("total new ammo ", ammo)
 	print("total ammo left:  ", ammo_total)
