@@ -190,5 +190,5 @@ fog_color={
 }
 fog_density={
 "type": "float",
-"value": 0.7
+"value": 0.4
 }
