@@ -5,7 +5,10 @@ extends MeshInstance3D
 signal frame_changed(animation, frame)
 
 
-@export var sprite_frames: SpriteFrames = null
+@export var sprite_frames: SpriteFrames = null :
+	set(value):
+		sprite_frames = value
+		_ready()
 @export var animation: String = ""
 @export var speed_scale: float = 1.0
 
@@ -22,6 +25,9 @@ const FOGGY_ANIMATED_SPRITE = preload("res://scenes/FoggyAnimatedSprite/FoggyAni
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if sprite_frames == null:
+		mesh = null
+		return
 	animation = sprite_frames.get_animation_names()[0]
 	
 	var frame_tex: Texture2D = sprite_frames.get_frame_texture(animation, frame)
@@ -65,6 +71,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if mesh == null:
+		return
 	var effective_speed = (1.0 / sprite_frames.get_animation_speed(animation)) * speed_scale
 	f += delta
 	if f >= effective_speed:
@@ -75,7 +83,6 @@ func _process(delta):
 	var frame_tex: Texture2D = sprite_frames.get_frame_texture(animation, frame)
 	mesh.surface_get_material(0).set_shader_parameter("albedo", frame_tex)
 	mesh.surface_get_material(0).set_shader_parameter("scale", scale.x)
-	mesh.surface_get_material(0).set_shader_parameter("is_editor", Engine.is_editor_hint())
 
 
 func play(animation: String):

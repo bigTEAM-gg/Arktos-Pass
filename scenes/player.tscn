@@ -1,38 +1,41 @@
-[gd_scene load_steps=30 format=3 uid="uid://b7qmc6himhisa"]
+[gd_scene load_steps=34 format=3 uid="uid://b7qmc6himhisa"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_dl7pv"]
-[ext_resource type="PackedScene" uid="uid://buodo2mxdmdfb" path="res://scenes/FoggyAnimatedSprite/FoggyAnimatedSprite.tscn" id="2_0p2o0"]
+[ext_resource type="PackedScene" uid="uid://c041dl1a3mvvj" path="res://scenes/FoggyAnimatedSprite/FoggyAnimatedSprite.tscn" id="2_0p2o0"]
 [ext_resource type="Texture2D" uid="uid://bg3vw6gr8fj21" path="res://player_placeholder.png" id="2_3s2vu"]
 [ext_resource type="Shader" path="res://scenes/FoggyAnimatedSprite/billboard.gdshader" id="3_6gy4u"]
 [ext_resource type="AudioStream" uid="uid://bkv170jpqy24q" path="res://assets/gun_fire.ogg" id="3_ryut6"]
-[ext_resource type="SpriteFrames" uid="uid://uguvmpf3xhi0" path="res://assets/player/player_walk_frames.tres" id="3_x2g56"]
+[ext_resource type="SpriteFrames" uid="uid://b1ad2hmyrqs6q" path="res://assets/player/player_walk_frames.tres" id="3_x2g56"]
 [ext_resource type="Texture2D" uid="uid://bck7l8lav4l04" path="res://assets/textures/Hit_Effect-Sheet.png" id="3_xl53f"]
-[ext_resource type="Texture2D" uid="uid://cmapgcqjhptpq" path="res://assets/player/walk_e/38_player_walk_e.png" id="4_7yrp7"]
+[ext_resource type="Texture2D" uid="uid://byfkfdqawdhd" path="res://assets/player/walk_e/walk_e0023.png" id="4_o5vxw"]
 [ext_resource type="AudioStream" uid="uid://cjjhjxy6272q6" path="res://assets/gun_bolt.wav" id="4_tk243"]
 [ext_resource type="AudioStream" uid="uid://c63rbmhv2pjop" path="res://assets/gun_empty.wav" id="5_ifngk"]
 [ext_resource type="AudioStream" uid="uid://caltm2tipf6tn" path="res://assets/audio/wt.mp3" id="6_1xcwr"]
 [ext_resource type="AudioStream" uid="uid://r3kq3frytjg6" path="res://assets/audio/Snow Step.wav" id="12_m5db5"]
+[ext_resource type="AudioStream" uid="uid://btjdhll6har2b" path="res://assets/audio/edited/unaim.ogg" id="13_7mmky"]
 [ext_resource type="AudioStream" uid="uid://dmhj7v6aprwn3" path="res://assets/audio/edited/Tree Wind Ambience Low.ogg" id="13_bbfnl"]
+[ext_resource type="AudioStream" uid="uid://brl6tb8h1ovre" path="res://assets/audio/edited/aim.ogg" id="14_cnqdg"]
+[ext_resource type="AudioStream" uid="uid://cd0maxvorxyon" path="res://assets/audio/edited/breath_soft.ogg" id="16_6sl7h"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pxh2s"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1c5ki"]
 render_priority = 0
 shader = ExtResource("3_6gy4u")
 shader_parameter/directions = 1
 shader_parameter/frame_count = 1
 shader_parameter/frame = 0
-shader_parameter/scale = 2.0
+shader_parameter/scale = 4.0
 shader_parameter/y_billboard = true
 shader_parameter/use_alpha = true
-shader_parameter/albedo = ExtResource("4_7yrp7")
+shader_parameter/albedo = ExtResource("4_o5vxw")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_i3qmq"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_t7ttn"]
 _surfaces = [{
 "aabb": AABB(-0.64, -0.64, 0, 1.28, 1.28001, 1e-05),
 "attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0),
 "format": 34359742481,
 "index_count": 6,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
-"material": SubResource("ShaderMaterial_pxh2s"),
+"material": SubResource("ShaderMaterial_1c5ki"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
@@ -138,12 +141,19 @@ streams_count = 1
 stream_0/stream = ExtResource("12_m5db5")
 stream_0/weight = 1.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_vr583"]
+random_pitch = 1.05
+random_volume_offset_db = 1.05
+streams_count = 1
+stream_0/stream = ExtResource("16_6sl7h")
+stream_0/weight = 1.0
+
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_dl7pv")
 
 [node name="FoggyAnimatedSprite" parent="." instance=ExtResource("2_0p2o0")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.08256, 0)
-mesh = SubResource("ArrayMesh_i3qmq")
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 1.08256, 0)
+mesh = SubResource("ArrayMesh_t7ttn")
 sprite_frames = ExtResource("3_x2g56")
 animation = "walk_e"
 
@@ -175,7 +185,7 @@ shape = SubResource("CapsuleShape3D_3ej0r")
 [node name="CameraPivot" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 10, 10)
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 20, 30)
 projection = 1
 current = true
 size = 12.5
@@ -214,7 +224,16 @@ stream = SubResource("AudioStreamRandomizer_cexxs")
 volume_db = -24.0
 max_polyphony = 3
 
+[node name="UnaimSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_7mmky")
+
+[node name="AimSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_cnqdg")
+
 [node name="WindLow" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_bbfnl")
 volume_db = 20.0
 autoplay = true
+
+[node name="BreathSFX" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_vr583")

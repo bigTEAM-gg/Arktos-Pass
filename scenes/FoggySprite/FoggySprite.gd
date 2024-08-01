@@ -2,16 +2,13 @@
 extends MeshInstance3D
 
 
-@export var sprite: Texture2D = null
-@export var animation: String = ""
-@export var speed_scale: float = 1.0
+@export var sprite: Texture2D = null :
+	set(value):
+		sprite = value
+		_ready()
 
 
 const PX: float = 0.01
-
-
-var frame: int = 0
-var f: float = 0.0
 
 
 const FOGGY_SPRITE = preload("res://scenes/FoggySprite/FoggySprite.tres")
@@ -19,6 +16,9 @@ const FOGGY_SPRITE = preload("res://scenes/FoggySprite/FoggySprite.tres")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if sprite == null:
+		mesh = null
+		return
 	var uv_width = sprite.get_width() / 2.0 * PX
 	var uv_height = sprite.get_height() / 2.0 * PX
 	var surface_tool = SurfaceTool.new();
@@ -58,6 +58,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if mesh == null:
+		return
 	mesh.surface_get_material(0).set_shader_parameter("albedo", sprite)
 	mesh.surface_get_material(0).set_shader_parameter("scale", scale.x)
-	mesh.surface_get_material(0).set_shader_parameter("is_editor", Engine.is_editor_hint())

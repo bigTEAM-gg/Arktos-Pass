@@ -190,5 +190,9 @@ fog_color={
 }
 fog_density={
 "type": "float",
-"value": 0.7
+"value": 0.2
+}
+is_editor={
+"type": "bool",
+"value": true
 }
