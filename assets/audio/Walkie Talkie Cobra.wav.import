@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d2y6pjo3h3pmg"
+path="res://.godot/imported/Walkie Talkie Cobra.wav-852efa62cf9564a5325d538879c204e0.sample"
+
+[deps]
+
+source_file="res://assets/audio/Walkie Talkie Cobra.wav"
+dest_files=["res://.godot/imported/Walkie Talkie Cobra.wav-852efa62cf9564a5325d538879c204e0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

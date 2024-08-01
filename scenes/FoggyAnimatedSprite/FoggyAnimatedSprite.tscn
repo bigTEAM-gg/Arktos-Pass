@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://buodo2mxdmdfb"]
+
+[ext_resource type="Script" path="res://scenes/FoggyAnimatedSprite/FoggyAnimatedSprite.gd" id="1_y56k7"]
+
+[node name="FoggyAnimatedSprite" type="MeshInstance3D"]
+script = ExtResource("1_y56k7")

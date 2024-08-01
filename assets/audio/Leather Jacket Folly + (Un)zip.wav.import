@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bwuw1oufdh754"
+path="res://.godot/imported/Leather Jacket Folly + (Un)zip.wav-6b23f3e3f7ea37216eb79b6b4d693b30.sample"
+
+[deps]
+
+source_file="res://assets/audio/Leather Jacket Folly + (Un)zip.wav"
+dest_files=["res://.godot/imported/Leather Jacket Folly + (Un)zip.wav-6b23f3e3f7ea37216eb79b6b4d693b30.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
