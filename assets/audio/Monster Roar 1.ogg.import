@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ce0i3ocb2snqr"
+path="res://.godot/imported/Monster Roar 1.ogg-5e24766b43618ae92782e8c831c3a9b3.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/Monster Roar 1.ogg"
+dest_files=["res://.godot/imported/Monster Roar 1.ogg-5e24766b43618ae92782e8c831c3a9b3.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
