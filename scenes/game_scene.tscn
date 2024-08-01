@@ -770,12 +770,6 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 83.2025, 1.13403, -109.
 [node name="Player" parent="." instance=ExtResource("12_clta6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.71342, 1.14441e-05, 23.3622)
 axis_lock_linear_y = true
-SPEED = 5.0
-JUMP_VELOCITY = 4.5
-JOY_SENS = 0.04
-MOUSE_SENS = 0.002
-ammo_magazine_capacity = 2
-ammo_total = 10
 
 [node name="DialogTriggers" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -277.447, 0, 0)

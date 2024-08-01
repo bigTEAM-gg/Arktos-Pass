@@ -2452,3 +2452,13 @@ offset_right = 1719.0
 offset_bottom = 914.0
 scale = Vector2(7.34702, 7.34702)
 text = "10"
+
+[node name="HealthUI" type="CanvasLayer" parent="."]
+
+[node name="HealthCount" type="Label" parent="HealthUI"]
+offset_left = 1.00001
+offset_top = -2.0
+offset_right = 41.0
+offset_bottom = 21.0
+scale = Vector2(6.44, 6.44)
+text = "10"

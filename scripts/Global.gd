@@ -8,6 +8,7 @@ signal beepradio
 signal pickup
 signal reloadammo
 signal ammopickup
+signal takedamage
 
 func handle_player_sniper_mode_changed(sniper_mode_active: bool):
 	print("sniper_mode_active ", sniper_mode_active)

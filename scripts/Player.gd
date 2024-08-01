@@ -17,6 +17,8 @@ var updown: float
 @onready var bullet_1 = $AmmoCount/Bullet1
 @onready var bullet_2 = $AmmoCount/Bullet2
 @onready var total_ammo = $AmmoCount/TotalAmmo
+#ammo display
+@onready var health_count = $HealthUI/HealthCount
 
 
 @onready var camera: Camera3D = $CameraPivot/Camera3D
@@ -48,6 +50,7 @@ func _ready():
 	sniper_mode_changed.connect(Global.handle_player_sniper_mode_changed)
 	Global.beepradio.connect(wtbeep)
 	Global.reloadammo.connect(reload)
+	Global.takedamage.connect(take_damage)
 	total_ammo.text = "%s" % ammo_total
 
 func _process(_delta):
@@ -144,7 +147,6 @@ func process_player_controls():
 			gunempty_sfx.play()
 			
 		
-	
 	rotation.x = updown
 	rotation.y = yaw
 	
@@ -184,15 +186,14 @@ func process_sniper_mode():
 	
 func take_damage(amount):
 	health += amount * -1
-	print("Player takes damage. Total damage: ", health)
+	health_count.text = "%s" % health
+	#print("Player takes damage. Total damage: ", health)
 	hit_animation.play()
 	
 func wtbeep():
 	wt.play()
 	
-	
 func reload():
-	
 	
 	if (ammo == ammo_magazine_capacity):
 		print ("full ammo")
@@ -211,10 +212,12 @@ func reload():
 		
 	if (ammo < ammo_magazine_capacity) and (ammo_total <= 0):
 		print ("not enough ammo")
+		
 	total_ammo.text = "%s" % ammo_total
 	print("ammo reload complete")
 	print("total new ammo ", ammo)
 	print("total ammo left:  ", ammo_total)
+	
 
 
 

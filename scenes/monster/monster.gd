@@ -234,7 +234,8 @@ func shot(from_where: Vector3):
 
 func _on_body_entered(body):
 	if body.is_in_group("player") && stalking_state == StalkingState.ATTACK_LUNGE:
-		body.take_damage(1)
+		#body.take_damage(1)
+		Global.takedamage.emit()
 		_set_safe_zone(body.global_position)
 		_check_trees()
 		_set_stalking_state(StalkingState.RETREAT)
