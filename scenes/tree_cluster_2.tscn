@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8jro3t78ginl"]
+[gd_scene load_steps=6 format=3 uid="uid://c8jro3t78ginl"]
 
 [ext_resource type="PackedScene" uid="uid://dtfqbg2in6vo6" path="res://scenes/models-scenes/tree_block.tscn" id="1_cvdy2"]
+[ext_resource type="PackedScene" uid="uid://drfsdfhjtrmon" path="res://scenes/foreststuff/FirTree.tscn" id="2_jjqjk"]
 [ext_resource type="PackedScene" uid="uid://bry0febas86xs" path="res://scenes/models-scenes/bush_block.tscn" id="2_vsn5f"]
 [ext_resource type="PackedScene" uid="uid://cqf6x7wc6858t" path="res://scenes/models-scenes/rock_block.tscn" id="3_6x7r1"]
 
@@ -12,6 +13,8 @@ albedo_color = Color(0.803922, 1, 1, 1)
 [node name="tree_block" parent="." instance=ExtResource("1_cvdy2")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 8.01063, 0, -2.61671)
 surface_material_override/0 = SubResource("StandardMaterial3D_a6fc0")
+
+[node name="FirTree" parent="tree_block" instance=ExtResource("2_jjqjk")]
 
 [node name="tree_block5" parent="." instance=ExtResource("1_cvdy2")]
 transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 2.72104, 0, -6.00471)

@@ -7,25 +7,25 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ene7o"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jm8sp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5uftm"]
 render_priority = 0
 shader = ExtResource("4_k08q6")
 shader_parameter/directions = 1
 shader_parameter/frame_count = 1
 shader_parameter/frame = 0
-shader_parameter/scale = 1.0
+shader_parameter/scale = 0.5
 shader_parameter/y_billboard = true
 shader_parameter/use_alpha = true
 shader_parameter/albedo = ExtResource("1_cr5kp")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_g2e4x"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_3dyc6"]
 _surfaces = [{
 "aabb": AABB(-5.12, -5.12, 0, 10.24, 10.24, 1e-05),
 "attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0),
 "format": 34359742481,
 "index_count": 6,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
-"material": SubResource("ShaderMaterial_jm8sp"),
+"material": SubResource("ShaderMaterial_5uftm"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
@@ -48,7 +48,6 @@ script = ExtResource("1_0w85b")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 2.39588, 0)
-visible = false
 cast_shadow = 0
 billboard = 2
 alpha_cut = 1
@@ -56,10 +55,12 @@ texture_filter = 0
 texture = ExtResource("1_cr5kp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43572, 0)
 shape = SubResource("CylinderShape3D_ene7o")
 
 [node name="FoggyAnimatedSprite" parent="." instance=ExtResource("3_a7y7c")]
-mesh = SubResource("ArrayMesh_g2e4x")
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 2.49066, 0)
+mesh = SubResource("ArrayMesh_3dyc6")
 sprite_frames = SubResource("SpriteFrames_g78h0")
 animation = "default"
 
