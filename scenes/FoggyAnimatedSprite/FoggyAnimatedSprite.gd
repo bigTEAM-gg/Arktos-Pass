@@ -75,6 +75,7 @@ func _process(delta):
 	var frame_tex: Texture2D = sprite_frames.get_frame_texture(animation, frame)
 	mesh.surface_get_material(0).set_shader_parameter("albedo", frame_tex)
 	mesh.surface_get_material(0).set_shader_parameter("scale", scale.x)
+	mesh.surface_get_material(0).set_shader_parameter("is_editor", Engine.is_editor_hint())
 
 
 func play(animation: String):

@@ -60,3 +60,4 @@ func _ready():
 func _process(delta):
 	mesh.surface_get_material(0).set_shader_parameter("albedo", sprite)
 	mesh.surface_get_material(0).set_shader_parameter("scale", scale.x)
+	mesh.surface_get_material(0).set_shader_parameter("is_editor", Engine.is_editor_hint())
