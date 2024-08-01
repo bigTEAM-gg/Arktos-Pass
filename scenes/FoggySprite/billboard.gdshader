@@ -23,6 +23,8 @@ uniform int frame = 0;
 
 uniform float scale = 1.0;
 
+uniform bool is_editor = false;
+
 uniform bool y_billboard = true;
 
 uniform bool use_alpha = true;
@@ -68,5 +70,7 @@ void fragment() {
 	// Calculate the alpha value based on the distance
 	vec2 base_uv = UV;
 	ALBEDO = albedo_tex.rgb;
-	ALBEDO = mix(ALBEDO.rgb, fog_color.rgb, fog_amount);
+	if (!is_editor) {
+		ALBEDO = mix(ALBEDO.rgb, fog_color.rgb, fog_amount);
+	}
 }
