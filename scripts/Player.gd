@@ -165,6 +165,7 @@ func process_sniper_mode():
 	
 	if not is_sniper_mode:
 		scope.visible = false
+		player_sprite.visible = true
 		camera_3d.position = camera_3d.position.lerp(cam_over, 0.1)
 		camera_3d.rotation.x = lerp_angle(camera_3d.rotation.x, cam_over_angle, 0.1)
 		camera_3d.size = lerp(camera_3d.size, cam_over_size, 0.1)
@@ -175,6 +176,7 @@ func process_sniper_mode():
 			is_sniper_mode_ready = false
 	else:
 		scope.visible = true
+		player_sprite.visible = false
 		camera_3d.position = camera_3d.position.lerp(cam_fps, 0.1)
 		camera_3d.rotation.x = lerp_angle(camera_3d.rotation.x, cam_fps_angle, 0.1)
 		camera_3d.size = lerp(camera_3d.size, cam_fps_size, 0.1)
