@@ -28,6 +28,10 @@ var updown: float
 @onready var player_sprite = $FoggyAnimatedSprite
 @onready var snow_step = $SnowStep
 @onready var wt = $WT
+@onready var aim_sfx = $AimSFX
+@onready var unaim_sfx = $UnaimSFX
+@onready var breath_sfx = $BreathSFX
+
 
 var health = 5
 var ammo = 5
@@ -43,6 +47,7 @@ func _ready():
 			if frame == 14 or frame == 33:
 				snow_step.play()
 	)
+	RenderingServer.global_shader_parameter_set("is_editor", false)
 
 func _process(_delta):
 	RenderingServer.global_shader_parameter_set("player_position", global_position)
@@ -58,7 +63,7 @@ func _input(event):
 var is_in_dialog = false
 var is_sniper_mode = false
 var is_sniper_mode_ready = false
-const cam_over = Vector3(0, 10, 15)
+const cam_over = Vector3(0, 20, 30)
 const cam_over_angle = deg_to_rad(-30)
 const cam_over_size = 12.5
 
@@ -108,9 +113,12 @@ func process_player_controls():
 	
 	if Input.is_action_just_pressed("player_aim"):
 		is_sniper_mode = true
+		aim_sfx.play()
+		breath_sfx.play()
 	if Input.is_action_just_released("player_aim"):
 		is_sniper_mode = false
-	
+		unaim_sfx.play()
+		breath_sfx.stop()
 	if Input.is_action_just_pressed("player_shoot") and shooting_delay.is_stopped():
 		if ammo > 1:
 			var bodies = shoot_hitbox.get_overlapping_bodies()
