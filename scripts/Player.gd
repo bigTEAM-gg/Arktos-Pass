@@ -47,10 +47,10 @@ func _ready():
 			if frame == 14 or frame == 33:
 				snow_step.play()
 	)
+	RenderingServer.global_shader_parameter_set("is_editor", false)
 
 func _process(_delta):
 	RenderingServer.global_shader_parameter_set("player_position", global_position)
-	RenderingServer.global_shader_parameter_set("is_editor", Engine.is_editor_hint())
 
 
 func _input(event):	

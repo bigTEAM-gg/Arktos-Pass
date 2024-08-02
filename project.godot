@@ -192,3 +192,7 @@ fog_density={
 "type": "float",
 "value": 0.4
 }
+is_editor={
+"type": "bool",
+"value": true
+}
