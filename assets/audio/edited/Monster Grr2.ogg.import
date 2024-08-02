@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cukhavtga3v73"
+path="res://.godot/imported/Monster Grr2.ogg-7d16934f0a8e6f7ca593e00ffabe441e.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/edited/Monster Grr2.ogg"
+dest_files=["res://.godot/imported/Monster Grr2.ogg-7d16934f0a8e6f7ca593e00ffabe441e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

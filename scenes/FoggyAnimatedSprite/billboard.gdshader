@@ -8,6 +8,7 @@ render_mode unshaded, depth_prepass_alpha, cull_disabled;
 global uniform vec3 player_position;
 global uniform vec4 fog_color : source_color;
 global uniform float fog_density;
+global uniform bool is_editor;
 
 varying vec3 world_vertex;
 
@@ -22,8 +23,6 @@ uniform int frame_count = 1;
 uniform int frame = 0;
 
 uniform float scale = 1.0;
-
-uniform bool is_editor = false;
 
 uniform bool y_billboard = true;
 
@@ -64,7 +63,8 @@ void fragment() {
 	// Calculate the distance between the fragment and the character
 	float chardistance = length(player_position - world_vertex);
 	
-	float fog_amount = 1.0 - exp2(-fog_density * fog_density * chardistance * chardistance * LOG2);
+	float fd = fog_density + sin(TIME * 0.8) * 0.015;
+	float fog_amount = 1.0 - exp2(-fd * fd * chardistance * chardistance * LOG2);
 	fog_amount = clamp(fog_amount, 0.0, 1.0);
 	    
 	// Calculate the alpha value based on the distance
