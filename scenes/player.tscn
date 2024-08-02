@@ -2424,38 +2424,54 @@ metadata/_edit_use_anchors_ = true
 
 [node name="AmmoCount" type="CanvasLayer" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="AmmoCount"]
+[node name="Control" type="Control" parent="AmmoCount"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -227.0
+offset_top = -194.0
+offset_right = -187.0
+offset_bottom = -154.0
+grow_horizontal = 0
+grow_vertical = 0
 
-[node name="Divider" type="Label" parent="AmmoCount"]
-offset_left = 1579.0
-offset_top = 868.0
-offset_right = 1619.0
-offset_bottom = 891.0
-scale = Vector2(7.34702, 7.34702)
+[node name="Divider" type="Label" parent="AmmoCount/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 203.0
+scale = Vector2(0.643905, 0.643905)
+theme_override_font_sizes/font_size = 200
 text = "|"
 
-[node name="BulletCount" type="Label" parent="AmmoCount"]
-offset_left = 1483.0
-offset_top = 883.0
-offset_right = 1523.0
-offset_bottom = 906.0
-scale = Vector2(7.34702, 7.34702)
+[node name="TotalAmmo" type="Label" parent="AmmoCount/Control"]
+layout_mode = 0
+offset_left = 33.0
+offset_right = 146.0
+offset_bottom = 203.0
+scale = Vector2(0.53087, 0.53087)
+theme_override_font_sizes/font_size = 200
+text = "10"
+
+[node name="BulletCount" type="Label" parent="AmmoCount/Control"]
+layout_mode = 0
+offset_left = -49.0
+offset_top = 3.0
+offset_right = 11.0
+offset_bottom = 206.0
+scale = Vector2(0.488071, 0.489808)
+theme_override_font_sizes/font_size = 200
 text = "2"
 
-[node name="TotalAmmo" type="Label" parent="AmmoCount"]
-offset_left = 1652.0
-offset_top = 885.0
-offset_right = 1692.0
-offset_bottom = 908.0
-scale = Vector2(7.34702, 7.34702)
-text = "10"
-
 [node name="HealthUI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="HealthCount" type="Label" parent="HealthUI"]
-offset_left = 1.00001
-offset_top = -2.0
-offset_right = 41.0
-offset_bottom = 21.0
+visible = false
+offset_left = 1612.0
+offset_top = 886.0
+offset_right = 1652.0
+offset_bottom = 909.0
 scale = Vector2(6.44, 6.44)
-text = "10"

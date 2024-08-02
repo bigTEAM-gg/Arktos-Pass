@@ -14,9 +14,9 @@ var updown: float
 #scope sprite
 @onready var scope = $Scope
 #bullet sprites
-@onready var bullet_count = $AmmoCount/BulletCount
+@onready var bullet_count = $AmmoCount/Control/BulletCount
+@onready var total_ammo = $AmmoCount/Control/TotalAmmo
 
-@onready var total_ammo = $AmmoCount/TotalAmmo
 #ammo display
 @onready var health_count = $HealthUI/HealthCount
 
@@ -51,6 +51,8 @@ func _ready():
 	Global.beepradio.connect(wtbeep)
 	Global.reloadammo.connect(reload)
 	Global.takedamage.connect(take_damage)
+	Global.healthpickup.connect(heal)
+	
 	total_ammo.text = "%s" % ammo_total
 
 func _process(_delta):
@@ -181,6 +183,10 @@ func take_damage(amount):
 	health_count.text = "%s" % health
 	#print("Player takes damage. Total damage: ", health)
 	hit_animation.play()
+	
+func heal():
+	health = health + 1
+	health_count.text = "%s" % health
 	
 func wtbeep():
 	wt.play()

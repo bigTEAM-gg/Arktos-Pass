@@ -88,6 +88,14 @@ project/assembly_name="ArktosProto"
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/visibility_shortcut/plugin.cfg")
 
+[filesystem]
+
+import/fbx/enabled=false
+
+[gui]
+
+theme/custom_font="res://dialog/fonts/DEMON_NI.TTF"
+
 [input]
 
 player_left={

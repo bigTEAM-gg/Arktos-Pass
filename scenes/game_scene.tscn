@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b7lmp3ynu4ubs"]
+[gd_scene load_steps=21 format=3 uid="uid://b7lmp3ynu4ubs"]
 
 [ext_resource type="Script" path="res://scripts/game_scene.gd" id="1_03cmh"]
 [ext_resource type="Material" uid="uid://dtvnutqkcg0ig" path="res://assets/SnowyNoise1k/Snow.tres" id="1_lfgo5"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://scripts/DialogTrigger14.gd" id="16_gyctw"]
 [ext_resource type="Script" path="res://scripts/DialogTriggerBack.gd" id="17_6kjpn"]
 [ext_resource type="PackedScene" uid="uid://y43sowoxgvba" path="res://scenes/monster/monster.tscn" id="17_aqrxp"]
+[ext_resource type="PackedScene" uid="uid://ddu3srsg8wh4g" path="res://scenes/firstaidkit.tscn" id="19_u8vhl"]
 
 [sub_resource type="GDScript" id="GDScript_6mqxh"]
 script/source = "extends Node3D
@@ -768,7 +769,7 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 83.2025, 4.76837e-07, -
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 83.2025, 1.13403, -109.385)
 
 [node name="Player" parent="." instance=ExtResource("12_clta6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.71342, 1.14441e-05, 23.3622)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65497, 1.14441e-05, 21.5345)
 axis_lock_linear_y = true
 
 [node name="DialogTriggers" type="Node3D" parent="."]
@@ -875,3 +876,6 @@ dialogic_timeline = "text17"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.9877, 0, -5.93528)
 
 [node name="Talismans" parent="." instance=ExtResource("13_7ipr7")]
+
+[node name="FirstAid" parent="." instance=ExtResource("19_u8vhl")]
+transform = Transform3D(0.0342009, 0, 0, 0, 0.0342009, 0, 0, 0, 0.0342009, 11.1198, 0, 25.6335)
