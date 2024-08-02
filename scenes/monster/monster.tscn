@@ -1852,10 +1852,10 @@ transparency = 1
 albedo_color = Color(1, 1, 1, 0.101961)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2ehcx"]
-radius = 2.0
+radius = 1.06107
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_e5b82"]
-radius = 25.0
+radius = 15.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13q33"]
 transparency = 1
@@ -1863,7 +1863,7 @@ albedo_color = Color(1, 1, 0, 0.137255)
 
 [node name="Monster" type="CharacterBody3D" groups=["critters"]]
 script = ExtResource("1_ygfpi")
-monster_ai_mode = 3
+monster_ai_mode = null
 
 [node name="MonsterSprite" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.3292, 0)
@@ -1895,5 +1895,5 @@ shape = SubResource("SphereShape3D_e5b82")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="TargetSearchArea"]
 visible = false
-radius = 25.0
+radius = 15.0
 material = SubResource("StandardMaterial3D_13q33")

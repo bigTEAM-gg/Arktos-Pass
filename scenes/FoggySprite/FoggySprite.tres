@@ -9,5 +9,6 @@ shader_parameter/directions = 1
 shader_parameter/frame_count = 1
 shader_parameter/frame = 0
 shader_parameter/scale = 1.0
+shader_parameter/is_editor = false
 shader_parameter/y_billboard = true
 shader_parameter/use_alpha = true

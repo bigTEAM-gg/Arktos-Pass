@@ -94,8 +94,6 @@ func _process_monster_stalking_1(delta: float):
 		_:
 			print("ERROR: Unhandled stalking state: Mode: ", MonsterAiMode.keys()[monster_ai_mode], "Stalking state: ", StalkingState.keys()[stalking_state])
 
-const anim_dirs = ['e', 'se', 's', 'sw', 'w', 'nw', 'n', 'ne']
-
 func _resolve_sprite():
 	var direction = Vector2(velocity.x, velocity.z).angle() + get_viewport().get_camera_3d().global_rotation.y
 	var d = snapped(direction, PI/4) / (PI/4)

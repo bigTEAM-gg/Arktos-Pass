@@ -691,6 +691,7 @@ transform = Transform3D(-0.992328, 0, 0.123636, 0, 1, 0, -0.123636, 0, -0.992328
 
 [node name="Monster" parent="." instance=ExtResource("7_ey4rb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.09108, -7.90217)
+monster_ai_mode = null
 
 [node name="DialogTrigger" parent="." instance=ExtResource("8_3ruwj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01744, 0, 2.3741)

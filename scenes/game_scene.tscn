@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cvt7xsdtis6bo" path="res://scenes/models-scenes/cabin_block.tscn" id="2_rkg7s"]
 [ext_resource type="PackedScene" uid="uid://4478f05ggc05" path="res://scenes/models-scenes/static-mesh/watertower.dae" id="3_t7f0h"]
 [ext_resource type="PackedScene" uid="uid://bynfws7xny3na" path="res://scenes/models-scenes/static-mesh/signpost.dae" id="4_yyxpq"]
-[ext_resource type="PackedScene" uid="uid://dsawt3l7fq1lj" path="res://scenes/path_finished.tscn" id="8_w30l1"]
+[ext_resource type="PackedScene" path="res://scenes/path_finished.tscn" id="8_w30l1"]
 [ext_resource type="PackedScene" uid="uid://cqf6x7wc6858t" path="res://scenes/models-scenes/rock_block.tscn" id="10_e7xes"]
 [ext_resource type="PackedScene" uid="uid://d36dbfrl5bbkm" path="res://scenes/foreststuff/Bush.tscn" id="11_0hpca"]
 [ext_resource type="PackedScene" uid="uid://t8h7n1ckwnbm" path="res://scenes/bush_cluster_1.tscn" id="11_5h5pj"]
@@ -22,7 +22,7 @@ albedo_color = Color(0.345098, 0.345098, 0.345098, 1)
 
 [sub_resource type="ImageTexture" id="ImageTexture_kcgp5"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ow6gl"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v2lgk"]
 render_priority = 0
 shader = ExtResource("17_yo16d")
 shader_parameter/directions = 1
@@ -34,14 +34,14 @@ shader_parameter/y_billboard = true
 shader_parameter/use_alpha = true
 shader_parameter/albedo = SubResource("ImageTexture_kcgp5")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_hl1dl"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_3yr68"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 1e-05, 1e-05, 1e-05),
 "attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0),
 "format": 34359742481,
 "index_count": 6,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
-"material": SubResource("ShaderMaterial_ow6gl"),
+"material": SubResource("ShaderMaterial_v2lgk"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
@@ -202,6 +202,7 @@ isWT = true
 
 [node name="Monster" parent="." instance=ExtResource("17_aqrxp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.4195, 3.8147e-06, 22.0841)
+monster_ai_mode = null
 
 [node name="Player" parent="." instance=ExtResource("12_clta6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.795, 1.14441e-05, 244.208)
@@ -328,5 +329,5 @@ transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 73.7414, 0, -581.816)
 
 [node name="FoggySprite" parent="." instance=ExtResource("16_fxj4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7797, 0, -417.181)
-mesh = SubResource("ArrayMesh_hl1dl")
+mesh = SubResource("ArrayMesh_3yr68")
 sprite = SubResource("ImageTexture_kcgp5")
