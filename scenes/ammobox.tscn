@@ -1,3 +1,20 @@
-[gd_scene format=3 uid="uid://bjfy8s6x4bcu"]
+[gd_scene load_steps=4 format=3 uid="uid://bjfy8s6x4bcu"]
 
-[node name="Node3D" type="Node3D"]
+[ext_resource type="Script" path="res://scripts/ammobox.gd" id="1_2uh6t"]
+[ext_resource type="Texture2D" uid="uid://dm46xkwajlf00" path="res://assets/UI/bullet1.png" id="2_prc41"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k2km6"]
+
+[node name="AmmoBox" type="Node3D"]
+script = ExtResource("1_2uh6t")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CapsuleShape3D_k2km6")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.399179, 0, 0, 0, 0.399179, 0, 0, 0, 0.399179, 0, 0, 0)
+texture = ExtResource("2_prc41")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

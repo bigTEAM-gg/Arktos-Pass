@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b7lmp3ynu4ubs"]
+[gd_scene load_steps=22 format=3 uid="uid://b7lmp3ynu4ubs"]
 
 [ext_resource type="Script" path="res://scripts/game_scene.gd" id="1_03cmh"]
 [ext_resource type="Material" uid="uid://dtvnutqkcg0ig" path="res://assets/SnowyNoise1k/Snow.tres" id="1_lfgo5"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://scripts/DialogTriggerBack.gd" id="17_6kjpn"]
 [ext_resource type="PackedScene" uid="uid://y43sowoxgvba" path="res://scenes/monster/monster.tscn" id="17_aqrxp"]
 [ext_resource type="PackedScene" uid="uid://ddu3srsg8wh4g" path="res://scenes/firstaidkit.tscn" id="19_u8vhl"]
+[ext_resource type="PackedScene" uid="uid://bjfy8s6x4bcu" path="res://scenes/ammobox.tscn" id="20_bv3i3"]
 
 [sub_resource type="GDScript" id="GDScript_6mqxh"]
 script/source = "extends Node3D
@@ -878,4 +879,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.9877, 0, -5.93528)
 [node name="Talismans" parent="." instance=ExtResource("13_7ipr7")]
 
 [node name="FirstAid" parent="." instance=ExtResource("19_u8vhl")]
-transform = Transform3D(0.0342009, 0, 0, 0, 0.0342009, 0, 0, 0, 0.0342009, 11.1198, 0, 25.6335)
+transform = Transform3D(0.0342009, 0, 0, 0, 0.0342009, 0, 0, 0, 0.0342009, 5.94707, 0, 21.3642)
+
+[node name="AmmoBox" parent="." instance=ExtResource("20_bv3i3")]
+transform = Transform3D(1, 0, 0, 0, -0.0155677, 0.999879, 0, -0.999879, -0.0155677, 2.24707, 0, 19.1491)

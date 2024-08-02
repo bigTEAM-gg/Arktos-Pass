@@ -52,6 +52,7 @@ func _ready():
 	Global.reloadammo.connect(reload)
 	Global.takedamage.connect(take_damage)
 	Global.healthpickup.connect(heal)
+	Global.ammopickup.connect(ammo_pickup)
 	
 	total_ammo.text = "%s" % ammo_total
 
@@ -218,7 +219,10 @@ func reload():
 	print("total new ammo ", ammo)
 	print("total ammo left:  ", ammo_total)
 	
-
+func ammo_pickup():
+	ammo_total= ammo_total + 6
+	total_ammo.text = "%s" % ammo_total
+	reloadsfx.play()
 
 
 
