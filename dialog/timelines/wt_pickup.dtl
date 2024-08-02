@@ -1,4 +1,3 @@
-join huntress leftmost [animation="Fade In" length="0.7"]
-huntress: A walkie talkie, just like the one Sam and I used to have.
-huntress: I better take a look.
+join brother_radio leftmost [animation="Fade In" length="0.7"]
+brother_radio: brother_radio: ....It's....in....the...woods...
 leave --All-- [animation="Fade Out" length="0.1"]

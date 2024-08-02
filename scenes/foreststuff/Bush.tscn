@@ -1,27 +1,28 @@
 [gd_scene load_steps=7 format=3 uid="uid://d36dbfrl5bbkm"]
 
 [ext_resource type="Texture2D" uid="uid://ctxpud6m11bvo" path="res://scenes/foreststuff/bush.png" id="1_8rcrh"]
-[ext_resource type="PackedScene" uid="uid://buodo2mxdmdfb" path="res://scenes/FoggyAnimatedSprite/FoggyAnimatedSprite.tscn" id="2_61jwj"]
+[ext_resource type="PackedScene" uid="uid://c041dl1a3mvvj" path="res://scenes/FoggyAnimatedSprite/FoggyAnimatedSprite.tscn" id="2_61jwj"]
 [ext_resource type="Shader" path="res://scenes/FoggyAnimatedSprite/billboard.gdshader" id="3_jqmgk"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_v8oeg"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k4lgf"]
 render_priority = 0
 shader = ExtResource("3_jqmgk")
 shader_parameter/directions = 1
 shader_parameter/frame_count = 1
 shader_parameter/frame = 0
 shader_parameter/scale = 1.0
+shader_parameter/is_editor = false
 shader_parameter/y_billboard = true
 shader_parameter/use_alpha = true
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_6ijx6"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_juy8b"]
 _surfaces = [{
 "aabb": AABB(-5.12, -5.12, 0, 10.24, 10.24, 1e-05),
 "attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0),
 "format": 34359742481,
 "index_count": 6,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
-"material": SubResource("ShaderMaterial_v8oeg"),
+"material": SubResource("ShaderMaterial_k4lgf"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
@@ -50,6 +51,7 @@ texture_filter = 0
 texture = ExtResource("1_8rcrh")
 
 [node name="FoggyAnimatedSprite" parent="." instance=ExtResource("2_61jwj")]
-mesh = SubResource("ArrayMesh_6ijx6")
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 1.11828, 0)
+mesh = SubResource("ArrayMesh_juy8b")
 sprite_frames = SubResource("SpriteFrames_stmdi")
 animation = "default"
