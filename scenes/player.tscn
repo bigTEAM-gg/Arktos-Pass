@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bkv170jpqy24q" path="res://assets/gun_fire.ogg" id="3_ryut6"]
 [ext_resource type="SpriteFrames" uid="uid://b1ad2hmyrqs6q" path="res://assets/player/player_walk_frames.tres" id="3_x2g56"]
 [ext_resource type="Texture2D" uid="uid://bck7l8lav4l04" path="res://assets/textures/Hit_Effect-Sheet.png" id="3_xl53f"]
-[ext_resource type="Texture2D" uid="uid://byfkfdqawdhd" path="res://assets/player/walk_e/walk_e0023.png" id="4_o5vxw"]
+[ext_resource type="Texture2D" uid="uid://cmjmegscnvfd1" path="res://assets/player/walk_e/walk_e0032.png" id="4_5qcyo"]
 [ext_resource type="AudioStream" uid="uid://cjjhjxy6272q6" path="res://assets/gun_bolt.wav" id="4_tk243"]
 [ext_resource type="AudioStream" uid="uid://c63rbmhv2pjop" path="res://assets/gun_empty.wav" id="5_ifngk"]
 [ext_resource type="AudioStream" uid="uid://caltm2tipf6tn" path="res://assets/audio/wt.mp3" id="6_1xcwr"]
@@ -17,7 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://brl6tb8h1ovre" path="res://assets/audio/edited/aim.ogg" id="14_cnqdg"]
 [ext_resource type="AudioStream" uid="uid://cd0maxvorxyon" path="res://assets/audio/edited/breath_soft.ogg" id="16_6sl7h"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1c5ki"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_86cl4"]
 render_priority = 0
 shader = ExtResource("3_6gy4u")
 shader_parameter/directions = 1
@@ -26,20 +26,20 @@ shader_parameter/frame = 0
 shader_parameter/scale = 4.0
 shader_parameter/y_billboard = true
 shader_parameter/use_alpha = true
-shader_parameter/albedo = ExtResource("4_o5vxw")
+shader_parameter/albedo = ExtResource("4_5qcyo")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_t7ttn"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_43oeh"]
 _surfaces = [{
-"aabb": AABB(-0.64, -0.64, 0, 1.28, 1.28001, 1e-05),
+"aabb": AABB(-0.32, -0.32, 0, 0.64, 0.64001, 1e-05),
 "attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0),
 "format": 34359742481,
 "index_count": 6,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
-"material": SubResource("ShaderMaterial_1c5ki"),
+"material": SubResource("ShaderMaterial_86cl4"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray(10, 215, 35, 191, 10, 215, 35, 63, 0, 0, 0, 0, 10, 215, 35, 191, 10, 215, 35, 191, 0, 0, 0, 0, 10, 215, 35, 63, 10, 215, 35, 191, 0, 0, 0, 0, 10, 215, 35, 63, 10, 215, 35, 63, 0, 0, 0, 0)
+"vertex_data": PackedByteArray(10, 215, 163, 190, 10, 215, 163, 62, 0, 0, 0, 0, 10, 215, 163, 190, 10, 215, 163, 190, 0, 0, 0, 0, 10, 215, 163, 62, 10, 215, 163, 190, 0, 0, 0, 0, 10, 215, 163, 62, 10, 215, 163, 62, 0, 0, 0, 0)
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t06dm"]
@@ -153,7 +153,7 @@ script = ExtResource("1_dl7pv")
 
 [node name="FoggyAnimatedSprite" parent="." instance=ExtResource("2_0p2o0")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 1.08256, 0)
-mesh = SubResource("ArrayMesh_t7ttn")
+mesh = SubResource("ArrayMesh_43oeh")
 sprite_frames = ExtResource("3_x2g56")
 animation = "walk_e"
 
