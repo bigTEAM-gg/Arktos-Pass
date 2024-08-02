@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bben6xums5pbn"]
+[gd_scene load_steps=12 format=3 uid="uid://bben6xums5pbn"]
 
 [ext_resource type="Material" uid="uid://b2rf17dqsyv15" path="res://assets/SnowyNoise1k/SnowDark.tres" id="1_3r16k"]
 [ext_resource type="PackedScene" uid="uid://bbj02oevjlhk4" path="res://scenes/models-scenes/pileofsnow.tscn" id="1_sh2xf"]
+[ext_resource type="PackedScene" uid="uid://b7qmc6himhisa" path="res://scenes/player.tscn" id="3_4k5kk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e48mi"]
 resource_name = "standardSurface1"
@@ -1351,18 +1352,6 @@ transform = Transform3D(0.00305623, 0, 1.69999, 0, 1.7, 0, -1.69999, 0, 0.003056
 [node name="pileofsnow517" parent="." instance=ExtResource("1_sh2xf")]
 transform = Transform3D(-0.453794, 0, 1.63832, 0, 1.7, 0, -1.63832, 0, -0.453794, 14.2642, -7.62939e-06, -483.425)
 
-[node name="pileofsnow510" parent="." instance=ExtResource("1_sh2xf")]
-transform = Transform3D(1.66936, 0, -0.32135, 0, 1.7, 0, 0.32135, 0, 1.66936, -3.57235, 0, -542.686)
-
-[node name="pileofsnow521" parent="." instance=ExtResource("1_sh2xf")]
-transform = Transform3D(1.69058, 0, 0.178792, 0, 1.7, 0, -0.178792, 0, 1.69058, -2.09794, 0, -558.234)
-
-[node name="pileofsnow528" parent="." instance=ExtResource("1_sh2xf")]
-transform = Transform3D(1.39778, 0, -0.96758, 0, 1.7, 0, 0.96758, 0, 1.39778, -7.89769, -7.62939e-06, -530.999)
-
-[node name="pileofsnow627" parent="." instance=ExtResource("1_sh2xf")]
-transform = Transform3D(1.56723, 0, -0.658643, 0, 1.7, 0, 0.658643, 0, 1.56723, -15.6242, 1.90734e-06, -516.74)
-
 [node name="pileofsnow626" parent="." instance=ExtResource("1_sh2xf")]
 transform = Transform3D(-0.0783622, 0, -1.6982, 0, 1.7, 0, 1.6982, 0, -0.0783622, 56.7498, 1.14441e-05, -450.78)
 
@@ -1757,3 +1746,21 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_b03do")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="pileofsnow717"]
+
+[node name="LeftPath" type="Node3D" parent="."]
+transform = Transform3D(0.616669, 0, -1.58422, 0, 1.7, 0, 1.58422, 0, 0.616669, -1.5357, 0, -529.321)
+
+[node name="pileofsnow510" parent="LeftPath" instance=ExtResource("1_sh2xf")]
+transform = Transform3D(0.634664, 0, 0.77279, 0, 1, 0, -0.77279, 0, 0.634664, -6.23413, 0, -3.07199)
+
+[node name="pileofsnow521" parent="LeftPath" instance=ExtResource("1_sh2xf")]
+transform = Transform3D(0.382069, 0, 0.924135, 0, 1, 0, -0.924135, 0, 0.382069, -13.858, 0, -8.19807)
+
+[node name="pileofsnow528" parent="LeftPath" instance=ExtResource("1_sh2xf")]
+transform = Transform3D(0.892511, 0, 0.451018, 0, 1, 0, -0.451018, 0, 0.892511, -1.40674, -4.48788e-06, 2.44408)
+
+[node name="pileofsnow627" parent="LeftPath" instance=ExtResource("1_sh2xf")]
+transform = Transform3D(0.780365, 0, 0.625328, 0, 1, 0, -0.625328, 0, 0.780365, 3.79617, 1.12197e-06, 10.4406)
+
+[node name="Player" parent="." instance=ExtResource("3_4k5kk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.135, 4.76837e-07, -500.618)
