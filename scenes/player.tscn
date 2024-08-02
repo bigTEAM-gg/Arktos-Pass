@@ -2451,7 +2451,7 @@ layout_mode = 0
 offset_left = 33.0
 offset_right = 146.0
 offset_bottom = 203.0
-scale = Vector2(0.53087, 0.53087)
+scale = Vector2(0.535934, 0.53087)
 theme_override_font_sizes/font_size = 200
 text = "10"
 
@@ -2466,12 +2466,17 @@ theme_override_font_sizes/font_size = 200
 text = "2"
 
 [node name="HealthUI" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="HealthCount" type="Label" parent="HealthUI"]
-visible = false
-offset_left = 1612.0
-offset_top = 886.0
-offset_right = 1652.0
-offset_bottom = 909.0
-scale = Vector2(6.44, 6.44)
+anchors_preset = -1
+anchor_left = 0.722
+anchor_top = 0.749
+anchor_right = 0.722
+anchor_bottom = 0.749
+offset_left = 347.76
+offset_top = -52.92
+offset_right = 460.76
+offset_bottom = 150.08
+scale = Vector2(0.511494, 0.511494)
+theme_override_font_sizes/font_size = 200
+text = "5"

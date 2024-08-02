@@ -6,6 +6,7 @@ class_name Player
 @export var JUMP_VELOCITY = 4.5
 @export var JOY_SENS = 0.04
 @export var MOUSE_SENS = 0.002
+@export var heal_point = 2
 	
 	
 var yaw: float
@@ -186,7 +187,7 @@ func take_damage(amount):
 	hit_animation.play()
 	
 func heal():
-	health = health + 1
+	health = health + heal_point
 	health_count.text = "%s" % health
 	
 func wtbeep():

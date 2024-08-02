@@ -879,7 +879,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.9877, 0, -5.93528)
 [node name="Talismans" parent="." instance=ExtResource("13_7ipr7")]
 
 [node name="FirstAid" parent="." instance=ExtResource("19_u8vhl")]
-transform = Transform3D(0.0342009, 0, 0, 0, 0.0342009, 0, 0, 0, 0.0342009, 5.94707, 0, 21.3642)
+transform = Transform3D(0.0342009, 0, 0, 0, 0.0342009, 0, 0, 0, 0.0342009, 1.29526, 0, 16.2368)
 
 [node name="AmmoBox" parent="." instance=ExtResource("20_bv3i3")]
 transform = Transform3D(1, 0, 0, 0, -0.0155677, 0.999879, 0, -0.999879, -0.0155677, 2.24707, 0, 19.1491)
