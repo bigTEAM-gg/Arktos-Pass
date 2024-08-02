@@ -1,6 +1,6 @@
 extends Node
 
-var level: Forest = null
+var level = null
 var player: Player = null
 var monster: Monster = null
 @export var wayback: int = 0

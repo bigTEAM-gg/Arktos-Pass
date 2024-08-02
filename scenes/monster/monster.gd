@@ -33,6 +33,10 @@ func _ready():
 
 func _physics_process(delta):
 	if not is_instance_valid(Global.player):
+		print("Monser.gd: Player instance invalid")
+		return
+	if not is_instance_valid(Global.level):
+		print("Monser.gd: Level instance invalid")
 		return
 	match monster_ai_mode:
 		MonsterAiMode.IDLE:
