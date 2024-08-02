@@ -14,7 +14,7 @@ join huntress leftmost [animation="Fade In" length="0.7"]
 huntress: I will. Love you.
 leave --All-- [animation="Fade Out" length="0.1"]
 join Johara_phone leftmost [animation="Fade In" length="0.7"]
-Johara_phone: I...ve...o....t...
+Johara_phone: I................o................t.................
 leave --All-- [animation="Fade Out" length="0.1"]
 join huntress leftmost [animation="Fade In" length="0.7"]
 huntress: Jo? Shit. Looks like the service is gone.

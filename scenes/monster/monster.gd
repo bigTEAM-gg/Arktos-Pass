@@ -18,55 +18,33 @@ const DIST_CLOSE = 0.2
 @onready var safe_zone_scene := preload("res://scenes/safe_zone.tscn")
 
 
-@export var movement_speed_a := 10.0
-@export var movement_speed_b := 15.0
-@export var lunge_speed := 25.0
-@export var creep_speed := 0.5
-@export var wait_period_a := 1.2
-@export var wait_period_b := 0.4
-@export var creep_period_a := 1.0
-@export var creep_period_b := 0.5
-@export var retreat_period_a := 2.0
-@export var retreat_period_b := 1.0
-@export var aggressiveness = 0.0
-@export var full_aggressiveness_after_time := 15.0
-@export var must_follow_distance = 10.0
 
-enum MonsterState { IDLE, STALKING }
-var monster_state: MonsterState
-enum StalkingState { WAIT, FOLLOW_FIND_TARGET, FOLLOW_GO_TO_TARGET, ATTACK_CREEP, ATTACK_LUNGE, RETREAT }
+enum MonsterAiMode { IDLE, STALKING_1, STALKING_2, STALKING_3 }
+@export var monster_ai_mode: MonsterAiMode = MonsterAiMode.IDLE
+enum StalkingState { WAIT, FOLLOW_FIND_TARGET, FOLLOW_GO_TO_TARGET, ATTACK_CREEP, ATTACK_LUNGE, RETREAT_FIND_TARGET, RETREAT }
 var stalking_state: StalkingState
-
-
-var started_creeping_at_tree: FirTree = null
-var player_is_in_safe_zone := false
-var closest_tree: FirTree = null
-var farthest_tree: FirTree = null
-var retreat_target = null
-var follow_target = null
-var creep_timer := 0.0
-var retreat_timer := 0.0
-var wait_timer := 0.0
-var aggressiveness_cap := 0.0
-var aggressiveness_cap_timer := 0.0
 
 
 func _ready():
 	hurtbox.body_entered.connect(_on_body_entered)
-	monster_state = MonsterState.STALKING
+	#monster_ai_mode = MonsterAiMode.STALKING_3
 	Global.monster = self
 
 
 func _physics_process(delta):
 	if not is_instance_valid(Global.player):
 		return
-	match monster_state:
-		MonsterState.IDLE:
+	match monster_ai_mode:
+		MonsterAiMode.IDLE:
 			pass
-		MonsterState.STALKING:
-			_calculate_aggressiveness_level(delta)
-			_process_monster_stalking(delta)
+		MonsterAiMode.STALKING_1:
+			_process_monster_stalking_1(delta)
+		MonsterAiMode.STALKING_2:
+			_process_monster_stalking_2(delta)
+		MonsterAiMode.STALKING_3:
+			_process_monster_stalking_3(delta)
 	_resolve_sprite()
+
 # https://kidscancode.org/godot_recipes/3.x/2d/8_direction/
 const anim_dirs = ['e', 'se', 's', 'sw', 'w', 'nw', 'n', 'ne']
 
@@ -83,22 +61,162 @@ func _resolve_sprite():
 	if monster_sprite.animation != next_animation:
 		monster_sprite.play(next_animation)
 
-func _process_monster_stalking(delta):
+########### COMMON VARS ###########
+
+var started_creeping_at_tree: FirTree = null
+var player_is_in_safe_zone := false
+
+var retreat_target = null
+var creep_timer := 0.0
+var retreat_timer := 0.0
+var aggressiveness_cap := 0.0
+var aggressiveness_cap_timer := 0.0
+var follow_target = null
+var closest_tree: FirTree = null
+var farthest_tree: FirTree = null
+var wait_timer := 0.0
+
+################### STALKING 1 ###################
+
+const S1_WAIT_PERIOD := 2.0
+const S1_MOVEMENT_SPEED := 8.0
+const S1_PLAYER_LOOKAHEAD := 15.0
+
+func _process_monster_stalking_1(delta: float):
 	match stalking_state:
 		StalkingState.WAIT:
 			wait_timer -= delta
 			if wait_timer < 0.0:
 				wait_timer = 0.0
-				_check_trees()
+				_set_stalking_state(StalkingState.FOLLOW_FIND_TARGET)
+		StalkingState.FOLLOW_FIND_TARGET:
+			_check_trees(S1_PLAYER_LOOKAHEAD)
+			if closest_tree == null:
+				_set_stalking_state(StalkingState.WAIT)
+				return
+			_set_stalking_state(StalkingState.FOLLOW_GO_TO_TARGET)
+			follow_target = closest_tree.global_position
+		StalkingState.FOLLOW_GO_TO_TARGET:
+			if follow_target == null:
+				_set_stalking_state(StalkingState.FOLLOW_FIND_TARGET)
+				return
+			if _move_to_target(follow_target, S1_MOVEMENT_SPEED):
+				_set_stalking_state(StalkingState.WAIT)
+				wait_timer = S1_WAIT_PERIOD
+		_:
+			print("ERROR: Unhandled stalking state: Mode: ", MonsterAiMode.keys()[monster_ai_mode], "Stalking state: ", StalkingState.keys()[stalking_state])
+
+
+################### STALKING 2 ###################
+
+const S2_MOVEMENT_SPEED := 12.0
+const S2_CREEP_PERIOD := 5.0
+const S2_WAIT_PERIOD := 2.0
+const S2_RETREAT_PERIOD := 5.0
+const S2_CREEP_SPEED := 0.3
+const S2_LUNGE_SPEED := 20.0
+const S2_PLAYER_LOOKAHEAD := 15.0
+
+func _process_monster_stalking_2(delta: float):
+	match stalking_state:
+		StalkingState.WAIT:
+			wait_timer -= delta
+			if wait_timer < 0.0:
+				wait_timer = 0.0
+				_check_trees(S2_PLAYER_LOOKAHEAD)
+				if closest_tree != null && _am_at_target(closest_tree.global_position):
+					_set_stalking_state(StalkingState.ATTACK_CREEP)
+					started_creeping_at_tree = closest_tree
+					creep_timer = S2_CREEP_PERIOD
+				else:
+					_set_stalking_state(StalkingState.FOLLOW_FIND_TARGET)
+		StalkingState.FOLLOW_FIND_TARGET:
+			_check_trees(S2_PLAYER_LOOKAHEAD)
+			if closest_tree == null:
+				_set_stalking_state(StalkingState.WAIT)
+				return
+			_set_stalking_state(StalkingState.FOLLOW_GO_TO_TARGET)
+			follow_target = closest_tree.global_position
+		StalkingState.FOLLOW_GO_TO_TARGET:
+			if follow_target == null:
+				_set_stalking_state(StalkingState.FOLLOW_FIND_TARGET)
+				return
+			if _move_to_target(follow_target, S2_MOVEMENT_SPEED):
+				_set_stalking_state(StalkingState.WAIT)
+				wait_timer = S2_WAIT_PERIOD
+		StalkingState.ATTACK_CREEP:
+			_check_trees(S2_PLAYER_LOOKAHEAD)
+			if closest_tree != started_creeping_at_tree:
+				_set_stalking_state(StalkingState.FOLLOW_FIND_TARGET)
+			else:
+				_move_to_target(Global.player.global_position, S2_CREEP_SPEED)
+				creep_timer -= delta
+				if creep_timer < 0.0:
+					creep_timer = 0.0
+					_set_stalking_state(StalkingState.ATTACK_LUNGE)
+		StalkingState.ATTACK_LUNGE:
+			#_check_trees(S2_PLAYER_LOOKAHEAD)
+			#if closest_tree != started_creeping_at_tree:
+				#_set_stalking_state(StalkingState.FOLLOW_FIND_TARGET)
+			if _move_to_target(Global.player.global_position, S2_LUNGE_SPEED):
+				_set_stalking_state(StalkingState.RETREAT_FIND_TARGET)
+		StalkingState.RETREAT_FIND_TARGET:
+			_check_trees(S2_PLAYER_LOOKAHEAD)
+			if farthest_tree == null:
+				_set_stalking_state(StalkingState.WAIT)
+				return
+			_set_stalking_state(StalkingState.RETREAT)
+			retreat_target = farthest_tree.global_position
+		StalkingState.RETREAT:
+			if retreat_target != null:
+				if _move_to_target(retreat_target, S2_MOVEMENT_SPEED):
+					retreat_target = null
+					retreat_timer = S2_RETREAT_PERIOD
+			elif player_is_in_safe_zone:
+				pass
+			else:
+				retreat_timer -= delta
+				if retreat_timer < 0.0:
+					retreat_timer = 0.0
+					_set_stalking_state(StalkingState.FOLLOW_FIND_TARGET)
+		_:
+			print("ERROR: Unhandled stalking state: Mode: ", MonsterAiMode.keys()[monster_ai_mode], "; Stalking state: ", StalkingState.keys()[stalking_state])
+
+
+################### STALKING 3 ###################
+
+var movement_speed_a := 10.0
+var movement_speed_b := 15.0
+var lunge_speed := 25.0
+var creep_speed := 0.5
+var wait_period_a := 1.2
+var wait_period_b := 0.4
+var creep_period_a := 2.0
+var creep_period_b := 0.5
+var retreat_period_a := 2.0
+var retreat_period_b := 1.0
+var aggressiveness = 0.0
+var full_aggressiveness_after_time := 15.0
+var must_follow_distance = 10.0
+const S3_PLAYER_LOOKAHEAD := 15.0
+
+func _process_monster_stalking_3(delta):
+	_calculate_aggressiveness_level(delta)
+	match stalking_state:
+		StalkingState.WAIT:
+			wait_timer -= delta
+			if wait_timer < 0.0:
+				wait_timer = 0.0
+				_check_trees(S3_PLAYER_LOOKAHEAD)
 				var dist_to_player = (Global.player.global_position - global_position).length()
-				if closest_tree != null && _am_at_target(closest_tree.global_position) && dist_to_player > _get_must_follow_distance():
+				if closest_tree != null && _am_at_target(closest_tree.global_position):# && dist_to_player > _get_must_follow_distance():
 					_set_stalking_state(StalkingState.ATTACK_CREEP)
 					started_creeping_at_tree = closest_tree
 					creep_timer = _get_creep_period()
 				else:
 					_set_stalking_state(StalkingState.FOLLOW_FIND_TARGET)
 		StalkingState.FOLLOW_FIND_TARGET:
-			_check_trees()
+			_check_trees(S3_PLAYER_LOOKAHEAD)
 			if closest_tree == null:
 				_set_stalking_state(StalkingState.WAIT)
 				return
@@ -112,7 +230,7 @@ func _process_monster_stalking(delta):
 				_set_stalking_state(StalkingState.WAIT)
 				wait_timer = _get_wait_period()
 		StalkingState.ATTACK_CREEP:
-			_check_trees()
+			_check_trees(S3_PLAYER_LOOKAHEAD)
 			if closest_tree != started_creeping_at_tree:
 				_set_stalking_state(StalkingState.FOLLOW_FIND_TARGET)
 			else:
@@ -123,7 +241,14 @@ func _process_monster_stalking(delta):
 					_set_stalking_state(StalkingState.ATTACK_LUNGE)
 		StalkingState.ATTACK_LUNGE:
 			if _move_to_target(Global.player.global_position, lunge_speed):
-				_set_stalking_state(StalkingState.RETREAT)
+				_set_stalking_state(StalkingState.RETREAT_FIND_TARGET)
+		StalkingState.RETREAT_FIND_TARGET:
+			_check_trees(S3_PLAYER_LOOKAHEAD)
+			if farthest_tree == null:
+				_set_stalking_state(StalkingState.WAIT)
+				return
+			_set_stalking_state(StalkingState.RETREAT)
+			retreat_target = farthest_tree.global_position
 		StalkingState.RETREAT:
 			if retreat_target != null:
 				if _move_to_target(retreat_target, _get_movement_speed()):
@@ -136,6 +261,8 @@ func _process_monster_stalking(delta):
 				if retreat_timer < 0.0:
 					retreat_timer = 0.0
 					_set_stalking_state(StalkingState.FOLLOW_FIND_TARGET)
+		_:
+			print("ERROR: Unhandled stalking state: Mode: ", MonsterAiMode.keys()[monster_ai_mode], "Stalking state: ", StalkingState.keys()[stalking_state])
 
 
 var avg_calc_period = 5.0
@@ -155,11 +282,13 @@ func _calculate_aggressiveness_level(delta):
 		aggressiveness_cap = lerp(0.0, 1.0, aggressiveness_cap_timer / full_aggressiveness_after_time)
 		aggressiveness_cap_timer += delta
 	prev_player_pos = Global.player.global_position
-	
+	#aggressiveness = 0.0
 
 
-func _check_trees():
-	var player_pos = Global.player.global_position
+################### HELPERS ###################
+
+func _check_trees(player_lookahead_amount):
+	var player_pos = Global.player.global_position + Global.player.velocity / Global.player.SPEED * player_lookahead_amount
 	var closest_tree_dist = 1000000.0
 	var farthest_tree_dist = 0.0
 	closest_tree = null
@@ -177,7 +306,7 @@ func _check_trees():
 
 
 func _set_stalking_state(new_state: StalkingState):
-	if DEBUG: print(StalkingState.keys()[stalking_state], " -> ", StalkingState.keys()[new_state])
+	if DEBUG: print(MonsterAiMode.keys()[monster_ai_mode], ": ", StalkingState.keys()[stalking_state], " -> ", StalkingState.keys()[new_state])
 	stalking_state = new_state
 	wait_timer = 0.0
 	retreat_timer = 0.0
@@ -206,7 +335,7 @@ func _am_at_target(target):
 		return dist < DIST_CLOSE
 	else:
 		return false
-
+		
 		
 func _get_movement_speed():
 	return lerp(movement_speed_a, movement_speed_b, aggressiveness)
@@ -226,19 +355,15 @@ func _get_must_follow_distance():
 
 func shot(from_where: Vector3):
 	_set_safe_zone(from_where)
-	_check_trees()
 	if farthest_tree != null:
-		_set_stalking_state(StalkingState.RETREAT)
-		retreat_target = farthest_tree.global_position
+		_set_stalking_state(StalkingState.RETREAT_FIND_TARGET)
 
 
 func _on_body_entered(body):
 	if body.is_in_group("player") && stalking_state == StalkingState.ATTACK_LUNGE:
 		body.take_damage(1)
 		_set_safe_zone(body.global_position)
-		_check_trees()
-		_set_stalking_state(StalkingState.RETREAT)
-		retreat_target = farthest_tree.global_position
+		_set_stalking_state(StalkingState.RETREAT_FIND_TARGET)
 
 
 func _set_safe_zone(position: Vector3):
