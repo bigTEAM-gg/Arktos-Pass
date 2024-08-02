@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b7qmc6himhisa"]
+[gd_scene load_steps=37 format=3 uid="uid://b7qmc6himhisa"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_dl7pv"]
 [ext_resource type="PackedScene" uid="uid://c041dl1a3mvvj" path="res://scenes/FoggyAnimatedSprite/FoggyAnimatedSprite.tscn" id="2_0p2o0"]
@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bkv170jpqy24q" path="res://assets/gun_fire.ogg" id="3_ryut6"]
 [ext_resource type="SpriteFrames" uid="uid://b1ad2hmyrqs6q" path="res://assets/player/player_walk_frames.tres" id="3_x2g56"]
 [ext_resource type="Texture2D" uid="uid://bck7l8lav4l04" path="res://assets/textures/Hit_Effect-Sheet.png" id="3_xl53f"]
-[ext_resource type="Texture2D" uid="uid://sr0cpcqd2i60" path="res://assets/player/walk_e/walk_e0036.png" id="4_fmn1v"]
+[ext_resource type="Texture2D" uid="uid://ldwurdhqmctm" path="res://assets/player/walk_e/walk_e0005.png" id="4_jghy6"]
 [ext_resource type="AudioStream" uid="uid://cjjhjxy6272q6" path="res://assets/gun_bolt.wav" id="4_tk243"]
 [ext_resource type="AudioStream" uid="uid://c63rbmhv2pjop" path="res://assets/gun_empty.wav" id="5_ifngk"]
 [ext_resource type="AudioStream" uid="uid://caltm2tipf6tn" path="res://assets/audio/wt.mp3" id="6_1xcwr"]
@@ -18,8 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://db0udbfko4p3i" path="res://assets/UI/scope.png" id="16_2jmw5"]
 [ext_resource type="AudioStream" uid="uid://cd0maxvorxyon" path="res://assets/audio/edited/breath_soft.ogg" id="16_6sl7h"]
 [ext_resource type="AudioStream" uid="uid://eoqkv8mw4jjs" path="res://assets/audio/1888.wav" id="17_8tiwk"]
+[ext_resource type="Script" path="res://scenes/TreeCuller.gd" id="19_g8ri7"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cwm3h"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eap4a"]
 render_priority = 0
 shader = ExtResource("3_6gy4u")
 shader_parameter/directions = 1
@@ -28,16 +29,16 @@ shader_parameter/frame = 0
 shader_parameter/scale = 4.0
 shader_parameter/y_billboard = true
 shader_parameter/use_alpha = true
-shader_parameter/albedo = ExtResource("4_fmn1v")
+shader_parameter/albedo = ExtResource("4_jghy6")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_bp7kx"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_okxrx"]
 _surfaces = [{
 "aabb": AABB(-0.32, -0.32, 0, 0.64, 0.64001, 1e-05),
 "attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0),
 "format": 34359742481,
 "index_count": 6,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
-"material": SubResource("ShaderMaterial_cwm3h"),
+"material": SubResource("ShaderMaterial_eap4a"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
@@ -155,7 +156,7 @@ script = ExtResource("1_dl7pv")
 
 [node name="FoggyAnimatedSprite" parent="." instance=ExtResource("2_0p2o0")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 1.08256, 0)
-mesh = SubResource("ArrayMesh_bp7kx")
+mesh = SubResource("ArrayMesh_okxrx")
 sprite_frames = ExtResource("3_x2g56")
 animation = "walk_e"
 
@@ -319,3 +320,6 @@ autoplay = true
 
 [node name="BreathSFX" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_vr583")
+
+[node name="TreeCuller" type="Node3D" parent="."]
+script = ExtResource("19_g8ri7")

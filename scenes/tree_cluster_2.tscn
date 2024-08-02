@@ -5,42 +5,31 @@
 [ext_resource type="PackedScene" uid="uid://cqf6x7wc6858t" path="res://scenes/models-scenes/rock_block.tscn" id="3_6x7r1"]
 [ext_resource type="PackedScene" uid="uid://dt7iaprndki67" path="res://scenes/foreststuff/FirTree2.tscn" id="4_34d61"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1tlqv"]
-albedo_color = Color(0.345098, 0.345098, 0.345098, 1)
-
 [node name="tree_cluster_2" type="Node3D"]
 
 [node name="rock" parent="." instance=ExtResource("3_6x7r1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01305, 0, -1.46571)
-surface_material_override/0 = SubResource("StandardMaterial3D_1tlqv")
 
 [node name="rock4" parent="." instance=ExtResource("3_6x7r1")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5.29908, 0, 7.39564)
-surface_material_override/0 = SubResource("StandardMaterial3D_1tlqv")
 
 [node name="rock7" parent="." instance=ExtResource("3_6x7r1")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -5.15881, -4.76837e-07, 1.83029)
-surface_material_override/0 = SubResource("StandardMaterial3D_1tlqv")
 
 [node name="rock8" parent="." instance=ExtResource("3_6x7r1")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -3.32774, -4.76837e-07, -0.636719)
-surface_material_override/0 = SubResource("StandardMaterial3D_1tlqv")
 
 [node name="rock5" parent="." instance=ExtResource("3_6x7r1")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.68255, 0, 1.20035)
-surface_material_override/0 = SubResource("StandardMaterial3D_1tlqv")
 
 [node name="rock2" parent="." instance=ExtResource("3_6x7r1")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -3.17828, 0, -2.63571)
-surface_material_override/0 = SubResource("StandardMaterial3D_1tlqv")
 
 [node name="rock6" parent="." instance=ExtResource("3_6x7r1")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -0.46341, 0, -6.71371)
-surface_material_override/0 = SubResource("StandardMaterial3D_1tlqv")
 
 [node name="rock3" parent="." instance=ExtResource("3_6x7r1")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -3.52775, 4.76837e-07, -2.03271)
-surface_material_override/0 = SubResource("StandardMaterial3D_1tlqv")
 
 [node name="Bush" parent="." instance=ExtResource("2_emo5l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47373, 0, -9.15574)

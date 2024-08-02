@@ -1,13 +1,14 @@
-[gd_scene load_steps=29 format=3 uid="uid://bwqj8u0u1ndhh"]
+[gd_scene load_steps=30 format=3 uid="uid://bwqj8u0u1ndhh"]
 
 [ext_resource type="Script" path="res://scripts/game_scene.gd" id="1_03cmh"]
-[ext_resource type="Material" uid="uid://dtvnutqkcg0ig" path="res://assets/SnowyNoise1k/Snow.tres" id="1_lfgo5"]
+[ext_resource type="Shader" path="res://assets/textures/foggyunshaded.gdshader" id="2_dphl2"]
 [ext_resource type="PackedScene" uid="uid://cvt7xsdtis6bo" path="res://scenes/models-scenes/cabin_block.tscn" id="2_rkg7s"]
+[ext_resource type="Texture2D" uid="uid://brkyl6nbatxhh" path="res://assets/SnowyNoise1k/SnowNoise_basecolor.png" id="3_f3qw7"]
 [ext_resource type="PackedScene" uid="uid://4478f05ggc05" path="res://scenes/models-scenes/static-mesh/watertower.dae" id="3_t7f0h"]
 [ext_resource type="PackedScene" uid="uid://bynfws7xny3na" path="res://scenes/models-scenes/static-mesh/signpost.dae" id="4_yyxpq"]
 [ext_resource type="PackedScene" uid="uid://dsawt3l7fq1lj" path="res://scenes/path_finished.tscn" id="8_w30l1"]
 [ext_resource type="PackedScene" uid="uid://cqf6x7wc6858t" path="res://scenes/models-scenes/rock_block.tscn" id="10_e7xes"]
-[ext_resource type="Material" uid="uid://b2rf17dqsyv15" path="res://assets/SnowyNoise1k/SnowDark.tres" id="10_u7gbc"]
+[ext_resource type="Material" uid="uid://cc27vbeulp02q" path="res://assets/SnowyNoise1k/SnowDark.tres" id="10_u7gbc"]
 [ext_resource type="PackedScene" uid="uid://d36dbfrl5bbkm" path="res://scenes/foreststuff/Bush.tscn" id="11_0hpca"]
 [ext_resource type="PackedScene" uid="uid://t8h7n1ckwnbm" path="res://scenes/bush_cluster_1.tscn" id="11_5h5pj"]
 [ext_resource type="PackedScene" uid="uid://b7qmc6himhisa" path="res://scenes/player.tscn" id="12_clta6"]
@@ -17,8 +18,10 @@
 [ext_resource type="PackedScene" uid="uid://y43sowoxgvba" path="res://scenes/monster/monster.tscn" id="17_aqrxp"]
 [ext_resource type="Shader" path="res://scenes/FoggyAnimatedSprite/billboard.gdshader" id="17_yo16d"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iayv5"]
-albedo_color = Color(0.345098, 0.345098, 0.345098, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3sdp8"]
+render_priority = 0
+shader = ExtResource("2_dphl2")
+shader_parameter/texture_albedo = ExtResource("3_f3qw7")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e48mi"]
 resource_name = "standardSurface1"
@@ -108,7 +111,7 @@ data = PackedVector3Array(0.6304, 0, -0.4394, 0.8108, 0, -0.2313, 0.7645, 0.0404
 
 [sub_resource type="ImageTexture" id="ImageTexture_kcgp5"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ub5em"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oscmw"]
 render_priority = 0
 shader = ExtResource("17_yo16d")
 shader_parameter/directions = 1
@@ -119,14 +122,14 @@ shader_parameter/y_billboard = true
 shader_parameter/use_alpha = true
 shader_parameter/albedo = SubResource("ImageTexture_kcgp5")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_k6t20"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_rt3vg"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 1e-05, 1e-05, 1e-05),
 "attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0),
 "format": 34359742481,
 "index_count": 6,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
-"material": SubResource("ShaderMaterial_ub5em"),
+"material": SubResource("ShaderMaterial_oscmw"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
@@ -143,29 +146,28 @@ shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.1718, -0.470215, -222.263)
-material_override = ExtResource("1_lfgo5")
+material_override = SubResource("ShaderMaterial_3sdp8")
 size = Vector3(400, 0.1, 1000)
 
 [node name="path_finished" parent="." instance=ExtResource("8_w30l1")]
 
-[node name="signpost2" parent="path_finished" instance=ExtResource("4_yyxpq")]
+[node name="signpost2" parent="path_finished" groups=["enviro"] instance=ExtResource("4_yyxpq")]
 transform = Transform3D(1.43252, 0, 0.444837, 0, 1.5, 0, -0.444837, 0, 1.43252, 0.760608, 0, 146.452)
 
-[node name="signpost3" parent="path_finished" instance=ExtResource("4_yyxpq")]
+[node name="signpost3" parent="path_finished" groups=["enviro"] instance=ExtResource("4_yyxpq")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 14.4692, 8.58307e-06, -68.4693)
 
-[node name="signpost4" parent="path_finished" instance=ExtResource("4_yyxpq")]
+[node name="signpost4" parent="path_finished" groups=["enviro"] instance=ExtResource("4_yyxpq")]
 transform = Transform3D(0.774621, 0, 1.28451, 0, 1.5, 0, -1.28451, 0, 0.774621, -161.843, 1.52588e-05, -303.853)
 
-[node name="signpost5" parent="path_finished" instance=ExtResource("4_yyxpq")]
+[node name="signpost5" parent="path_finished" groups=["enviro"] instance=ExtResource("4_yyxpq")]
 transform = Transform3D(0.820271, 0, 1.25585, 0, 1.5, 0, -1.25585, 0, 0.820271, 5.10934, 1.52588e-05, -407.526)
 
-[node name="watertower" parent="path_finished" instance=ExtResource("3_t7f0h")]
+[node name="watertower" parent="path_finished" groups=["enviro"] instance=ExtResource("3_t7f0h")]
 transform = Transform3D(0.928674, 0, -0.370898, 0, 1, 0, 0.370898, 0, 0.928674, 33.8882, 0, -637.609)
 
 [node name="rock" parent="path_finished/watertower" instance=ExtResource("10_e7xes")]
 transform = Transform3D(2.78602, 0, 1.11269, 0, 3, 0, -1.11269, 0, 2.78602, -0.926971, 0, -5.12982)
-surface_material_override/0 = SubResource("StandardMaterial3D_iayv5")
 
 [node name="cabin" parent="path_finished" instance=ExtResource("2_rkg7s")]
 transform = Transform3D(-0.41555, 0, -0.908266, 0, 0.998814, 0, 0.908266, 0, -0.41555, 51.0538, -0.373138, 215.729)
@@ -251,7 +253,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6333, -1.90735e-06, -450.8
 [node name="pileofsnow" type="Node3D" parent="path_finished"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.691803, 50.1957, -3.8147e-06, 207.978)
 
-[node name="pileofsnow" type="MeshInstance3D" parent="path_finished/pileofsnow"]
+[node name="pileofsnow" type="MeshInstance3D" parent="path_finished/pileofsnow" groups=["enviro"]]
 transform = Transform3D(1, 0, 0, 0, 1.06698, 0, 0, 0, 4.70257, 0, 0.0160508, -1.91536)
 material_override = ExtResource("10_u7gbc")
 mesh = SubResource("ArrayMesh_65v87")
@@ -262,7 +264,7 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="path_finished/pileofsnow/pileofsnow/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_pjvic")
 
-[node name="pileofsnow4" type="MeshInstance3D" parent="path_finished/pileofsnow"]
+[node name="pileofsnow4" type="MeshInstance3D" parent="path_finished/pileofsnow" groups=["enviro"]]
 transform = Transform3D(1, 0, 0, 0, 1.06698, 0, 0, 0, 4.70257, 0, 0.0160508, 0.443847)
 material_override = ExtResource("10_u7gbc")
 mesh = SubResource("ArrayMesh_ev77a")
@@ -273,7 +275,7 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="path_finished/pileofsnow/pileofsnow4/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_pjvic")
 
-[node name="pileofsnow2" type="MeshInstance3D" parent="path_finished/pileofsnow"]
+[node name="pileofsnow2" type="MeshInstance3D" parent="path_finished/pileofsnow" groups=["enviro"]]
 transform = Transform3D(1, 0, 0, 0, 1.59429, 0, 0, 0, 2.71178, 0, 0.0160508, 0.849077)
 material_override = ExtResource("10_u7gbc")
 mesh = SubResource("ArrayMesh_ev77a")
@@ -284,7 +286,7 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="path_finished/pileofsnow/pileofsnow2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_b03do")
 
-[node name="pileofsnow6" type="MeshInstance3D" parent="path_finished/pileofsnow"]
+[node name="pileofsnow6" type="MeshInstance3D" parent="path_finished/pileofsnow" groups=["enviro"]]
 transform = Transform3D(1, 0, 0, 0, 2.08494, 0, 0, 0, 3.69969, 0, 0.0160508, 3.11781)
 material_override = ExtResource("10_u7gbc")
 mesh = SubResource("ArrayMesh_ev77a")
@@ -295,7 +297,7 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="path_finished/pileofsnow/pileofsnow6/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_b03do")
 
-[node name="pileofsnow5" type="MeshInstance3D" parent="path_finished/pileofsnow"]
+[node name="pileofsnow5" type="MeshInstance3D" parent="path_finished/pileofsnow" groups=["enviro"]]
 transform = Transform3D(1, 0, 0, 0, 1.59429, 0, 0, 0, 2.71178, 0, 0.20614, -1.17967)
 material_override = ExtResource("10_u7gbc")
 mesh = SubResource("ArrayMesh_ev77a")
@@ -306,7 +308,7 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="path_finished/pileofsnow/pileofsnow5/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_b03do")
 
-[node name="pileofsnow3" type="MeshInstance3D" parent="path_finished/pileofsnow"]
+[node name="pileofsnow3" type="MeshInstance3D" parent="path_finished/pileofsnow" groups=["enviro"]]
 transform = Transform3D(1, 0, 0, 0, 1.59429, 0, 0, 0, 2.71178, 0, 0.0160508, -2.64617)
 material_override = ExtResource("10_u7gbc")
 mesh = SubResource("ArrayMesh_ev77a")
@@ -322,7 +324,7 @@ shape = SubResource("ConcavePolygonShape3D_b03do")
 [node name="pileofsnow2" type="Node3D" parent="path_finished"]
 transform = Transform3D(-0.607875, 0, 0.521285, 0, 1, 0, -0.794033, 0, -0.399072, 46.0122, -0.00312924, 221.445)
 
-[node name="pileofsnow" type="MeshInstance3D" parent="path_finished/pileofsnow2"]
+[node name="pileofsnow" type="MeshInstance3D" parent="path_finished/pileofsnow2" groups=["enviro"]]
 transform = Transform3D(1, 0, 0, 0, 1.06698, 0, 0, 0, 4.70257, 0, 0.0160508, -1.91536)
 material_override = ExtResource("10_u7gbc")
 mesh = SubResource("ArrayMesh_65v87")
@@ -333,7 +335,7 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="path_finished/pileofsnow2/pileofsnow/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_pjvic")
 
-[node name="pileofsnow4" type="MeshInstance3D" parent="path_finished/pileofsnow2"]
+[node name="pileofsnow4" type="MeshInstance3D" parent="path_finished/pileofsnow2" groups=["enviro"]]
 transform = Transform3D(1, 0, 0, 0, 1.06698, 0, 0, 0, 4.70257, 0, 0.0160508, 0.443847)
 material_override = ExtResource("10_u7gbc")
 mesh = SubResource("ArrayMesh_ev77a")
@@ -344,7 +346,7 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="path_finished/pileofsnow2/pileofsnow4/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_pjvic")
 
-[node name="pileofsnow2" type="MeshInstance3D" parent="path_finished/pileofsnow2"]
+[node name="pileofsnow2" type="MeshInstance3D" parent="path_finished/pileofsnow2" groups=["enviro"]]
 transform = Transform3D(1, 0, 0, 0, 1.59429, 0, 0, 0, 2.71178, 0, 0.0160508, 0.849077)
 material_override = ExtResource("10_u7gbc")
 mesh = SubResource("ArrayMesh_ev77a")
@@ -356,7 +358,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_b03do")
 
-[node name="pileofsnow6" type="MeshInstance3D" parent="path_finished/pileofsnow2"]
+[node name="pileofsnow6" type="MeshInstance3D" parent="path_finished/pileofsnow2" groups=["enviro"]]
 transform = Transform3D(1, 0, 0, 0, 2.08494, 0, 0, 0, 3.69969, 0, 0.0160508, 3.11781)
 material_override = ExtResource("10_u7gbc")
 mesh = SubResource("ArrayMesh_ev77a")
@@ -367,7 +369,7 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="path_finished/pileofsnow2/pileofsnow6/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_b03do")
 
-[node name="pileofsnow5" type="MeshInstance3D" parent="path_finished/pileofsnow2"]
+[node name="pileofsnow5" type="MeshInstance3D" parent="path_finished/pileofsnow2" groups=["enviro"]]
 transform = Transform3D(1, 0, 0, 0, 1.59429, 0, 0, 0, 2.71178, 0, 0.20614, -1.17967)
 material_override = ExtResource("10_u7gbc")
 mesh = SubResource("ArrayMesh_ev77a")
@@ -378,7 +380,7 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="path_finished/pileofsnow2/pileofsnow5/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_b03do")
 
-[node name="pileofsnow3" type="MeshInstance3D" parent="path_finished/pileofsnow2"]
+[node name="pileofsnow3" type="MeshInstance3D" parent="path_finished/pileofsnow2" groups=["enviro"]]
 transform = Transform3D(1, 0, 0, 0, 1.59429, 0, 0, 0, 2.71178, 0, 0.0160508, -2.64617)
 material_override = ExtResource("10_u7gbc")
 mesh = SubResource("ArrayMesh_ev77a")
@@ -555,5 +557,5 @@ transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 73.7414, 0, -581.816)
 
 [node name="FoggySprite" parent="." instance=ExtResource("16_fxj4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7797, 0, -417.181)
-mesh = SubResource("ArrayMesh_k6t20")
+mesh = SubResource("ArrayMesh_rt3vg")
 sprite = SubResource("ImageTexture_kcgp5")

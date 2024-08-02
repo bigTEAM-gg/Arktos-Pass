@@ -14,7 +14,7 @@ const DIST_CLOSE = 0.2
 
 @onready var hurtbox = $Hurtbox
 @onready var target_search_area: Area3D = $TargetSearchArea
-@onready var monster_sprite = $MonsterSprite
+@onready var monster_sprite = $FoggyAnimatedSprite
 @onready var safe_zone_scene := preload("res://scenes/safe_zone.tscn")
 
 
