@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm2s1brrvcwm0"]
+
+[ext_resource type="Script" path="res://scenes/FoggySprite/FoggySprite.gd" id="1_ix1n4"]
+
+[node name="FoggySprite" type="MeshInstance3D"]
+script = ExtResource("1_ix1n4")

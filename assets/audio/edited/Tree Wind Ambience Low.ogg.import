@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dmhj7v6aprwn3"
+path="res://.godot/imported/Tree Wind Ambience Low.ogg-77ba70dcdaa1e00c8a46c7dae431cdbc.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/edited/Tree Wind Ambience Low.ogg"
+dest_files=["res://.godot/imported/Tree Wind Ambience Low.ogg-77ba70dcdaa1e00c8a46c7dae431cdbc.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

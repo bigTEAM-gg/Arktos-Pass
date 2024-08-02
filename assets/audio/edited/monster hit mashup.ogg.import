@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cnbicb3sr3on0"
+path="res://.godot/imported/monster hit mashup.ogg-1fa231fcc3d005f0090817e6aec8f15a.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/edited/monster hit mashup.ogg"
+dest_files=["res://.godot/imported/monster hit mashup.ogg-1fa231fcc3d005f0090817e6aec8f15a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -2,7 +2,11 @@ extends CharacterBody3D
 
 class_name Player
 
-@export var SPEED = 5.0
+
+signal sniper_mode_changed(current: bool)
+
+
+@export var SPEED = 4.0
 @export var JUMP_VELOCITY = 4.5
 @export var JOY_SENS = 0.04
 @export var MOUSE_SENS = 0.002
@@ -31,18 +35,19 @@ var updown: float
 @onready var shooting_delay = $ShootingDelay
 @onready var gunempty_sfx = $GunemptySFX
 @onready var hit_animation: AnimatedSprite3D = $AnimatedSprite3D
-@onready var player_sprite = $PlayerSprite
+@onready var player_sprite = $FoggyAnimatedSprite
+@onready var snow_step = $SnowStep
 @onready var wt = $WT
 @onready var reloadsfx = $Reload
+@onready var aim_sfx = $AimSFX
+@onready var unaim_sfx = $UnaimSFX
+@onready var breath_sfx = $BreathSFX
 
 
 var health = 5
 var ammo
 @export var ammo_magazine_capacity = 2
 @export var ammo_total = 10
-
-
-signal sniper_mode_changed(current: bool)
 
 
 func _ready():
@@ -56,6 +61,13 @@ func _ready():
 	Global.ammopickup.connect(ammo_pickup)
 	
 	total_ammo.text = "%s" % ammo_total
+	player_sprite.frame_changed.connect(
+		func(animation, frame):
+			# Todo: Make sure we're walking
+			if frame == 14 or frame == 33:
+				snow_step.play()
+	)
+	RenderingServer.global_shader_parameter_set("is_editor", false)
 
 func _process(_delta):
 	RenderingServer.global_shader_parameter_set("player_position", global_position)
@@ -73,7 +85,7 @@ func _input(event):
 var is_in_dialog = false
 var is_sniper_mode = false
 var is_sniper_mode_ready = false
-const cam_over = Vector3(0, 10, 15)
+const cam_over = Vector3(0, 20, 30)
 const cam_over_angle = deg_to_rad(-30)
 const cam_over_size = 12.5
 
@@ -98,7 +110,7 @@ func _resolve_sprite():
 	
 	var current_animation = "walk"
 	
-	player_sprite.speed_scale = velocity.length() / 3
+	player_sprite.speed_scale = velocity.length() / 6
 	
 	var next_animation = current_animation + '_' + anim_dirs[d]
 	
@@ -111,7 +123,9 @@ func _resolve_sprite():
 
 
 func process_player_controls():
-	var look_vector = Vector2.ZERO#Input.get_vector("player_look_left", "player_look_right", "player_look_up", "player_look_down")
+	var look_vector = Input.get_vector("player_look_left", "player_look_right", "player_look_up", "player_look_down")
+	if look_vector == null: look_vector = Vector2.ZERO
+	
 	if is_sniper_mode:
 		yaw += look_vector.x * JOY_SENS * -1
 		updown += look_vector.y * JOY_SENS * -1
@@ -121,9 +135,12 @@ func process_player_controls():
 	
 	if Input.is_action_just_pressed("player_aim"):
 		is_sniper_mode = true
+		aim_sfx.play()
+		breath_sfx.play()
 	if Input.is_action_just_released("player_aim"):
 		is_sniper_mode = false
-	
+		unaim_sfx.play()
+		breath_sfx.stop()
 	if Input.is_action_just_pressed("player_shoot") and shooting_delay.is_stopped():
 		if ammo >= 1:
 			var bodies = shoot_hitbox.get_overlapping_bodies()

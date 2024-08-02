@@ -1,12 +1,3 @@
-join huntress leftmost [animation="Fade In" length="0.7"]
-huntress: Sam, what exactly attacked you?
-leave --All-- [animation="Fade Out" length="0.1"]
 join brother_radio leftmost [animation="Fade In" length="0.7"]
-brother_radio: The ... I found it ... too strong.
-leave --All-- [animation="Fade Out" length="0.1"]
-join huntress leftmost [animation="Fade In" length="0.7"]
-huntress: What? What did you see?
-leave --All-- [animation="Fade Out" length="0.1"]
-join brother_radio leftmost [animation="Fade In" length="0.7"]
-brother_radio: ... it hurts ...
+brother_radio: ....Leah.....run...
 leave --All-- [animation="Fade Out" length="0.1"]
