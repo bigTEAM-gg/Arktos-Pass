@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b2rf17dqsyv15"]
+
+[ext_resource type="Texture2D" uid="uid://brkyl6nbatxhh" path="res://assets/SnowyNoise1k/SnowNoise_basecolor.png" id="1_lhc1c"]
+
+[resource]
+shading_mode = 0
+albedo_color = Color(0.772549, 0.772549, 0.772549, 1)
+albedo_texture = ExtResource("1_lhc1c")

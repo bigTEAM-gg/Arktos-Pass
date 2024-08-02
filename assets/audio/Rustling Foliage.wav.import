@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://k4xt67crchgl"
+path="res://.godot/imported/Rustling Foliage.wav-d0668cb9ef01aaa2836a4b7a7cff8cec.sample"
+
+[deps]
+
+source_file="res://assets/audio/Rustling Foliage.wav"
+dest_files=["res://.godot/imported/Rustling Foliage.wav-d0668cb9ef01aaa2836a4b7a7cff8cec.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

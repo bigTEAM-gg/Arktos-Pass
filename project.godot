@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ArktosProto"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/game_scene.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/use_filter=false
 config/icon="res://icon.svg"
@@ -24,14 +24,30 @@ Global="*res://scripts/Global.gd"
 [dialogic]
 
 directories/dch_directory={
+"Johara_phone": "res://dialog/characters/Johara_phone.dch",
 "brother_radio": "res://dialog/characters/brother_radio.dch",
 "huntress": "res://dialog/characters/huntress.dch"
 }
 directories/dtl_directory={
-"test1": "res://dialog/timelines/test1.dtl",
+"phonecall0": "res://dialog/timelines/phonecall0.dtl",
 "test2": "res://dialog/timelines/test2.dtl",
 "test3": "res://dialog/timelines/test3.dtl",
-"timeline": "res://timeline.dtl"
+"text10": "res://dialog/timelines/text10.dtl",
+"text11": "res://dialog/timelines/text11.dtl",
+"text12": "res://dialog/timelines/text12.dtl",
+"text13": "res://dialog/timelines/text13.dtl",
+"text14": "res://dialog/timelines/text14.dtl",
+"text15": "res://dialog/timelines/text15.dtl",
+"text16": "res://dialog/timelines/text16.dtl",
+"text17": "res://dialog/timelines/text17.dtl",
+"text4": "res://dialog/timelines/text4.dtl",
+"text5": "res://dialog/timelines/text5.dtl",
+"text6": "res://dialog/timelines/text6.dtl",
+"text7": "res://dialog/timelines/text7.dtl",
+"text8": "res://dialog/timelines/text8.dtl",
+"text9": "res://dialog/timelines/text9.dtl",
+"wt_pickup": "res://dialog/timelines/wt_pickup.dtl",
+"wt_pickup2": "res://dialog/timelines/wt_pickup2.dtl"
 }
 layout/style_list=["res://dialog/styles/default_dialog.tres"]
 layout/default_style="res://dialog/styles/default_dialog.tres"
@@ -62,8 +78,7 @@ portraits/default_portrait=""
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/stretch/mode="viewport"
 
 [dotnet]
 
@@ -71,7 +86,7 @@ project/assembly_name="ArktosProto"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/visibility_shortcut/plugin.cfg")
 
 [input]
 
@@ -148,6 +163,11 @@ player_shoot={
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":5,"axis_value":1.0,"script":null)
 ]
 }
+player_interaction={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"echo":false,"script":null)
+]
+}
 
 [rendering]
 
@@ -156,3 +176,19 @@ renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/decals/filter=0
 textures/light_projectors/filter=0
+environment/defaults/default_clear_color=Color(0.760784, 0.760784, 0.760784, 1)
+
+[shader_globals]
+
+player_position={
+"type": "vec3",
+"value": Vector3(0, 0, 0)
+}
+fog_color={
+"type": "vec4",
+"value": Vector4(0, 0, 0, 1)
+}
+fog_density={
+"type": "float",
+"value": 0.4
+}

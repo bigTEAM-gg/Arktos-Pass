@@ -2,13 +2,18 @@ extends CharacterBody3D
 
 class_name Player
 
-@export var SPEED = 5.0
+
+signal sniper_mode_changed(current: bool)
+
+
+@export var SPEED = 4.0
 @export var JUMP_VELOCITY = 4.5
 @export var JOY_SENS = 0.04
 @export var MOUSE_SENS = 0.002
 	
 	
 var yaw: float
+var updown: float
 
 
 @onready var camera: Camera3D = $CameraPivot/Camera3D
@@ -20,21 +25,33 @@ var yaw: float
 @onready var shooting_delay = $ShootingDelay
 @onready var gunempty_sfx = $GunemptySFX
 @onready var hit_animation: AnimatedSprite3D = $AnimatedSprite3D
+@onready var player_sprite = $FoggyAnimatedSprite
+@onready var snow_step = $SnowStep
+@onready var wt = $WT
 
 var health = 5
 var ammo = 5
 
 
-signal sniper_mode_changed(current: bool)
-
-
 func _ready():
 	Global.player = self
 	sniper_mode_changed.connect(Global.handle_player_sniper_mode_changed)
+	Global.beepradio.connect(wtbeep)
+	player_sprite.frame_changed.connect(
+		func(animation, frame):
+			# Todo: Make sure we're walking
+			if frame == 14 or frame == 33:
+				snow_step.play()
+	)
+
+func _process(_delta):
+	RenderingServer.global_shader_parameter_set("player_position", global_position)
+
 
 func _input(event):	
 	if event is InputEventMouseMotion and (Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE) or is_sniper_mode):
 		yaw -= event.relative.x * MOUSE_SENS
+		updown -= event.relative.y * MOUSE_SENS
 
 @onready var camera_3d = $CameraPivot/Camera3D
 
@@ -53,11 +70,38 @@ func _physics_process(delta: float) -> void:
 	if !is_in_dialog:
 		process_player_controls()
 	process_sniper_mode()
-		
+	_resolve_sprite()
+
+
+# https://kidscancode.org/godot_recipes/3.x/2d/8_direction/
+const anim_dirs = ['e', 'se', 's', 'sw', 'w', 'nw', 'n', 'ne']
+
+func _resolve_sprite():
+	var direction = Vector2(velocity.x, velocity.z).angle() + get_viewport().get_camera_3d().global_rotation.y
+	var d = snapped(direction, PI/4) / (PI/4)
+	d = wrapi(int(d), 0, 8)
+	
+	var current_animation = "walk"
+	
+	player_sprite.speed_scale = velocity.length() / 6
+	
+	var next_animation = current_animation + '_' + anim_dirs[d]
+	
+	if is_sniper_mode:
+		next_animation = "walk_n"
+		player_sprite.speed_scale = 0
+	
+	if player_sprite.animation != next_animation:
+		player_sprite.play(next_animation)
+
+
 func process_player_controls():
 	var look_vector = Input.get_vector("player_look_left", "player_look_right", "player_look_up", "player_look_down")
+	if look_vector == null: look_vector = Vector2.ZERO
+	
 	if is_sniper_mode:
 		yaw += look_vector.x * JOY_SENS * -1
+		updown += look_vector.y * JOY_SENS * -1
 	else:
 		# This feels kinda wrong ... but idk. Maybe I'm overthinking it
 		yaw += look_vector.x * JOY_SENS * -1
@@ -81,6 +125,7 @@ func process_player_controls():
 		else:
 			gunempty_sfx.play()
 	
+	rotation.x = updown
 	rotation.y = yaw
 	
 	var input_dir := Input.get_vector("player_left", "player_right", "player_forward", "player_back").rotated(-rotation.y)
@@ -118,3 +163,6 @@ func take_damage(amount):
 	health += amount * -1
 	print("Player takes damage. Total damage: ", health)
 	hit_animation.play()
+	
+func wtbeep():
+	wt.play()

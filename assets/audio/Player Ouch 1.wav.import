@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bws4lbkgolvpu"
+path="res://.godot/imported/Player Ouch 1.wav-9d18fc59d779396c487277182a04bb7f.sample"
+
+[deps]
+
+source_file="res://assets/audio/Player Ouch 1.wav"
+dest_files=["res://.godot/imported/Player Ouch 1.wav-9d18fc59d779396c487277182a04bb7f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

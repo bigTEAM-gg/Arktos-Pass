@@ -1,0 +1,10 @@
+join huntress leftmost [animation="Fade In" length="0.7"]
+huntress: That's two down. How are you holding up?
+leave --All-- [animation="Fade Out" length="0.1"]
+join brother_radio leftmost [animation="Fade In" length="0.7"]
+brother_radio: ... I think it's working ... he's ... bleeding ...
+leave --All-- [animation="Fade Out" length="0.1"]
+join huntress leftmost [animation="Fade In" length="0.7"]
+huntress: Good. I'm putting an end to this.
+huntress: To all of this.
+leave --All-- [animation="Fade Out" length="0.1"]

@@ -1,0 +1,3 @@
+join brother_radio leftmost [animation="Fade In" length="0.7"]
+brother_radio: ROARRRR
+leave --All-- [animation="Fade Out" length="0.1"]

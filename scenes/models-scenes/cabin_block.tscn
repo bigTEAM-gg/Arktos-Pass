@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cvt7xsdtis6bo"]
+[gd_scene load_steps=15 format=3 uid="uid://cvt7xsdtis6bo"]
 
 [ext_resource type="PackedScene" uid="uid://d1fg816xw084" path="res://scenes/models-scenes/static-mesh/cabin/backwall.tscn" id="1_qnrj1"]
 [ext_resource type="PackedScene" uid="uid://8gr8rl5sny5t" path="res://scenes/models-scenes/static-mesh/cabin/chimney.tscn" id="2_toge2"]
@@ -12,6 +12,15 @@
 [ext_resource type="PackedScene" uid="uid://bbb3wy56cqodn" path="res://scenes/models-scenes/static-mesh/cabin/roof.tscn" id="10_i30or"]
 [ext_resource type="PackedScene" uid="uid://cs6yf7aaubqnw" path="res://scenes/models-scenes/static-mesh/cabin/steppingrocks.tscn" id="11_btd5c"]
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pxpxt"]
+data = PackedVector3Array(2.7464, 0.4081, 3.3203, -2.7895, 0, 3.3203, -2.7895, 0.4081, 3.3203, 2.7464, 0.4081, 3.3203, 2.7464, 0, 3.3203, -2.7895, 0, 3.3203, 2.7464, 0.4081, 1.4984, 2.7464, 0.4081, 3.3203, -2.7895, 0.4081, 3.3203, -2.7895, 0.4081, 3.3203, -2.7895, 0.4081, 1.4984, 2.7464, 0.4081, 1.4984, 2.7464, 0, 1.4984, -2.7895, 0.4081, 1.4984, -2.7895, 0, 1.4984, 2.7464, 0, 1.4984, 2.7464, 0.4081, 1.4984, -2.7895, 0.4081, 1.4984, 2.7464, 0, 3.3203, -2.7895, 0, 1.4984, -2.7895, 0, 3.3203, 2.7464, 0, 3.3203, 2.7464, 0, 1.4984, -2.7895, 0, 1.4984, 2.7464, 0.4081, 1.4984, 2.7464, 0, 3.3203, 2.7464, 0.4081, 3.3203, 2.7464, 0, 3.3203, 2.7464, 0.4081, 1.4984, 2.7464, 0, 1.4984, -2.7895, 0.4081, 3.3203, -2.7895, 0, 3.3203, -2.7895, 0, 1.4984, -2.7895, 0, 1.4984, -2.7895, 0.4081, 1.4984, -2.7895, 0.4081, 3.3203)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l4npe"]
+size = Vector3(7.51355, 3.92236, 6.5863)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tb6ax"]
+size = Vector3(5.54705, 0.560547, 2.41822)
+
 [node name="cabin" type="Node3D"]
 
 [node name="backwall" parent="." instance=ExtResource("1_qnrj1")]
@@ -20,9 +29,20 @@
 
 [node name="deckblock" parent="." instance=ExtResource("3_elxe4")]
 
+[node name="StaticBody3D" type="StaticBody3D" parent="deckblock"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="deckblock/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_pxpxt")
+
 [node name="doorframewindows" parent="." instance=ExtResource("4_rjne6")]
 
 [node name="frontwall" parent="." instance=ExtResource("5_bfhvd")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="frontwall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="frontwall/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0442505, 1.46118, -1.7204)
+shape = SubResource("BoxShape3D_l4npe")
 
 [node name="leftwall" parent="." instance=ExtResource("6_jn44n")]
 
@@ -35,3 +55,9 @@
 [node name="roof" parent="." instance=ExtResource("10_i30or")]
 
 [node name="steppingrocks" parent="." instance=ExtResource("11_btd5c")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="steppingrocks"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="steppingrocks/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0140505, 0.219727, 2.11511)
+shape = SubResource("BoxShape3D_tb6ax")

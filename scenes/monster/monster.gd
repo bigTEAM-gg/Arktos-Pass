@@ -14,6 +14,7 @@ const DIST_CLOSE = 0.2
 
 @onready var hurtbox = $Hurtbox
 @onready var target_search_area: Area3D = $TargetSearchArea
+@onready var monster_sprite = $MonsterSprite
 @onready var safe_zone_scene := preload("res://scenes/safe_zone.tscn")
 
 
@@ -42,6 +43,7 @@ func _physics_process(delta):
 			_process_monster_stalking_2(delta)
 		MonsterAiMode.STALKING_3:
 			_process_monster_stalking_3(delta)
+  _resolve_sprite()
 
 
 ########### COMMON VARS ###########
@@ -89,16 +91,20 @@ func _process_monster_stalking_1(delta: float):
 		_:
 			print("ERROR: Unhandled stalking state: Mode: ", MonsterAiMode.keys()[monster_ai_mode], "Stalking state: ", StalkingState.keys()[stalking_state])
 
+const anim_dirs = ['e', 'se', 's', 'sw', 'w', 'nw', 'n', 'ne']
 
-################### STALKING 2 ###################
-
-const S2_MOVEMENT_SPEED := 12.0
-const S2_CREEP_PERIOD := 5.0
-const S2_WAIT_PERIOD := 2.0
-const S2_RETREAT_PERIOD := 5.0
-const S2_CREEP_SPEED := 0.3
-const S2_LUNGE_SPEED := 20.0
-const S2_PLAYER_LOOKAHEAD := 15.0
+func _resolve_sprite():
+	var direction = Vector2(velocity.x, velocity.z).angle() + get_viewport().get_camera_3d().global_rotation.y
+	var d = snapped(direction, PI/4) / (PI/4)
+	d = wrapi(int(d), 0, 8)
+	
+	var current_animation = "walk"
+	
+	monster_sprite.speed_scale = velocity.length() / 7
+	
+	var next_animation = current_animation + '_' + anim_dirs[d]
+	if monster_sprite.animation != next_animation:
+		monster_sprite.play(next_animation)
 
 func _process_monster_stalking_2(delta: float):
 	match stalking_state:

@@ -1,7 +1,12 @@
+join huntress leftmost [animation="Fade In" length="0.7"]
+huntress: It still works. Hello? Is anybody there?
+leave --All-- [animation="Fade Out" length="0.1"]
 join brother_radio leftmost [animation="Fade In" length="0.7"]
-brother_radio: hahahaha
-brother_radio: hello i am scary brother
+brother_radio: ....lea...
 leave --All-- [animation="Fade Out" length="0.1"]
 join huntress leftmost [animation="Fade In" length="0.7"]
-huntress: the brother indeed was scary
+huntress: Sam! Is that you?
+leave --All-- [animation="Fade Out" length="0.1"]
+join huntress leftmost [animation="Fade In" length="0.7"]
+huntress: Hello?.... Hello?!! Damn
 leave --All-- [animation="Fade Out" length="0.1"]
