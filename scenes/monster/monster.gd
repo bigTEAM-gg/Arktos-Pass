@@ -14,7 +14,7 @@ const DIST_CLOSE = 0.2
 
 @onready var hurtbox = $Hurtbox
 @onready var target_search_area: Area3D = $TargetSearchArea
-@onready var monster_sprite = $MonsterSprite
+@onready var monster_sprite = $FoggyAnimatedSprite
 @onready var safe_zone_scene := preload("res://scenes/safe_zone.tscn")
 
 
@@ -33,6 +33,10 @@ func _ready():
 
 func _physics_process(delta):
 	if not is_instance_valid(Global.player):
+		print("Monser.gd: Player instance invalid")
+		return
+	if not is_instance_valid(Global.level):
+		print("Monser.gd: Level instance invalid")
 		return
 	match monster_ai_mode:
 		MonsterAiMode.IDLE:

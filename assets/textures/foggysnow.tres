@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dygqpk5ygdtvd"]
+
+[ext_resource type="Shader" path="res://assets/textures/foggyunshaded.gdshader" id="1_wj33o"]
+
+[sub_resource type="Gradient" id="Gradient_2dqbn"]
+offsets = PackedFloat32Array(0, 0.995951)
+colors = PackedColorArray(0, 0, 0, 1, 0.35, 0.35, 0.35, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hq0gw"]
+gradient = SubResource("Gradient_2dqbn")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_wj33o")
+shader_parameter/texture_albedo = SubResource("GradientTexture1D_hq0gw")

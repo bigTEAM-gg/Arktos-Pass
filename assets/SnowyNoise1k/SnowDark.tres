@@ -1,8 +1,7 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b2rf17dqsyv15"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cc27vbeulp02q"]
 
-[ext_resource type="Texture2D" uid="uid://brkyl6nbatxhh" path="res://assets/SnowyNoise1k/SnowNoise_basecolor.png" id="1_lhc1c"]
+[ext_resource type="Shader" path="res://assets/textures/foggyunshaded.gdshader" id="1_wj33o"]
 
 [resource]
-shading_mode = 0
-albedo_color = Color(0.772549, 0.772549, 0.772549, 1)
-albedo_texture = ExtResource("1_lhc1c")
+render_priority = 0
+shader = ExtResource("1_wj33o")

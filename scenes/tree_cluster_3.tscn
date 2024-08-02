@@ -3,11 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dtfqbg2in6vo6" path="res://scenes/models-scenes/tree_block.tscn" id="1_sh56d"]
 [ext_resource type="PackedScene" uid="uid://dt7iaprndki67" path="res://scenes/foreststuff/FirTree2.tscn" id="2_a21ln"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dpe8p"]
-albedo_color = Color(0.803922, 1, 1, 1)
-
 [node name="tree_block" instance=ExtResource("1_sh56d")]
-surface_material_override/0 = SubResource("StandardMaterial3D_dpe8p")
 
 [node name="tree_block_COL" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015918, 0)

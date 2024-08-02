@@ -197,7 +197,7 @@ func process_sniper_mode():
 				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			is_sniper_mode_ready = true
 	
-func take_damage(amount):
+func take_damage(amount = 1):
 	health += amount * -1
 	health_count.text = "%s" % health
 	#print("Player takes damage. Total damage: ", health)

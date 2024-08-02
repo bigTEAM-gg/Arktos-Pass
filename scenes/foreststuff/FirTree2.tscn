@@ -1,12 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://dt7iaprndki67"]
+[gd_scene load_steps=6 format=3 uid="uid://dt7iaprndki67"]
 
 [ext_resource type="Texture2D" uid="uid://b0c1d286pqw40" path="res://scenes/foreststuff/firtree2.png" id="1_2dpve"]
+[ext_resource type="PackedScene" uid="uid://cm2s1brrvcwm0" path="res://scenes/FoggySprite/FoggySprite.tscn" id="1_6worb"]
+[ext_resource type="Shader" path="res://scenes/FoggyAnimatedSprite/billboard.gdshader" id="2_7fme2"]
 
-[node name="Tree2" type="Node3D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bpbwj"]
+render_priority = 0
+shader = ExtResource("2_7fme2")
+shader_parameter/directions = 1
+shader_parameter/frame_count = 1
+shader_parameter/frame = 0
+shader_parameter/scale = 0.5
+shader_parameter/y_billboard = true
+shader_parameter/use_alpha = true
+shader_parameter/albedo = ExtResource("1_2dpve")
 
-[node name="Sprite2D" type="Sprite3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 2.34403, 0)
-billboard = 2
-alpha_cut = 1
-texture_filter = 0
-texture = ExtResource("1_2dpve")
+[sub_resource type="ArrayMesh" id="ArrayMesh_e86sm"]
+_surfaces = [{
+"aabb": AABB(-5.12, -5.12, 0, 10.24, 10.24, 1e-05),
+"attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
+"material": SubResource("ShaderMaterial_bpbwj"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(10, 215, 163, 192, 10, 215, 163, 64, 0, 0, 0, 0, 10, 215, 163, 192, 10, 215, 163, 192, 0, 0, 0, 0, 10, 215, 163, 64, 10, 215, 163, 192, 0, 0, 0, 0, 10, 215, 163, 64, 10, 215, 163, 64, 0, 0, 0, 0)
+}]
+
+[node name="Tree2" type="Node3D" groups=["enviro"]]
+
+[node name="FoggySprite" parent="." instance=ExtResource("1_6worb")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 2.35845, 0)
+mesh = SubResource("ArrayMesh_e86sm")
+sprite = ExtResource("1_2dpve")
