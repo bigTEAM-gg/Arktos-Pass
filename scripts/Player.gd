@@ -14,8 +14,8 @@ var updown: float
 #scope sprite
 @onready var scope = $Scope
 #bullet sprites
-@onready var bullet_1 = $AmmoCount/Bullet1
-@onready var bullet_2 = $AmmoCount/Bullet2
+@onready var bullet_count = $AmmoCount/BulletCount
+
 @onready var total_ammo = $AmmoCount/TotalAmmo
 #ammo display
 @onready var health_count = $HealthUI/HealthCount
@@ -82,17 +82,6 @@ func _physics_process(delta: float) -> void:
 		process_player_controls()
 	process_sniper_mode()
 	_resolve_sprite()
-	if (ammo == 2):
-		bullet_1.visible = true
-		bullet_2.visible = true
-	
-	if (ammo == 1):
-		bullet_1.visible = true
-		bullet_2.visible = false
-		
-	if (ammo == 0):
-		bullet_1.visible = false
-		bullet_2.visible = false
 
 
 # https://kidscancode.org/godot_recipes/3.x/2d/8_direction/
@@ -139,6 +128,7 @@ func process_player_controls():
 					body.shot(global_position)
 			gunshot_sfx.play()
 			ammo -= 1
+			bullet_count.text = "%s" % ammo
 			shooting_delay.start()
 			await get_tree().create_timer(0.4).timeout
 			gunbolt_sfx.play()	
@@ -205,12 +195,14 @@ func reload():
 		ammo = ammo_magazine_capacity
 		await get_tree().create_timer(0.2).timeout
 		reloadsfx.play()
+		bullet_count.text = "%s" % ammo
 		
 	if (ammo < ammo_magazine_capacity) and (ammo_total < ammo_magazine_capacity) and (ammo_total > 0):
 		ammo = ammo + ammo_total
 		ammo_total = 0
 		await get_tree().create_timer(0.2).timeout
 		reloadsfx.play()
+		bullet_count.text = "%s" % ammo
 		
 	if (ammo < ammo_magazine_capacity) and (ammo_total <= 0):
 		print ("not enough ammo")
