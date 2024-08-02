@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://b7qmc6himhisa"]
+[gd_scene load_steps=36 format=3 uid="uid://b7qmc6himhisa"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_dl7pv"]
 [ext_resource type="PackedScene" uid="uid://c041dl1a3mvvj" path="res://scenes/FoggyAnimatedSprite/FoggyAnimatedSprite.tscn" id="2_0p2o0"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bkv170jpqy24q" path="res://assets/gun_fire.ogg" id="3_ryut6"]
 [ext_resource type="SpriteFrames" uid="uid://b1ad2hmyrqs6q" path="res://assets/player/player_walk_frames.tres" id="3_x2g56"]
 [ext_resource type="Texture2D" uid="uid://bck7l8lav4l04" path="res://assets/textures/Hit_Effect-Sheet.png" id="3_xl53f"]
+[ext_resource type="Texture2D" uid="uid://sr0cpcqd2i60" path="res://assets/player/walk_e/walk_e0036.png" id="4_fmn1v"]
 [ext_resource type="AudioStream" uid="uid://cjjhjxy6272q6" path="res://assets/gun_bolt.wav" id="4_tk243"]
 [ext_resource type="AudioStream" uid="uid://c63rbmhv2pjop" path="res://assets/gun_empty.wav" id="5_ifngk"]
 [ext_resource type="AudioStream" uid="uid://caltm2tipf6tn" path="res://assets/audio/wt.mp3" id="6_1xcwr"]
@@ -14,20 +15,29 @@
 [ext_resource type="AudioStream" uid="uid://btjdhll6har2b" path="res://assets/audio/edited/unaim.ogg" id="13_7mmky"]
 [ext_resource type="AudioStream" uid="uid://dmhj7v6aprwn3" path="res://assets/audio/edited/Tree Wind Ambience Low.ogg" id="13_bbfnl"]
 [ext_resource type="AudioStream" uid="uid://brl6tb8h1ovre" path="res://assets/audio/edited/aim.ogg" id="14_cnqdg"]
+[ext_resource type="Texture2D" uid="uid://db0udbfko4p3i" path="res://assets/UI/scope.png" id="16_2jmw5"]
 [ext_resource type="AudioStream" uid="uid://cd0maxvorxyon" path="res://assets/audio/edited/breath_soft.ogg" id="16_6sl7h"]
+[ext_resource type="AudioStream" uid="uid://eoqkv8mw4jjs" path="res://assets/audio/1888.wav" id="17_8tiwk"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_eoa68"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cwm3h"]
 render_priority = 0
 shader = ExtResource("3_6gy4u")
+shader_parameter/directions = 1
+shader_parameter/frame_count = 1
+shader_parameter/frame = 0
+shader_parameter/scale = 4.0
+shader_parameter/y_billboard = true
+shader_parameter/use_alpha = true
+shader_parameter/albedo = ExtResource("4_fmn1v")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_o82n2"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_bp7kx"]
 _surfaces = [{
 "aabb": AABB(-0.32, -0.32, 0, 0.64, 0.64001, 1e-05),
 "attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0),
 "format": 34359742481,
 "index_count": 6,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
-"material": SubResource("ShaderMaterial_eoa68"),
+"material": SubResource("ShaderMaterial_cwm3h"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
@@ -145,7 +155,7 @@ script = ExtResource("1_dl7pv")
 
 [node name="FoggyAnimatedSprite" parent="." instance=ExtResource("2_0p2o0")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 1.08256, 0)
-mesh = SubResource("ArrayMesh_o82n2")
+mesh = SubResource("ArrayMesh_bp7kx")
 sprite_frames = ExtResource("3_x2g56")
 animation = "walk_e"
 
@@ -184,13 +194,15 @@ size = 12.5
 
 [node name="GunshotSFX" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_arhf3")
-volume_db = -80.0
 
 [node name="GunboltSFX" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_m1grh")
 
 [node name="WT" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_1xcwr")
+
+[node name="Reload" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_8tiwk")
 
 [node name="GunemptySFX" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_vrqmo")
@@ -210,6 +222,84 @@ material = SubResource("StandardMaterial3D_dt536")
 
 [node name="ShootingDelay" type="Timer" parent="."]
 one_shot = true
+
+[node name="Scope" type="CanvasLayer" parent="."]
+offset = Vector2(850, 600)
+transform = Transform2D(1, 0, 0, 1, 850, 600)
+
+[node name="TextureRect" type="TextureRect" parent="Scope"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -850.0
+offset_top = -600.0
+offset_right = -850.0
+offset_bottom = -600.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("16_2jmw5")
+metadata/_edit_use_anchors_ = true
+
+[node name="AmmoCount" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="AmmoCount"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -227.0
+offset_top = -194.0
+offset_right = -187.0
+offset_bottom = -154.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Divider" type="Label" parent="AmmoCount/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 203.0
+scale = Vector2(0.643905, 0.643905)
+theme_override_font_sizes/font_size = 200
+text = "|"
+
+[node name="TotalAmmo" type="Label" parent="AmmoCount/Control"]
+layout_mode = 0
+offset_left = 33.0
+offset_right = 146.0
+offset_bottom = 203.0
+scale = Vector2(0.535934, 0.53087)
+theme_override_font_sizes/font_size = 200
+text = "10"
+
+[node name="BulletCount" type="Label" parent="AmmoCount/Control"]
+layout_mode = 0
+offset_left = -49.0
+offset_top = 3.0
+offset_right = 11.0
+offset_bottom = 206.0
+scale = Vector2(0.488071, 0.489808)
+theme_override_font_sizes/font_size = 200
+text = "2"
+
+[node name="HealthUI" type="CanvasLayer" parent="."]
+
+[node name="HealthCount" type="Label" parent="HealthUI"]
+anchors_preset = -1
+anchor_left = 0.722
+anchor_top = 0.749
+anchor_right = 0.722
+anchor_bottom = 0.749
+offset_left = 347.76
+offset_top = -52.92
+offset_right = 460.76
+offset_bottom = 150.08
+scale = Vector2(0.511494, 0.511494)
+theme_override_font_sizes/font_size = 200
+text = "5"
 
 [node name="SnowStep" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_cexxs")

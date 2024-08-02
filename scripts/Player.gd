@@ -10,10 +10,20 @@ signal sniper_mode_changed(current: bool)
 @export var JUMP_VELOCITY = 4.5
 @export var JOY_SENS = 0.04
 @export var MOUSE_SENS = 0.002
+@export var heal_point = 2
 	
 	
 var yaw: float
 var updown: float
+
+#scope sprite
+@onready var scope = $Scope
+#bullet sprites
+@onready var bullet_count = $AmmoCount/Control/BulletCount
+@onready var total_ammo = $AmmoCount/Control/TotalAmmo
+
+#ammo display
+@onready var health_count = $HealthUI/HealthCount
 
 
 @onready var camera: Camera3D = $CameraPivot/Camera3D
@@ -28,19 +38,29 @@ var updown: float
 @onready var player_sprite = $FoggyAnimatedSprite
 @onready var snow_step = $SnowStep
 @onready var wt = $WT
+@onready var reloadsfx = $Reload
 @onready var aim_sfx = $AimSFX
 @onready var unaim_sfx = $UnaimSFX
 @onready var breath_sfx = $BreathSFX
 
 
 var health = 5
-var ammo = 5
+var ammo
+@export var ammo_magazine_capacity = 2
+@export var ammo_total = 10
 
 
 func _ready():
 	Global.player = self
+	ammo = ammo_magazine_capacity
 	sniper_mode_changed.connect(Global.handle_player_sniper_mode_changed)
 	Global.beepradio.connect(wtbeep)
+	Global.reloadammo.connect(reload)
+	Global.takedamage.connect(take_damage)
+	Global.healthpickup.connect(heal)
+	Global.ammopickup.connect(ammo_pickup)
+	
+	total_ammo.text = "%s" % ammo_total
 	player_sprite.frame_changed.connect(
 		func(animation, frame):
 			# Todo: Make sure we're walking
@@ -51,7 +71,9 @@ func _ready():
 
 func _process(_delta):
 	RenderingServer.global_shader_parameter_set("player_position", global_position)
-
+	if Input.is_action_just_pressed("reload"):
+		Global.reloadammo.emit()
+		
 
 func _input(event):	
 	if event is InputEventMouseMotion and (Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE) or is_sniper_mode):
@@ -107,9 +129,9 @@ func process_player_controls():
 	if is_sniper_mode:
 		yaw += look_vector.x * JOY_SENS * -1
 		updown += look_vector.y * JOY_SENS * -1
-	else:
+	#else:
 		# This feels kinda wrong ... but idk. Maybe I'm overthinking it
-		yaw += look_vector.x * JOY_SENS * -1
+		#yaw += look_vector.x * JOY_SENS * -1
 	
 	if Input.is_action_just_pressed("player_aim"):
 		is_sniper_mode = true
@@ -120,19 +142,22 @@ func process_player_controls():
 		unaim_sfx.play()
 		breath_sfx.stop()
 	if Input.is_action_just_pressed("player_shoot") and shooting_delay.is_stopped():
-		if ammo > 1:
+		if ammo >= 1:
 			var bodies = shoot_hitbox.get_overlapping_bodies()
 			for body in bodies:
 				if body.is_in_group("critters"):
 					body.shot(global_position)
 			gunshot_sfx.play()
 			ammo -= 1
+			bullet_count.text = "%s" % ammo
 			shooting_delay.start()
 			await get_tree().create_timer(0.4).timeout
-			gunbolt_sfx.play()
+			gunbolt_sfx.play()	
+			
 		else:
 			gunempty_sfx.play()
-	
+			
+		
 	rotation.x = updown
 	rotation.y = yaw
 	
@@ -148,7 +173,10 @@ func process_player_controls():
 	move_and_slide()
 
 func process_sniper_mode():
+	
 	if not is_sniper_mode:
+		scope.visible = false
+		player_sprite.visible = true
 		camera_3d.position = camera_3d.position.lerp(cam_over, 0.1)
 		camera_3d.rotation.x = lerp_angle(camera_3d.rotation.x, cam_over_angle, 0.1)
 		camera_3d.size = lerp(camera_3d.size, cam_over_size, 0.1)
@@ -158,6 +186,8 @@ func process_sniper_mode():
 				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			is_sniper_mode_ready = false
 	else:
+		scope.visible = true
+		player_sprite.visible = false
 		camera_3d.position = camera_3d.position.lerp(cam_fps, 0.1)
 		camera_3d.rotation.x = lerp_angle(camera_3d.rotation.x, cam_fps_angle, 0.1)
 		camera_3d.size = lerp(camera_3d.size, cam_fps_size, 0.1)
@@ -169,8 +199,49 @@ func process_sniper_mode():
 	
 func take_damage(amount):
 	health += amount * -1
-	print("Player takes damage. Total damage: ", health)
+	health_count.text = "%s" % health
+	#print("Player takes damage. Total damage: ", health)
 	hit_animation.play()
+	
+func heal():
+	health = health + heal_point
+	health_count.text = "%s" % health
 	
 func wtbeep():
 	wt.play()
+	
+func reload():
+	
+	if (ammo == ammo_magazine_capacity):
+		print ("full ammo")
+		
+	if (ammo < ammo_magazine_capacity) and (ammo_total >= ammo_magazine_capacity):
+		ammo_total = ammo_total - (ammo_magazine_capacity - ammo)
+		ammo = ammo_magazine_capacity
+		await get_tree().create_timer(0.2).timeout
+		reloadsfx.play()
+		bullet_count.text = "%s" % ammo
+		
+	if (ammo < ammo_magazine_capacity) and (ammo_total < ammo_magazine_capacity) and (ammo_total > 0):
+		ammo = ammo + ammo_total
+		ammo_total = 0
+		await get_tree().create_timer(0.2).timeout
+		reloadsfx.play()
+		bullet_count.text = "%s" % ammo
+		
+	if (ammo < ammo_magazine_capacity) and (ammo_total <= 0):
+		print ("not enough ammo")
+		
+	total_ammo.text = "%s" % ammo_total
+	print("ammo reload complete")
+	print("total new ammo ", ammo)
+	print("total ammo left:  ", ammo_total)
+	
+func ammo_pickup():
+	ammo_total= ammo_total + 6
+	total_ammo.text = "%s" % ammo_total
+	reloadsfx.play()
+
+
+
+

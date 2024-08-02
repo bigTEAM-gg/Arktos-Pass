@@ -1,18 +1,17 @@
-[gd_scene load_steps=29 format=3 uid="uid://b7lmp3ynu4ubs"]
+[gd_scene load_steps=29 format=3 uid="uid://bwqj8u0u1ndhh"]
 
 [ext_resource type="Script" path="res://scripts/game_scene.gd" id="1_03cmh"]
 [ext_resource type="Material" uid="uid://dtvnutqkcg0ig" path="res://assets/SnowyNoise1k/Snow.tres" id="1_lfgo5"]
 [ext_resource type="PackedScene" uid="uid://cvt7xsdtis6bo" path="res://scenes/models-scenes/cabin_block.tscn" id="2_rkg7s"]
 [ext_resource type="PackedScene" uid="uid://4478f05ggc05" path="res://scenes/models-scenes/static-mesh/watertower.dae" id="3_t7f0h"]
 [ext_resource type="PackedScene" uid="uid://bynfws7xny3na" path="res://scenes/models-scenes/static-mesh/signpost.dae" id="4_yyxpq"]
-[ext_resource type="PackedScene" path="res://scenes/path_finished.tscn" id="8_w30l1"]
-[ext_resource type="PackedScene" uid="uid://bry0febas86xs" path="res://scenes/models-scenes/bush_block.tscn" id="9_ihu87"]
+[ext_resource type="PackedScene" uid="uid://dsawt3l7fq1lj" path="res://scenes/path_finished.tscn" id="8_w30l1"]
 [ext_resource type="PackedScene" uid="uid://cqf6x7wc6858t" path="res://scenes/models-scenes/rock_block.tscn" id="10_e7xes"]
-[ext_resource type="Material" uid="uid://b2rf17dqsyv15" path="res://assets/SnowyNoise1k/SnowDark.tres" id="10_u7gbc"]
+[ext_resource type="Material" path="res://assets/SnowyNoise1k/SnowDark.tres" id="10_u7gbc"]
 [ext_resource type="PackedScene" uid="uid://d36dbfrl5bbkm" path="res://scenes/foreststuff/Bush.tscn" id="11_0hpca"]
 [ext_resource type="PackedScene" uid="uid://t8h7n1ckwnbm" path="res://scenes/bush_cluster_1.tscn" id="11_5h5pj"]
 [ext_resource type="PackedScene" uid="uid://b7qmc6himhisa" path="res://scenes/player.tscn" id="12_clta6"]
-[ext_resource type="PackedScene" path="res://scenes/dialog_trigger.tscn" id="14_utow1"]
+[ext_resource type="PackedScene" uid="uid://r32t07tg6eh4" path="res://scenes/dialog_trigger.tscn" id="14_utow1"]
 [ext_resource type="PackedScene" uid="uid://cm2s1brrvcwm0" path="res://scenes/FoggySprite/FoggySprite.tscn" id="16_fxj4x"]
 [ext_resource type="PackedScene" uid="uid://dt7iaprndki67" path="res://scenes/foreststuff/FirTree2.tscn" id="16_gxxqp"]
 [ext_resource type="PackedScene" uid="uid://y43sowoxgvba" path="res://scenes/monster/monster.tscn" id="17_aqrxp"]
@@ -109,26 +108,25 @@ data = PackedVector3Array(0.6304, 0, -0.4394, 0.8108, 0, -0.2313, 0.7645, 0.0404
 
 [sub_resource type="ImageTexture" id="ImageTexture_kcgp5"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6jr18"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n858q"]
 render_priority = 0
 shader = ExtResource("17_yo16d")
 shader_parameter/directions = 1
 shader_parameter/frame_count = 1
 shader_parameter/frame = 0
 shader_parameter/scale = 1.0
-shader_parameter/is_editor = true
 shader_parameter/y_billboard = true
 shader_parameter/use_alpha = true
 shader_parameter/albedo = SubResource("ImageTexture_kcgp5")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_xhn8e"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_k71yn"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 1e-05, 1e-05, 1e-05),
 "attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0),
 "format": 34359742481,
 "index_count": 6,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
-"material": SubResource("ShaderMaterial_6jr18"),
+"material": SubResource("ShaderMaterial_n858q"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
@@ -557,5 +555,5 @@ transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 73.7414, 0, -581.816)
 
 [node name="FoggySprite" parent="." instance=ExtResource("16_fxj4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7797, 0, -417.181)
-mesh = SubResource("ArrayMesh_xhn8e")
+mesh = SubResource("ArrayMesh_k71yn")
 sprite = SubResource("ImageTexture_kcgp5")
