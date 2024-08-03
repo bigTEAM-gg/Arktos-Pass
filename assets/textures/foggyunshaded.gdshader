@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode depth_draw_always, unshaded;
+render_mode unshaded, depth_draw_always, shadows_disabled;
 
 uniform sampler2D texture_albedo : source_color, filter_nearest, repeat_enable;
 global uniform vec3 player_position;
