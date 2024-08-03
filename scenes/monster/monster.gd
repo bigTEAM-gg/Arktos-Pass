@@ -29,6 +29,7 @@ func _ready():
 	hurtbox.body_entered.connect(_on_body_entered)
 	#monster_ai_mode = MonsterAiMode.STALKING_3
 	Global.monster = self
+	set_ai_mode(monster_ai_mode)
 
 
 func _physics_process(delta):
@@ -48,6 +49,16 @@ func _physics_process(delta):
 		MonsterAiMode.STALKING_3:
 			_process_monster_stalking_3(delta)
 	_resolve_sprite()
+
+
+func set_ai_mode(mode: MonsterAiMode):
+	if DEBUG: print ("Monster AI Mode: ", MonsterAiMode.keys()[monster_ai_mode], " -> ", MonsterAiMode.keys()[mode])
+	monster_ai_mode = mode
+	_set_stalking_state(StalkingState.WAIT)
+	if monster_ai_mode == MonsterAiMode.STALKING_1 || monster_ai_mode == MonsterAiMode.IDLE:
+		monster_sprite.visible = false
+	else:
+		monster_sprite.visible = true
 
 # https://kidscancode.org/godot_recipes/3.x/2d/8_direction/
 const anim_dirs = ['e', 'se', 's', 'sw', 'w', 'nw', 'n', 'ne']
@@ -318,6 +329,11 @@ func _set_stalking_state(new_state: StalkingState):
 	started_creeping_at_tree = null
 	retreat_target = null
 	follow_target = null
+	if monster_ai_mode != MonsterAiMode.STALKING_1 && monster_ai_mode != MonsterAiMode.IDLE:
+		if stalking_state == StalkingState.WAIT:
+			monster_sprite.visible = false
+		else:
+			monster_sprite.visible = true
 
 
 func _move_to_target(target: Vector3, speed: float):
