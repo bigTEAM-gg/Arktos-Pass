@@ -111,7 +111,7 @@ data = PackedVector3Array(0.6304, 0, -0.4394, 0.8108, 0, -0.2313, 0.7645, 0.0404
 
 [sub_resource type="ImageTexture" id="ImageTexture_kcgp5"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_aqr5i"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xljqc"]
 render_priority = 0
 shader = ExtResource("17_yo16d")
 shader_parameter/directions = 1
@@ -122,14 +122,14 @@ shader_parameter/y_billboard = true
 shader_parameter/use_alpha = true
 shader_parameter/albedo = SubResource("ImageTexture_kcgp5")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_2f8pf"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_ff5ls"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 1e-05, 1e-05, 1e-05),
 "attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0),
 "format": 34359742481,
 "index_count": 6,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
-"material": SubResource("ShaderMaterial_aqr5i"),
+"material": SubResource("ShaderMaterial_xljqc"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
@@ -557,5 +557,5 @@ transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 73.7414, 0, -581.816)
 
 [node name="FoggySprite" parent="." instance=ExtResource("16_fxj4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7797, 0, -417.181)
-mesh = SubResource("ArrayMesh_2f8pf")
+mesh = SubResource("ArrayMesh_ff5ls")
 sprite = SubResource("ImageTexture_kcgp5")

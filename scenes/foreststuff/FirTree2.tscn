@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dt7iaprndki67"]
+[gd_scene load_steps=8 format=3 uid="uid://dt7iaprndki67"]
 
 [ext_resource type="Texture2D" uid="uid://b0c1d286pqw40" path="res://scenes/foreststuff/firtree2.png" id="1_2dpve"]
 [ext_resource type="PackedScene" uid="uid://cm2s1brrvcwm0" path="res://scenes/FoggySprite/FoggySprite.tscn" id="1_6worb"]
+[ext_resource type="Script" path="res://scenes/foreststuff/FirTree.gd" id="1_p5rbx"]
 [ext_resource type="Shader" path="res://scenes/FoggyAnimatedSprite/billboard.gdshader" id="2_7fme2"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bpbwj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vwkgm"]
 render_priority = 0
 shader = ExtResource("2_7fme2")
 shader_parameter/directions = 1
@@ -15,23 +16,38 @@ shader_parameter/y_billboard = true
 shader_parameter/use_alpha = true
 shader_parameter/albedo = ExtResource("1_2dpve")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_e86sm"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_p81n1"]
 _surfaces = [{
 "aabb": AABB(-5.12, -5.12, 0, 10.24, 10.24, 1e-05),
 "attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0),
 "format": 34359742481,
 "index_count": 6,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
-"material": SubResource("ShaderMaterial_bpbwj"),
+"material": SubResource("ShaderMaterial_vwkgm"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
 "vertex_data": PackedByteArray(10, 215, 163, 192, 10, 215, 163, 64, 0, 0, 0, 0, 10, 215, 163, 192, 10, 215, 163, 192, 0, 0, 0, 0, 10, 215, 163, 64, 10, 215, 163, 192, 0, 0, 0, 0, 10, 215, 163, 64, 10, 215, 163, 64, 0, 0, 0, 0)
 }]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_tx0dk"]
+
 [node name="Tree2" type="Node3D" groups=["enviro"]]
+script = ExtResource("1_p5rbx")
 
 [node name="FoggySprite" parent="." instance=ExtResource("1_6worb")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 2.35845, 0)
-mesh = SubResource("ArrayMesh_e86sm")
+layers = 2
+mesh = SubResource("ArrayMesh_p81n1")
 sprite = ExtResource("1_2dpve")
+
+[node name="Area3D" type="Area3D" parent="." groups=["fir_tree"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.422797, 0)
+shape = SubResource("SphereShape3D_tx0dk")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_body_exited"]
