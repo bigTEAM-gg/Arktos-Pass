@@ -5,6 +5,7 @@ class_name DialogTrigger
 @export var dialogic_timeline = "test3"
 @export var isWT :bool = false
 @export var isRoar :bool = false
+@export var monster_ai_to_set: Monster.MonsterAiMode 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
@@ -30,4 +31,5 @@ func _on_dialog_timeline_ended() -> void:
 	Global.player.shooting_delay.start()
 	get_tree().paused = false
 	queue_free()
+	Global.monster.set_ai_mode(monster_ai_to_set)
 	
