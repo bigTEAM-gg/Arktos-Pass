@@ -1,16 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://t8h7n1ckwnbm"]
+[gd_scene load_steps=3 format=3 uid="uid://t8h7n1ckwnbm"]
 
 [ext_resource type="PackedScene" uid="uid://cqf6x7wc6858t" path="res://scenes/models-scenes/rock_block.tscn" id="1_5lhdj"]
 [ext_resource type="PackedScene" uid="uid://d36dbfrl5bbkm" path="res://scenes/foreststuff/Bush.tscn" id="2_jcdg3"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6n3d"]
-albedo_color = Color(0.345098, 0.345098, 0.345098, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s87tn"]
-albedo_color = Color(0.345098, 0.345098, 0.345098, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gufli"]
-albedo_color = Color(0.345098, 0.345098, 0.345098, 1)
 
 [node name="bush_cluster_1" type="Node3D"]
 

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cm2s1brrvcwm0" path="res://scenes/FoggySprite/FoggySprite.tscn" id="2_owgh2"]
 [ext_resource type="Shader" path="res://scenes/FoggyAnimatedSprite/billboard.gdshader" id="3_jqmgk"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_awajc"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ep3uu"]
 render_priority = 0
 shader = ExtResource("3_jqmgk")
 shader_parameter/directions = 1
@@ -15,14 +15,14 @@ shader_parameter/y_billboard = true
 shader_parameter/use_alpha = true
 shader_parameter/albedo = ExtResource("1_8rcrh")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_htrsc"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_d5mem"]
 _surfaces = [{
 "aabb": AABB(-5.12, -5.12, 0, 10.24, 10.24, 1e-05),
 "attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0),
 "format": 34359742481,
 "index_count": 6,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
-"material": SubResource("ShaderMaterial_awajc"),
+"material": SubResource("ShaderMaterial_ep3uu"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
@@ -31,15 +31,7 @@ _surfaces = [{
 
 [node name="Bush" type="Node3D" groups=["enviro"]]
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 1.12875, 0)
-visible = false
-billboard = 2
-alpha_cut = 1
-texture_filter = 0
-texture = ExtResource("1_8rcrh")
-
 [node name="FoggySprite" parent="." instance=ExtResource("2_owgh2")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 1.10965, 0)
-mesh = SubResource("ArrayMesh_htrsc")
+transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24333, 0)
+mesh = SubResource("ArrayMesh_d5mem")
 sprite = ExtResource("1_8rcrh")
