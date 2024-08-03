@@ -51,9 +51,9 @@ albedo_color = Color(1, 1, 0, 0.137255)
 
 [node name="Monster" type="CharacterBody3D" groups=["critters"]]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 0
 script = ExtResource("1_ygfpi")
-monster_ai_mode = 3
+monster_ai_mode = 2
 
 [node name="FoggyAnimatedSprite" parent="." instance=ExtResource("2_udiyf")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.3988, 0)
@@ -64,7 +64,6 @@ animation = "walk_e"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_w0v3e")
-disabled = true
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
