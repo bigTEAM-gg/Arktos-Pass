@@ -3,7 +3,7 @@
 //Made with help from Blackle Mori at suricrasia.online and MrTriPie's commnets on GDshaders
 
 shader_type spatial;
-render_mode unshaded, depth_prepass_alpha, cull_disabled;
+render_mode unshaded, depth_prepass_alpha, cull_disabled, shadows_disabled;
 
 global uniform vec3 player_position;
 global uniform vec4 fog_color : source_color;
