@@ -7,8 +7,9 @@ signal frame_changed(animation, frame)
 
 @export var sprite_frames: SpriteFrames = null :
 	set(value):
+		if Engine.is_editor_hint():
+			_ready()
 		sprite_frames = value
-		_ready()
 @export var animation: String = ""
 @export var speed_scale: float = 1.0
 
@@ -25,6 +26,8 @@ const FOGGY_ANIMATED_SPRITE = preload("res://scenes/FoggyAnimatedSprite/FoggyAni
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if not Engine.is_editor_hint():
+		return
 	if sprite_frames == null:
 		mesh = null
 		return
