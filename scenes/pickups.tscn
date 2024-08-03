@@ -1,0 +1,136 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7xacq8b2bf83"]
+
+[ext_resource type="PackedScene" uid="uid://bjfy8s6x4bcu" path="res://scenes/ammobox.tscn" id="1_6k2j2"]
+[ext_resource type="PackedScene" uid="uid://ddu3srsg8wh4g" path="res://scenes/firstaidkit.tscn" id="2_17gxd"]
+[ext_resource type="PackedScene" uid="uid://dd7cx40g0whc3" path="res://scenes/rock_path.tscn" id="3_fcsp6"]
+
+[node name="pickups" type="Node3D"]
+
+[node name="AmmoBox2" parent="." instance=ExtResource("1_6k2j2")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -160.455, 0.599484, -276.91)
+
+[node name="AmmoBox4" parent="." instance=ExtResource("1_6k2j2")]
+transform = Transform3D(0.301721, 0, 0.518618, 0, 0.6, 0, -0.518618, 0, 0.301721, 39.6962, 0.599484, -470.992)
+
+[node name="AmmoBox5" parent="." instance=ExtResource("1_6k2j2")]
+transform = Transform3D(0.56609, 0, 0.198852, 0, 0.6, 0, -0.198852, 0, 0.56609, 30.7995, 0.599486, -602.966)
+
+[node name="AmmoBox6" parent="." instance=ExtResource("1_6k2j2")]
+transform = Transform3D(0.582427, 0, 0.144147, 0, 0.6, 0, -0.144147, 0, 0.582427, 68.2539, 0.599486, -585.201)
+
+[node name="AmmoBox7" parent="." instance=ExtResource("1_6k2j2")]
+transform = Transform3D(0.291325, 0, -0.524528, 0, 0.6, 0, 0.524528, 0, 0.291325, 47.2989, 0.599486, -611.376)
+
+[node name="AmmoBox8" parent="." instance=ExtResource("1_6k2j2")]
+transform = Transform3D(0.291325, 0, -0.524528, 0, 0.6, 0, 0.524528, 0, 0.291325, -3.89532, 0.599487, -624.945)
+
+[node name="AmmoBox9" parent="." instance=ExtResource("1_6k2j2")]
+transform = Transform3D(0.291325, 0, -0.524528, 0, 0.6, 0, 0.524528, 0, 0.291325, 2.58805, 0.599486, -585.282)
+
+[node name="AmmoBox3" parent="." instance=ExtResource("1_6k2j2")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 6.28884, 0.599484, -377.906)
+
+[node name="FirstAid" parent="." instance=ExtResource("2_17gxd")]
+transform = Transform3D(0.0342009, 0, 0, 0, 0.0342009, 0, 0, 0, 0.0342009, 36.0977, -3.8147e-06, -45.0252)
+
+[node name="FirstAid2" parent="." instance=ExtResource("2_17gxd")]
+transform = Transform3D(0.0342009, 0, 0, 0, 0.0342009, 0, 0, 0, 0.0342009, -167.7, -4.76837e-06, -323.364)
+
+[node name="FirstAid4" parent="." instance=ExtResource("2_17gxd")]
+transform = Transform3D(0.0342009, 0, 0, 0, 0.0342009, 0, 0, 0, 0.0342009, 6.0759, -5.24521e-06, -376.933)
+
+[node name="FirstAid5" parent="." instance=ExtResource("2_17gxd")]
+transform = Transform3D(0.0342009, 0, 0, 0, 0.0342009, 0, 0, 0, 0.0342009, 95.5836, -5.00679e-06, -455.001)
+
+[node name="FirstAid6" parent="." instance=ExtResource("2_17gxd")]
+transform = Transform3D(0.0342009, 0, 0, 0, 0.0342009, 0, 0, 0, 0.0342009, 0.609755, -4.52995e-06, -534.569)
+
+[node name="FirstAid7" parent="." instance=ExtResource("2_17gxd")]
+transform = Transform3D(0.0342009, 0, 0, 0, 0.0342009, 0, 0, 0, 0.0342009, 32.6019, -4.52995e-06, -603.166)
+
+[node name="FirstAid8" parent="." instance=ExtResource("2_17gxd")]
+transform = Transform3D(0.0342009, 0, 0, 0, 0.0342009, 0, 0, 0, 0.0342009, -29.7053, -4.52995e-06, -609.56)
+
+[node name="FirstAid9" parent="." instance=ExtResource("2_17gxd")]
+transform = Transform3D(0.0342009, 0, 0, 0, 0.0342009, 0, 0, 0, 0.0342009, 26.9927, -4.52995e-06, -671.002)
+
+[node name="FirstAid3" parent="." instance=ExtResource("2_17gxd")]
+transform = Transform3D(0.0342009, 0, 0, 0, 0.0342009, 0, 0, 0, 0.0342009, -161.035, -6.67572e-06, -276.47)
+
+[node name="AmmoBox" parent="." instance=ExtResource("1_6k2j2")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 16.1465, 0.204994, -37.4683)
+
+[node name="rock_path" parent="." instance=ExtResource("3_fcsp6")]
+transform = Transform3D(-0.813548, 0, -0.581498, 0, 1, 0, 0.581498, 0, -0.813548, 35.923, 0, -44.3316)
+
+[node name="rock_path5" parent="." instance=ExtResource("3_fcsp6")]
+transform = Transform3D(-0.112458, 0, -0.993657, 0, 1, 0, 0.993657, 0, -0.112458, 11.1614, 0, -549.036)
+
+[node name="rock_path6" parent="." instance=ExtResource("3_fcsp6")]
+transform = Transform3D(-0.259443, 0, -0.965758, 0, 1, 0, 0.965758, 0, -0.259443, 17.0377, 0, -567.17)
+
+[node name="rock_path7" parent="." instance=ExtResource("3_fcsp6")]
+transform = Transform3D(-0.259443, 0, -0.965758, 0, 1, 0, 0.965758, 0, -0.259443, 26.4306, 0, -587.846)
+
+[node name="rock_path8" parent="." instance=ExtResource("3_fcsp6")]
+transform = Transform3D(-0.688722, 0, -0.725026, 0, 1, 0, 0.725026, 0, -0.688722, 40.642, -1.90735e-06, -603.801)
+
+[node name="rock_path9" parent="." instance=ExtResource("3_fcsp6")]
+transform = Transform3D(0.197469, 0, -0.980309, 0, 1, 0, 0.980309, 0, 0.197469, 41.2777, -1.90735e-06, -625.5)
+
+[node name="rock_path10" parent="." instance=ExtResource("3_fcsp6")]
+transform = Transform3D(0.425179, 0, -0.905109, 0, 1, 0, 0.905109, 0, 0.425179, 34.377, -1.90735e-06, -645.642)
+
+[node name="rock_path11" parent="." instance=ExtResource("3_fcsp6")]
+transform = Transform3D(0.425179, 0, -0.905109, 0, 1, 0, 0.905109, 0, 0.425179, 26.8167, -1.90735e-06, -664.233)
+
+[node name="rock_path12" parent="." instance=ExtResource("3_fcsp6")]
+transform = Transform3D(0.847539, 0, 0.530733, 0, 1, 0, -0.530733, 0, 0.847539, 10.8034, -1.90735e-06, -664.413)
+
+[node name="rock_path13" parent="." instance=ExtResource("3_fcsp6")]
+transform = Transform3D(0.642587, 0, 0.766213, 0, 1, 0, -0.766213, 0, 0.642587, -4.39283, -1.90735e-06, -650.637)
+
+[node name="rock_path14" parent="." instance=ExtResource("3_fcsp6")]
+transform = Transform3D(-0.072716, 0, 0.997353, 0, 1, 0, -0.997353, 0, -0.072716, -3.90395, -1.90735e-06, -629.567)
+
+[node name="rock_path23" parent="." instance=ExtResource("3_fcsp6")]
+transform = Transform3D(-0.072716, 0, 0.997353, 0, 1, 0, -0.997353, 0, -0.072716, 0.498187, -2.86102e-06, -606.943)
+
+[node name="rock_path24" parent="." instance=ExtResource("3_fcsp6")]
+transform = Transform3D(-0.072716, 0, 0.997353, 0, 1, 0, -0.997353, 0, -0.072716, 0.853155, -2.86102e-06, -586.913)
+
+[node name="rock_path25" parent="." instance=ExtResource("3_fcsp6")]
+transform = Transform3D(-0.636455, 0, 0.771314, 0, 1, 0, -0.771314, 0, -0.636455, 13.9994, -2.86102e-06, -574.349)
+
+[node name="rock_path15" parent="." instance=ExtResource("3_fcsp6")]
+transform = Transform3D(0.716704, 0, 0.697378, 0, 1, 0, -0.697378, 0, 0.716704, -20.8011, -1.90735e-06, -614.751)
+
+[node name="rock_path16" parent="." instance=ExtResource("3_fcsp6")]
+transform = Transform3D(-0.230203, 0, 0.973143, 0, 1, 0, -0.973143, 0, -0.230203, -24.7419, 0, -585.715)
+
+[node name="rock_path17" parent="." instance=ExtResource("3_fcsp6")]
+transform = Transform3D(-0.373409, 0, 0.927667, 0, 1, 0, -0.927667, 0, -0.373409, -16.8432, -1.90735e-06, -565.816)
+
+[node name="rock_path18" parent="." instance=ExtResource("3_fcsp6")]
+transform = Transform3D(-0.537108, 0, 0.843513, 0, 1, 0, -0.843513, 0, -0.537108, -9.14229, -1.90735e-06, -547.573)
+
+[node name="rock_path19" parent="." instance=ExtResource("3_fcsp6")]
+transform = Transform3D(0.84992, 0, 0.526911, 0, 1, 0, -0.526911, 0, 0.84992, 22.94, -1.90735e-06, -549.08)
+
+[node name="rock_path20" parent="." instance=ExtResource("3_fcsp6")]
+transform = Transform3D(0.84992, 0, 0.526911, 0, 1, 0, -0.526911, 0, 0.84992, 41.9461, -3.8147e-06, -561.668)
+
+[node name="rock_path21" parent="." instance=ExtResource("3_fcsp6")]
+transform = Transform3D(0.84992, 0, 0.526911, 0, 1, 0, -0.526911, 0, 0.84992, 60.078, -1.90735e-06, -572.35)
+
+[node name="rock_path22" parent="." instance=ExtResource("3_fcsp6")]
+transform = Transform3D(-0.732293, 0, 0.680989, 0, 1, 0, -0.680989, 0, -0.732293, 65.8127, -1.90735e-06, -591.746)
+
+[node name="rock_path2" parent="." instance=ExtResource("3_fcsp6")]
+transform = Transform3D(-0.00293222, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00293222, -166.716, 0, -321.877)
+
+[node name="rock_path4" parent="." instance=ExtResource("3_fcsp6")]
+transform = Transform3D(-0.922086, 0, -0.386985, 0, 1, 0, 0.386985, 0, -0.922086, -153.159, 0, -327.281)
+
+[node name="rock_path3" parent="." instance=ExtResource("3_fcsp6")]
+transform = Transform3D(0.249974, 0, -0.968253, 0, 1, 0, 0.968253, 0, 0.249974, -166.869, 0, -307.674)
