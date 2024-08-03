@@ -8,8 +8,10 @@ var shake_decay_rate := 2.0
 
 @onready var foggy_sprite = $FoggySprite
 
+var original_sprite_offset := Vector3.ZERO
+
 func _ready():
-	pass
+	original_sprite_offset = foggy_sprite.position
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,9 +23,9 @@ func _physics_process(delta):
 		direction_to_camera = direction_to_camera.normalized()
 		var x_rel = Vector3(0.0, 1.0, 0.0).cross(direction_to_camera).normalized()
 		var y_rel = direction_to_camera.cross(x_rel)
-		foggy_sprite.position = x_rel * randf_range(-shake_level, shake_level) * 0.005 + y_rel * randf_range(-shake_level, shake_level) * 0.005
+		foggy_sprite.position = original_sprite_offset + (x_rel * randf_range(-shake_level, shake_level) * 0.005 + y_rel * randf_range(-shake_level, shake_level) * 0.005)
 	else:
-		foggy_sprite.position = Vector3.ZERO
+		foggy_sprite.position = original_sprite_offset
 
 
 func _on_body_entered(body):
