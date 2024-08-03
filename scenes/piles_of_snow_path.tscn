@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bben6xums5pbn"]
 
-[ext_resource type="Material" uid="uid://b2rf17dqsyv15" path="res://assets/SnowyNoise1k/SnowDark.tres" id="1_3r16k"]
+[ext_resource type="Material" uid="uid://cc27vbeulp02q" path="res://assets/SnowyNoise1k/SnowDark.tres" id="1_3r16k"]
 [ext_resource type="PackedScene" uid="uid://bbj02oevjlhk4" path="res://scenes/models-scenes/pileofsnow.tscn" id="1_sh2xf"]
 [ext_resource type="PackedScene" uid="uid://b7qmc6himhisa" path="res://scenes/player.tscn" id="3_fboul"]
 
