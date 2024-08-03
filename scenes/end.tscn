@@ -1,192 +1,157 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvkc27xnbacox"]
+[gd_scene load_steps=4 format=3 uid="uid://bvkc27xnbacox"]
 
 [ext_resource type="PackedScene" uid="uid://dt7iaprndki67" path="res://scenes/foreststuff/FirTree2.tscn" id="1_lgeqp"]
-[ext_resource type="PackedScene" uid="uid://cm2s1brrvcwm0" path="res://scenes/FoggySprite/FoggySprite.tscn" id="2_tyl37"]
-[ext_resource type="Shader" path="res://scenes/FoggyAnimatedSprite/billboard.gdshader" id="3_sup6q"]
-[ext_resource type="Texture2D" uid="uid://b0c1d286pqw40" path="res://scenes/foreststuff/firtree2.png" id="4_b4tb3"]
 [ext_resource type="PackedScene" uid="uid://c5kc2ngbtakn5" path="res://scenes/tree_cluster_5.tscn" id="5_4rbtc"]
 [ext_resource type="PackedScene" uid="uid://t8h7n1ckwnbm" path="res://scenes/bush_cluster_1.tscn" id="6_w1ffp"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_l73ms"]
-render_priority = 0
-shader = ExtResource("3_sup6q")
-shader_parameter/directions = 1
-shader_parameter/frame_count = 1
-shader_parameter/frame = 0
-shader_parameter/scale = 1.0
-shader_parameter/y_billboard = true
-shader_parameter/use_alpha = true
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_ph3mt"]
-_surfaces = [{
-"aabb": AABB(-5.12, -5.12, 0, 10.24, 10.24, 1e-05),
-"attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0),
-"format": 34359742481,
-"index_count": 6,
-"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
-"material": SubResource("ShaderMaterial_l73ms"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray(10, 215, 163, 192, 10, 215, 163, 64, 0, 0, 0, 0, 10, 215, 163, 192, 10, 215, 163, 192, 0, 0, 0, 0, 10, 215, 163, 64, 10, 215, 163, 192, 0, 0, 0, 0, 10, 215, 163, 64, 10, 215, 163, 64, 0, 0, 0, 0)
-}]
 
 [node name="end" type="Node3D"]
 
 [node name="Tree2" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.99702, 0, -566.971)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.99702, 0, -566.971)
 
 [node name="Tree41" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.18133, 0, -570.686)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18133, 0, -570.686)
 
 [node name="Tree42" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.661, 0, -569.328)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.661, 0, -569.328)
 
 [node name="Tree43" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.144608, 0, -566.907)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144608, 0, -566.907)
 
 [node name="Tree44" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.682568, 0, -569.67)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.682568, 0, -569.67)
 
 [node name="Tree3" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -18.2333, 0, -562.704)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.2333, 0, -562.704)
 
 [node name="Tree4" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 35.5577, 0, -574.397)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5577, 0, -574.397)
 
 [node name="Tree5" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 21.3127, 0, -552.073)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.3127, 0, -552.073)
 
 [node name="Tree6" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -3.03146, 0, -549.522)
-
-[node name="Tree51" type="Node3D" parent="." groups=["enviro"]]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 23.8688, 0, -542.745)
-
-[node name="FoggySprite" parent="Tree51" instance=ExtResource("2_tyl37")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35845, 0)
-mesh = SubResource("ArrayMesh_ph3mt")
-sprite = ExtResource("4_b4tb3")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.03146, 0, -549.522)
 
 [node name="Tree7" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 47.0388, 0, -596.509)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.0388, 0, -596.509)
 
 [node name="Tree8" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 50.5469, 0, -615.857)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.5469, 0, -615.857)
 
 [node name="Tree9" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.67068, 0, -587.473)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.67068, 0, -587.473)
 
 [node name="Tree10" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 44.4875, 0, -566.531)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.4875, 0, -566.531)
 
 [node name="Tree11" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 68.8316, 0, -565.574)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.8316, 0, -565.574)
 
 [node name="Tree12" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -17.4599, 0, -577.673)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4599, 0, -577.673)
 
 [node name="Tree13" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -9.64993, 0, -590.69)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.64993, 0, -590.69)
 
 [node name="Tree14" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -6.32348, 0, -579.553)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.32348, 0, -579.553)
 
 [node name="Tree15" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 3.4567, 0, -612.721)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4567, 0, -612.721)
 
 [node name="Tree16" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -16.1037, 0, -609.744)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.1037, 0, -609.744)
 
 [node name="Tree17" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -30.9866, 0, -598.263)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.9866, 0, -598.263)
 
 [node name="Tree18" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, -21.4384, 0, -592.414)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.4384, 0, -592.414)
 
 [node name="Tree19" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 1.54319, 0, -630.368)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.54319, 0, -630.368)
 
 [node name="Tree20" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 25.2495, 0, -634.62)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.2495, 0, -634.62)
 
 [node name="Tree21" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 17.3828, 0, -620.588)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3828, 0, -620.588)
 
 [node name="Tree22" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 20.2531, 0, -605.811)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2531, 0, -605.811)
 
 [node name="Tree23" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 9.51615, 0, -596.031)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.51615, 0, -596.031)
 
 [node name="Tree24" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 44.9162, 0, -583.061)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.9162, 0, -583.061)
 
 [node name="Tree25" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 27.8008, 0, -563.714)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8008, 0, -563.714)
 
 [node name="Tree26" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 51.4009, 0, -556.272)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.4009, 0, -556.272)
 
 [node name="Tree27" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 60.6495, 0, -574.557)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.6495, 0, -574.557)
 
 [node name="Tree28" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 55.3342, 0, -584.762)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.3342, 0, -584.762)
 
 [node name="Tree29" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 58.3342, 0, -602.762)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.3342, 0, -602.762)
 
 [node name="Tree45" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 61.9469, 9.53674e-07, -603.635)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.9469, 9.53674e-07, -603.635)
 
 [node name="Tree46" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 62.1234, 1.90735e-06, -600.215)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.1234, 1.90735e-06, -600.215)
 
 [node name="Tree47" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 58.8465, 1.90735e-06, -607.744)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.8465, 1.90735e-06, -607.744)
 
 [node name="Tree48" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 74.5888, 3.8147e-06, -588.297)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.5888, 3.8147e-06, -588.297)
 
 [node name="Tree49" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 71.4101, 3.8147e-06, -590.24)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.4101, 3.8147e-06, -590.24)
 
 [node name="Tree50" parent="." instance=ExtResource("1_lgeqp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.41, 0, -586.588)
 
 [node name="Tree30" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 43.0261, 0, -627.213)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.0261, 0, -627.213)
 
 [node name="Tree31" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 46.3216, 0, -645.285)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.3216, 0, -645.285)
 
 [node name="Tree32" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 19.3197, 0, -657.297)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3197, 0, -657.297)
 
 [node name="Tree33" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 33.4585, 0, -673.137)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.4585, 0, -673.137)
 
 [node name="Tree34" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 45.1522, 0, -663.463)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.1522, 0, -663.463)
 
 [node name="Tree35" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 36.1162, 0, -652.62)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.1162, 0, -652.62)
 
 [node name="Tree36" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 12.3035, 0, -675.157)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3035, 0, -675.157)
 
 [node name="Tree37" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 4.11794, 0, -656.66)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.11794, 0, -656.66)
 
 [node name="Tree38" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 13.4729, 0, -641.67)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4729, 0, -641.67)
 
 [node name="Tree39" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 27.399, 0, -544.506)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.399, 0, -544.506)
 
 [node name="Tree40" parent="." instance=ExtResource("1_lgeqp")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 73.7414, 0, -581.816)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.7414, 0, -581.816)
 
 [node name="Tree52" parent="." instance=ExtResource("5_4rbtc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -596)
