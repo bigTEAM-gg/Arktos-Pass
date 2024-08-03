@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bbj02oevjlhk4"]
 
 [ext_resource type="PackedScene" uid="uid://duncwvbetu8bt" path="res://scenes/models-scenes/static-mesh/pileofsnow.dae" id="1_576j0"]
-[ext_resource type="Material" uid="uid://b2rf17dqsyv15" path="res://assets/SnowyNoise1k/SnowDark.tres" id="2_gi6g5"]
+[ext_resource type="Material" uid="uid://cc27vbeulp02q" path="res://assets/SnowyNoise1k/SnowDark.tres" id="2_gi6g5"]
 [ext_resource type="PackedScene" uid="uid://dt7iaprndki67" path="res://scenes/foreststuff/FirTree2.tscn" id="3_s7rk6"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pjvic"]
@@ -126,7 +126,7 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -1.04181, 0, 0.973823)
 transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -2.35444, 0, 2.30369)
 
 [node name="Tree6" parent="." index="10" instance=ExtResource("3_s7rk6")]
-transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -2.35444, 0, -0.596727)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35444, 0, -0.596727)
 
 [node name="Tree4" parent="." index="11" instance=ExtResource("3_s7rk6")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -1.04181, 0, -2.61819)
