@@ -4,8 +4,9 @@ extends MeshInstance3D
 
 @export var sprite: Texture2D = null :
 	set(value):
+		if Engine.is_editor_hint():
+			_ready()
 		sprite = value
-		_ready()
 
 
 const PX: float = 0.01
@@ -16,6 +17,8 @@ const FOGGY_SPRITE = preload("res://scenes/FoggySprite/FoggySprite.tres")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if not Engine.is_editor_hint():
+		return
 	if sprite == null:
 		mesh = null
 		return
@@ -58,6 +61,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if not Engine.is_editor_hint():
+		return
 	if mesh == null:
 		return
 	mesh.surface_get_material(0).set_shader_parameter("albedo", sprite)
