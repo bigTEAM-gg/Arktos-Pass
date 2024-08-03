@@ -299,14 +299,14 @@ func _check_trees(player_lookahead_amount):
 	farthest_tree = null
 	var overlapping := target_search_area.get_overlapping_areas()
 	for a in overlapping:
-		if a is FirTree:
+		if a.is_in_group("fir_tree"):
 			var tree_dist = (player_pos - a.global_position).length()
 			if tree_dist < closest_tree_dist:
 				closest_tree_dist = tree_dist
-				closest_tree = a
+				closest_tree = a.get_parent() as FirTree
 			if tree_dist > farthest_tree_dist:
 				farthest_tree_dist = tree_dist
-				farthest_tree = a
+				farthest_tree = a.get_parent() as FirTree
 
 
 func _set_stalking_state(new_state: StalkingState):
