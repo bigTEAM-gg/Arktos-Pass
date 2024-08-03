@@ -8,7 +8,7 @@ join huntress leftmost [animation="Fade In" length="0.7"]
 huntress: Then I'll at least find his body and bring him home...I'm sorry Jo, I have to do this. I have to know if that message really was from him.
 leave --All-- [animation="Fade Out" length="0.1"]
 join Johara_phone leftmost [animation="Fade In" length="0.7"]
-Johara_phone: Just... be careful, and come home before it gets too dark.
+Johara_phone: Just... be careful, and come home safe.
 leave --All-- [animation="Fade Out" length="0.1"]
 join huntress leftmost [animation="Fade In" length="0.7"]
 huntress: I will. Love you.
