@@ -1,5 +1,5 @@
 join huntress leftmost [animation="Fade In" length="0.7"]
-huntress: It still works. Hello? Is anybody there?
+huntress: Is someone trying to reach me on my radio? Hello? Is anybody there?
 leave --All-- [animation="Fade Out" length="0.1"]
 join brother_radio leftmost [animation="Fade In" length="0.7"]
 brother_radio: ....lea...
