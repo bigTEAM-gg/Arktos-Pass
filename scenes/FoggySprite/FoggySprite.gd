@@ -4,8 +4,6 @@ extends MeshInstance3D
 
 @export var sprite: Texture2D = null :
 	set(value):
-		if Engine.is_editor_hint():
-			_ready()
 		sprite = value
 
 
@@ -17,8 +15,6 @@ const FOGGY_SPRITE = preload("res://scenes/FoggySprite/FoggySprite.tres")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if not Engine.is_editor_hint():
-		return
 	if sprite == null:
 		mesh = null
 		return
@@ -57,13 +53,6 @@ func _ready():
 	# Get the resulting mesh from the surface tool, and apply it to the MeshInstance.
 	mesh = surface_tool.commit();
 	mesh.surface_set_material(0, FOGGY_SPRITE.duplicate())
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if not Engine.is_editor_hint():
-		return
-	if mesh == null:
-		return
+	
 	mesh.surface_get_material(0).set_shader_parameter("albedo", sprite)
 	mesh.surface_get_material(0).set_shader_parameter("scale", scale.x)
