@@ -43,7 +43,7 @@ func _on_body_exited(body):
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("critters"):
-		print(self.name, ": ", "critter entered")
+		#print(self.name, ": ", "critter entered")
 		shake_level = 30.0
 		shake_decay_to = 12.0
 		shake_decay_rate = 4.0

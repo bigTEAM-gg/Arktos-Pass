@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scenes/foreststuff/FirTree.gd" id="1_p5rbx"]
 [ext_resource type="Shader" path="res://scenes/FoggyAnimatedSprite/billboard.gdshader" id="2_7fme2"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vwkgm"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8p6yf"]
 render_priority = 0
 shader = ExtResource("2_7fme2")
 shader_parameter/directions = 1
@@ -16,14 +16,14 @@ shader_parameter/y_billboard = true
 shader_parameter/use_alpha = true
 shader_parameter/albedo = ExtResource("1_2dpve")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_p81n1"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_ms067"]
 _surfaces = [{
 "aabb": AABB(-5.12, -5.12, 0, 10.24, 10.24, 1e-05),
 "attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0),
 "format": 34359742481,
 "index_count": 6,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
-"material": SubResource("ShaderMaterial_vwkgm"),
+"material": SubResource("ShaderMaterial_8p6yf"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
@@ -38,7 +38,7 @@ script = ExtResource("1_p5rbx")
 [node name="FoggySprite" parent="." instance=ExtResource("1_6worb")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 2.35845, 0)
 layers = 2
-mesh = SubResource("ArrayMesh_p81n1")
+mesh = SubResource("ArrayMesh_ms067")
 sprite = ExtResource("1_2dpve")
 
 [node name="Area3D" type="Area3D" parent="." groups=["fir_tree"]]

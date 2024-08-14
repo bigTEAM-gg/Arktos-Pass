@@ -164,8 +164,8 @@ func process_player_controls():
 	var input_dir := Input.get_vector("player_left", "player_right", "player_forward", "player_back").rotated(-rotation.y)
 	var direction := (pivot.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	var speed = SPEED
-	if Input.is_key_pressed(KEY_SHIFT):
-		speed *= 3.0
+	#if Input.is_key_pressed(KEY_SHIFT):
+		#speed *= 3.0
 	if direction:
 		velocity.x = direction.x * speed 
 		velocity.z = direction.z * speed

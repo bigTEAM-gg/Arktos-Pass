@@ -7,7 +7,7 @@ extends CharacterBody3D
 class_name Monster
 
 
-const DEBUG = true
+const DEBUG = false
 const SAFE_ZONE_RADIUS = 3.0
 const DIST_CLOSE = 0.2
 
