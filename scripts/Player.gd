@@ -244,7 +244,3 @@ func ammo_pickup():
 	ammo_total= ammo_total + 6
 	total_ammo.text = "%s" % ammo_total
 	reloadsfx.play()
-
-
-
-

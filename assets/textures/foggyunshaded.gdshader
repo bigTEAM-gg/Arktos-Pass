@@ -18,11 +18,11 @@ void vertex() {
 void fragment() {
 	// Calculate the distance between the fragment and the character
 	float chardistance = length(player_position - world_vertex);
-	
+
 	float fd = fog_density + sin(TIME * 0.8) * 0.015;
 	float fog_amount = 1.0 - exp2(-fd * fd * chardistance * chardistance * LOG2);
 	fog_amount = clamp(fog_amount, 0.0, 1.0);
-	    
+
 	// Calculate the alpha value based on the distance
 	vec2 base_uv = UV;
 	vec4 albedo_tex = texture(texture_albedo, base_uv);

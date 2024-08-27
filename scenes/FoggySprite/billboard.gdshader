@@ -49,7 +49,7 @@ void vertex() {
 	UV.y += float(frame);
 	UV /= vec2(float(directions), float(frame_count));
 	UV.x += int_y_angle;
-	
+
 	world_vertex = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
 }
 
@@ -59,14 +59,14 @@ void fragment() {
 		ALPHA_SCISSOR_THRESHOLD = 0.5;
 		ALPHA = albedo_tex.a;
 	}
-	
+
 	// Calculate the distance between the fragment and the character
 	float chardistance = length(player_position - world_vertex);
-	
+
 	float fd = fog_density + sin(TIME * 0.8) * 0.015;
 	float fog_amount = 1.0 - exp2(-fd * fd * chardistance * chardistance * LOG2);
 	fog_amount = clamp(fog_amount, 0.0, 1.0);
-	    
+
 	// Calculate the alpha value based on the distance
 	vec2 base_uv = UV;
 	ALBEDO = albedo_tex.rgb;

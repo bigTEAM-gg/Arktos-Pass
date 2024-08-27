@@ -9,12 +9,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-	#var enviro = get_tree().get_nodes_in_group('enviro')
+	var enviro = get_tree().get_nodes_in_group('enviro')
+	var monster = get_tree().get_nodes_in_group('critters')[0]
 	
-	#for e: Node3D in enviro:
-		#if e.global_position.distance_squared_to(global_position) > 2000:
-			#e.visible = false
-			#e.process_mode = Node.PROCESS_MODE_DISABLED
-		#else:
-			#e.visible = true
-			#e.process_mode = Node.PROCESS_MODE_INHERIT
+	for e: Node3D in enviro:
+		if e.global_position.distance_squared_to(global_position) > 3000 and e.global_position.distance_squared_to(monster.global_position) > 3000:
+			e.visible = false
+			e.process_mode = Node.PROCESS_MODE_DISABLED
+		else:
+			e.visible = true
+			e.process_mode = Node.PROCESS_MODE_INHERIT

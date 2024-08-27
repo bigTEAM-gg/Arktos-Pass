@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://c041dl1a3mvvj" path="res://scenes/FoggyAnimatedSprite/FoggyAnimatedSprite.tscn" id="2_udiyf"]
 [ext_resource type="SpriteFrames" uid="uid://b41552iljqoey" path="res://assets/monster/monster_frames.tres" id="3_2dorx"]
 [ext_resource type="Shader" path="res://scenes/FoggyAnimatedSprite/billboard.gdshader" id="3_p6x28"]
-[ext_resource type="Texture2D" uid="uid://sby83tdr8bal" path="res://assets/monster/walk_e/walk0026.png" id="4_unok2"]
+[ext_resource type="Texture2D" uid="uid://bxbs6ex55tg6h" path="res://assets/monster/walk_e/walk0009.png" id="4_jrurv"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dqy1r"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hewav"]
 render_priority = 0
 shader = ExtResource("3_p6x28")
 shader_parameter/directions = 1
@@ -15,16 +15,16 @@ shader_parameter/frame = 0
 shader_parameter/scale = 3.0
 shader_parameter/y_billboard = true
 shader_parameter/use_alpha = true
-shader_parameter/albedo = ExtResource("4_unok2")
+shader_parameter/albedo = ExtResource("4_jrurv")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_d7yki"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_wi4sj"]
 _surfaces = [{
-"aabb": AABB(-0.64, -0.64, 0, 1.28, 1.28001, 1e-05),
+"aabb": AABB(-0.64, -0.64, 0, 1.28, 1.28, 1e-05),
 "attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0),
 "format": 34359742481,
 "index_count": 6,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
-"material": SubResource("ShaderMaterial_dqy1r"),
+"material": SubResource("ShaderMaterial_hewav"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
@@ -57,7 +57,7 @@ monster_ai_mode = 2
 
 [node name="FoggyAnimatedSprite" parent="." instance=ExtResource("2_udiyf")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.3988, 0)
-mesh = SubResource("ArrayMesh_d7yki")
+mesh = SubResource("ArrayMesh_wi4sj")
 sprite_frames = ExtResource("3_2dorx")
 animation = "walk_e"
 
